@@ -1,5 +1,7 @@
 # Nuke App
 
+[![Netlify Status](https://img.shields.io/netlify/d1054c75-ff07-48af-8017-83083dc30951?style=flat&colorA=000000&colorB=000000)](https://app.netlify.com/sites/nukeapp/deploys)
+
 An open source frontend application built using the **React** ⚛️ and **Feature-Sliced Design** 🍰.
 
 > This app is a work in progress. See the roadmap below.
@@ -44,6 +46,7 @@ Technologies:
 
 Other:
 
+- [ ] Move colors to css vars
 - [ ] Fix TODO into code
 - [ ] Fix FSD errors
 - [ ] Write storybook stories
