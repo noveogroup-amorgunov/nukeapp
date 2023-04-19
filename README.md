@@ -1,17 +1,16 @@
 # Nuke App
 
-![](./public/preview@dark.png#gh-dark-mode-only)![](./public/preview@light.png#gh-light-mode-only)
-![](./public/preview@dark.png#gh-dark-mode-only)![](./public/preview@light.png#gh-light-mode-only)
-
 An open source frontend application built using the **React** ⚛️ and **Feature-Sliced Design** 🍰.
+
+> This app is a work in progress. See the roadmap below.
 
 - React, Redux Toolkit, React Hook Form, Zod
 - Vite, TypeScript, Postcss
 - Feature Sliced
 
-> This app is a work in progress. See the roadmap below.
-
 ## Live demo
+
+![](./public/preview@dark.png#gh-dark-mode-only)![](./public/preview@light.png#gh-light-mode-only)
 
 - [nukeapp.netlify.app](https://nukeapp.netlify.app/)
 
