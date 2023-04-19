@@ -1,0 +1,20 @@
+.root {
+  height: 68px;
+  padding: 16px 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  flex-grow: 2;
+  justify-content: flex-end;
+}
+
+.search {
+  width: 24px;
+  height: 24px;
+  background-image: url('/search.svg');
+}

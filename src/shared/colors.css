@@ -1,0 +1,23 @@
+:root {
+  --color-primary: #ff335f;
+  --color-primaryPressed: #e62e55;
+  --color-dark: #404040;
+  --color-grey1: #595959;
+  --color-grey2: #a6a6a6;
+  --color-grey3: #e0e0e0;
+  --color-grey4: #f2f2f2;
+  --color-white: #ffffff;
+  --color-green: #00b749;
+  --color-sand: #edde9d;
+  --color-sun: #f1b98e;
+  --color-fire: #e2a49b;
+  --color-earth: #997375;
+  --color-stone: #9e96a9;
+  --color-air: #dce7e9;
+  --color-water: #94c2d2;
+  --color-grass: #5e9f89;
+  --color-forest: #16615d;
+  --color-blueGrey: #dfe4e5;
+  --color-dustyBlue: #8facbc;
+  --color-additionRed: #ff3b30;
+}

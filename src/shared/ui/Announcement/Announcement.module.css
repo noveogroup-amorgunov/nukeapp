@@ -1,0 +1,10 @@
+.root {
+  background-color: #2573e5;
+  color: #fff;
+  padding: 4px;
+  text-align: center;
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+}

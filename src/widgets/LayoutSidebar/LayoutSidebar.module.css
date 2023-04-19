@@ -1,0 +1,10 @@
+@import "../../shared/breakpoints.css";
+
+.root {
+  min-width: 300px;
+  display: flex;
+
+  @media (--m-viewport) {
+    display: none;
+  }
+}

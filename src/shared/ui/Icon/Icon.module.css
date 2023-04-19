@@ -1,0 +1,21 @@
+.root {
+  position: relative;
+  height: 24px;
+  width: 24px;
+
+  &:hover,
+  &:active {
+    background: #0001;
+    border-radius: 8px;
+  }
+
+  &_clickable {
+    cursor: pointer;
+  }
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}

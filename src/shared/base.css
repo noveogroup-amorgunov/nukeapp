@@ -1,0 +1,93 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+html,
+body {
+  min-height: 100%;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.text_xs {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem; /* 16px */
+}
+
+.text_sm {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
+}
+
+.text_base {
+  font-size: 1rem; /* 16px */
+ line-height: 1.5rem; /* 24px */
+}
+
+.text_lg {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem; /* 28px */
+}
+
+.text_xl {
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
+}
+
+.text_2xl	{
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem; /* 32px */
+}
+
+.text_3xl	{
+  font-size: 1.875rem; /* 30px */
+  line-height: 2.25rem; /* 36px */
+}
+
+.text_4xl {
+  font-size: 2.25rem; /* 36px */
+  line-height: 2.5rem; /* 40px */
+}
+
+.text_5xl {
+  font-size: 3rem; /* 48px */
+  line-height: 1;
+}
+
+.text_6xl	 {font-size: 3.75rem; /* 60px */
+  line-height: 1;
+}
+
+.text_7xl	 {font-size: 4.5rem; /* 72px */
+  line-height: 1;
+}
+
+.text_8xl {	font-size: 6rem; /* 96px */
+  line-height: 1;
+}
+
+.text_9xl {	font-size: 8rem; /* 128px */
+  line-height: 1;
+}
+
+.text_bold {
+  font-weight: 700;
+}

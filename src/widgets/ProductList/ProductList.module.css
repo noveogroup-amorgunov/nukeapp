@@ -1,0 +1,35 @@
+@import url("../../shared/breakpoints.css");
+
+.root {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-auto-rows: max-content;
+  gap: 16px;
+  max-width: 100%;
+
+  @media (--xl-viewport) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px 9px;
+  }
+
+  @media (--l-viewport) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @media (--m-viewport) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  @media (--s-viewport) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @media (--xs-viewport) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  &_size_s {
+    display: flex;
+    flex-direction: column;
+  }
+}

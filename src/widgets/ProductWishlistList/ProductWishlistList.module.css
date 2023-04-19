@@ -1,0 +1,7 @@
+.root {
+  width: 300px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
