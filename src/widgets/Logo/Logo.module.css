@@ -1,6 +1,6 @@
 .root {
-  width: 172px;
+  width: 180px;
   height: 61px;
-  background-image: url('/logo.png');
+  background-image: url('/logo@light.png');
   background-size: cover;
 }
