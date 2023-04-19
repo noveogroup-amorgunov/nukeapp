@@ -29,7 +29,7 @@ export function Icon(props: Props) {
     >
       <div
         className={css.icon}
-        style={{ backgroundImage: `url("/${props.type}.svg")` }}
+        style={{ backgroundImage: `url("/images/${props.type}.svg")` }}
       />
     </div>
   )
