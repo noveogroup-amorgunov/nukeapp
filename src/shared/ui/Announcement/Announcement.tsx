@@ -7,7 +7,5 @@ type Props = {
 }
 
 export function Announcement({ children }: Props) {
-  return (
-    <div className={cn(css.root, 'text_base', 'text_bold')}>{children}</div>
-  )
+  return <div className={cn(css.root, 'text_sm', 'text_bold')}>{children}</div>
 }

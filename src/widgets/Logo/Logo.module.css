@@ -1,6 +1,20 @@
+@import url("../../shared/breakpoints.css");
+
 .root {
   width: 180px;
   height: 61px;
   background-image: url('/images/logo@light.png');
   background-size: cover;
+
+  @media (--xs-viewport) {
+    width: 24px;
+    height: 24px;
+    background: none;
+  }
+}
+
+.root::before {
+  @media (--xs-viewport) {
+    content: '⚛️';
+  }
 }

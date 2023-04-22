@@ -1,4 +1,4 @@
-@import "../../shared/breakpoints.css";
+@import url("../../shared/breakpoints.css");
 
 .root {
   min-width: 300px;
