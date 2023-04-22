@@ -11,10 +11,11 @@ import {
   REGISTER,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import { rootReducer } from './rootReducer'
-import { baseApi } from '../shared/api/baseApi'
 import { sessionSlice } from '@/entities/session/model/slice'
+import { invalidateAccessTokenListener } from '@/features/authentication/InvalidateAccessToken/model/listener'
 import { widgetSlice } from '@/widgets/DebugMode/model/slice'
+import { baseApi } from '../shared/api/baseApi'
+import { rootReducer } from './rootReducer'
 
 const persistConfig = {
   key: 'root',
@@ -34,7 +35,7 @@ export function makeStore() {
         serializableCheck: {
           ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         },
-      }).concat(baseApi.middleware),
+      }).concat(baseApi.middleware, invalidateAccessTokenListener.middleware),
   })
 
   setupListeners(store.dispatch)
