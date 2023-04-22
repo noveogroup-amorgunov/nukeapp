@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ProductCard } from './ProductCard'
-import { mockProductDto } from '../../api/__mocks__/mockProductDto'
-import { mapProduct } from '../../lib/mapProduct'
 import { StorybookApiMockDecorator } from '@/shared/lib/storybook/StorybookApiMockDecorator'
 import { Icon } from '@/shared/ui/Icon/Icon'
+import { mockProductDto } from '../../api/__mocks__/mockProductDto'
+import { mapProduct } from '../../lib/mapProduct'
+import { ProductCard } from './ProductCard'
 
 const meta: Meta<typeof ProductCard> = {
   title: 'entities/ProductCard',

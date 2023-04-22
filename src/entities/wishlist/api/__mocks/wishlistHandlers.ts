@@ -1,7 +1,7 @@
 import { rest } from 'msw'
-import { mockWishlistDto } from './mockWishlistDto'
 import { config } from '@/shared/lib/config'
 import { parseTokenFromRequest, verifyAccessToken } from '@/shared/lib/jwt'
+import { mockWishlistDto } from './mockWishlistDto'
 
 let wishlistProductIdsStorage: Id[] = [3, 4, 5, 6, 7]
 

@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react'
-import { toggleWishlistProductThunk } from '../../model/toggleWishlistProduct'
 import { type ProductId } from '@/entities/product/model/types'
 import { selectIsInWishlist } from '@/entities/wishlist/model/slice'
 import { useAppDispatch, useAppSelector } from '@/shared/model/hooks'
 import { Icon } from '@/shared/ui/Icon/Icon'
 import { useFeatureSlicedDebug } from '@/widgets/DebugMode/lib/useFeatureSlicedDebug'
+import { toggleWishlistProductThunk } from '../../model/toggleWishlistProduct'
 
 type Props = {
   productId: ProductId

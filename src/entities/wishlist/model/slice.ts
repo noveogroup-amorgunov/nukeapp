@@ -3,8 +3,8 @@ import {
   createSlice,
   createSelector,
 } from '@reduxjs/toolkit'
-import { wishlistApi } from '../api/wishlistApi'
 import { type Product, type ProductId } from '@/entities/product/model/types'
+import { wishlistApi } from '../api/wishlistApi'
 
 type WishlistSliceState = {
   products: Record<ProductId, boolean>

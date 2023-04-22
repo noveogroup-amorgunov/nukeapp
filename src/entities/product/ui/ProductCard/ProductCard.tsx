@@ -1,7 +1,7 @@
 import cn from 'classnames'
+import { useFeatureSlicedDebug } from '@/widgets/DebugMode/lib/useFeatureSlicedDebug'
 import { formatPrice } from '../../lib/formatPrice'
 import { type Product } from '../../model/types'
-import { useFeatureSlicedDebug } from '@/widgets/DebugMode/lib/useFeatureSlicedDebug'
 import css from './ProductCard.module.css'
 
 type Props = {

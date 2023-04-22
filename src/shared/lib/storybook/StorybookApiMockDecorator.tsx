@@ -1,10 +1,10 @@
 import { type StoryFn } from '@storybook/react'
-import { ApiMockProvider } from '../ApiMockProvider'
-import { config } from '../config'
 // TODO: FSD
 import { makeStore } from '@/app/appStore'
 import { loginThunk } from '@/features/authentication/Login/model/login'
 import { toggleDebugMode } from '@/widgets/DebugMode/model/slice'
+import { ApiMockProvider } from '../ApiMockProvider'
+import { config } from '../config'
 
 const store = makeStore()
 

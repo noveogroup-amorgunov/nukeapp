@@ -1,5 +1,5 @@
-import products from './products.json'
 import { type ProductDto } from '../types'
+import products from './products.json'
 
 // Example with faker
 // import { faker } from '@faker-js/faker'

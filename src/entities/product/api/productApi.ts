@@ -1,7 +1,7 @@
-import { type ProductDto } from './types'
+import { baseApi } from '@/shared/api/baseApi'
 import { mapProduct } from '../lib/mapProduct'
 import { type Product, type ProductId } from '../model/types'
-import { baseApi } from '@/shared/api/baseApi'
+import { type ProductDto } from './types'
 
 export const productApi = baseApi.injectEndpoints({
   endpoints: (build) => ({

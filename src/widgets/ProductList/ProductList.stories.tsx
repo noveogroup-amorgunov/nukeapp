@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ProductList } from './ProductList'
 import { mockProductDtoByIds } from '@/entities/product/api/__mocks__/mockProductDtoByIds'
 import { mapProduct } from '@/entities/product/lib/mapProduct'
 import { StorybookApiMockDecorator } from '@/shared/lib/storybook/StorybookApiMockDecorator'
+import { ProductList } from './ProductList'
 
 const meta: Meta<typeof ProductList> = {
   title: 'widgets/ProductList',

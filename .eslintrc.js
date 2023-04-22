@@ -13,7 +13,7 @@ module.exports = {
   plugins: ['react'],
   rules: {
     "import/order": ["error", {
-      "groups": ["builtin", "external", "internal", ["parent", "sibling"]],
+      "groups": ["builtin", "external", "internal", "parent", "sibling"],
       "pathGroups": [{
         "pattern": "react",
         "group": "external",
@@ -24,6 +24,10 @@ module.exports = {
         patternOptions: {
           matchBase: true
         },
+        position: 'after'
+      }, {
+        pattern: '@/**',
+        group: 'external',
         position: 'after'
       }],
       // "pathGroupsExcludedImportTypes": ["react"],

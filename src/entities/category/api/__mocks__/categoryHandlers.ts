@@ -1,7 +1,7 @@
 import { rest } from 'msw'
+import { config } from '@/shared/lib/config'
 import { mockCategoryDtoById } from './mockCategoryDtoById'
 import { mockPopularCategoriesDto } from './mockPopularCategoriesDto'
-import { config } from '@/shared/lib/config'
 
 export const categoriesHandlers = [
   rest.get(`${config.API_ENDPOINT}/categories/popular`, async (_, res, ctx) => {

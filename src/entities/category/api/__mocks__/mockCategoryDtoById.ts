@@ -1,6 +1,6 @@
-import categories from './categories.json'
-import { type CategoryWithProductsDto } from '../types'
 import products from '@/entities/product/api/__mocks__/products.json'
+import { type CategoryWithProductsDto } from '../types'
+import categories from './categories.json'
 
 export function mockCategoryDtoById(
   id: number

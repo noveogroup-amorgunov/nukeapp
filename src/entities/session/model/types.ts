@@ -1,5 +1,3 @@
-import { type ProductId } from '@/entities/product/model/types'
-
 export type SessionUserId = Brand<Id, 'SessionUserId'>
 
 export type Session = {
