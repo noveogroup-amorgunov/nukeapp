@@ -1,5 +1,5 @@
 import { usePopularProductsQuery } from '@/entities/product/api/productApi'
-import { useFeatureSlicedDebug } from '@/widgets/DebugMode/lib/useFeatureSlicedDebug'
+import { useFeatureSlicedDebug } from '@/shared/modules/DebugMode/lib/useFeatureSlicedDebug'
 import { ProductList } from '@/widgets/ProductList/ProductList'
 import css from './ProductPopularList.module.css'
 

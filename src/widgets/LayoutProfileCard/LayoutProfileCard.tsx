@@ -4,7 +4,7 @@ import { useMeQuery } from '@/entities/session/api/sessionApi'
 import { selectIsAuthorize } from '@/entities/session/model/slice'
 import { LogoutButton } from '@/features/authentication/Logout/ui/LogoutButton/LogoutButton'
 import { useAppSelector } from '@/shared/model/hooks'
-import { useFeatureSlicedDebug } from '@/widgets/DebugMode/lib/useFeatureSlicedDebug'
+import { useFeatureSlicedDebug } from '@/shared/modules/DebugMode/lib/useFeatureSlicedDebug'
 
 export function LayoutProfileCard() {
   const { rootAttributes } = useFeatureSlicedDebug('widget/LayoutProfileCard')

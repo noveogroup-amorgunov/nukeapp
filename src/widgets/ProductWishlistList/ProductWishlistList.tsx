@@ -2,7 +2,7 @@ import { skipToken } from '@reduxjs/toolkit/dist/query'
 import { selectIsAuthorize } from '@/entities/session/model/slice'
 import { useWishlistProductsQuery } from '@/entities/wishlist/api/wishlistApi'
 import { useAppSelector } from '@/shared/model/hooks'
-import { useFeatureSlicedDebug } from '@/widgets/DebugMode/lib/useFeatureSlicedDebug'
+import { useFeatureSlicedDebug } from '@/shared/modules/DebugMode/lib/useFeatureSlicedDebug'
 import { ProductList } from '@/widgets/ProductList/ProductList'
 import css from './ProductWishlistList.module.css'
 

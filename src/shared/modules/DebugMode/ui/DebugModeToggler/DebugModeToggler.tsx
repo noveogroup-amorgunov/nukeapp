@@ -3,7 +3,7 @@ import { toggleDebugMode } from '../../model/slice'
 import css from './DebugModeToggler.module.css'
 
 export function DebugModeToggler() {
-  const isDebugMode = useAppSelector((state) => state.widget.isDebugMode)
+  const isDebugMode = useAppSelector((state) => state.debugMode.isEnabled)
   const dispatch = useAppDispatch()
 
   return (

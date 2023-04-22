@@ -3,8 +3,22 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: ["standard-with-typescript", "plugin:react/recommended", "plugin:prettier/recommended", "@feature-sliced/eslint-config/rules/layers-slices", "plugin:storybook/recommended"],
+  extends: [
+    "standard-with-typescript",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "@feature-sliced/eslint-config/rules/layers-slices",
+    "plugin:storybook/recommended"
+  ],
   overrides: [],
+  parser: "@typescript-eslint/parser",
+  settings: {
+    "import/resolver": {
+      typescript: {
+        alwaysTryTypes: true
+      }
+    }
+  },
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -39,9 +53,9 @@ module.exports = {
     }],
     "import/no-default-export": "error",
     "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": ["error"],
+    "@typescript-eslint/no-unused-vars": "error",
     // "@typescript-eslint/consistent-type-definitions": ["error", "type"],
-    "@typescript-eslint/consistent-type-definitions": ["off"],
+    "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/explicit-function-return-type": "off",
     "react/react-in-jsx-scope": "off",
@@ -53,7 +67,10 @@ module.exports = {
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/consistent-type-assertions": "off",
     "@typescript-eslint/ban-types": "off",
-    "@typescript-eslint/no-floating-promises": "off"
+    "@typescript-eslint/no-floating-promises": "off",
+
+    // feature-sliced/layers-slices
+    "boundaries/element-types": "warn" // ~ 1,
   },
   "overrides": [
     {

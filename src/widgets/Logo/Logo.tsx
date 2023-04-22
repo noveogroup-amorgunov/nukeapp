@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useFeatureSlicedDebug } from '@/widgets/DebugMode/lib/useFeatureSlicedDebug'
+import { useFeatureSlicedDebug } from '@/shared/modules/DebugMode/lib/useFeatureSlicedDebug'
 import css from './Logo.module.css'
 
 export function Logo() {

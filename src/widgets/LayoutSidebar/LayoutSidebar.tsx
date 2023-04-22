@@ -1,6 +1,6 @@
 import { selectIsAuthorize } from '@/entities/session/model/slice'
 import { useAppSelector } from '@/shared/model/hooks'
-import { useFeatureSlicedDebug } from '@/widgets/DebugMode/lib/useFeatureSlicedDebug'
+import { useFeatureSlicedDebug } from '@/shared/modules/DebugMode/lib/useFeatureSlicedDebug'
 import { ProductWishlistList } from '@/widgets/ProductWishlistList/ProductWishlistList'
 import css from './LayoutSidebar.module.css'
 

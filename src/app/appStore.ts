@@ -13,14 +13,14 @@ import {
 import storage from 'redux-persist/lib/storage'
 import { sessionSlice } from '@/entities/session/model/slice'
 import { invalidateAccessTokenListener } from '@/features/authentication/InvalidateAccessToken/model/listener'
-import { widgetSlice } from '@/widgets/DebugMode/model/slice'
+import { debugModeSlice } from '@/shared/modules/DebugMode/model/slice'
 import { baseApi } from '../shared/api/baseApi'
 import { rootReducer } from './rootReducer'
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: [sessionSlice.name, widgetSlice.name],
+  whitelist: [sessionSlice.name, debugModeSlice.name],
 }
 
 export function makeStore() {

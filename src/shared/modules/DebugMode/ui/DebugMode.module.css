@@ -1,7 +1,8 @@
 [data-fsd] {
+  --color: #fa0ee9;
+  
   outline: 2px solid var(--color);
   position: relative;
-  --color: #fa0ee9;
   background-color: var(--bg-color);
 }
 

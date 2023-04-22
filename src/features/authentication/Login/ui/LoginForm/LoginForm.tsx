@@ -3,7 +3,7 @@ import { useCallback } from 'react'
 import { useForm } from 'react-hook-form'
 import { loginThunk } from '@/features/authentication/Login/model/login'
 import { useAppDispatch } from '@/shared/model/hooks'
-import { useFeatureSlicedDebug } from '@/widgets/DebugMode/lib/useFeatureSlicedDebug'
+import { useFeatureSlicedDebug } from '@/shared/modules/DebugMode/lib/useFeatureSlicedDebug'
 import {
   type LoginFormSchema,
   loginFormSchema,

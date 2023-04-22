@@ -23,7 +23,7 @@ const colorMap: Record<Layer, string> = {
 export function useFeatureSlicedDebug<T extends HTMLElement = HTMLDivElement>(
   name: ModuleName
 ) {
-  const isDebugMode = useAppSelector((state) => state.widget.isDebugMode)
+  const isDebugMode = useAppSelector((state) => state.debugMode.isEnabled)
   const rootAttributes: CustomHTMLAttributes<T> = {}
   const [layer] = name.split('/') as [Layer]
 
