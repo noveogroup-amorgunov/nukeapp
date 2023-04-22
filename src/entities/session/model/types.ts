@@ -5,7 +5,7 @@ export type Session = {
   userId: SessionUserId
 }
 
-// TODO: Move user to entities/user/model/types.ts
+// TODO: FSD: Move user to entities/user/model/types.ts
 export type User = {
   id: Id
   email: Email

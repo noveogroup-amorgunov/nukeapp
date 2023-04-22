@@ -16,7 +16,7 @@ export const sessionApi = baseApi.injectEndpoints({
       invalidatesTags: [SESSION_TAG, WISHLIST_TAG],
       transformResponse: (response: SessionDto) => mapSession(response),
     }),
-    // TODO: Move to entities/user/api/userApi.ts
+    // TODO: FSD: Move to entities/user/api/userApi.ts
     me: build.query<User, void>({
       query: () => ({
         url: `/me`,

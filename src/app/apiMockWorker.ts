@@ -4,9 +4,21 @@ import { productsHandlers } from '@/entities/product/api/__mocks__/productHandle
 import { sessionHandlers } from '@/entities/session/api/__mocks__/sessionHandlers'
 import { wishlistHandlers } from '@/entities/wishlist/api/__mocks/wishlistHandlers'
 
-export const apiMockWorker = setupWorker(
+const apiMockWorker = setupWorker(
   ...categoriesHandlers,
   ...productsHandlers,
   ...sessionHandlers,
   ...wishlistHandlers
 )
+
+export const startApiMockWorker = () => {
+  apiMockWorker.start({
+    onUnhandledRequest(req, print) {
+      if (/\.(png|jpg|svg|tsx?|css|jsx?)$/.test(req.url.pathname)) {
+        return
+      }
+
+      print.warning()
+    },
+  })
+}
