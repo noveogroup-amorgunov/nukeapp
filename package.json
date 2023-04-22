@@ -11,6 +11,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "storybook": "storybook dev",
+    "build:storybook": "storybook build",
     "prepare": "husky install",
     "lint": "eslint src"
   },

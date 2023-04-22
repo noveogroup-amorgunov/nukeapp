@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 .temp
+storybook-static/*
 
 # Editor directories and files
 .vscode/*
