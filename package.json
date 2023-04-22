@@ -12,7 +12,7 @@
     "preview": "vite preview",
     "storybook": "storybook dev",
     "prepare": "husky install",
-    "lint": "eslint --fix src/**/*.{ts,tsx}"
+    "lint": "eslint src"
   },
   "dependencies": {
     "@hookform/resolvers": "3.0.0",
@@ -62,6 +62,7 @@
     "storybook": "7.0.5",
     "stylelint": "15.5.0",
     "stylelint-config-standard": "33.0.0",
+    "ts-to-zod": "3.0.0",
     "typescript": "5.0.4",
     "vite": "4.0.0",
     "vite-plugin-svgr": "2.4.0",
