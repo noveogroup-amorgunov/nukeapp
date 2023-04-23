@@ -8,6 +8,7 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:prettier/recommended",
     "@feature-sliced/eslint-config/rules/layers-slices",
+    // "@feature-sliced/eslint-config/rules/public-api",
     "plugin:storybook/recommended"
   ],
   overrides: [],
@@ -70,7 +71,10 @@ module.exports = {
     "@typescript-eslint/no-floating-promises": "off",
 
     // feature-sliced/layers-slices
-    "boundaries/element-types": "warn" // ~ 1,
+    "boundaries/element-types": "error",
+
+    // feature-sliced/public-api
+    // "import/no-internal-modules": "warn" // ~ 1,
   },
   "overrides": [
     {

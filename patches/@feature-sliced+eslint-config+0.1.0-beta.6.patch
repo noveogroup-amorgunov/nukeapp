@@ -1,0 +1,61 @@
+diff --git a/node_modules/@feature-sliced/eslint-config/rules/layers-slices/index.js b/node_modules/@feature-sliced/eslint-config/rules/layers-slices/index.js
+index 569d37f..b6edb11 100644
+--- a/node_modules/@feature-sliced/eslint-config/rules/layers-slices/index.js
++++ b/node_modules/@feature-sliced/eslint-config/rules/layers-slices/index.js
+@@ -1,24 +1,52 @@
+ const { layersLib } = require("../../utils");
+ 
+-const getNotSharedLayersRules = () =>
+-    layersLib.getUpperLayers("shared").map((layer) => ({
++const getNotSharedLayersRules = () => {
++    const base = layersLib.getUpperLayers("shared").map((layer) => ({
+         from: layer,
+         allow: layersLib.getLowerLayers(layer),
+     }));
+ 
++    const entitiesCrossImports = {
++        from: 'entities',
++        allow: [
++            'shared',
++            ['entities/@x', {
++                relatedSlices: "${from.slices}"
++            }],
++        ],
++    }
++
++    const widgetsCrossImports = {
++        from: 'widgets',
++        allow: 'widgets'
++    }
++
++    return [entitiesCrossImports, widgetsCrossImports, ...base]
++}
++
+ const sharedLayerRule = {
+     from: "shared",
+     allow: "shared",
+ };
+ 
+-const getLayersBoundariesElements = () =>
+-    layersLib.FS_LAYERS.map((layer) => ({
++const getLayersBoundariesElements = () => {
++    const base = layersLib.FS_LAYERS.map((layer) => ({
+         type: layer,
+         pattern: `${layer}/!(_*){,/*}`,
+         mode: "folder",
+         capture: ["slices"],
+     }));
+ 
++    const entitiesCrossImports = {
++        type: 'entities/@x',
++        pattern: `entities/*/@x/*.ts`,
++        mode: "file",
++        capture: ["slices", "relatedSlices"],
++    }
++
++    return [entitiesCrossImports, ...base]
++}
++
+ const getGodModeRules = () =>
+     layersLib.FS_LAYERS.map((layer) => ({
+         from: `gm_${layer}`,

@@ -13,7 +13,8 @@
     "storybook": "storybook dev",
     "build:storybook": "storybook build",
     "prepare": "husky install",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@hookform/resolvers": "3.0.0",
@@ -56,12 +57,14 @@
     "eslint-plugin-storybook": "0.6.11",
     "husky": "8.0.3",
     "msw": "1.2.1",
+    "patch-package": "6.5.1",
     "postcss": "8.4.21",
     "postcss-custom-media": "9.1.1",
     "postcss-import": "15.1.0",
     "postcss-mixins": "9.0.4",
     "postcss-nested": "6.0.0",
     "prettier": "2.8.7",
+    "rollup-plugin-visualizer": "5.9.0",
     "storybook": "7.0.5",
     "stylelint": "15.5.0",
     "stylelint-config-standard": "33.0.0",
