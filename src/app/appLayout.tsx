@@ -1,10 +1,10 @@
 import { DebugModeToggler } from '@/shared/modules/DebugMode/ui/DebugModeToggler/DebugModeToggler'
 import { Announcement } from '@/shared/ui/Announcement/Announcement'
 import { Layout } from '@/shared/ui/Layout/Layout'
-import { LayoutHeader } from '@/widgets/LayoutHeader/LayoutHeader'
-import { LayoutProfileCard } from '@/widgets/LayoutProfileCard/LayoutProfileCard'
-import { LayoutSidebar } from '@/widgets/LayoutSidebar/LayoutSidebar'
-import { Logo } from '@/widgets/Logo/Logo'
+import { LayoutHeader } from '@/widgets/LayoutHeader'
+import { LayoutProfileCard } from '@/widgets/LayoutProfileCard'
+import { LayoutSidebar } from '@/widgets/LayoutSidebar'
+import { Logo } from '@/widgets/Logo'
 
 /**
  * ✅ FSD Best practice

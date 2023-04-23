@@ -1,8 +1,7 @@
 import cn from 'classnames'
-import { type Product } from '@/entities/product/model/types'
-import { ProductCard } from '@/entities/product/ui/ProductCard/ProductCard'
-import { selectIsAuthorize } from '@/entities/session/model/slice'
-import { AddToWishlist } from '@/features/wishlist/AddToWishlist/ui/AddToWishlist/AddToWishlist'
+import { ProductCard, type Product } from '@/entities/product'
+import { selectIsAuthorize } from '@/entities/session'
+import { AddToWishlist } from '@/features/wishlist/AddToWishlist'
 import { useAppSelector } from '@/shared/model/hooks'
 import css from './ProductList.module.css'
 

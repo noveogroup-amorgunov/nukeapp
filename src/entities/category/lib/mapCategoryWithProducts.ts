@@ -1,4 +1,4 @@
-import { mapProduct } from '@/entities/product/lib/mapProduct'
+import { mapProduct } from '@/entities/product/@x/category'
 import { type CategoryWithProductsDto } from '../api/types'
 import { type CategoryWithProducts } from '../model/types'
 import { mapCategory } from './mapCategory'

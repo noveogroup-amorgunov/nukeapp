@@ -1,3 +1,3 @@
-import { type ProductDto } from '@/entities/product/api/types'
+import { type ProductDto } from '@/entities/product/@x/wishlist'
 
 export type WishlistDto = ProductDto[]

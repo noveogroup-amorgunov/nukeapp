@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { sessionApi } from '@/entities/session/api/sessionApi'
+import { sessionApi } from '@/entities/session'
 import { isFetchBaseQueryError } from '@/shared/api/isFetchBaseQueryError'
 
 type Params = {

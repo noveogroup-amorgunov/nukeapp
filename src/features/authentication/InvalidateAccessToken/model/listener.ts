@@ -2,8 +2,8 @@ import {
   createListenerMiddleware,
   type TypedStartListening,
 } from '@reduxjs/toolkit'
-import { logoutThunk } from '@/features/authentication/Logout/model/logout'
 import { invalidateAccessToken } from '@/shared/api/invalidateTokenEvent'
+import { logoutThunk } from '../../Logout/model/logout'
 
 export const invalidateAccessTokenListener = createListenerMiddleware()
 

@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { CategoryPage } from '@/pages/CategoryPage/CategoryPage'
-import { LoginPage } from '@/pages/LoginPage/LoginPage'
-import { MainPage } from '@/pages/MainPage/MainPage'
+import { CategoryPage } from '@/pages/CategoryPage'
+import { LoginPage } from '@/pages/LoginPage'
+import { MainPage } from '@/pages/MainPage'
 import { appLayout } from './appLayout'
 
 export const appRouter = createBrowserRouter([

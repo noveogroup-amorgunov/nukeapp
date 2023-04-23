@@ -11,8 +11,8 @@ import {
   REGISTER,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import { sessionSlice } from '@/entities/session/model/slice'
-import { invalidateAccessTokenListener } from '@/features/authentication/InvalidateAccessToken/model/listener'
+import { sessionSlice } from '@/entities/session'
+import { invalidateAccessTokenListener } from '@/features/authentication/InvalidateAccessToken'
 import { debugModeSlice } from '@/shared/modules/DebugMode/model/slice'
 import { baseApi } from '../shared/api/baseApi'
 import { rootReducer } from './rootReducer'

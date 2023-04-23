@@ -1,8 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { sessionApi } from '@/entities/session/api/sessionApi'
-import { clearSessionData } from '@/entities/session/model/slice'
-import { wishlistApi } from '@/entities/wishlist/api/wishlistApi'
-import { clearWishlistData } from '@/entities/wishlist/model/slice'
+import { sessionApi, clearSessionData } from '@/entities/session'
+import { wishlistApi, clearWishlistData } from '@/entities/wishlist'
 import { SESSION_TAG, WISHLIST_TAG } from '@/shared/api/tags'
 import { wait } from '@/shared/lib/wait'
 

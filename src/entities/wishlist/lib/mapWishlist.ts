@@ -1,5 +1,4 @@
-import { mapProduct } from '@/entities/product/lib/mapProduct'
-import type { Product } from '@/entities/product/model/types'
+import { type Product, mapProduct } from '@/entities/product/@x/wishlist'
 import type { WishlistDto } from '../api/types'
 
 export function mapWishlist(dto: WishlistDto): Product[] {

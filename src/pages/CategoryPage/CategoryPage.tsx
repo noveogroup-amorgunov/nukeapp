@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
-import { useCategoryDetailsQuery } from '@/entities/category/api/categoryApi'
-import { ProductList } from '@/widgets/ProductList/ProductList'
+import { useCategoryDetailsQuery } from '@/entities/category'
+import { ProductList } from '@/widgets/ProductList'
 
 export function CategoryPage() {
   const { categoryId } = useParams<{ categoryId: string }>()

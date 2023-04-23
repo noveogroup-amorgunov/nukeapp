@@ -1,4 +1,4 @@
-import products from '@/entities/product/api/__mocks__/products.json'
+import { productsMock } from '@/entities/product/@x/category'
 import { type CategoryWithProductsDto } from '../types'
 import categories from './categories.json'
 
@@ -13,6 +13,6 @@ export function mockCategoryDtoById(
 
   return {
     ...category,
-    products: products.filter((product) => product.categoryId === id),
+    products: productsMock.filter((product) => product.categoryId === id),
   }
 }

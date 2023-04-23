@@ -1,9 +1,9 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useCallback } from 'react'
 import { useForm } from 'react-hook-form'
-import { loginThunk } from '@/features/authentication/Login/model/login'
 import { useAppDispatch } from '@/shared/model/hooks'
 import { useFeatureSlicedDebug } from '@/shared/modules/DebugMode/lib/useFeatureSlicedDebug'
+import { loginThunk } from '../../model/login'
 import {
   type LoginFormSchema,
   loginFormSchema,

@@ -1,7 +1,9 @@
 import { type StoryFn } from '@storybook/react'
 import { Provider as ReduxProvider } from 'react-redux'
 // TODO: FSD: (import shared -> app)
+// eslint-disable-next-line boundaries/element-types
 import { makeStore } from '@/app/appStore'
+// eslint-disable-next-line boundaries/element-types
 import { loginThunk } from '@/features/authentication/Login/model/login'
 import { toggleDebugMode } from '@/shared/modules/DebugMode/model/slice'
 import { config } from '../config'

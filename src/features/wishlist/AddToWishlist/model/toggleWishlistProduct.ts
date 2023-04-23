@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import type { ProductId } from '@/entities/product/model/types'
-import { wishlistApi } from '@/entities/wishlist/api/wishlistApi'
+import type { ProductId } from '@/entities/product'
 import {
+  wishlistApi,
   selectIsInWishlist,
   selectProductIdsInWishlist,
   toggleWishlistProduct,
-} from '@/entities/wishlist/model/slice'
+} from '@/entities/wishlist'
 
 export const toggleWishlistProductThunk = createAsyncThunk<
   void,

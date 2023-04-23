@@ -1,4 +1,4 @@
-import type { Product } from '@/entities/product/model/types'
+import type { Product } from '@/entities/product/@x/category'
 
 export type CategoryId = Brand<Id, 'CategoryId'>
 

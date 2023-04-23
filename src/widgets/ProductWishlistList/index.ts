@@ -1,0 +1,1 @@
+export { ProductWishlistList } from './ProductWishlistList'

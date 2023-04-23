@@ -1,4 +1,4 @@
-import type { Product } from '@/entities/product/model/types'
+import type { Product } from '@/entities/product/@x/wishlist'
 import { baseApi } from '@/shared/api/baseApi'
 import { WISHLIST_TAG } from '@/shared/api/tags'
 import { mapWishlist } from '../lib/mapWishlist'
