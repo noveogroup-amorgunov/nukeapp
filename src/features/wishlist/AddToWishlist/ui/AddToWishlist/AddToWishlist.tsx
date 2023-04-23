@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react'
 import { type ProductId } from '@/entities/product'
 import { selectIsInWishlist } from '@/entities/wishlist'
+import { useFeatureSlicedDebug } from '@/shared/lib/useFeatureSlicedDebug'
 import { useAppDispatch, useAppSelector } from '@/shared/model/hooks'
-import { useFeatureSlicedDebug } from '@/shared/modules/DebugMode/lib/useFeatureSlicedDebug'
 import { Icon } from '@/shared/ui/Icon/Icon'
 import { toggleWishlistProductThunk } from '../../model/toggleWishlistProduct'
 

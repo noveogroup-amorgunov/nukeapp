@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react'
-import { useFeatureSlicedDebug } from '@/shared/modules/DebugMode/lib/useFeatureSlicedDebug'
+import { useFeatureSlicedDebug } from '@/shared/lib/useFeatureSlicedDebug'
 import css from './LayoutHeader.module.css'
 
 type Props = {

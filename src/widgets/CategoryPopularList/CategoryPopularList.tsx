@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { usePopularCategoriesQuery, CategoryCard } from '@/entities/category'
-import { useFeatureSlicedDebug } from '@/shared/modules/DebugMode/lib/useFeatureSlicedDebug'
+import { useFeatureSlicedDebug } from '@/shared/lib/useFeatureSlicedDebug'
 import css from './CategoryPopularList.module.css'
 
 export function CategoryPopularList() {

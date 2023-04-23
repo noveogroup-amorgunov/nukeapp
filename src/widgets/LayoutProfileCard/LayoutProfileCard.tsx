@@ -2,8 +2,8 @@ import { skipToken } from '@reduxjs/toolkit/dist/query'
 import { Link } from 'react-router-dom'
 import { selectIsAuthorize, useMeQuery } from '@/entities/session'
 import { LogoutButton } from '@/features/authentication/Logout/ui/LogoutButton/LogoutButton'
+import { useFeatureSlicedDebug } from '@/shared/lib/useFeatureSlicedDebug'
 import { useAppSelector } from '@/shared/model/hooks'
-import { useFeatureSlicedDebug } from '@/shared/modules/DebugMode/lib/useFeatureSlicedDebug'
 
 export function LayoutProfileCard() {
   const { rootAttributes } = useFeatureSlicedDebug('widget/LayoutProfileCard')

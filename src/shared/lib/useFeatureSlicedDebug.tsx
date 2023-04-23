@@ -1,6 +1,5 @@
 import { type HTMLAttributes, type CSSProperties } from 'react'
 import { useAppSelector } from '@/shared/model/hooks'
-import '../ui/DebugMode.module.css'
 
 type CustomCSSProperties = {
   '--color': string

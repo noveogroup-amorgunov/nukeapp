@@ -13,7 +13,7 @@ import {
 import storage from 'redux-persist/lib/storage'
 import { sessionSlice } from '@/entities/session'
 import { invalidateAccessTokenListener } from '@/features/authentication/InvalidateAccessToken'
-import { debugModeSlice } from '@/shared/modules/DebugMode/model/slice'
+import { debugModeSlice } from '@/shared/model/debugModeSlice'
 import { baseApi } from '../shared/api/baseApi'
 import { rootReducer } from './rootReducer'
 
