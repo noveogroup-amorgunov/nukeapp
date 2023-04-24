@@ -24,10 +24,10 @@ Right now, I'm using this project as an experiment polygon to try modern technol
 ## Features
 
 - Fully Typed (API adapters, catched error with type guards, form and env variables validators by `zod`)
-- Developing by Feature Sliced Design (Layers)
+- Developing by Feature Sliced Design (Layers isolation and composition, Public API, DDD)
 - Fully API emulation with `mswjs` (all enpoints with JWT authorization)
 - Storybook stories
-- Best practice comments in code
+- Best practice comments in code ✅
 
 # Roadmap
 
@@ -49,7 +49,7 @@ Other:
 
 - [ ] Move colors to css vars
 - [ ] Fix TODO into code
-- [ ] Fix FSD errors
+- [x] Fix FSD errors
 - [ ] Write storybook stories
 - [ ] Write article to my blog about main concepts
 - [ ] Add Dark theme
