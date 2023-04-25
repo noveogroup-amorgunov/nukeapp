@@ -5,7 +5,7 @@ import { Provider as ReduxProvider } from 'react-redux'
 import { makeStore } from '@/app/appStore'
 // eslint-disable-next-line boundaries/element-types
 import { loginThunk } from '@/features/authentication/Login/model/login'
-import { toggleDebugMode } from '@/shared/model/debugModeSlice'
+import { toggleDebugMode } from '@/shared/model'
 import { config } from '../config'
 
 const store = makeStore()

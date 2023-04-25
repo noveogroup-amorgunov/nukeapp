@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { StorybookApiMockDecorator } from '@/shared/lib/storybook/StorybookApiMockDecorator'
-import { StorybookStoreDecorator } from '@/shared/lib/storybook/StorybookStoreDecorator'
-import { Icon } from '@/shared/ui/Icon/Icon'
+import {
+  StorybookApiMockDecorator,
+  StorybookStoreDecorator,
+} from '@/shared/lib/storybook'
+import { Icon } from '@/shared/ui'
 import { mockProductDto } from '../../api/__mocks__/mockProductDto'
 import { mapProduct } from '../../lib/mapProduct'
 import { ProductCard } from './ProductCard'

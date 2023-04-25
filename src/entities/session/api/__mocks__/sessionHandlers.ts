@@ -1,10 +1,10 @@
 import { rest } from 'msw'
-import { config } from '@/shared/lib/config'
 import {
+  config,
   parseTokenFromRequest,
   signAccessToken,
   verifyAccessToken,
-} from '@/shared/lib/jwt'
+} from '@/shared/lib'
 
 const MOCKED_USER_ID = 1
 

@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { useFeatureSlicedDebug } from '@/shared/lib/useFeatureSlicedDebug'
+import { useFeatureSlicedDebug } from '@/shared/lib'
 import { formatPrice } from '../../lib/formatPrice'
 import { type Product } from '../../model/types'
 import css from './ProductCard.module.css'

@@ -1,6 +1,6 @@
-import { usePopularProductsQuery } from '@/entities/product/api/productApi'
-import { useFeatureSlicedDebug } from '@/shared/lib/useFeatureSlicedDebug'
-import { ProductList } from '@/widgets/ProductList/ProductList'
+import { usePopularProductsQuery } from '@/entities/product'
+import { useFeatureSlicedDebug } from '@/shared/lib'
+import { ProductList } from '@/widgets/ProductList'
 import css from './ProductPopularList.module.css'
 
 export function ProductPopularList() {

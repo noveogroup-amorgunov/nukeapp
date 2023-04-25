@@ -1,6 +1,5 @@
-import { Announcement } from '@/shared/ui/Announcement/Announcement'
-import { Layout } from '@/shared/ui/Layout/Layout'
-import { DebugModeToggler } from '@/widgets/DebugModeToggler/DebugModeToggler'
+import { Announcement, Layout } from '@/shared/ui'
+import { DebugModeToggler } from '@/widgets/DebugModeToggler'
 import { LayoutHeader } from '@/widgets/LayoutHeader'
 import { LayoutProfileCard } from '@/widgets/LayoutProfileCard'
 import { LayoutSidebar } from '@/widgets/LayoutSidebar'

@@ -2,7 +2,7 @@ import cn from 'classnames'
 import { ProductCard, type Product } from '@/entities/product'
 import { selectIsAuthorize } from '@/entities/session'
 import { AddToWishlist } from '@/features/wishlist/AddToWishlist'
-import { useAppSelector } from '@/shared/model/hooks'
+import { useAppSelector } from '@/shared/model'
 import css from './ProductList.module.css'
 
 type Props = {

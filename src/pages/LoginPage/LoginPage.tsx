@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { LoginForm } from '@/features/authentication/Login/ui/LoginForm/LoginForm'
-import { config } from '@/shared/lib/config'
+import { LoginForm } from '@/features/authentication/Login'
+import { config } from '@/shared/lib'
 
 export function LoginPage() {
   const navigate = useNavigate()

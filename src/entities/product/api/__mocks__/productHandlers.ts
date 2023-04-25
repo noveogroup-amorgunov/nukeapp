@@ -1,5 +1,5 @@
 import { rest } from 'msw'
-import { config } from '@/shared/lib/config'
+import { config } from '@/shared/lib'
 import { mockPopularProductsDto } from './mockPopularProductsDto'
 import { mockProductDtoByIds } from './mockProductDtoByIds'
 

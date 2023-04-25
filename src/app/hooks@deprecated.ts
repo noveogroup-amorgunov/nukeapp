@@ -13,11 +13,11 @@ import type { RootState, AppDispatch } from './appStore'
  */
 
 /**
- * @deprecated use same hook from @/shared/model/hooks
+ * @deprecated use same hook from @/shared/model
  */
 export const useAppDispatch: () => AppDispatch = useDispatch
 
 /**
- * @deprecated use same hook from @/shared/model/hooks
+ * @deprecated use same hook from @/shared/model
  */
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector

@@ -1,6 +1,6 @@
 import * as jose from 'jose'
 import { type RestRequest } from 'msw'
-import { config } from '@/shared/lib/config'
+import { config } from '@/shared/lib'
 
 export async function signAccessToken(payload: Record<string, unknown>) {
   const secret = new TextEncoder().encode(config.JWT_SECRET)

@@ -1,4 +1,4 @@
-import { baseApi } from '@/shared/api/baseApi'
+import { baseApi } from '@/shared/api'
 import { mapCategory } from '../lib/mapCategory'
 import { mapCategoryWithProducts } from '../lib/mapCategoryWithProducts'
 import { type Category, type CategoryWithProducts } from '../model/types'

@@ -1,5 +1,5 @@
 import { type HTMLAttributes, type CSSProperties } from 'react'
-import { useAppSelector } from '@/shared/model/hooks'
+import { useAppSelector } from '@/shared/model'
 
 type CustomCSSProperties = {
   '--color': string

@@ -1,9 +1,9 @@
 import { skipToken } from '@reduxjs/toolkit/dist/query'
-import { selectIsAuthorize } from '@/entities/session/model/slice'
-import { useWishlistProductsQuery } from '@/entities/wishlist/api/wishlistApi'
-import { useFeatureSlicedDebug } from '@/shared/lib/useFeatureSlicedDebug'
-import { useAppSelector } from '@/shared/model/hooks'
-import { ProductList } from '@/widgets/ProductList/ProductList'
+import { selectIsAuthorize } from '@/entities/session'
+import { useWishlistProductsQuery } from '@/entities/wishlist'
+import { useFeatureSlicedDebug } from '@/shared/lib'
+import { useAppSelector } from '@/shared/model'
+import { ProductList } from '@/widgets/ProductList'
 import css from './ProductWishlistList.module.css'
 
 export function ProductWishlistList() {

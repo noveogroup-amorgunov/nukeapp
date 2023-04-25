@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { sessionApi, clearSessionData } from '@/entities/session'
 import { wishlistApi, clearWishlistData } from '@/entities/wishlist'
-import { SESSION_TAG, WISHLIST_TAG } from '@/shared/api/tags'
-import { wait } from '@/shared/lib/wait'
+import { SESSION_TAG, WISHLIST_TAG } from '@/shared/api'
+import { wait } from '@/shared/lib'
 
 export const logoutThunk = createAsyncThunk<void, void, { state: RootState }>(
   'authentication/logout',

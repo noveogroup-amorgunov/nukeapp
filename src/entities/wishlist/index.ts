@@ -1,4 +1,4 @@
-export { wishlistApi } from './api/wishlistApi'
+export { wishlistApi, useWishlistProductsQuery } from './api/wishlistApi'
 export {
   selectIsInWishlist,
   selectProductIdsInWishlist,

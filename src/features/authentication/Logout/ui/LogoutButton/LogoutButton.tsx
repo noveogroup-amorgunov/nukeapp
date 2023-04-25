@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '@/shared/model/hooks'
+import { useAppDispatch } from '@/shared/model'
 import { logoutThunk } from '../../model/logout'
 
 export function LogoutButton() {
