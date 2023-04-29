@@ -1,34 +1,9 @@
 import { rest } from 'msw'
-import {
-  config,
-  parseTokenFromRequest,
-  signAccessToken,
-  verifyAccessToken,
-} from '@/shared/lib'
+import { config, signAccessToken } from '@/shared/lib'
 
 const MOCKED_USER_ID = 1
 
 export const sessionHandlers = [
-  rest.get(`${config.API_ENDPOINT}/me`, async (req, res, ctx) => {
-    try {
-      const payload = await verifyAccessToken(parseTokenFromRequest(req))
-
-      return await res(
-        ctx.delay(config.API_DELAY),
-        ctx.status(200),
-        ctx.json({
-          id: payload.userId,
-          email: payload.email,
-        })
-      )
-    } catch (err) {
-      return await res(
-        ctx.status(401),
-        ctx.json('Token is expired or not valid')
-      )
-    }
-  }),
-
   rest.post(`${config.API_ENDPOINT}/login`, async (req, res, ctx) => {
     const body = await req.json()
     const { email, password } = body

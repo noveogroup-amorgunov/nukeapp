@@ -1,6 +1,7 @@
 import { skipToken } from '@reduxjs/toolkit/dist/query'
 import { Link } from 'react-router-dom'
-import { selectIsAuthorize, useMeQuery } from '@/entities/session'
+import { selectIsAuthorize } from '@/entities/session'
+import { useMeQuery } from '@/entities/user'
 import { LogoutButton } from '@/features/authentication/Logout'
 import { useFeatureSlicedDebug } from '@/shared/lib'
 import { useAppSelector } from '@/shared/model'

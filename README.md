@@ -54,7 +54,7 @@ Other:
 - [ ] Write article to my blog about main concepts
 - [ ] Add Dark theme
 - [ ] Add I18n
-- [ ] Add FSD public API pattern
+- [x] Add FSD public API pattern
 - [ ] Write screenshot tests for stories
 - [ ] Write Integration tests for user's use cases
 

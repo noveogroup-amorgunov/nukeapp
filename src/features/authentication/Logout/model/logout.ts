@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { sessionApi, clearSessionData } from '@/entities/session'
+import { userApi } from '@/entities/user/api/userApi'
 import { wishlistApi, clearWishlistData } from '@/entities/wishlist'
-import { SESSION_TAG, WISHLIST_TAG } from '@/shared/api'
+import { SESSION_TAG, USER_TAG, WISHLIST_TAG } from '@/shared/api'
 import { wait } from '@/shared/lib'
 
 export const logoutThunk = createAsyncThunk<void, void, { state: RootState }>(
@@ -19,6 +20,7 @@ export const logoutThunk = createAsyncThunk<void, void, { state: RootState }>(
     // dispatch(sessionApi.util.resetApiState())
 
     dispatch(sessionApi.util.invalidateTags([SESSION_TAG]))
+    dispatch(userApi.util.invalidateTags([USER_TAG]))
     dispatch(wishlistApi.util.invalidateTags([WISHLIST_TAG]))
   }
 )
