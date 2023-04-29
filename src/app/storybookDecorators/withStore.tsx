@@ -1,12 +1,9 @@
-import { type StoryFn } from '@storybook/react'
+import { type Decorator } from '@storybook/react'
 import { Provider as ReduxProvider } from 'react-redux'
-// TODO: FSD: (import shared -> app)
-// eslint-disable-next-line boundaries/element-types
 import { makeStore } from '@/app/appStore'
-// eslint-disable-next-line boundaries/element-types
 import { loginThunk } from '@/features/authentication/Login/model/login'
+import { config } from '@/shared/lib'
 import { toggleDebugMode } from '@/shared/model'
-import { config } from '../config'
 
 const store = makeStore()
 
@@ -18,10 +15,10 @@ store.dispatch(
 )
 store.dispatch(toggleDebugMode())
 
-export function StorybookStoreDecorator(Story: StoryFn) {
+export const withStore: Decorator = (StoryFn, context) => {
   return (
     <ReduxProvider store={store}>
-      <Story />
+      <StoryFn />
     </ReduxProvider>
   )
 }

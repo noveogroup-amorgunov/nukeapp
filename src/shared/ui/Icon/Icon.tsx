@@ -14,7 +14,7 @@ export type Props = {
   type: IconType
 }
 
-const hasDarkMode: IconType[] = ['like', 'liked', 'moon']
+const hasDarkMode: IconType[] = ['cart', 'like', 'liked', 'moon']
 
 export function Icon(props: Props) {
   const currentTheme = useAppSelector(selectCurrentTheme)

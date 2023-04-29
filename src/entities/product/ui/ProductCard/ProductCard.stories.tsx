@@ -1,8 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import {
-  StorybookApiMockDecorator,
-  StorybookStoreDecorator,
-} from '@/shared/lib/storybook'
 import { Icon } from '@/shared/ui'
 import { mockProductDto } from '../../api/__mocks__/mockProductDto'
 import { mapProduct } from '../../lib/mapProduct'
@@ -11,7 +7,6 @@ import { ProductCard } from './ProductCard'
 const meta: Meta<typeof ProductCard> = {
   title: 'entities/ProductCard',
   component: ProductCard,
-  decorators: [StorybookApiMockDecorator, StorybookStoreDecorator],
 }
 
 export default meta

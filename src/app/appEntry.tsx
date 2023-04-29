@@ -5,7 +5,7 @@ import { RouterProvider } from 'react-router-dom'
 import { PersistGate } from 'redux-persist/integration/react'
 import '@/shared/base.css'
 import { startApiMockWorker } from '@/app/apiMockWorker'
-import { ThemeProvider } from '@/entities/theme/lib/ThemeProvider'
+import { ThemeProvider } from '@/entities/theme'
 import { appRouter } from './appRouter'
 import { persistedStore, appStore } from './appStore'
 
