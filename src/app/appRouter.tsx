@@ -1,7 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { CategoryPage } from '@/pages/CategoryPage'
-import { LoginPage } from '@/pages/LoginPage'
-import { MainPage } from '@/pages/MainPage'
+import { CategoryPage } from '@/pages/category'
+import { LoginPage } from '@/pages/login'
+import { MainPage } from '@/pages/main'
+import { ProductPage } from '@/pages/product'
 import { appLayout } from './appLayout'
 
 export const appRouter = createBrowserRouter([
@@ -17,6 +18,10 @@ export const appRouter = createBrowserRouter([
       {
         path: '/category/:categoryId',
         element: <CategoryPage />,
+      },
+      {
+        path: '/product/:productId',
+        element: <ProductPage />,
       },
       {
         path: '/',

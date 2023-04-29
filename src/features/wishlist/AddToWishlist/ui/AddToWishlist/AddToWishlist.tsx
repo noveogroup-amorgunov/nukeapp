@@ -20,6 +20,7 @@ export function AddToWishlist({ productId }: Props) {
   const onClick = useCallback(
     (e: React.MouseEvent<HTMLElement>) => {
       e.stopPropagation()
+      e.preventDefault()
       dispatch(toggleWishlistProductThunk(productId))
     },
     [productId]
