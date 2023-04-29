@@ -6,6 +6,10 @@
   background-image: url('/images/logo@light.png');
   background-size: cover;
 
+  html[data-theme="dark"] & {
+    background-image: url('/images/logo@dark.png');
+  }
+
   @media (--xs-viewport) {
     width: 24px;
     height: 24px;

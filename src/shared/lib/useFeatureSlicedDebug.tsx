@@ -2,7 +2,8 @@ import { type HTMLAttributes, type CSSProperties } from 'react'
 import { useAppSelector } from '@/shared/model'
 
 type CustomCSSProperties = {
-  '--color': string
+  '--fsd-background-color': string
+  '--fsd-color': string
 } & CSSProperties
 
 type CustomHTMLAttributes<T> = {
@@ -29,8 +30,8 @@ export function useFeatureSlicedDebug<T extends HTMLElement = HTMLDivElement>(
   if (isDebugMode) {
     rootAttributes['data-fsd'] = name
     rootAttributes.style = {
-      '--color': colorMap[layer],
-      '--bg-color': `${colorMap[layer]}10`,
+      '--fsd-color': colorMap[layer],
+      '--fsd-background-color': `${colorMap[layer]}10`,
     } as CustomCSSProperties
   }
 

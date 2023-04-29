@@ -25,7 +25,7 @@ export function LayoutProfileCard() {
 
   return (
     <div {...rootAttributes}>
-      Hello, {profileData?.email}!&nbsp;
+      Hello, <span className="text_bold">{profileData?.email}</span>!&nbsp;
       {isAuthorized && <LogoutButton />}
     </div>
   )

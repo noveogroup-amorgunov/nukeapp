@@ -5,7 +5,7 @@
 
   &:hover,
   &:active {
-    background: #0001;
+    background-color: #0001;
     border-radius: 8px;
   }
 
@@ -19,3 +19,9 @@
   height: 100%;
   background-size: cover;
 }
+
+/* Not working for external svg
+:global(data-theme="dark") .icon svg path {
+  color: var(--color-text) !important;
+}
+*/

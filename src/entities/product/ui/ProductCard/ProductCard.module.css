@@ -33,7 +33,7 @@
 }
 
 .imageContainer {
-  background-color: #f5f5f5;
+  background-color: var(--alternate-background-color);
 
   .root_size_s & {
     width: 30%;

@@ -52,11 +52,12 @@ Other:
 - [x] Fix FSD errors
 - [ ] Write storybook stories
 - [ ] Write article to my blog about main concepts
-- [ ] Add Dark theme
+- [x] Add Dark theme
 - [ ] Add I18n
 - [ ] Add FSD public API pattern
 - [ ] Write screenshot tests for stories
 - [ ] Write Integration tests for user's use cases
+- [ ] Turn on stylelint on commit
 
 ## Running locally
 

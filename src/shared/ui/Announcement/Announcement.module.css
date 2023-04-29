@@ -1,6 +1,6 @@
 .root {
-  background-color: #2573e5;
-  color: #fff;
+  background-color: var(--color-blue-iris);
+  color: var(--color-white);
   padding: 4px;
   text-align: center;
   position: absolute;

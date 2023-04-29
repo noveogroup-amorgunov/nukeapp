@@ -3,5 +3,13 @@
   padding: 8px;
   display: flex;
   flex-direction: column;
-  background-color: #f5f5f5;
+  background-color: var(--alternate-background-color);
+}
+
+.title {
+  padding: 0 16px;
+}
+
+.empty {
+  padding: 0 16px;
 }
