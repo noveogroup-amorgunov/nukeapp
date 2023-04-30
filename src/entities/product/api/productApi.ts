@@ -1,7 +1,7 @@
 import { baseApi } from '@/shared/api'
 import { mapProduct } from '../lib/mapProduct'
 import { type Product, type ProductId } from '../model/types'
-import { type ProductDto } from './types'
+import { productDtoSchema, type ProductDto } from './types'
 
 export const productApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -9,17 +9,22 @@ export const productApi = baseApi.injectEndpoints({
       query: () => ({
         url: `/products/popular`,
       }),
-      transformResponse: (response: ProductDto[]) => response.map(mapProduct),
+      /**
+       * ✅ DX Best practice (Type safe)
+       *
+       * By default response is any (see BaseQueryResult)
+       * Set response as unknown and validate it by zod schema
+       *
+       * @see node_modules/@reduxjs/toolkit/dist/query/baseQueryTypes.d.ts
+       */
+      transformResponse: (response: unknown) =>
+        productDtoSchema.array().parse(response).map(mapProduct),
     }),
     products: build.query<Product[], ProductId[]>({
       query: (productIds?: ProductId[]) => ({
         url: `/products${
-          productIds
-            ? `?${
-                productIds.length === 0
-                  ? `id=-1`
-                  : productIds.map((id) => `id=${id}`).join('&')
-              }`
+          productIds && productIds.length > 0
+            ? `?${productIds.map((id) => `id=${id}`).join('&')}`
             : ''
         }`,
       }),

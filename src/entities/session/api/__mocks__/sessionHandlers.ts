@@ -1,17 +1,14 @@
 import { rest } from 'msw'
-import {
-  config,
-  parseTokenFromRequest,
-  signAccessToken,
-  verifyAccessToken,
-} from '@/shared/lib'
+import { config, jwt } from '@/shared/lib'
 
 const MOCKED_USER_ID = 1
 
 export const sessionHandlers = [
   rest.get(`${config.API_ENDPOINT}/me`, async (req, res, ctx) => {
     try {
-      const payload = await verifyAccessToken(parseTokenFromRequest(req))
+      const payload = await jwt.verifyAccessToken(
+        jwt.parseTokenFromRequest(req)
+      )
 
       return await res(
         ctx.delay(config.API_DELAY),
@@ -40,7 +37,7 @@ export const sessionHandlers = [
       return await res(ctx.status(400), ctx.json('Wrong email or password'))
     }
 
-    const accessToken = await signAccessToken({
+    const accessToken = await jwt.signAccessToken({
       userId: MOCKED_USER_ID,
       email,
     })

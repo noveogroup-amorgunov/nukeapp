@@ -1,5 +1,5 @@
 import { rest } from 'msw'
-import { config, parseTokenFromRequest, verifyAccessToken } from '@/shared/lib'
+import { config, jwt } from '@/shared/lib'
 import { mockWishlistDto } from './mockWishlistDto'
 
 let wishlistProductIdsStorage: Id[] = [3, 4, 5, 6, 7]
@@ -9,7 +9,7 @@ export const wishlistHandlers = [
     `${config.API_ENDPOINT}/products/wishlist`,
     async (req, res, ctx) => {
       try {
-        await verifyAccessToken(parseTokenFromRequest(req))
+        await jwt.verifyAccessToken(jwt.parseTokenFromRequest(req))
 
         return await res(
           ctx.delay(config.API_DELAY),
@@ -26,7 +26,7 @@ export const wishlistHandlers = [
     `${config.API_ENDPOINT}/products/wishlist`,
     async (req, res, ctx) => {
       try {
-        await verifyAccessToken(parseTokenFromRequest(req))
+        await jwt.verifyAccessToken(jwt.parseTokenFromRequest(req))
 
         const body = await req.json()
 
