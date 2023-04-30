@@ -32,7 +32,7 @@ body {
   color: var(--text-color);
 }
 
-[data-theme='dark'] body {
+[data-theme="dark"] body {
   font-weight: 350;
 }
 
@@ -45,17 +45,17 @@ a:hover {
   filter: brightness(80%);
 }
 
-[data-theme='dark'] input {
+[data-theme="dark"] input {
   background-color: #0009;
   border-color: #0009;
   color: var(--text-color) !important;
 }
 
-[data-theme='dark'] input:focus {
+[data-theme="dark"] input:focus {
   color: var(--text-color) !important;
 }
 
-[data-theme='dark'] img {
+[data-theme="dark"] img {
   filter: brightness(.8) contrast(1.2);
 }
 
@@ -146,6 +146,6 @@ a:hover {
   font-weight: 700;
 }
 
-[data-theme='dark'] .text_bold {
+[data-theme="dark"] .text_bold {
   font-weight: 600;
 }

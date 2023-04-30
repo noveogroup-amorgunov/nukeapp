@@ -12,6 +12,10 @@
   &_clickable {
     cursor: pointer;
   }
+
+  :global([data-theme="dark"]) & {
+    filter: invert(1);
+  }
 }
 
 .icon {
@@ -20,8 +24,3 @@
   background-size: cover;
 }
 
-/* Not working for external svg
-:global(data-theme="dark") .icon svg path {
-  color: var(--color-text) !important;
-}
-*/
