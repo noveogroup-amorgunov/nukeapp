@@ -20,15 +20,13 @@
   min-height: 300px;
   background-size: cover;
   background-position: center;
-
-  /* max-width: 100%;
-  height: auto;
-  max-height: 100%;
-  background-size: cover; 
-  aspect-ratio: 0.7; */
   overflow: hidden;
   transition: transform 0.2s ease-in-out;
 
+  [data-theme='dark'] & {
+    filter: brightness(.8) contrast(1.2);
+  }
+  
   .root:active & {
     filter: brightness(93%);
   }

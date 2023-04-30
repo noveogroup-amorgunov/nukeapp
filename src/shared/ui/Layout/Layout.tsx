@@ -24,7 +24,7 @@ export function Layout(props: Props) {
       </div>
       <footer className={css.footer}>
         <div className="text_sm">
-          2023, see source code on{' '}
+          {new Date().getFullYear()}, see source code on{' '}
           <a href="https://github.com/noveogroup-amorgunov/nukeapp">
             github/noveogroup-amorgunov/nukeapp
           </a>

@@ -12,6 +12,7 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import { sessionSlice } from '@/entities/session'
+import { themeSlice } from '@/entities/theme'
 import { invalidateAccessTokenListener } from '@/features/authentication/InvalidateAccessToken'
 import { baseApi } from '@/shared/api'
 import { debugModeSlice } from '@/shared/model'
@@ -20,7 +21,7 @@ import { rootReducer } from './rootReducer'
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: [sessionSlice.name, debugModeSlice.name],
+  whitelist: [sessionSlice.name, debugModeSlice.name, themeSlice.name],
 }
 
 export function makeStore() {

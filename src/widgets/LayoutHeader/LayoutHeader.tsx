@@ -1,4 +1,5 @@
 import { type ReactNode } from 'react'
+import { ChangeTheme } from '@/features/theme/ChangeTheme'
 import { useFeatureSlicedDebug } from '@/shared/lib'
 import css from './LayoutHeader.module.css'
 
@@ -13,7 +14,10 @@ export function LayoutHeader(props: Props) {
   return (
     <header className={css.root} {...rootAttributes}>
       {props.logotypeSlot}
-      <div className={css.right}>{props.rightContentSlot}</div>
+      <div className={css.right}>
+        {props.rightContentSlot}
+        <ChangeTheme />
+      </div>
     </header>
   )
 }

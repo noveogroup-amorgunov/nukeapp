@@ -1,3 +1,5 @@
+@import url("./colors.css");
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -7,6 +9,10 @@
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 #root {
@@ -21,18 +27,42 @@ body {
   min-height: 100vh;
   padding: 0;
   margin: 0;
+
+  background: var(--background-color);
+  color: var(--text-color);
 }
 
-* {
-  box-sizing: border-box;
+[data-theme="dark"] body {
+  font-weight: 350;
+}
+
+a {
+  color: var(--link-color);
+}
+
+a:hover {
+  text-decoration: underline;
+  filter: brightness(80%);
+}
+
+[data-theme="dark"] input {
+  background-color: #0009;
+  border-color: #0009;
+  color: var(--text-color) !important;
+}
+
+[data-theme="dark"] input:focus {
+  color: var(--text-color) !important;
+}
+
+[data-theme="dark"] img {
+  filter: brightness(.8) contrast(1.2);
 }
 
 [data-fsd] {
-  --color: #fa0ee9;
-  
-  outline: 2px solid var(--color);
+  outline: 2px solid var(--fsd-color);
   position: relative;
-  background-color: var(--bg-color);
+  background-color: var(--fsd-background-color);
 }
 
 [data-fsd]::after {
@@ -42,8 +72,8 @@ body {
   top: 0;
   right: 0;
   box-sizing: border-box;
-  background: var(--color);
-  color: white;
+  background: var(--fsd-color);
+  color: var(--color-white);
   font-size: 10px;
   line-height: 1;
   font-weight: bold;
@@ -114,4 +144,8 @@ body {
 
 .text_bold {
   font-weight: 700;
+}
+
+[data-theme="dark"] .text_bold {
+  font-weight: 600;
 }

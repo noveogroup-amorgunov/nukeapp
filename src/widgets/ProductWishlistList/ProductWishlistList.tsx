@@ -21,9 +21,23 @@ export function ProductWishlistList() {
     return null
   }
 
+  if (!isFetching && products.length === 0) {
+    return (
+      <div className={css.root} {...rootAttributes}>
+        <h3 className={css.title}>Wishlist</h3>
+        <div className={css.empty}>
+          There are no products in the wish list. Add someone by clicking on the
+          &quot;heart&quot; icon
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className={css.root} {...rootAttributes}>
-      <h3>Wishlist ({isFetching ? '...' : products.length})</h3>
+      <h3 className={css.title}>
+        Wishlist ({isFetching ? '...' : products.length})
+      </h3>
       <ProductList size="s" products={products} isFetching={isFetching} />
     </div>
   )
