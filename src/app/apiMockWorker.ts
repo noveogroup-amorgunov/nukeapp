@@ -2,12 +2,14 @@ import { setupWorker } from 'msw'
 import { categoriesHandlers } from '@/entities/category/api/__mocks__/categoryHandlers'
 import { productsHandlers } from '@/entities/product/api/__mocks__/productHandlers'
 import { sessionHandlers } from '@/entities/session/api/__mocks__/sessionHandlers'
-import { wishlistHandlers } from '@/entities/wishlist/api/__mocks/wishlistHandlers'
+import { userHandlers } from '@/entities/user/api/__mocks__/userHandlers'
+import { wishlistHandlers } from '@/entities/wishlist/api/__mocks__/wishlistHandlers'
 
 const apiMockWorker = setupWorker(
   ...categoriesHandlers,
   ...productsHandlers,
   ...sessionHandlers,
+  ...userHandlers,
   ...wishlistHandlers
 )
 
