@@ -69,6 +69,7 @@ module.exports = {
     "@typescript-eslint/consistent-type-assertions": "off",
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/no-confusing-void-expression": "off",
 
     // feature-sliced/layers-slices
     "boundaries/element-types": "error",

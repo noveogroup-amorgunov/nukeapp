@@ -1,3 +1,4 @@
+import { Provider as ModalProvider } from '@ebay/nice-modal-react'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider as ReduxProvider } from 'react-redux'
@@ -15,12 +16,14 @@ startApiMockWorker()
 
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
-    <ReduxProvider store={appStore}>
-      <PersistGate loading={null} persistor={persistedStore}>
-        <ThemeProvider>
-          <RouterProvider router={appRouter} />
-        </ThemeProvider>
-      </PersistGate>
-    </ReduxProvider>
+    <ModalProvider>
+      <ReduxProvider store={appStore}>
+        <PersistGate loading={null} persistor={persistedStore}>
+          <ThemeProvider>
+            <RouterProvider router={appRouter} />
+          </ThemeProvider>
+        </PersistGate>
+      </ReduxProvider>
+    </ModalProvider>
   </React.StrictMode>
 )

@@ -10,6 +10,7 @@ export type IconType =
   | 'sun'
   | 'moon'
   | 'loader'
+  | 'x'
 
 export type Props = {
   className?: string
