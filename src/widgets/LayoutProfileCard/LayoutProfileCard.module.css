@@ -1,0 +1,26 @@
+@import url("../../shared/breakpoints.css");
+
+.root {
+  display: flex;
+  gap: 10px;
+}
+
+.icon {
+  display: block;
+  position: relative;
+  
+  &::after {
+    content: attr(data-size);
+    position: absolute;
+    top: -5px;
+    display: block;
+    right: -5px;
+    background: var(--text-color);
+    border-radius: 5px;
+    font-size: 10px;
+    line-height: 1;
+    color: var(--background-color);;
+    padding: 3px 5px;
+    font-weight: bold;
+  }
+}

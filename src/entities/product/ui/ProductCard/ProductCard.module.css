@@ -17,6 +17,11 @@
     flex-direction: row;
     gap: 8px;
   }
+
+  &:hover {
+    text-decoration: none;
+    filter: none;
+  }
 }
 
 .image {
