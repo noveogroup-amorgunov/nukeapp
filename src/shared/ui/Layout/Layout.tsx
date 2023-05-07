@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, ScrollRestoration } from 'react-router-dom'
 import css from './Layout.module.css'
 
 type Props = {
@@ -31,6 +31,7 @@ export function Layout(props: Props) {
         </div>
       </footer>
       {props.bottomSlot}
+      <ScrollRestoration />
     </div>
   )
 }

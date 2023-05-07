@@ -1,0 +1,57 @@
+@import url("../../shared/breakpoints.css");
+
+.root {
+  display: flex;
+  gap: 38px;
+
+  @media (--m-viewport) {
+    flex-direction: column;
+  }
+
+  @media (--s-viewport) {
+    gap: 16px;
+  }
+}
+
+.content {
+  flex: 1;
+  flex-grow: 1;
+}
+
+.description {
+  padding: 24px 0;
+}
+
+.actions {
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.price {
+  padding: 8px 0 0;
+}
+
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  flex-grow: 3;
+  width: 100%;
+  gap: 16px;
+
+  @media (--m-viewport) {
+    gap: 8px;
+  }
+}
+
+.images .image {
+  width: calc(50% - 16px);
+  aspect-ratio: 0.8;
+  background-color: var(--alternate-background-color);
+
+  @media (--m-viewport) {
+    width: calc(50% - 8px);
+  }
+}

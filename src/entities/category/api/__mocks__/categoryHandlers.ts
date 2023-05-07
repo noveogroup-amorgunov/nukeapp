@@ -16,14 +16,10 @@ export const categoriesHandlers = [
     const { id } = req.params
     const categoryDto = mockCategoryDtoById(Number(id))
 
-    if (!categoryDto) {
-      return await res(ctx.status(404), ctx.json('Not found'))
-    }
-
     return await res(
       ctx.delay(config.API_DELAY),
-      ctx.status(200),
-      ctx.json(categoryDto)
+      ctx.status(categoryDto ? 200 : 404),
+      ctx.json(categoryDto ?? 'Not found')
     )
   }),
 ]

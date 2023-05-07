@@ -17,6 +17,7 @@ export const wishlistApi = baseApi.injectEndpoints({
         url: `/products/wishlist`,
         method: 'PATCH',
         body: productsInWishlistIds,
+        params: { delay: 500 },
       }),
       invalidatesTags: [WISHLIST_TAG],
     }),

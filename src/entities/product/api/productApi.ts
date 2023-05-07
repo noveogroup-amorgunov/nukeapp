@@ -1,7 +1,12 @@
 import { baseApi } from '@/shared/api'
 import { mapProduct } from '../lib/mapProduct'
-import { type Product, type ProductId } from '../model/types'
-import { type ProductDto } from './types'
+import { mapProductDetails } from '../lib/mapProductDetails'
+import {
+  type Product,
+  type ProductDetails,
+  type ProductId,
+} from '../model/types'
+import { type ProductDto, type ProductDetailsDto } from './types'
 
 export const productApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -25,11 +30,12 @@ export const productApi = baseApi.injectEndpoints({
       }),
       transformResponse: (response: ProductDto[]) => response.map(mapProduct),
     }),
-    productDetails: build.query<Product, ProductId>({
+    productDetails: build.query<ProductDetails, ProductId>({
       query: (productId) => ({
         url: `/products/${productId}`,
       }),
-      transformResponse: (response: ProductDto) => mapProduct(response),
+      transformResponse: (response: ProductDetailsDto) =>
+        mapProductDetails(response),
     }),
   }),
 })
@@ -37,5 +43,5 @@ export const productApi = baseApi.injectEndpoints({
 export const {
   useProductsQuery,
   usePopularProductsQuery,
-  useLazyProductDetailsQuery,
+  useProductDetailsQuery,
 } = productApi

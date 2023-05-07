@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import { ProductCard, type Product } from '@/entities/product'
 import { selectIsAuthorize } from '@/entities/session'
-import { AddToWishlist } from '@/features/wishlist/AddToWishlist'
+import { AddToWishlistIcon } from '@/features/wishlist/AddToWishlist'
 import { useAppSelector } from '@/shared/model'
 import css from './ProductList.module.css'
 
@@ -32,7 +32,9 @@ export function ProductList(props: Props) {
           size={size}
           key={product.id}
           product={product}
-          actionSlot={isAuthorized && <AddToWishlist productId={product.id} />}
+          actionSlot={
+            isAuthorized && <AddToWishlistIcon productId={product.id} />
+          }
         />
       ))}
     </div>

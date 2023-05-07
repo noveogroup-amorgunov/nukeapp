@@ -6,15 +6,15 @@ import { wishlistHandlers } from '@/entities/wishlist/api/__mocks/wishlistHandle
 
 const apiMockWorker = setupWorker(
   ...categoriesHandlers,
+  ...wishlistHandlers,
   ...productsHandlers,
-  ...sessionHandlers,
-  ...wishlistHandlers
+  ...sessionHandlers
 )
 
 export const startApiMockWorker = () => {
   apiMockWorker.start({
     onUnhandledRequest(req, print) {
-      if (/\.(png|jpg|svg|tsx?|css|jsx?)$/.test(req.url.pathname)) {
+      if (/\.(png|jpg|svg|tsx?|css|jsx?|woff2)$/.test(req.url.pathname)) {
         return
       }
 

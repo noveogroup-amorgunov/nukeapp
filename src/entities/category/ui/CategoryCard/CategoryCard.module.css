@@ -23,7 +23,7 @@
   overflow: hidden;
   transition: transform 0.2s ease-in-out;
 
-  [data-theme='dark'] & {
+  [data-theme="dark"] & {
     filter: brightness(.8) contrast(1.2);
   }
   

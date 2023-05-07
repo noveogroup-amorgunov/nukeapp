@@ -6,9 +6,9 @@ import css from './LayoutSidebar.module.css'
 
 export function LayoutSidebar() {
   const { rootAttributes } = useFeatureSlicedDebug('widget/LayoutSidebar')
-  const isAuthorize = useAppSelector(selectIsAuthorize)
+  const isAuthorized = useAppSelector(selectIsAuthorize)
 
-  if (!isAuthorize) {
+  if (!isAuthorized) {
     return null
   }
 
