@@ -28,12 +28,13 @@ export const wishlistHandlers = [
       try {
         await verifyAccessToken(parseTokenFromRequest(req))
 
+        const apiDelay = req.url.searchParams.get('delay')
         const body = await req.json()
 
         wishlistProductIdsStorage = body
 
         return await res(
-          ctx.delay(config.API_DELAY),
+          ctx.delay(Number(apiDelay) ?? config.API_DELAY),
           ctx.status(200),
           ctx.json({})
         )

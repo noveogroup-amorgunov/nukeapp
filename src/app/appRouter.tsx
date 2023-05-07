@@ -3,13 +3,13 @@ import { CategoryPage } from '@/pages/category'
 import { LoginPage } from '@/pages/login'
 import { MainPage } from '@/pages/main'
 import { ProductPage } from '@/pages/product'
-import { appLayout } from './appLayout'
+import { baseLayout } from './layouts/baseLayout'
+import { layoutWithSidebar } from './layouts/layoutWithSidebar'
 
 export const appRouter = createBrowserRouter([
   {
-    path: '/',
-    element: appLayout,
-    errorElement: <div>error</div>,
+    element: baseLayout,
+    errorElement: <div>404</div>,
     children: [
       {
         path: '/login',
@@ -23,6 +23,12 @@ export const appRouter = createBrowserRouter([
         path: '/product/:productId',
         element: <ProductPage />,
       },
+    ],
+  },
+  {
+    element: layoutWithSidebar,
+    errorElement: <div>404</div>,
+    children: [
       {
         path: '/',
         element: <MainPage />,

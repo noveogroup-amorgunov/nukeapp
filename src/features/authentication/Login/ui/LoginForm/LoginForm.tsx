@@ -3,11 +3,13 @@ import { useCallback } from 'react'
 import { useForm } from 'react-hook-form'
 import { useFeatureSlicedDebug } from '@/shared/lib'
 import { useAppDispatch } from '@/shared/model'
+import { Button } from '@/shared/ui'
 import { loginThunk } from '../../model/login'
 import {
   type LoginFormSchema,
   loginFormSchema,
 } from '../../model/loginFormSchema'
+import css from './LoginForm.module.css'
 
 type Props = {
   onComplete?: () => void
@@ -58,7 +60,9 @@ export function LoginForm(props: Props) {
             <p className="text-xs">{errors.password?.message}</p>
           )}
         </div>
-        <input type="submit" />
+        <div className={css.actions}>
+          <Button type="submit">Login</Button>
+        </div>
       </form>
     </div>
   )

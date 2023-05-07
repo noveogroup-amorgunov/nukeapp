@@ -33,10 +33,12 @@ Right now, I'm using this project as an experiment polygon to try modern technol
 
 App logic:
 
-- [ ] Add droduct page
+- [x] Add product page
 - [ ] Add ecom cart logic
 - [ ] Add ecom order logic
 - [ ] Add stock logic (available of products)
+- [ ] Add product sizes
+- [ ] Add confirm modals
 
 Technologies:
 
@@ -47,14 +49,14 @@ Technologies:
 
 Other:
 
-- [ ] Move colors to css vars
-- [ ] Fix TODO into code
+- [x] Move colors to css vars
 - [x] Fix FSD errors
+- [x] Add Dark theme
+- [x] Add FSD public API pattern
+- [ ] Fix TODO into code
 - [ ] Write storybook stories
 - [ ] Write article to my blog about main concepts
-- [x] Add Dark theme
 - [ ] Add I18n
-- [ ] Add FSD public API pattern
 - [ ] Write screenshot tests for stories
 - [ ] Write Integration tests for user's use cases
 - [ ] Turn on stylelint on commit

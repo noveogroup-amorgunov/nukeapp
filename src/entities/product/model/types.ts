@@ -22,3 +22,14 @@ export type Product = {
   price: Penny
   oldPrice?: Penny
 }
+
+export type ProductDetails = {
+  id: ProductId
+  name: string
+  subname: string
+  description: string
+  label: string
+  images: Url[]
+  price: Penny
+  oldPrice?: Penny
+}

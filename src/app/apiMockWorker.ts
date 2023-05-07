@@ -6,9 +6,9 @@ import { wishlistHandlers } from '@/entities/wishlist/api/__mocks/wishlistHandle
 
 const apiMockWorker = setupWorker(
   ...categoriesHandlers,
+  ...wishlistHandlers,
   ...productsHandlers,
-  ...sessionHandlers,
-  ...wishlistHandlers
+  ...sessionHandlers
 )
 
 export const startApiMockWorker = () => {

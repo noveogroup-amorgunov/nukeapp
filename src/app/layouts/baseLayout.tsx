@@ -2,19 +2,18 @@ import { Announcement, Layout } from '@/shared/ui'
 import { DebugModeToggler } from '@/widgets/DebugModeToggler'
 import { LayoutHeader } from '@/widgets/LayoutHeader'
 import { LayoutProfileCard } from '@/widgets/LayoutProfileCard'
-import { LayoutSidebar } from '@/widgets/LayoutSidebar'
 import { Logo } from '@/widgets/Logo'
 
 /**
  * ✅ FSD Best practice
  *
  * (1) Devide layout in two modules: dumb layout grid (shared)
- * and smart layout with widgets (here file)
+ * and smart layout with widgets (this file)
  *
  * (2) Avoid cross-import using slot (render prop) pattern
  * Pass widgets as props to layout
  */
-export const appLayout = (
+export const baseLayout = (
   <Layout
     announcementSlot={
       <Announcement>
@@ -25,7 +24,6 @@ export const appLayout = (
       </Announcement>
     }
     bottomSlot={<DebugModeToggler />}
-    sidebarSlot={<LayoutSidebar />}
     headerSlot={
       <LayoutHeader
         rightContentSlot={<LayoutProfileCard />}

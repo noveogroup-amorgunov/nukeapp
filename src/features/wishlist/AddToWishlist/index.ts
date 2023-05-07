@@ -1,1 +1,2 @@
-export { AddToWishlist } from './ui/AddToWishlist/AddToWishlist'
+export { AddToWishlistIcon } from './ui/AddToWishlistIcon/AddToWishlistIcon'
+export { AddToWishlistButton } from './ui/AddToWishlistButton/AddToWishlistButton'

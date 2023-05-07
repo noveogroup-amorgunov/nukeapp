@@ -3,9 +3,12 @@
   --link-color: #543fd7;
   --background-color: #fff;
   --alternate-background-color: #f7f7f9;
+  --primary-color: #fbf11f;
+  --primary-colorPressed: #eff32c;
 
   /* Global colors */
   --color-white: #fff;
+  --color-dark: #212a2e;
   --color-blue-iris: #543fd7;;
 }
 

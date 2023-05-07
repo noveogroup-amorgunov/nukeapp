@@ -5,7 +5,7 @@ export function mapProduct(dto: ProductDto): Product {
   return {
     id: dto.id as ProductId,
     name: dto.name,
-    label: dto.description,
+    label: dto.badge,
     subname: dto.subtitle,
     price: dto.discountPrice ?? dto.price,
     oldPrice: dto.price,
