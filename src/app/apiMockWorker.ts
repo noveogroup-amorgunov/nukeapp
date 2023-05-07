@@ -14,7 +14,7 @@ const apiMockWorker = setupWorker(
 export const startApiMockWorker = () => {
   apiMockWorker.start({
     onUnhandledRequest(req, print) {
-      if (/\.(png|jpg|svg|tsx?|css|jsx?)$/.test(req.url.pathname)) {
+      if (/\.(png|jpg|svg|tsx?|css|jsx?|woff2)$/.test(req.url.pathname)) {
         return
       }
 

@@ -1,3 +1,6 @@
+import React from '@storybook/react'
+import { withRouter } from 'storybook-addon-react-router-v6'
+import { Link } from 'react-router-dom'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { withTheme } from '../src/app/storybookDecorators/withTheme'
 import { withStore } from '../src/app/storybookDecorators/withStore'
@@ -18,6 +21,14 @@ export const parameters = {
     viewports: INITIAL_VIEWPORTS,
     defaultViewport: 'iphonex',
   },
+  reactRouter: {
+    routePath: '/',
+    errorElement: (
+      <div>
+        Storybook don't works with routes, <Link to="/">go back</Link> to stoty
+      </div>
+    ),
+  },
 }
 
 export const globalTypes = {
@@ -31,9 +42,8 @@ export const globalTypes = {
         { value: 'light', icon: 'circlehollow', title: 'light' },
         { value: 'dark', icon: 'circle', title: 'dark' },
       ],
-      showName: true,
     },
   },
 }
 
-export const decorators = [withTheme, withStore, withApiMock]
+export const decorators = [withTheme, withStore, withApiMock, withRouter]
