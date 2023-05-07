@@ -34,11 +34,11 @@ Right now, I'm using this project as an experiment polygon to try modern technol
 App business logic:
 
 - [x] Product page
+- [x] Confirm modals
 - [ ] Ecom bag logic
 - [ ] Ecom order logic
 - [ ] Stock logic (available of products)
 - [ ] Product details sizes
-- [ ] Confirm modals
 - [ ] Wishlist page or modal
 - [ ] Private routes
 
