@@ -4,10 +4,8 @@ import {
   formatPrice,
   type ProductDetails as ProductDetailsType,
 } from '@/entities/product'
-import { selectIsAuthorize } from '@/entities/session'
 import { AddToWishlistButton } from '@/features/wishlist/AddToWishlist'
 import { useFeatureSlicedDebug } from '@/shared/lib'
-import { useAppSelector } from '@/shared/model'
 import css from './ProductDetails.module.css'
 
 type Props = {
@@ -19,7 +17,6 @@ const MIN_IMAGE_COUNT = 4
 
 export function ProductDetails({ productDetails, isFetching }: Props) {
   const { rootAttributes } = useFeatureSlicedDebug('widget/ProductDetails')
-  const isAuthorized = useAppSelector(selectIsAuthorize)
 
   const imageStubs = useMemo(
     () =>
@@ -67,11 +64,9 @@ export function ProductDetails({ productDetails, isFetching }: Props) {
         <div className={cn(css.price, 'text_bold')}>
           {formatPrice(productDetails.price)}
         </div>
-        {isAuthorized && (
-          <div className={css.actions}>
-            <AddToWishlistButton productId={productDetails.id} />
-          </div>
-        )}
+        <div className={css.actions}>
+          <AddToWishlistButton productId={productDetails.id} />
+        </div>
         <div className={cn(css.description, 'text_base')}>
           {productDetails.description}
         </div>

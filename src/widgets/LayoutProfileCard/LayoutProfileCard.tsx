@@ -1,7 +1,7 @@
 import { skipToken } from '@reduxjs/toolkit/dist/query'
 import cn from 'classnames'
 import { Link } from 'react-router-dom'
-import { selectIsAuthorize, useMeQuery } from '@/entities/session'
+import { selectIsAuthorized, useMeQuery } from '@/entities/session'
 import { selectProductIdsInWishlist } from '@/entities/wishlist'
 import { LogoutButton } from '@/features/authentication/Logout'
 import { useFeatureSlicedDebug } from '@/shared/lib'
@@ -11,7 +11,7 @@ import css from './LayoutProfileCard.module.css'
 
 export function LayoutProfileCard() {
   const { rootAttributes } = useFeatureSlicedDebug('widget/LayoutProfileCard')
-  const isAuthorized = useAppSelector(selectIsAuthorize)
+  const isAuthorized = useAppSelector(selectIsAuthorized)
   const productIdsInWishlist = useAppSelector(selectProductIdsInWishlist)
   const { data: profileData } = useMeQuery(
     isAuthorized ? undefined : skipToken,
@@ -31,7 +31,7 @@ export function LayoutProfileCard() {
   return (
     <div className={css.root} {...rootAttributes}>
       <div>
-        Hello, <span className="text_bold">{profileData?.email}</span>!&nbsp;
+        Hey, <span className="text_bold">{profileData?.email}</span>!&nbsp;
         <LogoutButton />
       </div>
       {/* TODO: Change to Link and add wishlist page */}

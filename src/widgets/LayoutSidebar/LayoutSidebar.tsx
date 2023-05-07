@@ -1,4 +1,4 @@
-import { selectIsAuthorize } from '@/entities/session'
+import { selectIsAuthorized } from '@/entities/session'
 import { useFeatureSlicedDebug } from '@/shared/lib'
 import { useAppSelector } from '@/shared/model'
 import { ProductWishlistList } from '@/widgets/ProductWishlistList'
@@ -6,7 +6,7 @@ import css from './LayoutSidebar.module.css'
 
 export function LayoutSidebar() {
   const { rootAttributes } = useFeatureSlicedDebug('widget/LayoutSidebar')
-  const isAuthorized = useAppSelector(selectIsAuthorize)
+  const isAuthorized = useAppSelector(selectIsAuthorized)
 
   if (!isAuthorized) {
     return null

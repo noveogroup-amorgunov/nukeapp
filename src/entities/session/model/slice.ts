@@ -44,7 +44,7 @@ export const sessionSlice = createSlice({
   },
 })
 
-export const selectIsAuthorize = (state: RootState) =>
+export const selectIsAuthorized = (state: RootState) =>
   state.session.isAuthorized
 
 export const selectUserId = (state: RootState) => state.session.userId

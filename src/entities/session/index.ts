@@ -1,5 +1,5 @@
 export {
-  selectIsAuthorize,
+  selectIsAuthorized,
   clearSessionData,
   sessionSlice,
 } from './model/slice'
