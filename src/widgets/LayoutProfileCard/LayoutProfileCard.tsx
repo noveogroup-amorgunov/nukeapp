@@ -34,16 +34,15 @@ export function LayoutProfileCard() {
         Hello, <span className="text_bold">{profileData?.email}</span>!&nbsp;
         <LogoutButton />
       </div>
-      <Link to="/cart">
-        <Icon type="cart" />
-      </Link>
-      <Link
-        className={cn({ [css.icon]: productIdsInWishlist.length > 0 })}
-        data-size={productIdsInWishlist.length}
-        to="/wishlist"
-      >
-        <Icon type="like" />
-      </Link>
+      {/* TODO: Change to Link and add wishlist page */}
+      {isAuthorized && (
+        <div
+          className={cn({ [css.icon]: productIdsInWishlist.length > 0 })}
+          data-size={productIdsInWishlist.length}
+        >
+          <Icon type="like" />
+        </div>
+      )}
     </div>
   )
 }

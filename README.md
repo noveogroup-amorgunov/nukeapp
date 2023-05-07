@@ -31,14 +31,16 @@ Right now, I'm using this project as an experiment polygon to try modern technol
 
 # Roadmap
 
-App logic:
+App business logic:
 
-- [x] Add product page
-- [ ] Add ecom cart logic
-- [ ] Add ecom order logic
-- [ ] Add stock logic (available of products)
-- [ ] Add product sizes
-- [ ] Add confirm modals
+- [x] Product page
+- [ ] Ecom bag logic
+- [ ] Ecom order logic
+- [ ] Stock logic (available of products)
+- [ ] Product details sizes
+- [ ] Confirm modals
+- [ ] Wishlist page or modal
+- [ ] Private routes
 
 Technologies:
 
