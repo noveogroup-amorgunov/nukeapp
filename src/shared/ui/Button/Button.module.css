@@ -2,7 +2,9 @@
 
 .root {
   min-width: 240px;
-  padding: 12px 20px;
+  padding: 0 20px;
+  height: 46px;
+  line-height: 46px;
   background: var(--primary-color);
   color: var(--color-dark);
   border: 0;
@@ -12,14 +14,26 @@
   cursor: pointer;
   display: flex;
   justify-content: center;
+  align-items: center;
 
   @media (--s-viewport) {
     width: 100%;
+    min-width: 100%;
   }
-}
 
-.root:hover {
-  background: var(--primary-colorPressed);
+  &:hover {
+    background: var(--primary-colorPressed);
+  }
+
+  &_theme_secondary {
+    background: var(--background-color);
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+  }
+
+  &_theme_secondary:hover {
+    background: var(--alternate-background-color);
+  }
 }
 
 .loader {

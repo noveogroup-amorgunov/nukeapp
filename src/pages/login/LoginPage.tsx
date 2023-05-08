@@ -1,12 +1,14 @@
 import { useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { LoginForm } from '@/features/authentication/Login'
 import { config } from '@/shared/lib'
 
 export function LoginPage() {
   const navigate = useNavigate()
+  const location = useLocation()
+
   const onComplete = useCallback(() => {
-    navigate('/')
+    navigate(location.state?.returnUrl ?? '/')
   }, [navigate])
 
   return (

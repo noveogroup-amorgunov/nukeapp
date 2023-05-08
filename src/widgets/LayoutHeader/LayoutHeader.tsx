@@ -1,6 +1,6 @@
 import { skipToken } from '@reduxjs/toolkit/dist/query'
 import { type ReactNode } from 'react'
-import { selectIsAuthorize } from '@/entities/session'
+import { selectIsAuthorized } from '@/entities/session'
 import { useWishlistProductsQuery } from '@/entities/wishlist'
 import { ChangeTheme } from '@/features/theme/ChangeTheme'
 import { useFeatureSlicedDebug } from '@/shared/lib'
@@ -14,7 +14,7 @@ type Props = {
 
 export function LayoutHeader(props: Props) {
   const { rootAttributes } = useFeatureSlicedDebug('widget/LayoutHeader')
-  const isAuthorized = useAppSelector(selectIsAuthorize)
+  const isAuthorized = useAppSelector(selectIsAuthorized)
   useWishlistProductsQuery(isAuthorized ? undefined : skipToken, {
     skip: !isAuthorized,
   })

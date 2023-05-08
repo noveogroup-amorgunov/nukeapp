@@ -1,5 +1,5 @@
 import { skipToken } from '@reduxjs/toolkit/dist/query'
-import { selectIsAuthorize } from '@/entities/session'
+import { selectIsAuthorized } from '@/entities/session'
 import { useWishlistProductsQuery } from '@/entities/wishlist'
 import { useFeatureSlicedDebug } from '@/shared/lib'
 import { useAppSelector } from '@/shared/model'
@@ -8,7 +8,7 @@ import css from './ProductWishlistList.module.css'
 
 export function ProductWishlistList() {
   const { rootAttributes } = useFeatureSlicedDebug('widget/ProductWishlistList')
-  const isAuthorized = useAppSelector(selectIsAuthorize)
+  const isAuthorized = useAppSelector(selectIsAuthorized)
 
   const { data: products = [], isFetching } = useWishlistProductsQuery(
     isAuthorized ? undefined : skipToken,

@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import { ProductCard, type Product } from '@/entities/product'
-import { selectIsAuthorize } from '@/entities/session'
+import { selectIsAuthorized } from '@/entities/session'
 import { AddToWishlistIcon } from '@/features/wishlist/AddToWishlist'
 import { useAppSelector } from '@/shared/model'
 import css from './ProductList.module.css'
@@ -13,7 +13,7 @@ type Props = {
 
 export function ProductList(props: Props) {
   const { isFetching, products, size = 'm' } = props
-  const isAuthorized = useAppSelector(selectIsAuthorize)
+  const isAuthorized = useAppSelector(selectIsAuthorized)
 
   if (Boolean(isFetching) && products.length === 0) {
     return <div className={css.root}>Fetching...</div>

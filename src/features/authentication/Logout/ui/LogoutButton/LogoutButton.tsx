@@ -1,22 +1,29 @@
-import { useNavigate } from 'react-router-dom'
+import { useConfirmModal } from '@/shared/lib'
 import { useAppDispatch } from '@/shared/model'
 import { logoutThunk } from '../../model/logout'
 
 export function LogoutButton() {
   const dispatch = useAppDispatch()
-  const navigate = useNavigate()
+  const logoutModal = useConfirmModal()
 
-  const onLogout = (e: React.MouseEvent<HTMLElement>) => {
+  const onConfirmLogout = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation()
-    dispatch(logoutThunk())
-      .unwrap()
-      .finally(() => {
-        navigate('/')
-      })
+
+    logoutModal.show({
+      title: 'Are you sure?',
+      onConfirm: () => {
+        dispatch(logoutThunk())
+          .unwrap()
+          .finally(() => {
+            logoutModal.remove()
+          })
+      },
+      onCancel: () => logoutModal.remove(),
+    })
   }
 
   return (
-    <a href="#" onClick={onLogout}>
+    <a href="#" onClick={onConfirmLogout}>
       logout
     </a>
   )

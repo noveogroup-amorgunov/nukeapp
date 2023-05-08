@@ -21,7 +21,7 @@ export function ChangeTheme() {
     <div {...rootAttributes}>
       <Icon
         onClick={onClick}
-        type={currentTheme === 'light' ? 'sun' : 'moon'}
+        type={currentTheme === 'light' ? 'moon' : 'sun'}
       />
     </div>
   )

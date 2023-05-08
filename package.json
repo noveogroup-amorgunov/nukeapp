@@ -17,6 +17,7 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
+    "@ebay/nice-modal-react": "1.2.10",
     "@hookform/resolvers": "3.0.0",
     "@reduxjs/toolkit": "1.9.2",
     "classnames": "2.3.2",
