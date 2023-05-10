@@ -1,8 +1,8 @@
 import { Announcement, Layout } from '@/shared/ui'
+import { AdBlock } from '@/widgets/AdBlock'
 import { DebugModeToggler } from '@/widgets/DebugModeToggler'
 import { LayoutHeader } from '@/widgets/LayoutHeader'
 import { LayoutProfileCard } from '@/widgets/LayoutProfileCard'
-import { LayoutSidebar } from '@/widgets/LayoutSidebar'
 import { Logo } from '@/widgets/Logo'
 
 export const layoutWithSidebar = (
@@ -16,7 +16,7 @@ export const layoutWithSidebar = (
       </Announcement>
     }
     bottomSlot={<DebugModeToggler />}
-    sidebarSlot={<LayoutSidebar />}
+    sidebarSlot={<AdBlock />}
     headerSlot={
       <LayoutHeader
         rightContentSlot={<LayoutProfileCard />}
