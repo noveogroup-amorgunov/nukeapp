@@ -13,7 +13,9 @@ export function ProductPage() {
     { skip: !productId }
   )
 
-  if (!productId || (!isFetching && !data)) {
+  const isNotFound = !productId || (!isFetching && !data)
+
+  if (isNotFound) {
     return (
       <div>
         Product not found, go to <Link to="/">main page</Link>

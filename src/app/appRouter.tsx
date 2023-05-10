@@ -3,6 +3,7 @@ import { CategoryPage } from '@/pages/category'
 import { LoginPage } from '@/pages/login'
 import { MainPage } from '@/pages/main'
 import { ProductPage } from '@/pages/product'
+import { WishlistPage } from '@/pages/wishlist'
 import { baseLayout } from './layouts/baseLayout'
 import { layoutWithSidebar } from './layouts/layoutWithSidebar'
 
@@ -14,6 +15,10 @@ export const appRouter = createBrowserRouter([
       {
         path: '/login',
         element: <LoginPage />,
+      },
+      {
+        path: '/user/wishlist',
+        element: <WishlistPage />,
       },
       {
         path: '/category/:categoryId',
