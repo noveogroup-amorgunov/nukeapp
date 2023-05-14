@@ -7,6 +7,10 @@
   gap: 16px;
   max-width: 100%;
 
+  &.rootIsFetching {
+    opacity: 0.5;
+  }
+
   @media (--xl-viewport) {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px 9px;

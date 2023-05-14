@@ -3,14 +3,14 @@
   height: 24px;
   width: 24px;
 
-  &:hover,
-  &:active {
-    background-color: #0001;
-    border-radius: 8px;
-  }
-
   &_clickable {
     cursor: pointer;
+  }
+
+  &_clickable:hover,
+  &_clickable:active {
+    background-color: #0001;
+    border-radius: 8px;
   }
 
   :global([data-theme="dark"]) & {

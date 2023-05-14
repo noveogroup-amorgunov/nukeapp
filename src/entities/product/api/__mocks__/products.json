@@ -125,6 +125,7 @@
   },
   {
     "popular": true,
+    "categoryId": 3,
     "id": 10,
     "name": "Nike Air Zoom G.T. Cut 2",
     "badge": "IN_STOCK",
@@ -138,6 +139,7 @@
   },
   {
     "popular": true,
+    "categoryId": 3,
     "id": 11,
     "name": "Nike Air Zoom G.T. Jump",
     "badge": "IN_STOCK",
@@ -152,6 +154,7 @@
   {
     "popular": true,
     "id": 12,
+    "categoryId": 1,
     "name": "Nike Blazer Mid Pro Club",
     "badge": "JUST_IN",
     "subtitle": "Men's Shoes",
@@ -165,6 +168,7 @@
   {
     "popular": false,
     "id": 13,
+    "categoryId": 1,
     "name": "Nike Blazer Mid '77 Vintage",
     "badge": "BEST_SELLER",
     "subtitle": "Men's Shoes",
@@ -178,6 +182,7 @@
   {
     "popular": false,
     "id": 14,
+    "categoryId": 1,
     "name": "Nike Air Max 270",
     "badge": "IN_STOCK",
     "subtitle": "Men's Shoes",
@@ -191,6 +196,7 @@
   {
     "popular": false,
     "id": 15,
+    "categoryId": 1,
     "name": "Nike Air Max 1 '86 OG G",
     "badge": "JUST_IN",
     "subtitle": "Men's Golf Shoes",
@@ -204,6 +210,7 @@
   {
     "popular": false,
     "id": 16,
+    "categoryId": 1,
     "name": "Nike Air Zoom Victory Tour 3 NRG",
     "badge": "JUST_IN",
     "subtitle": "Men's Golf Shoes",
@@ -217,6 +224,7 @@
   {
     "popular": false,
     "id": 17,
+    "categoryId": 1,
     "name": "Nike Air Zoom Infinity Tour NEXT% NRG",
     "badge": "JUST_IN",
     "subtitle": "Golf Shoes",
@@ -230,6 +238,7 @@
   {
     "popular": false,
     "id": 18,
+    "categoryId": 1,
     "name": "Nike Air Max 1",
     "badge": "JUST_IN",
     "subtitle": "Men's Slides",
@@ -243,6 +252,7 @@
   {
     "popular": false,
     "id": 19,
+    "categoryId": 1,
     "name": "Nike Offcourt Adjust",
     "badge": "IN_STOCK",
     "subtitle": "Men's Slides",
@@ -256,6 +266,7 @@
   {
     "popular": false,
     "id": 20,
+    "categoryId": 1,
     "name": "Nike Air Max 97",
     "badge": "BEST_SELLER",
     "subtitle": "Men's Shoes",

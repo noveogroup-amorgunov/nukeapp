@@ -1,0 +1,13 @@
+.control {
+  display: flex;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.controlValue {
+  opacity: 0.7;
+}
+
+.controlIconOpened {
+  transform: rotate(180deg)
+}

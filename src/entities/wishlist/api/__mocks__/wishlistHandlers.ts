@@ -34,7 +34,7 @@ export const wishlistHandlers = [
         wishlistProductIdsStorage = body
 
         return await res(
-          ctx.delay(Number(apiDelay) ?? config.API_DELAY),
+          ctx.delay(Number(apiDelay) || config.API_DELAY),
           ctx.status(200),
           ctx.json({})
         )

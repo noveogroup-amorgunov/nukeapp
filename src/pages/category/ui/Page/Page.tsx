@@ -1,19 +1,28 @@
 import { Link, useParams } from 'react-router-dom'
 import { useCategoryDetailsQuery } from '@/entities/category'
+import { useAppSelector } from '@/shared/model'
 import { ProductList } from '@/widgets/ProductList'
+import { selectSortBy } from '../../model/slice'
+import { PageHeader } from '../PageHeader/PageHeader'
 
 export function CategoryPage() {
   const { categoryId } = useParams<{ categoryId: string }>()
+  const sortBy = useAppSelector(selectSortBy)
 
   // TODO: Add zod validation
-  const { data, isFetching } = useCategoryDetailsQuery(
-    Number.parseInt(categoryId ?? '1', 10)
-  )
+  const { data, isFetching, isLoading } = useCategoryDetailsQuery({
+    categoryId: Number.parseInt(categoryId ?? '1', 10),
+    sortBy,
+  })
 
-  if (isFetching) {
+  /**
+   * Use isLoading for only first loading
+   * For next loading use isFetching
+   */
+  if (isLoading) {
     return (
       <div>
-        <h1>Loading...</h1>
+        <h1 className="text_2xl">Loading...</h1>
       </div>
     )
   }
@@ -28,8 +37,8 @@ export function CategoryPage() {
 
   return (
     <div>
-      <h1>{data.name}</h1>
-      <ProductList products={data.products} />
+      <PageHeader category={data} />
+      <ProductList isFetching={isFetching} products={data.products} />
     </div>
   )
 }

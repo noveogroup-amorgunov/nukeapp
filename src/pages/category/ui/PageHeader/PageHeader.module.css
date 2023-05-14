@@ -1,0 +1,17 @@
+@import url("../../../../shared/breakpoints.css");
+
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--background-color);
+}
+
+.actions {
+  display: flex;
+  gap: 24px;
+}

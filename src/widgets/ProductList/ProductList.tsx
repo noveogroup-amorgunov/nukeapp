@@ -28,7 +28,14 @@ export function ProductList(props: Props) {
    * to render-prop to avoid entity cross-import
    */
   return (
-    <div {...rootAttributes} className={cn(css.root, css[`root_size_${size}`])}>
+    <div
+      {...rootAttributes}
+      className={cn(
+        css.root,
+        isFetching && css.rootIsFetching,
+        css[`root_size_${size}`]
+      )}
+    >
       {products.map((product) => (
         <ProductCard
           size={size}
