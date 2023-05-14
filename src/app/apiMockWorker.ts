@@ -1,5 +1,6 @@
 import { setupWorker } from 'msw'
 import { categoriesHandlers } from '@/entities/category/api/__mocks__/categoryHandlers'
+import { featureConfigHandlers } from '@/entities/featureConfig/api/__mocks__/featureConfigHandlers'
 import { productsHandlers } from '@/entities/product/api/__mocks__/productHandlers'
 import { sessionHandlers } from '@/entities/session/api/__mocks__/sessionHandlers'
 import { wishlistHandlers } from '@/entities/wishlist/api/__mocks__/wishlistHandlers'
@@ -8,7 +9,8 @@ const apiMockWorker = setupWorker(
   ...categoriesHandlers,
   ...wishlistHandlers,
   ...productsHandlers,
-  ...sessionHandlers
+  ...sessionHandlers,
+  ...featureConfigHandlers
 )
 
 export const startApiMockWorker = () => {

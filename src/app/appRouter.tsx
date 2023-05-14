@@ -1,16 +1,21 @@
 import { createBrowserRouter } from 'react-router-dom'
+import { featureConfigLoader } from '@/entities/featureConfig'
 import { CategoryPage } from '@/pages/category'
 import { LoginPage } from '@/pages/login'
 import { MainPage } from '@/pages/main'
 import { ProductPage } from '@/pages/product'
 import { WishlistPage } from '@/pages/wishlist'
+import { appStore } from './appStore'
 import { baseLayout } from './layouts/baseLayout'
 import { layoutWithSidebar } from './layouts/layoutWithSidebar'
 
 export const appRouter = createBrowserRouter([
   {
     element: baseLayout,
-    errorElement: <div>404</div>,
+    errorElement: <div>error</div>,
+    loader: async () => {
+      return await featureConfigLoader(appStore.dispatch)
+    },
     children: [
       {
         path: '/login',
@@ -32,7 +37,10 @@ export const appRouter = createBrowserRouter([
   },
   {
     element: layoutWithSidebar,
-    errorElement: <div>404</div>,
+    errorElement: <div>error</div>,
+    loader: async () => {
+      return await featureConfigLoader(appStore.dispatch)
+    },
     children: [
       {
         path: '/',
