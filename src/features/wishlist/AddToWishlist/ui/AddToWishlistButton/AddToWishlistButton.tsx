@@ -55,7 +55,7 @@ export function AddToWishlistButton({ productId }: Props) {
 
   return (
     <div {...rootAttributes}>
-      <Button isLoading={isLoading} onClick={onClick} theme="primary">
+      <Button isLoading={isLoading} onClick={onClick} theme="secondary">
         {isInWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
       </Button>
     </div>

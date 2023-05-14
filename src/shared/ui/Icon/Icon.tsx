@@ -3,7 +3,7 @@ import React from 'react'
 import css from './Icon.module.css'
 
 export type IconType =
-  | 'cart'
+  | 'bag'
   | 'like'
   | 'liked'
   | 'user'

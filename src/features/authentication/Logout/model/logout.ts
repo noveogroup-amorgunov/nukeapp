@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
+import { clearCartData } from '@/entities/cart'
 import { sessionApi, clearSessionData } from '@/entities/session'
 import { wishlistApi, clearWishlistData } from '@/entities/wishlist'
 import { SESSION_TAG, WISHLIST_TAG } from '@/shared/api'
@@ -9,6 +10,7 @@ export const logoutThunk = createAsyncThunk<void, void, { state: RootState }>(
   async (_: unknown, { dispatch }) => {
     dispatch(clearSessionData())
     dispatch(clearWishlistData())
+    dispatch(clearCartData())
 
     // Wait 10ms to invalidateTags in next event loop tick.
     // Otherwise after invalidate related requests with SESSION_TAG

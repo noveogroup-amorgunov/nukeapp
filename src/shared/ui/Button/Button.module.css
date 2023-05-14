@@ -15,6 +15,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: scale(1);
+  transition: transform 0.2s ease-in-out;
 
   @media (--s-viewport) {
     width: 100%;
@@ -23,6 +25,10 @@
 
   &:hover {
     background: var(--primary-colorPressed);
+  }
+
+  &:active {
+    transform: scale(0.95);
   }
 
   &_theme_secondary {
@@ -41,6 +47,10 @@
   filter: invert(0) !important;
   height: 18px;
   width: 18px;
+
+  [data-theme="dark"] .root_theme_secondary & {
+    filter: invert(1) !important;
+  }
 }
 
 @keyframes rotating {

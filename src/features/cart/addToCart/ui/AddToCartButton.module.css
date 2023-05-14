@@ -1,0 +1,15 @@
+.buttonContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.buttonAction {
+  padding: 0 15px;
+  line-height: inherit;
+
+  &:hover {
+    background: linear-gradient(90deg, var(--primary-colorPressed) 0%, #cacd26 50%, var(--primary-colorPressed) 100%);
+  }
+}

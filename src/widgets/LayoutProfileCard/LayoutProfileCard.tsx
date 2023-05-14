@@ -1,6 +1,7 @@
 import { skipToken } from '@reduxjs/toolkit/dist/query'
 import cn from 'classnames'
 import { Link } from 'react-router-dom'
+import { selectProductInCartCount } from '@/entities/cart'
 import { selectIsAuthorized, useMeQuery } from '@/entities/session'
 import { selectProductIdsInWishlist } from '@/entities/wishlist'
 import { LogoutButton } from '@/features/authentication/Logout'
@@ -12,6 +13,7 @@ import css from './LayoutProfileCard.module.css'
 export function LayoutProfileCard() {
   const { rootAttributes } = useFeatureSlicedDebug('widget/LayoutProfileCard')
   const isAuthorized = useAppSelector(selectIsAuthorized)
+  const productsInCartCount = useAppSelector(selectProductInCartCount)
   const productIdsInWishlist = useAppSelector(selectProductIdsInWishlist)
   const { data: profileData } = useMeQuery(
     isAuthorized ? undefined : skipToken,
@@ -41,6 +43,15 @@ export function LayoutProfileCard() {
           data-size={productIdsInWishlist.length}
         >
           <Icon type="like" />
+        </Link>
+      )}
+      {isAuthorized && (
+        <Link
+          to="/user/cart"
+          className={cn({ [css.icon]: productsInCartCount > 0 })}
+          data-size={productsInCartCount}
+        >
+          <Icon type="bag" />
         </Link>
       )}
     </div>
