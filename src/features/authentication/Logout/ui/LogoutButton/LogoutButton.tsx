@@ -8,6 +8,7 @@ export function LogoutButton() {
 
   const onConfirmLogout = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation()
+    e.preventDefault()
 
     logoutModal.show({
       title: 'Are you sure?',

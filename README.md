@@ -35,11 +35,11 @@ App business logic:
 
 - [x] Product page
 - [x] Confirm modals
+- [x] Wishlist page or modal
 - [ ] Ecom bag logic
 - [ ] Ecom order logic
 - [ ] Stock logic (available of products)
 - [ ] Product details sizes
-- [ ] Wishlist page or modal
 - [ ] Private routes
 
 Technologies:

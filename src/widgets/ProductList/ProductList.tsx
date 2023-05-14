@@ -2,6 +2,7 @@ import cn from 'classnames'
 import { ProductCard, type Product } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
 import { AddToWishlistIcon } from '@/features/wishlist/AddToWishlist'
+import { useFeatureSlicedDebug } from '@/shared/lib'
 import { useAppSelector } from '@/shared/model'
 import css from './ProductList.module.css'
 
@@ -12,6 +13,7 @@ type Props = {
 }
 
 export function ProductList(props: Props) {
+  const { rootAttributes } = useFeatureSlicedDebug('widget/ProductList')
   const { isFetching, products, size = 'm' } = props
   const isAuthorized = useAppSelector(selectIsAuthorized)
 
@@ -26,7 +28,7 @@ export function ProductList(props: Props) {
    * to render-prop to avoid entity cross-import
    */
   return (
-    <div className={cn(css.root, css[`root_size_${size}`])}>
+    <div {...rootAttributes} className={cn(css.root, css[`root_size_${size}`])}>
       {products.map((product) => (
         <ProductCard
           size={size}

@@ -20,7 +20,9 @@ export function Layout(props: Props) {
         <div className={css.content}>
           <Outlet />
         </div>
-        {props.sidebarSlot}
+        {props.sidebarSlot && (
+          <aside className={css.sidebar}>{props.sidebarSlot}</aside>
+        )}
       </div>
       <footer className={css.footer}>
         <div className="text_sm">

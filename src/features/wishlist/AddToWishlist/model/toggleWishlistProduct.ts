@@ -31,7 +31,10 @@ export const toggleWishlistProductThunk = createAsyncThunk<
         : productsIds.concat(productId)
 
       await dispatch(
-        wishlistApi.endpoints.addToWishlist.initiate(nextProductsInWishlistIds)
+        wishlistApi.endpoints.addToWishlist.initiate(
+          nextProductsInWishlistIds,
+          { fixedCacheKey: 'shared-add-to-wishlist' }
+        )
       ).unwrap()
     } catch (error) {
       // can show error state with repeat action button

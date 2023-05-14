@@ -13,7 +13,7 @@ export function ProductPopularList() {
 
   return (
     <div className={css.root} {...rootAttributes}>
-      <h2>Popular product list</h2>
+      <h2>Featured products</h2>
       <ProductList isFetching={isFetching} products={data} />
     </div>
   )

@@ -34,14 +34,14 @@ export function LayoutProfileCard() {
         Hey, <span className="text_bold">{profileData?.email}</span>!&nbsp;
         <LogoutButton />
       </div>
-      {/* TODO: Change to Link and add wishlist page */}
       {isAuthorized && (
-        <div
+        <Link
+          to="/user/wishlist"
           className={cn({ [css.icon]: productIdsInWishlist.length > 0 })}
           data-size={productIdsInWishlist.length}
         >
           <Icon type="like" />
-        </div>
+        </Link>
       )}
     </div>
   )
