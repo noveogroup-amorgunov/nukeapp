@@ -2,7 +2,11 @@ import { baseApi } from '@/shared/api'
 import { mapCategory } from '../lib/mapCategory'
 import { mapCategoryWithProducts } from '../lib/mapCategoryWithProducts'
 import { type Category, type CategoryWithProducts } from '../model/types'
-import { type CategoryDto, type CategoryWithProductsDto } from './types'
+import {
+  type CategoryDto,
+  type CategoryWithProductsDto,
+  type CategoryDetailsRequestArgs,
+} from './types'
 
 export const categoryApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -12,9 +16,13 @@ export const categoryApi = baseApi.injectEndpoints({
       }),
       transformResponse: (response: CategoryDto[]) => response.map(mapCategory),
     }),
-    categoryDetails: build.query<CategoryWithProducts, number>({
-      query: (categoryId) => ({
+    categoryDetails: build.query<
+      CategoryWithProducts,
+      CategoryDetailsRequestArgs
+    >({
+      query: ({ sortBy, categoryId }) => ({
         url: `/categories/${categoryId}`,
+        params: { sortBy, delay: 400 },
       }),
       transformResponse: (response: CategoryWithProductsDto) =>
         mapCategoryWithProducts(response),

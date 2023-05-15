@@ -1,0 +1,18 @@
+@import url("../../../../../shared/breakpoints.css");
+
+.root {
+  padding: 4px 0;
+  background: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px 0 rgba(34, 60, 80, 0.4);
+}
+
+.option {
+  padding: 2px 8px;
+  cursor: pointer;
+
+  &.optionSelected {
+    background: var(--alternate-background-color);
+  }
+}

@@ -11,6 +11,8 @@ export type IconType =
   | 'moon'
   | 'loader'
   | 'x'
+  | 'chevronDown'
+  | 'toggleRight'
 
 export type Props = {
   className?: string

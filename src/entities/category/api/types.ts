@@ -9,3 +9,8 @@ export type CategoryDto = {
 export type CategoryWithProductsDto = CategoryDto & {
   products: ProductDto[]
 }
+
+export type CategoryDetailsRequestArgs = {
+  categoryId: number
+  sortBy?: string
+}
