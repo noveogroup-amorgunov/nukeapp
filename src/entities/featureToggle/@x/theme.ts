@@ -5,4 +5,4 @@
  * Explicit index files for every pair of slices that need cross-importing
  * @see https://github.com/feature-sliced/documentation/discussions/390#discussioncomment-5570073
  */
-export { useFeatureConfig } from '../lib/useFeatureConfig'
+export { useFeatureToggle } from '../lib/useFeatureToggle'

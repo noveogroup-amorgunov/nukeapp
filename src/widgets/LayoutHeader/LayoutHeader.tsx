@@ -1,6 +1,6 @@
 import { skipToken } from '@reduxjs/toolkit/dist/query'
 import { type ReactNode } from 'react'
-import { useFeatureConfig } from '@/entities/featureConfig'
+import { useFeatureToggle } from '@/entities/featureToggle'
 import { selectIsAuthorized } from '@/entities/session'
 import { useWishlistProductsQuery } from '@/entities/wishlist'
 import { ChangeTheme } from '@/features/theme/ChangeTheme'
@@ -15,7 +15,7 @@ type Props = {
 
 export function LayoutHeader(props: Props) {
   const { rootAttributes } = useFeatureSlicedDebug('widget/LayoutHeader')
-  const darkModeIsEnabled = useFeatureConfig('darkMode')
+  const darkModeIsEnabled = useFeatureToggle('darkMode')
   const isAuthorized = useAppSelector(selectIsAuthorized)
   useWishlistProductsQuery(isAuthorized ? undefined : skipToken, {
     skip: !isAuthorized,

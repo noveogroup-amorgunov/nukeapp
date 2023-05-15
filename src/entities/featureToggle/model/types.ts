@@ -1,4 +1,4 @@
-export type FeatureConfig = {
+export type FeatureToggle = {
   darkMode: boolean
   productsSort: boolean
 }

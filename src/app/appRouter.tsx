@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { featureConfigLoader } from '@/entities/featureConfig'
+import { featureToggleLoader } from '@/entities/featureToggle'
 import { CategoryPage } from '@/pages/category'
 import { LoginPage } from '@/pages/login'
 import { MainPage } from '@/pages/main'
@@ -14,7 +14,7 @@ export const appRouter = createBrowserRouter([
     element: baseLayout,
     errorElement: <div>error</div>,
     loader: async () => {
-      return await featureConfigLoader(appStore.dispatch)
+      return await featureToggleLoader(appStore.dispatch)
     },
     children: [
       {
@@ -39,7 +39,7 @@ export const appRouter = createBrowserRouter([
     element: layoutWithSidebar,
     errorElement: <div>error</div>,
     loader: async () => {
-      return await featureConfigLoader(appStore.dispatch)
+      return await featureToggleLoader(appStore.dispatch)
     },
     children: [
       {

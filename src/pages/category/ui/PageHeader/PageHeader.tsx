@@ -1,6 +1,6 @@
 import { type Category } from '@/entities/category'
 import 'rc-dropdown/assets/index.css'
-import { useFeatureConfig } from '@/entities/featureConfig'
+import { useFeatureToggle } from '@/entities/featureToggle'
 import { type ProductSortBy, SortByDropdown } from '@/features/product/sortBy'
 import { useAppDispatch, useAppSelector } from '@/shared/model'
 import { changeSortBy, selectSortBy } from '../../model/slice'
@@ -13,7 +13,7 @@ type Props = {
 // TODO: move to shared/ui/
 export function PageHeader(props: Props) {
   const dispatch = useAppDispatch()
-  const sortByIsEnabled = useFeatureConfig('productsSort')
+  const sortByIsEnabled = useFeatureToggle('productsSort')
   const sortBy = useAppSelector(selectSortBy)
 
   return (
