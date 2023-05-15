@@ -13,3 +13,9 @@
     background: linear-gradient(90deg, var(--primary-colorPressed) 0%, #cacd26 50%, var(--primary-colorPressed) 100%);
   }
 }
+
+.changeCartModalRoot {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

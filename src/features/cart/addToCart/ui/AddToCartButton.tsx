@@ -60,7 +60,7 @@ export function AddToCartButton(props: Props) {
       if (addOne) {
         changeCartModal.show({
           children: (
-            <div>
+            <div className={css.changeCartModalRoot}>
               {props.product.name} was added to bag{' '}
               <Button>View bag ({productInCartCount + 1})</Button>
             </div>
