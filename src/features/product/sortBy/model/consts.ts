@@ -1,3 +1,5 @@
+import { type ProductSortBy } from './types'
+
 export const productSortByNamesMap: Record<ProductSortBy, string> = {
   Featured: 'Featured',
   Newest: 'Newest',
