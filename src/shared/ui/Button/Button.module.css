@@ -1,6 +1,7 @@
 @import url("../../breakpoints.css");
 
 .root {
+  overflow: hidden;
   min-width: 240px;
   padding: 0 20px;
   height: 46px;
@@ -18,16 +19,30 @@
   transform: scale(1);
   transition: transform 0.2s ease-in-out;
 
-  @media (--s-viewport) {
-    width: 100%;
-    min-width: 100%;
+  &_size_s {
+    min-width: 100px;
+    padding: 0;
+    height: 28px;
+    line-height: 28px;
   }
 
-  &:hover {
+  &_size_m {
+    @media (--s-viewport) {
+      width: 100%;
+      min-width: 100%;
+    }
+  }
+
+  &_disabled {
+    cursor: default;
+    opacity: 0.7;
+  }
+
+  &:hover:not(.root_disabled) {
     background: var(--primary-colorPressed);
   }
 
-  &:active {
+  &:active:not(.root_disabled) {
     transform: scale(0.95);
   }
 
@@ -37,7 +52,7 @@
     border: 2px solid var(--text-color);
   }
 
-  &_theme_secondary:hover {
+  &_theme_secondary:hover:not(.root_disabled) {
     background: var(--alternate-background-color);
   }
 }

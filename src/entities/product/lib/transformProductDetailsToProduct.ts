@@ -10,6 +10,6 @@ export function transformProductDetailsToProduct(
     subname: productDetails.subname,
     price: productDetails.price,
     oldPrice: productDetails.oldPrice,
-    image: productDetails.images[0],
+    image: productDetails.mainImage,
   }
 }

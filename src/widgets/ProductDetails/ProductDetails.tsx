@@ -5,7 +5,7 @@ import {
   transformProductDetailsToProduct,
   type ProductDetails as ProductDetailsType,
 } from '@/entities/product'
-import { AddToCartButton } from '@/features/cart/addToCart/ui/AddToCartButton'
+import { AddToCartButton } from '@/features/cart/addToCart'
 import { AddToWishlistButton } from '@/features/wishlist/AddToWishlist'
 import { useFeatureSlicedDebug } from '@/shared/lib'
 import css from './ProductDetails.module.css'
@@ -69,6 +69,7 @@ export function ProductDetails({ productDetails, isFetching }: Props) {
         <div className={css.actions}>
           <AddToWishlistButton productId={productDetails.id} />
           <AddToCartButton
+            showAlertAfterAddAction
             product={transformProductDetailsToProduct(productDetails)}
           />
         </div>

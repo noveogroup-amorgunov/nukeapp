@@ -1,13 +1,21 @@
 import { useModal, create as createModal } from '@ebay/nice-modal-react'
-import { type ReactNode } from 'react'
-import { Modal } from '../ui'
+import { Button, Modal } from '../ui'
 
 type Props = {
-  children: ReactNode
+  title: string
+  onButtonClick: () => void
+  buttonText?: string
 }
 
 function AlertModalPresenter(props: Props) {
-  return <Modal>{props.children}</Modal>
+  const { title, onButtonClick, buttonText = 'Okay' } = props
+
+  return (
+    <Modal>
+      <span className="text_base text_bold">{title}</span>
+      <Button onClick={onButtonClick}>{buttonText}</Button>
+    </Modal>
+  )
 }
 
 export const AlertModal = createModal(AlertModalPresenter)

@@ -9,6 +9,7 @@ export function mapProductDetails(dto: ProductDetailsDto): ProductDetails {
     subname: dto.subtitle,
     price: dto.discountPrice ?? dto.price,
     oldPrice: dto.price,
+    mainImage: dto.imageUrl[0],
     images: dto.detailsImageUrl ?? [],
     description: dto.description ?? '',
   }

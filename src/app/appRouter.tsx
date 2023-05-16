@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 import { featureToggleLoader } from '@/entities/featureToggle'
+import { CartPage } from '@/pages/cart'
 import { CategoryPage } from '@/pages/category'
 import { LoginPage } from '@/pages/login'
 import { MainPage } from '@/pages/main'
@@ -24,6 +25,10 @@ export const appRouter = createBrowserRouter([
       {
         path: '/user/wishlist',
         element: <WishlistPage />,
+      },
+      {
+        path: '/user/cart',
+        element: <CartPage />,
       },
       {
         path: '/category/:categoryId',

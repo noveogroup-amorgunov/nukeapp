@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import { type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { useFeatureSlicedDebug } from '@/shared/lib'
 import { formatPrice } from '../../lib/formatPrice'
@@ -7,12 +8,13 @@ import css from './ProductCard.module.css'
 
 type Props = {
   product: Product
-  actionSlot?: React.ReactNode
+  actionSlot?: ReactNode
+  bottomContentSlot?: ReactNode
   size?: 's' | 'm'
 }
 
 export function ProductCard(props: Props) {
-  const { size = 'm', product, actionSlot } = props
+  const { size = 'm', product, actionSlot, bottomContentSlot } = props
   const { oldPrice, price, image, subname, name } = product
   const { rootAttributes } =
     useFeatureSlicedDebug<HTMLAnchorElement>('entity/ProductCard')
@@ -38,8 +40,11 @@ export function ProductCard(props: Props) {
             <span className={css.oldPrice}>{formatPrice(oldPrice, false)}</span>
           )}
         </div>
+        {bottomContentSlot && (
+          <div className={css.contentActions}>{bottomContentSlot}</div>
+        )}
       </div>
-      <div className={css.actions}>{actionSlot}</div>
+      {actionSlot && <div className={css.actions}>{actionSlot}</div>}
     </Link>
   )
 }

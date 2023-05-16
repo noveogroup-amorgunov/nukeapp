@@ -1,18 +1,21 @@
 import cn from 'classnames'
-import { ProductCard, type Product } from '@/entities/product'
+import { type ReactNode } from 'react'
+import { ProductCard, type Product, type ProductId } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
 import { AddToWishlistIcon } from '@/features/wishlist/AddToWishlist'
 import { useFeatureSlicedDebug } from '@/shared/lib'
 import { useAppSelector } from '@/shared/model'
 import css from './ProductList.module.css'
 
-type Props = {
-  products: Product[]
+type Props<T extends Product> = {
+  products: T[]
+  productCardBottomSlot?: (product: T) => ReactNode
+  productCardActionsSlot?: (productId: ProductId) => ReactNode
   isFetching?: boolean
   size?: 's' | 'm'
 }
 
-export function ProductList(props: Props) {
+export function ProductList<T extends Product>(props: Props<T>) {
   const { rootAttributes } = useFeatureSlicedDebug('widget/ProductList')
   const { isFetching, products, size = 'm' } = props
   const isAuthorized = useAppSelector(selectIsAuthorized)
@@ -41,8 +44,16 @@ export function ProductList(props: Props) {
           size={size}
           key={product.id}
           product={product}
+          bottomContentSlot={
+            props.productCardBottomSlot
+              ? props.productCardBottomSlot(product)
+              : undefined
+          }
+          // TODO: fix
           actionSlot={
-            isAuthorized && <AddToWishlistIcon productId={product.id} />
+            props.productCardActionsSlot
+              ? props.productCardActionsSlot(product.id)
+              : isAuthorized && <AddToWishlistIcon productId={product.id} />
           }
         />
       ))}

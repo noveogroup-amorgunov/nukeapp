@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { selectProductInCart, selectProductInCartCount } from '@/entities/cart'
+import { selectProductInCart, selectTotalQuantity } from '@/entities/cart'
 import { formatPrice, type Product } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
 import { useConfirmModal, useFeatureSlicedDebug } from '@/shared/lib'
@@ -11,11 +11,14 @@ import { Button } from '@/shared/ui'
 import {
   addProductToCartThunk,
   removeProductToCartThunk,
-} from '../model/addProductToCart'
+} from '../../model/addProductToCart'
 import css from './AddToCartButton.module.css'
 
 type Props = {
+  size?: 'm' | 's'
   product: Product
+  showOnlyQuantity?: boolean
+  showAlertAfterAddAction?: boolean
 }
 
 export function AddToCartButton(props: Props) {
@@ -23,14 +26,14 @@ export function AddToCartButton(props: Props) {
     'feature/cart/AddToCartButton'
   )
   const loginModal = useConfirmModal()
-  const changeCartModal = useAlertModal()
+  const updateCartModal = useAlertModal()
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const isAuthorized = useAppSelector(selectIsAuthorized)
   const productInCart = useAppSelector((state) =>
     selectProductInCart(state, props.product.id)
   )
-  const productInCartCount = useAppSelector(selectProductInCartCount)
+  const productInCartQuantity = useAppSelector(selectTotalQuantity)
 
   const handleClick = useCallback(
     (addOne: boolean) => {
@@ -57,18 +60,23 @@ export function AddToCartButton(props: Props) {
         dispatch(removeProductToCartThunk(props.product))
       }
 
-      if (addOne) {
-        changeCartModal.show({
-          children: (
-            <div className={css.changeCartModalRoot}>
-              {props.product.name} was added to bag{' '}
-              <Button>View bag ({productInCartCount + 1})</Button>
-            </div>
-          ),
+      if (addOne && props.showAlertAfterAddAction) {
+        updateCartModal.show({
+          title: `${props.product.name} was added to bag`,
+          buttonText: `View bag (${productInCartQuantity + 1})`,
+          onButtonClick: () => {
+            navigate('/user/cart')
+            updateCartModal.remove()
+          },
         })
       }
     },
-    [props.product.id, productInCart, productInCartCount]
+    [
+      props.product.id,
+      props.showAlertAfterAddAction,
+      productInCart,
+      productInCartQuantity,
+    ]
   )
 
   const onAddProduct = useCallback(
@@ -91,7 +99,7 @@ export function AddToCartButton(props: Props) {
 
   return (
     <div {...rootAttributes}>
-      <Button onClick={onAddProduct} theme="primary">
+      <Button size={props.size} onClick={onAddProduct} theme="primary">
         {productInCart && (
           <div className={css.buttonContent}>
             <span
@@ -101,7 +109,11 @@ export function AddToCartButton(props: Props) {
               -
             </span>
             <span>
-              {formatPrice(props.product.price)}x{productInCart.quantity}
+              {props.showOnlyQuantity
+                ? productInCart.quantity
+                : `${formatPrice(props.product.price)}x${
+                    productInCart.quantity
+                  }`}
             </span>
             <span className={cn(css.buttonAction, 'text_xl')}>+</span>
           </div>

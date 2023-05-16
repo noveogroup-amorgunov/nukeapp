@@ -1,4 +1,4 @@
-import { type Product } from '@/entities/product/@x/cart'
+import { type Product, type ProductId } from '@/entities/product/@x/cart'
 
 export type CartItem = {
   product: Product
@@ -6,6 +6,5 @@ export type CartItem = {
 }
 
 export type Cart = {
-  items: CartItem[]
-  totalPrice: number
+  itemsMap: Record<ProductId, CartItem>
 }

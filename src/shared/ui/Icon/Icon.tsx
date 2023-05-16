@@ -13,6 +13,7 @@ export type IconType =
   | 'x'
   | 'chevronDown'
   | 'toggleRight'
+  | 'trash'
 
 export type Props = {
   className?: string

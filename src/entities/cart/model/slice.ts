@@ -9,8 +9,7 @@ import { type CartItem, type Cart } from './types'
 type CartSliceState = Cart
 
 const initialState: CartSliceState = {
-  items: [],
-  totalPrice: 0,
+  itemsMap: {},
 }
 
 function createCartItem(product: Product): CartItem {
@@ -25,59 +24,53 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     clearCartData: (state) => {
-      state.items = []
-      state.totalPrice = 0
+      state.itemsMap = {}
     },
     addOneItem: (state, action: PayloadAction<Product>) => {
-      const productInCart = state.items.find(
-        ({ product }) => product.id === action.payload.id
-      )
+      const productInCart = state.itemsMap[action.payload.id]
+
       if (productInCart) {
         productInCart.quantity += 1
-        state.totalPrice += productInCart.product.price
       } else {
-        state.items.push(createCartItem(action.payload))
-        state.totalPrice += action.payload.price
+        state.itemsMap[action.payload.id] = createCartItem(action.payload)
       }
     },
     removeOneItem: (state, action: PayloadAction<Product>) => {
-      const productInCart = state.items.find(
-        ({ product }) => product.id === action.payload.id
-      )
+      const productInCart = state.itemsMap[action.payload.id]
       if (!productInCart) {
         return
       }
 
       if (productInCart.quantity > 1) {
         productInCart.quantity -= 1
-        state.totalPrice -= productInCart.product.price
       } else {
-        state.items = state.items.filter(
-          ({ product }) => product.id !== action.payload.id
-        )
-        state.totalPrice -= productInCart.product.price
+        delete state.itemsMap[action.payload.id]
       }
     },
-    removeItem: (state, action: PayloadAction<Product>) => {},
+    removeItem: (state, action: PayloadAction<ProductId>) => {
+      const productInCart = state.itemsMap[action.payload]
+      if (!productInCart) {
+        return
+      }
+      delete state.itemsMap[action.payload]
+    },
   },
-  // extraReducers: (builder) => {
-  //   builder.addMatcher(
-  //     wishlistApi.endpoints.wishlistProducts.matchFulfilled,
-  //     (state: WishlistSliceState, { payload }) => {
-  //       state.products = {}
-
-  //       payload.forEach((product: Product) => {
-  //         state.products[product.id] = true
-  //       })
-  //     }
-  //   )
-  // },
 })
 
-export const selectProductsInCart = (state: RootState) => state.cart.items
+export const selectCartTotalPrice = (state: RootState) =>
+  Object.values(state.cart.itemsMap).reduce(
+    (acc, item) => acc + item.quantity * item.product.price,
+    0
+  )
 
-export const selectProductInCartCount = (state: RootState) =>
-  state.cart.items.reduce((acc, item) => acc + item.quantity, 0)
+export const selectProductsInCart = (state: RootState) =>
+  Object.values(state.cart.itemsMap)
+
+export const selectTotalQuantity = (state: RootState) =>
+  Object.values(state.cart.itemsMap).reduce(
+    (acc, item) => acc + item.quantity,
+    0
+  )
 
 export const selectProductInCart = createSelector(
   selectProductsInCart,

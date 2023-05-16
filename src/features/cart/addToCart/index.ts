@@ -1,1 +1,1 @@
-export { AddToCartButton } from './ui/AddToCartButton'
+export { AddToCartButton } from './ui/AddToCartButton/AddToCartButton'
