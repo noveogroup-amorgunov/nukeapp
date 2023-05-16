@@ -31,7 +31,7 @@ export const WithAction: Story = {
   args: {
     actionSlot: (
       <div style={{ display: 'flex', gap: '8px' }}>
-        <Icon type="cart" />
+        <Icon type="bag" />
         <Icon type="like" />
       </div>
     ),
