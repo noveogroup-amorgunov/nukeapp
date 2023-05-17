@@ -1,5 +1,5 @@
+import { productsMock } from '@/shared/lib/server'
 import { type ProductDto } from '../types'
-import products from './products.json'
 
 // Example with faker
 // import { faker } from '@faker-js/faker'
@@ -16,7 +16,7 @@ export function mockProductDto(
   initialProps: Partial<ProductDto> = {}
 ): ProductDto {
   return {
-    ...products[0],
+    ...productsMock[0],
     ...initialProps,
   }
 }

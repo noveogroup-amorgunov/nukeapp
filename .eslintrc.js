@@ -81,12 +81,27 @@ module.exports = {
 
     // feature-sliced/public-api
     // "import/no-internal-modules": "warn" // ~ 1,
+
+    // disallow import @/shared/lib/server
+    "no-restricted-imports": ["error", {
+      "paths": [{
+        "name": "@/shared/lib/server",
+        "message": "Not allowed use server modules in client"
+      }],
+    }]
   },
   "overrides": [
     {
       "files": ["*.stories.tsx"],
       "rules": {
-        "import/no-default-export": "off"
+        "import/no-default-export": "off",
+        "no-restricted-imports": "off",
+      }
+    },
+    {
+      "files": ["**/__mocks__/**/*.ts"],
+      "rules": {
+        "no-restricted-imports": "off",
       }
     }
   ]

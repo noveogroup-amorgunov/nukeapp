@@ -5,6 +5,8 @@ import { featureToggleHandlers } from '@/entities/featureToggle/api/__mocks__/fe
 import { productsHandlers } from '@/entities/product/api/__mocks__/productHandlers'
 import { sessionHandlers } from '@/entities/session/api/__mocks__/sessionHandlers'
 import { wishlistHandlers } from '@/entities/wishlist/api/__mocks__/wishlistHandlers'
+// eslint-disable-next-line no-restricted-imports
+import { __serverStartDatabaseMigration } from '@/shared/lib/server'
 
 const apiMockWorker = setupWorker(
   ...categoriesHandlers,
@@ -14,6 +16,8 @@ const apiMockWorker = setupWorker(
   ...featureToggleHandlers,
   ...cartHandlers
 )
+
+__serverStartDatabaseMigration()
 
 export const startApiMockWorker = () => {
   apiMockWorker.start({

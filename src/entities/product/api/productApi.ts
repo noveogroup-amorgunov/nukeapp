@@ -16,20 +16,6 @@ export const productApi = baseApi.injectEndpoints({
       }),
       transformResponse: (response: ProductDto[]) => response.map(mapProduct),
     }),
-    products: build.query<Product[], ProductId[]>({
-      query: (productIds?: ProductId[]) => ({
-        url: `/products${
-          productIds
-            ? `?${
-                productIds.length === 0
-                  ? `id=-1`
-                  : productIds.map((id) => `id=${id}`).join('&')
-              }`
-            : ''
-        }`,
-      }),
-      transformResponse: (response: ProductDto[]) => response.map(mapProduct),
-    }),
     productDetails: build.query<ProductDetails, ProductId>({
       query: (productId) => ({
         url: `/products/${productId}`,
@@ -40,8 +26,4 @@ export const productApi = baseApi.injectEndpoints({
   }),
 })
 
-export const {
-  useProductsQuery,
-  usePopularProductsQuery,
-  useProductDetailsQuery,
-} = productApi
+export const { usePopularProductsQuery, useProductDetailsQuery } = productApi
