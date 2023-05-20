@@ -11,7 +11,7 @@ import { Button } from '@/shared/ui'
 import {
   removeCartProductThunk,
   addCartProductThunk,
-} from '../../model/addProductToCart'
+} from '../../model/actions'
 import css from './AddToCartButton.module.css'
 
 type Props = {

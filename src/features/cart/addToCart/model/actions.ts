@@ -6,6 +6,7 @@ import {
   removeProductFromCart,
   mapCartItemDto,
   type CartItemDto,
+  incVersion,
 } from '@/entities/cart'
 import type { Product, ProductId } from '@/entities/product'
 import { debounce } from '@/shared/lib'
@@ -20,16 +21,17 @@ const SYNC_CART_WITH_SERVER_TIMEOUT_MS = 1500
  */
 export const updateCartThunk = createAsyncThunk<
   void,
-  CartItemDto[],
+  { items: CartItemDto[]; version: number },
   { state: RootState }
->('cart/updateCartThunk', async (cartItemsDto, { dispatch }) => {
-  // TODO: Cancel request if user changed cart while request is processing
-  await dispatch(cartApi.endpoints.updateCart.initiate(cartItemsDto)).unwrap()
+>('cart/updateCartThunk', async (payload, { dispatch }) => {
+  await dispatch(cartApi.endpoints.updateCart.initiate(payload)).unwrap()
 })
 
 const syncCart = debounce((dispatch: AppDispatch, state: RootState) => {
   const cartItemsDto = mapCartItemDto(state.cart)
-  return dispatch(updateCartThunk(cartItemsDto))
+  return dispatch(
+    updateCartThunk({ items: cartItemsDto, version: state.cart.version })
+  )
 }, SYNC_CART_WITH_SERVER_TIMEOUT_MS)
 
 // TODO: Fix naming (thunk for remove product from cart with any quantity)
@@ -41,7 +43,8 @@ export const removeCartItemThunk = createAsyncThunk<
   'cart/removeCartItemThunk',
   async (productId: ProductId, { dispatch, getState }) => {
     dispatch(removeProductFromCart(productId))
-    setTimeout(() => syncCart(dispatch as AppDispatch, getState()), 1)
+    dispatch(incVersion())
+    syncCart(dispatch as AppDispatch, getState())
   }
 )
 
@@ -53,7 +56,8 @@ export const removeCartProductThunk = createAsyncThunk<
   'cart/removeCartProductThunk',
   async (product: Product, { dispatch, getState }) => {
     dispatch(removeOneItem(product))
-    setTimeout(() => syncCart(dispatch as AppDispatch, getState()), 1)
+    dispatch(incVersion())
+    syncCart(dispatch as AppDispatch, getState())
   }
 )
 
@@ -65,6 +69,7 @@ export const addCartProductThunk = createAsyncThunk<
   'cart/addCartProductThunk',
   async (product: Product, { dispatch, getState }) => {
     dispatch(addOneItem(product))
-    setTimeout(() => syncCart(dispatch as AppDispatch, getState()), 1)
+    dispatch(incVersion())
+    syncCart(dispatch as AppDispatch, getState())
   }
 )

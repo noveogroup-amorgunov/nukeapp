@@ -6,6 +6,7 @@ export type CartDto = {
     quantity: number
   }>
   deliveryPrice: Penny
+  version: number
 }
 
 export type CartItemDto = {

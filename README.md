@@ -38,7 +38,7 @@ App business logic:
 - [x] Wishlist page or modal
 - [x] Product's sorting feature
 - [x] Feature toggle
-- [ ] E-commerce bag logic
+- [x] E-commerce bag logic
 - [ ] E-commerce order logic
 - [ ] Stock logic (available of products)
 - [ ] Product details sizes

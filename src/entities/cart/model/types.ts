@@ -7,4 +7,5 @@ export type CartItem = {
 
 export type Cart = {
   itemsMap: Record<ProductId, CartItem>
+  version: number
 }

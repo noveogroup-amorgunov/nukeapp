@@ -9,6 +9,7 @@ export {
   removeOneItem,
   removeItem as removeProductFromCart,
   clearCartData,
+  incVersion,
 } from './model/slice'
 export { mapCartItemDto } from './lib/mapCartItemDto'
 export { cartApi } from './api/cartApi'

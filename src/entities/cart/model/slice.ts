@@ -11,6 +11,7 @@ type CartSliceState = Cart
 
 const initialState: CartSliceState = {
   itemsMap: {},
+  version: 0,
 }
 
 function createCartItem(product: Product): CartItem {
@@ -55,13 +56,18 @@ export const cartSlice = createSlice({
       }
       delete state.itemsMap[action.payload]
     },
+    incVersion: (state) => {
+      state.version += 1
+    },
   },
   extraReducers: (builder) => {
     builder.addMatcher(
       cartApi.endpoints.cart.matchFulfilled,
       (state: CartSliceState, { payload }) => {
-        // actual cart by server state
-        state.itemsMap = payload.itemsMap
+        // update cart state if server sent actual version
+        if (state.version <= payload.version) {
+          state.itemsMap = payload.itemsMap
+        }
       }
     )
   },
@@ -89,5 +95,10 @@ export const selectProductInCart = createSelector(
     items.find(({ product }) => product.id === productId)
 )
 
-export const { addOneItem, removeOneItem, removeItem, clearCartData } =
-  cartSlice.actions
+export const {
+  incVersion,
+  addOneItem,
+  removeOneItem,
+  removeItem,
+  clearCartData,
+} = cartSlice.actions

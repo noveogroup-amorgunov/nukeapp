@@ -2,7 +2,7 @@ import { rest } from 'msw'
 import { config, parseTokenFromRequest, verifyAccessToken } from '@/shared/lib'
 import { mockCartDto } from './mockCartDto'
 
-const cart = { items: [] }
+const cartStorage = { items: [], version: 0 }
 
 export const cartHandlers = [
   rest.get(`${config.API_ENDPOINT}/cart`, async (req, res, ctx) => {
@@ -12,7 +12,7 @@ export const cartHandlers = [
       return await res(
         ctx.delay(config.API_DELAY),
         ctx.status(200),
-        ctx.json(mockCartDto(cart.items))
+        ctx.json(mockCartDto(cartStorage.items, cartStorage.version))
       )
     } catch (err) {
       return await res(ctx.status(403), ctx.json('Forbidden'))
@@ -27,12 +27,13 @@ export const cartHandlers = [
       const body = await req.json()
 
       // TODO: add validation
-      cart.items = body
+      cartStorage.items = body.items
+      cartStorage.version = body.version
 
       return await res(
         ctx.delay(Number(apiDelay) || config.API_DELAY),
         ctx.status(200),
-        ctx.json(mockCartDto(cart.items))
+        ctx.json(mockCartDto(cartStorage.items, cartStorage.version))
       )
     } catch (err) {
       return await res(ctx.status(403), ctx.json('Forbidden'))

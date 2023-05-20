@@ -12,11 +12,11 @@ export const cartApi = baseApi.injectEndpoints({
       providesTags: [CART_TAG],
       transformResponse: (response: CartDto) => mapCart(response),
     }),
-    updateCart: build.mutation<{}, CartItemDto[]>({
-      query: (cartItems) => ({
+    updateCart: build.mutation<{}, { items: CartItemDto[]; version: number }>({
+      query: ({ items, version }) => ({
         url: `/cart`,
         method: 'PATCH',
-        body: cartItems,
+        body: { items, version },
         params: { delay: 500 },
       }),
       invalidatesTags: [CART_TAG],

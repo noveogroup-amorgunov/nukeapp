@@ -12,5 +12,5 @@ export function mapCart(dto: CartDto): Cart {
     return acc
   }, {})
 
-  return { itemsMap }
+  return { itemsMap, version: dto.version }
 }
