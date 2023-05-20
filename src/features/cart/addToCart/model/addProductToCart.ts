@@ -10,6 +10,8 @@ import {
 import type { Product, ProductId } from '@/entities/product'
 import { debounce } from '@/shared/lib'
 
+const SYNC_CART_WITH_SERVER_TIMEOUT_MS = 1500
+
 /**
  * ✅ UX Best practice
  *
@@ -28,7 +30,7 @@ export const updateCartThunk = createAsyncThunk<
 const syncCart = debounce((dispatch: AppDispatch, state: RootState) => {
   const cartItemsDto = mapCartItemDto(state.cart)
   return dispatch(updateCartThunk(cartItemsDto))
-}, 600)
+}, SYNC_CART_WITH_SERVER_TIMEOUT_MS)
 
 // TODO: Fix naming (thunk for remove product from cart with any quantity)
 export const removeCartItemThunk = createAsyncThunk<
