@@ -1,0 +1,16 @@
+.buttonContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.buttonAction {
+  padding: 0 15px;
+  line-height: inherit;
+
+  &:hover {
+    background: var(--primary-color);
+    opacity: 0.7;
+  }
+}

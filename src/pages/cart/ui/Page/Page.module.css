@@ -1,0 +1,20 @@
+@import url("../../../../shared/breakpoints.css");
+
+.root {
+  display: flex;
+  gap: 32px;
+
+  @media (--s-viewport) {
+    flex-direction: column;
+  }
+}
+
+.column {
+  flex-grow: 2;
+}
+
+.column:nth-child(2) {
+  padding: 0 24px 24px;
+  background: var(--alternate-background-color);
+  flex-grow: 1;
+}

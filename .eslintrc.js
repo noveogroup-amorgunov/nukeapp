@@ -70,6 +70,8 @@ module.exports = {
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/no-confusing-void-expression": "off",
+    "@typescript-eslint/no-dynamic-delete": "off",
+    "@typescript-eslint/promise-function-async": "off",
 
     // feature-sliced/layers-slices
     "boundaries/element-types": "error",

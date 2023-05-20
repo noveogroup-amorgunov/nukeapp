@@ -1,4 +1,5 @@
 @import url("./colors.css");
+@import url("./breakpoints.css");
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;

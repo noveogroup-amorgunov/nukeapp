@@ -29,6 +29,7 @@ export type ProductDetails = {
   subname: string
   description: string
   label: string
+  mainImage: Url
   images: Url[]
   price: Penny
   oldPrice?: Penny

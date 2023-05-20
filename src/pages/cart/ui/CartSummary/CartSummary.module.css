@@ -1,0 +1,16 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rowWithDivider {
+  padding-top: 16px;
+  margin-top: 8px;
+  border-top: 2px solid var(--background-color);
+}

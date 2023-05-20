@@ -9,21 +9,31 @@ type Props = {
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
   children: ReactNode
   theme?: ButtonTheme
+  size?: 'm' | 's'
   type?: 'submit'
   isLoading?: boolean
+  disabled?: boolean
 }
 
 export function Button({
   onClick,
   children,
   isLoading,
+  size = 'm',
   theme = 'primary',
+  disabled,
   type,
 }: Props) {
   return (
     <button
       type={type}
-      className={cn(css.root, css[`root_theme_${theme}`])}
+      disabled={disabled}
+      className={cn(
+        css.root,
+        css[`root_size_${size}`],
+        css[`root_theme_${theme}`],
+        disabled && css.root_disabled
+      )}
       onClick={onClick}
     >
       {isLoading ? <Icon className={css.loader} type="loader" /> : children}

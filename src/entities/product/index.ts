@@ -10,3 +10,5 @@ export {
   usePopularProductsQuery,
   useProductDetailsQuery,
 } from './api/productApi'
+
+export { transformProductDetailsToProduct } from './lib/transformProductDetailsToProduct'

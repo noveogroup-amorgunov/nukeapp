@@ -1,5 +1,6 @@
 import { skipToken } from '@reduxjs/toolkit/dist/query'
 import { type ReactNode } from 'react'
+import { useCartQuery } from '@/entities/cart/api/cartApi'
 import { useFeatureToggle } from '@/entities/featureToggle'
 import { selectIsAuthorized } from '@/entities/session'
 import { useWishlistProductsQuery } from '@/entities/wishlist'
@@ -17,7 +18,12 @@ export function LayoutHeader(props: Props) {
   const { rootAttributes } = useFeatureSlicedDebug('widget/LayoutHeader')
   const darkModeIsEnabled = useFeatureToggle('darkMode')
   const isAuthorized = useAppSelector(selectIsAuthorized)
+
   useWishlistProductsQuery(isAuthorized ? undefined : skipToken, {
+    skip: !isAuthorized,
+  })
+
+  useCartQuery(isAuthorized ? undefined : skipToken, {
     skip: !isAuthorized,
   })
 
