@@ -16,6 +16,13 @@ export const db = factory({
     user: oneOf('user'),
     productIds: (): number[] => [],
   },
+  cart: {
+    id: primaryKey(Number),
+    user: oneOf('user'),
+    version: Number,
+    itemsProductId: (): number[] => [],
+    itemsProductQuantity: (): number[] => [],
+  },
   product: {
     id: primaryKey(Number),
     categoryId: Number,

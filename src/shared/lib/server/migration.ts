@@ -20,4 +20,12 @@ export function startDatabaseMigration() {
     user,
     productIds: [3, 4, 5, 6, 7],
   })
+
+  db.cart.create({
+    id: 1,
+    user,
+    version: 0,
+    itemsProductId: [],
+    itemsProductQuantity: [],
+  })
 }

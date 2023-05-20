@@ -14,7 +14,7 @@ const root = document.getElementById('root') as HTMLElement
 async function initApp() {
   // Move @mswjs worker to lazy import
   const module = await import('@/app/apiMockWorker')
-  module.startApiMockWorker()
+  await module.startApiMockWorker()
 }
 
 initApp().then(() => {
@@ -24,7 +24,7 @@ initApp().then(() => {
         <ReduxProvider store={appStore}>
           <PersistGate loading={null} persistor={persistedStore}>
             <ThemeProvider>
-              <RouterProvider router={appRouter} />
+              <RouterProvider router={appRouter()} />
             </ThemeProvider>
           </PersistGate>
         </ReduxProvider>

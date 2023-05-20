@@ -1,18 +1,36 @@
 import { rest } from 'msw'
 import { config, parseTokenFromRequest, verifyAccessToken } from '@/shared/lib'
+import { __serverDatabase } from '@/shared/lib/server'
+import type { CartItemDto } from '../types'
 import { mockCartDto } from './mockCartDto'
-
-const cartStorage = { items: [], version: 0 }
 
 export const cartHandlers = [
   rest.get(`${config.API_ENDPOINT}/cart`, async (req, res, ctx) => {
     try {
-      await verifyAccessToken(parseTokenFromRequest(req))
+      const { userId } = await verifyAccessToken(parseTokenFromRequest(req))
+
+      const maybeCart = __serverDatabase.cart.findFirst({
+        where: {
+          user: {
+            id: { equals: userId },
+          },
+        },
+      })
+
+      if (!maybeCart) {
+        return await res(ctx.status(400), ctx.json('Bad request'))
+      }
+
+      const products = __serverDatabase.product.findMany({
+        where: {
+          id: { in: maybeCart.itemsProductId ?? [] },
+        },
+      })
 
       return await res(
         ctx.delay(config.API_DELAY),
         ctx.status(200),
-        ctx.json(mockCartDto(cartStorage.items, cartStorage.version))
+        ctx.json(mockCartDto(maybeCart, products))
       )
     } catch (err) {
       return await res(ctx.status(403), ctx.json('Forbidden'))
@@ -21,19 +39,31 @@ export const cartHandlers = [
 
   rest.patch(`${config.API_ENDPOINT}/cart`, async (req, res, ctx) => {
     try {
-      await verifyAccessToken(parseTokenFromRequest(req))
+      const { userId } = await verifyAccessToken(parseTokenFromRequest(req))
 
+      // TODO: add validation
       const apiDelay = req.url.searchParams.get('delay')
       const body = await req.json()
 
-      // TODO: add validation
-      cartStorage.items = body.items
-      cartStorage.version = body.version
+      __serverDatabase.cart.update({
+        where: {
+          user: {
+            id: { equals: userId },
+          },
+        },
+        data: {
+          version: body.version,
+          itemsProductQuantity: body.items.map(
+            (item: CartItemDto) => item.quantity
+          ),
+          itemsProductId: body.items.map((item: CartItemDto) => item.productId),
+        },
+      })
 
       return await res(
         ctx.delay(Number(apiDelay) || config.API_DELAY),
         ctx.status(200),
-        ctx.json(mockCartDto(cartStorage.items, cartStorage.version))
+        ctx.json({})
       )
     } catch (err) {
       return await res(ctx.status(403), ctx.json('Forbidden'))
