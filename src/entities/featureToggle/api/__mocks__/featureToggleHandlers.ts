@@ -4,12 +4,13 @@ import { config } from '@/shared/lib'
 import { mockFeatureToggleDto } from './mockFeatureToggleDto'
 
 /**
- * Use enum+transform validation, coz can't use coerce.boolean for string
+ * Use enum+transform validation,
+ * coz can't use coerce.boolean for string
  * @see https://github.com/colinhacks/zod/issues/1630
  */
 const featureSchema = z
-  .enum(['1', '0'])
-  .transform((value) => value === '1')
+  .enum(['false', 'true'])
+  .transform((value) => value === 'true')
   .optional()
 
 const featureToggleQuerySchema = z.object({
@@ -21,12 +22,13 @@ export const featureToggleHandlers = [
   rest.get(`${config.API_ENDPOINT}/feature-toggle`, async (req, res, ctx) => {
     try {
       const params = Object.fromEntries(req.url.searchParams.entries())
-      const query = featureToggleQuerySchema.parse(params)
+      // silent validation
+      const query = featureToggleQuerySchema.safeParse(params)
 
       return await res(
         ctx.delay(config.API_DELAY),
         ctx.status(200),
-        ctx.json(mockFeatureToggleDto(query))
+        ctx.json(mockFeatureToggleDto(query.success ? query.data : {}))
       )
     } catch (error) {
       console.error(error)
