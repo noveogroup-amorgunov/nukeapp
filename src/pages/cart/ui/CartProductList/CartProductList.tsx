@@ -1,12 +1,9 @@
-import { useCallback, useMemo } from 'react'
-import { removeProductFromCart } from '@/entities/cart'
+import { useMemo } from 'react'
 import { type CartItem } from '@/entities/cart'
-import { type Product, formatPrice, type ProductId } from '@/entities/product'
+import { type Product, formatPrice } from '@/entities/product'
 import { AddToCartButton } from '@/features/cart/addToCart'
+import { RemoveIcon } from '@/features/cart/addToCart/ui/RemoveIcon/RemoveIcon'
 import { AddToWishlistIcon } from '@/features/wishlist/AddToWishlist'
-import { useConfirmModal } from '@/shared/lib'
-import { useAppDispatch } from '@/shared/model'
-import { Icon } from '@/shared/ui'
 import { ProductList } from '@/widgets/ProductList'
 import css from './CartProductList.module.css'
 
@@ -17,9 +14,6 @@ type Props = {
 }
 
 export function CartProductList(props: Props) {
-  const dispatch = useAppDispatch()
-  const confirmRemoveModal = useConfirmModal()
-
   const products = useMemo(() => {
     return props.products.map((item) => {
       return {
@@ -28,20 +22,6 @@ export function CartProductList(props: Props) {
       }
     })
   }, [props.products])
-
-  const onClickToRemove = useCallback((productId: ProductId) => {
-    confirmRemoveModal.show({
-      title: 'Are you really want remove product from cart?',
-      confirmText: 'Yes',
-      cancelText: 'No',
-      onConfirm: () => {
-        confirmRemoveModal.remove()
-        // TODO: move to thunk
-        dispatch(removeProductFromCart(productId))
-      },
-      onCancel: () => confirmRemoveModal.remove(),
-    })
-  }, [])
 
   return (
     <ProductList<CartProduct>
@@ -62,13 +42,7 @@ export function CartProductList(props: Props) {
       productCardActionsSlot={(productId) => (
         <div className={css.productCardActions}>
           <AddToWishlistIcon productId={productId} />
-          <Icon
-            type="trash"
-            onClick={(event) => {
-              event.preventDefault()
-              onClickToRemove(productId)
-            }}
-          />
+          <RemoveIcon productId={productId} />
         </div>
       )}
       products={products}

@@ -10,7 +10,7 @@ import { useAppDispatch, useAppSelector } from '@/shared/model'
 import { Button } from '@/shared/ui'
 import {
   addProductToCartThunk,
-  removeProductToCartThunk,
+  removeProductFromCartThunk,
 } from '../../model/addProductToCart'
 import css from './AddToCartButton.module.css'
 
@@ -57,7 +57,7 @@ export function AddToCartButton(props: Props) {
       if (addOne) {
         dispatch(addProductToCartThunk(props.product))
       } else {
-        dispatch(removeProductToCartThunk(props.product))
+        dispatch(removeProductFromCartThunk(props.product))
       }
 
       if (addOne && props.showAlertAfterAddAction) {

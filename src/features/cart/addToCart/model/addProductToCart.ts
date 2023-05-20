@@ -1,14 +1,30 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { addOneItem, removeOneItem } from '@/entities/cart'
-import type { Product } from '@/entities/product'
+import {
+  addOneItem,
+  removeOneItem,
+  removeProductFromCart,
+} from '@/entities/cart'
+import type { Product, ProductId } from '@/entities/product'
+
+export const removeAllProductFromCartThunk = createAsyncThunk<
+  void,
+  ProductId,
+  { state: RootState }
+>(
+  // TODO: naming
+  'cart/removeAllProductFromCartThunk',
+  async (productId: ProductId, { dispatch, getState }) => {
+    dispatch(removeProductFromCart(productId))
+  }
+)
 
 // TODO Add server sync
-export const removeProductToCartThunk = createAsyncThunk<
+export const removeProductFromCartThunk = createAsyncThunk<
   void,
   Product,
   { state: RootState }
 >(
-  'cart/removeProductToCartThunk',
+  'cart/removeProductFromCartThunk',
   async (product: Product, { dispatch, getState }) => {
     dispatch(removeOneItem(product))
   }

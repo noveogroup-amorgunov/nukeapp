@@ -37,19 +37,19 @@ App business logic:
 - [x] Confirm modals
 - [x] Wishlist page or modal
 - [x] Product's sorting feature
-- [ ] Feature config
-- [ ] Ecom bag logic
-- [ ] Ecom order logic
+- [x] Feature toggle
+- [ ] E-commerce bag logic
+- [ ] E-commerce order logic
 - [ ] Stock logic (available of products)
 - [ ] Product details sizes
 - [ ] Private routes
 
 Technologies:
 
-- [ ] CSS Modules → Tailwind CSS
-- [ ] Redux Toolkit Query → React Query
-- [ ] Redux Toolkit → Zustand
-- [ ] Vite → NextJS in SPA mode
+- [ ] CSS Modules → Tailwind CSS (?)
+- [ ] Redux Toolkit Query → React Query (?)
+- [ ] Redux Toolkit → Zustand (?)
+- [ ] Vite → NextJS in SPA mode (?)
 
 Other:
 
