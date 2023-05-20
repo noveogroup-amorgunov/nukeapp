@@ -4,6 +4,7 @@ import {
   createSelector,
 } from '@reduxjs/toolkit'
 import type { Product, ProductId } from '@/entities/product/@x/cart'
+import { cartApi } from '../api/cartApi'
 import { type CartItem, type Cart } from './types'
 
 type CartSliceState = Cart
@@ -54,6 +55,15 @@ export const cartSlice = createSlice({
       }
       delete state.itemsMap[action.payload]
     },
+  },
+  extraReducers: (builder) => {
+    builder.addMatcher(
+      cartApi.endpoints.cart.matchFulfilled,
+      (state: CartSliceState, { payload }) => {
+        // actual cart by server state
+        state.itemsMap = payload.itemsMap
+      }
+    )
   },
 })
 

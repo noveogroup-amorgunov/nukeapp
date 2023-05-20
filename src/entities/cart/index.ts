@@ -10,4 +10,6 @@ export {
   removeItem as removeProductFromCart,
   clearCartData,
 } from './model/slice'
+export { mapCartItemDto } from './lib/mapCartItemDto'
 export { cartApi } from './api/cartApi'
+export { type CartItemDto } from './api/types'
