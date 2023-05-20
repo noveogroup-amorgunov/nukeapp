@@ -16,5 +16,5 @@ Examples:
 
 | Feature   | Description   | Default Value |
 |-----------|---------------|---------------|
-| `canTurnDarkMode`  | left-aligned  | true          |
-| `canSortProducts`  | centered      | true          |
+| `canTurnDarkMode`  | dark mode  | true          |
+| `canSortProducts`  | sort products in category      | true          |
