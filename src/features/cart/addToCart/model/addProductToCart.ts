@@ -30,36 +30,39 @@ const syncCart = debounce((dispatch: AppDispatch, state: RootState) => {
   return dispatch(updateCartThunk(cartItemsDto))
 }, 600)
 
-// TODO: naming
-export const removeAllProductFromCartThunk = createAsyncThunk<
+// TODO: Fix naming (thunk for remove product from cart with any quantity)
+export const removeCartItemThunk = createAsyncThunk<
   void,
   ProductId,
   { state: RootState }
 >(
-  'cart/removeAllProductFromCartThunk',
+  'cart/removeCartItemThunk',
   async (productId: ProductId, { dispatch, getState }) => {
     dispatch(removeProductFromCart(productId))
     setTimeout(() => syncCart(dispatch as AppDispatch, getState()), 1)
   }
 )
 
-export const removeProductFromCartThunk = createAsyncThunk<
+export const removeCartProductThunk = createAsyncThunk<
   void,
   Product,
   { state: RootState }
 >(
-  'cart/removeProductFromCartThunk',
+  'cart/removeCartProductThunk',
   async (product: Product, { dispatch, getState }) => {
     dispatch(removeOneItem(product))
     setTimeout(() => syncCart(dispatch as AppDispatch, getState()), 1)
   }
 )
 
-export const addProductToCartThunk = createAsyncThunk<
+export const addCartProductThunk = createAsyncThunk<
   void,
   Product,
   { state: RootState }
->('cart/addProductToCart', async (product: Product, { dispatch, getState }) => {
-  dispatch(addOneItem(product))
-  setTimeout(() => syncCart(dispatch as AppDispatch, getState()), 1)
-})
+>(
+  'cart/addCartProductThunk',
+  async (product: Product, { dispatch, getState }) => {
+    dispatch(addOneItem(product))
+    setTimeout(() => syncCart(dispatch as AppDispatch, getState()), 1)
+  }
+)

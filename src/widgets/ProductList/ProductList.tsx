@@ -49,7 +49,8 @@ export function ProductList<T extends Product>(props: Props<T>) {
               ? props.productCardBottomSlot(product)
               : undefined
           }
-          // TODO: fix
+          // TODO: Move ProductList to entity/product from widgets
+          // (and compose <AddToWishlistIcon productId={product.id} />)
           actionSlot={
             props.productCardActionsSlot
               ? props.productCardActionsSlot(product.id)

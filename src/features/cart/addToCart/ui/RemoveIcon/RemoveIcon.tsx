@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import { type ProductId } from '@/entities/product'
-import { removeAllProductFromCartThunk } from '@/features/cart/addToCart/model/addProductToCart'
+import { removeCartItemThunk } from '@/features/cart/addToCart/model/addProductToCart'
 import { useConfirmModal } from '@/shared/lib'
 import { useAppDispatch } from '@/shared/model'
 import { Icon } from '@/shared/ui'
@@ -23,7 +23,7 @@ export function RemoveIcon(props: Props) {
         cancelText: 'No',
         onConfirm: () => {
           confirmRemoveModal.remove()
-          dispatch(removeAllProductFromCartThunk(props.productId))
+          dispatch(removeCartItemThunk(props.productId))
         },
         onCancel: () => confirmRemoveModal.remove(),
       })

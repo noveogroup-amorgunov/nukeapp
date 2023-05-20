@@ -9,8 +9,8 @@ import { useAlertModal } from '@/shared/lib/useAlertModal'
 import { useAppDispatch, useAppSelector } from '@/shared/model'
 import { Button } from '@/shared/ui'
 import {
-  addProductToCartThunk,
-  removeProductFromCartThunk,
+  removeCartProductThunk,
+  addCartProductThunk,
 } from '../../model/addProductToCart'
 import css from './AddToCartButton.module.css'
 
@@ -55,9 +55,9 @@ export function AddToCartButton(props: Props) {
       }
 
       if (addOne) {
-        dispatch(addProductToCartThunk(props.product))
+        dispatch(addCartProductThunk(props.product))
       } else {
-        dispatch(removeProductFromCartThunk(props.product))
+        dispatch(removeCartProductThunk(props.product))
       }
 
       if (addOne && props.showAlertAfterAddAction) {
