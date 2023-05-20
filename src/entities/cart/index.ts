@@ -10,3 +10,4 @@ export {
   removeItem as removeProductFromCart,
   clearCartData,
 } from './model/slice'
+export { cartApi } from './api/cartApi'
