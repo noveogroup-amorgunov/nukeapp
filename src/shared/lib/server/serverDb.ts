@@ -1,4 +1,5 @@
-import { factory, nullable, oneOf, primaryKey } from '@mswjs/data'
+import { factory, nullable, oneOf, persist, primaryKey } from '@mswjs/data'
+import { config } from '../config'
 
 /**
  * Its database, which using only in @mswjs "server" handlers
@@ -43,4 +44,8 @@ export const db = factory({
     name: String,
     imageUrl: (): string[] => [],
   },
+})
+
+persist(db, {
+  storage: config.API_STORAGE_MODE === 'local' ? localStorage : sessionStorage,
 })

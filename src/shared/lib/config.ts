@@ -7,6 +7,7 @@ import { z } from 'zod'
  */
 const envVariables = z.object({
   VITE_API_ENDPOINT: z.string().url(),
+  VITE_API_STORAGE_MODE: z.enum(['session', 'local']).optional(),
   VITE_API_DELAY: z
     .string()
     .regex(/^\d+$/, { message: 'Must be a positive number' })
@@ -24,6 +25,7 @@ declare global {
 
 export const config = {
   API_ENDPOINT: import.meta.env.VITE_API_ENDPOINT,
+  API_STORAGE_MODE: import.meta.env.VITE_API_STORAGE_MODE,
   API_DELAY: Number(import.meta.env.VITE_API_DELAY) || 100,
   API_USER_EMAIL: import.meta.env.VITE_API_USER_EMAIL,
   API_USER_PASSWORD: import.meta.env.VITE_API_USER_PASSWORD,

@@ -4,6 +4,13 @@ import productsMock from './__mocks__/products.json'
 import { db } from './serverDb'
 
 export function startDatabaseMigration() {
+  const users = db.user.getAll()
+
+  // Data already exists by persist(db)
+  if (users.length > 0) {
+    return
+  }
+
   // create test user
   const user = db.user.create({
     id: 1,
