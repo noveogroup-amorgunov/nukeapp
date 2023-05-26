@@ -3,7 +3,6 @@ import { AdBlock } from '@/widgets/AdBlock'
 import { DebugModeToggler } from '@/widgets/DebugModeToggler'
 import { LayoutHeader } from '@/widgets/LayoutHeader'
 import { LayoutProfileCard } from '@/widgets/LayoutProfileCard'
-import { Logo } from '@/widgets/Logo'
 
 export const layoutWithSidebar = (
   <Layout
@@ -17,11 +16,6 @@ export const layoutWithSidebar = (
     }
     bottomSlot={<DebugModeToggler />}
     sidebarSlot={<AdBlock />}
-    headerSlot={
-      <LayoutHeader
-        rightContentSlot={<LayoutProfileCard />}
-        logotypeSlot={<Logo />}
-      />
-    }
+    headerSlot={<LayoutHeader rightContentSlot={<LayoutProfileCard />} />}
   />
 )

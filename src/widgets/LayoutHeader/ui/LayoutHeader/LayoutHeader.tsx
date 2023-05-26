@@ -4,13 +4,13 @@ import { useCartQuery } from '@/entities/cart/api/cartApi'
 import { useFeatureToggle } from '@/entities/featureToggle'
 import { selectIsAuthorized } from '@/entities/session'
 import { useWishlistProductsQuery } from '@/entities/wishlist'
-import { ChangeTheme } from '@/features/theme/ChangeTheme'
+import { ChangeTheme } from '@/features/theme/changeTheme'
 import { useFeatureSlicedDebug } from '@/shared/lib'
 import { useAppSelector } from '@/shared/model'
+import { Logo } from '../Logo/Logo'
 import css from './LayoutHeader.module.css'
 
 type Props = {
-  logotypeSlot: ReactNode
   rightContentSlot: ReactNode
 }
 
@@ -29,7 +29,7 @@ export function LayoutHeader(props: Props) {
 
   return (
     <header className={css.root} {...rootAttributes}>
-      {props.logotypeSlot}
+      <Logo />
       <div className={css.right}>
         {props.rightContentSlot}
         {darkModeIsEnabled && <ChangeTheme />}

@@ -2,7 +2,6 @@ import { Announcement, Layout } from '@/shared/ui'
 import { DebugModeToggler } from '@/widgets/DebugModeToggler'
 import { LayoutHeader } from '@/widgets/LayoutHeader'
 import { LayoutProfileCard } from '@/widgets/LayoutProfileCard'
-import { Logo } from '@/widgets/Logo'
 
 /**
  * ✅ FSD Best practice
@@ -24,11 +23,6 @@ export const baseLayout = (
       </Announcement>
     }
     bottomSlot={<DebugModeToggler />}
-    headerSlot={
-      <LayoutHeader
-        rightContentSlot={<LayoutProfileCard />}
-        logotypeSlot={<Logo />}
-      />
-    }
+    headerSlot={<LayoutHeader rightContentSlot={<LayoutProfileCard />} />}
   />
 )

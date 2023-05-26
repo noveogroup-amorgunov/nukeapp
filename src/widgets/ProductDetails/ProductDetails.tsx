@@ -6,7 +6,7 @@ import {
   type ProductDetails as ProductDetailsType,
 } from '@/entities/product'
 import { AddToCartButton } from '@/features/cart/addToCart'
-import { AddToWishlistButton } from '@/features/wishlist/AddToWishlist'
+import { AddToWishlistButton } from '@/features/wishlist/addToWishlist'
 import { useFeatureSlicedDebug } from '@/shared/lib'
 import css from './ProductDetails.module.css'
 
