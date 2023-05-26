@@ -1,4 +1,4 @@
-@import url("../../../../shared/breakpoints.css");
+@import url("/src/shared/breakpoints.css");
 
 .root {
   display: flex;
