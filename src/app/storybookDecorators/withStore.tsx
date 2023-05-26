@@ -1,7 +1,7 @@
 import { type Decorator } from '@storybook/react'
 import { Provider as ReduxProvider } from 'react-redux'
 import { makeStore } from '@/app/appStore'
-import { loginThunk } from '@/features/authentication/Login/model/login'
+import { loginThunk } from '@/features/authentication/login/model/login'
 import { config } from '@/shared/lib'
 import { toggleDebugMode } from '@/shared/model'
 

@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { LoginForm } from '@/features/authentication/Login'
+import { LoginForm } from '@/features/authentication/login'
 import { config } from '@/shared/lib'
 
 export function LoginPage() {

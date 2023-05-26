@@ -3,7 +3,7 @@ import { type CartItem } from '@/entities/cart'
 import { type Product, formatPrice } from '@/entities/product'
 import { AddToCartButton } from '@/features/cart/addToCart'
 import { RemoveIcon } from '@/features/cart/addToCart/ui/RemoveIcon/RemoveIcon'
-import { AddToWishlistIcon } from '@/features/wishlist/AddToWishlist'
+import { AddToWishlistIcon } from '@/features/wishlist/addToWishlist'
 import { ProductList } from '@/widgets/ProductList'
 import css from './CartProductList.module.css'
 

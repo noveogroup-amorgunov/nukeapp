@@ -3,7 +3,7 @@ import {
   type TypedStartListening,
 } from '@reduxjs/toolkit'
 import { invalidateAccessToken } from '@/shared/api'
-import { logoutThunk } from '../../Logout/model/logout'
+import { logoutThunk } from '../../logout/model/logout'
 
 export const invalidateAccessTokenListener = createListenerMiddleware()
 

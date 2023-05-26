@@ -1,5 +1,13 @@
 import { usePopularProductsQuery } from '@/entities/product'
 import { useFeatureSlicedDebug } from '@/shared/lib'
+/**
+ * 👇 ATTENTION (FSD)
+ *
+ * By default cross imports on widgets level are not allowed
+ * But there approach have a lot of duplicate logic and prop-hell
+ * So cross imports on widgets are сonscious action in this project
+ * @see https://github.com/noveogroup-amorgunov/nukeapp/blob/main/docs/architecture.md#widgets-cross-imports
+ */
 import { ProductList } from '@/widgets/ProductList'
 import css from './ProductPopularList.module.css'
 

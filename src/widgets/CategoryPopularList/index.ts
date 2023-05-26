@@ -1,1 +1,1 @@
-export { CategoryPopularList } from './CategoryPopularList'
+export { CategoryPopularList } from './ui/CategoryPopularList/CategoryPopularList'
