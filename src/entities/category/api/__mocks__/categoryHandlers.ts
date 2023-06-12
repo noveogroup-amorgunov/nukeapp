@@ -1,7 +1,7 @@
 import { rest } from 'msw'
 import { config } from '@/shared/lib'
-import { mockCategoryDtoById } from './mockCategoryDtoById'
-import { mockPopularCategoriesDto } from './mockPopularCategoriesDto'
+import { __serverDatabase } from '@/shared/lib/server'
+import { type CategoryWithProductsDto } from '../types'
 
 // Emulate sortBy product's feature
 const productSortByCompareFunctionMap: Record<
@@ -16,10 +16,14 @@ const productSortByCompareFunctionMap: Record<
 
 export const categoriesHandlers = [
   rest.get(`${config.API_ENDPOINT}/categories/popular`, async (_, res, ctx) => {
+    const categories = __serverDatabase.category.findMany({
+      where: { popular: { equals: true } },
+    })
+
     return await res(
       ctx.delay(config.API_DELAY),
       ctx.status(200),
-      ctx.json(mockPopularCategoriesDto())
+      ctx.json(categories)
     )
   }),
 
@@ -28,15 +32,26 @@ export const categoriesHandlers = [
     const sortBy = req.url.searchParams.get('sortBy')
     const apiDelay = req.url.searchParams.get('delay')
 
-    const categoryDto = mockCategoryDtoById(Number(id))
+    const maybeCategory = __serverDatabase.category.findFirst({
+      where: { id: { equals: Number(id) } },
+    })
 
-    if (!categoryDto) {
+    if (!maybeCategory) {
       return await res(
         ctx.delay(Number(apiDelay) || config.API_DELAY),
         ctx.status(404),
         ctx.json('Not found')
       )
     }
+
+    const categoryDto: CategoryWithProductsDto = {
+      ...maybeCategory,
+      products: [],
+    }
+
+    categoryDto.products = __serverDatabase.product.findMany({
+      where: { categoryId: { equals: maybeCategory.id } },
+    })
 
     if (sortBy) {
       categoryDto.products = categoryDto.products.sort(

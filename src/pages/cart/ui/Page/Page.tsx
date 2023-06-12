@@ -1,6 +1,8 @@
+import { skipToken } from '@reduxjs/toolkit/dist/query'
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { selectCartTotalPrice, selectProductsInCart } from '@/entities/cart'
+import { useCartQuery } from '@/entities/cart/api/cartApi'
 import { selectIsAuthorized } from '@/entities/session'
 import { useAppSelector } from '@/shared/model'
 import { Button } from '@/shared/ui'
@@ -13,6 +15,9 @@ export function CartPage() {
   const navigate = useNavigate()
   const totalPrice = useAppSelector(selectCartTotalPrice)
   const cartProducts = useAppSelector(selectProductsInCart)
+  const { isLoading } = useCartQuery(isAuthorized ? undefined : skipToken, {
+    skip: !isAuthorized,
+  })
 
   const onLogin = useCallback(() => {
     navigate('/login', {
@@ -37,7 +42,12 @@ export function CartPage() {
       <div>
         <h1>Bag</h1>
         <div>
-          <div>There are no products in your bag. Add someone and return.</div>
+          {isLoading && <div>Loading...</div>}
+          {!isLoading && (
+            <div>
+              There are no products in your bag. Add someone and return.
+            </div>
+          )}
         </div>
       </div>
     )

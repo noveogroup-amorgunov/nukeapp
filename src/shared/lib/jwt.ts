@@ -16,7 +16,7 @@ export async function verifyAccessToken(jwt: string) {
   const secret = new TextEncoder().encode(config.JWT_SECRET)
   const { payload } = await jose.jwtVerify(jwt, secret)
 
-  return payload
+  return payload as { email: Email; userId: Id }
 }
 
 export function parseTokenFromRequest(req: RestRequest) {

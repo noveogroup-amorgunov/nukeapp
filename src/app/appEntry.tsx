@@ -5,25 +5,30 @@ import { Provider as ReduxProvider } from 'react-redux'
 import { RouterProvider } from 'react-router-dom'
 import { PersistGate } from 'redux-persist/integration/react'
 import '@/shared/base.css'
-import { startApiMockWorker } from '@/app/apiMockWorker'
 import { ThemeProvider } from '@/entities/theme'
 import { appRouter } from './appRouter'
 import { persistedStore, appStore } from './appStore'
 
 const root = document.getElementById('root') as HTMLElement
 
-startApiMockWorker()
+async function initApp() {
+  // Move @mswjs worker to lazy import
+  const module = await import('@/app/apiMockWorker')
+  await module.startApiMockWorker()
+}
 
-ReactDOM.createRoot(root).render(
-  <React.StrictMode>
-    <ModalProvider>
-      <ReduxProvider store={appStore}>
-        <PersistGate loading={null} persistor={persistedStore}>
-          <ThemeProvider>
-            <RouterProvider router={appRouter} />
-          </ThemeProvider>
-        </PersistGate>
-      </ReduxProvider>
-    </ModalProvider>
-  </React.StrictMode>
-)
+initApp().then(() => {
+  ReactDOM.createRoot(root).render(
+    <React.StrictMode>
+      <ModalProvider>
+        <ReduxProvider store={appStore}>
+          <PersistGate loading={null} persistor={persistedStore}>
+            <ThemeProvider>
+              <RouterProvider router={appRouter()} />
+            </ThemeProvider>
+          </PersistGate>
+        </ReduxProvider>
+      </ModalProvider>
+    </React.StrictMode>
+  )
+})

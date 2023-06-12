@@ -5,8 +5,7 @@ import {
   signAccessToken,
   verifyAccessToken,
 } from '@/shared/lib'
-
-const MOCKED_USER_ID = 1
+import { __serverDatabase } from '@/shared/lib/server'
 
 export const sessionHandlers = [
   rest.get(`${config.API_ENDPOINT}/me`, async (req, res, ctx) => {
@@ -33,15 +32,19 @@ export const sessionHandlers = [
     const body = await req.json()
     const { email, password } = body
 
-    if (
-      email !== config.API_USER_EMAIL ||
-      password !== config.API_USER_PASSWORD
-    ) {
+    const maybeUser = __serverDatabase.user.findFirst({
+      where: {
+        email: { equals: email },
+        password: { equals: password },
+      },
+    })
+
+    if (!maybeUser) {
       return await res(ctx.status(400), ctx.json('Wrong email or password'))
     }
 
     const accessToken = await signAccessToken({
-      userId: MOCKED_USER_ID,
+      userId: maybeUser.id,
       email,
     })
 
@@ -52,7 +55,7 @@ export const sessionHandlers = [
         accessToken,
         user: {
           email,
-          id: MOCKED_USER_ID,
+          id: maybeUser.id,
         },
       })
     )

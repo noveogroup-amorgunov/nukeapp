@@ -1,20 +1,32 @@
 import { rest } from 'msw'
 import { config, parseTokenFromRequest, verifyAccessToken } from '@/shared/lib'
-import { mockWishlistDto } from './mockWishlistDto'
-
-let wishlistProductIdsStorage: Id[] = [3, 4, 5, 6, 7]
+import { __serverDatabase } from '@/shared/lib/server'
 
 export const wishlistHandlers = [
   rest.get(
     `${config.API_ENDPOINT}/products/wishlist`,
     async (req, res, ctx) => {
       try {
-        await verifyAccessToken(parseTokenFromRequest(req))
+        const { userId } = await verifyAccessToken(parseTokenFromRequest(req))
+
+        const maybeWishlist = __serverDatabase.wishlist.findFirst({
+          where: {
+            user: {
+              id: { equals: userId },
+            },
+          },
+        })
+
+        const products = __serverDatabase.product.findMany({
+          where: {
+            id: { in: maybeWishlist?.productIds ?? [] },
+          },
+        })
 
         return await res(
           ctx.delay(config.API_DELAY),
           ctx.status(200),
-          ctx.json(mockWishlistDto(wishlistProductIdsStorage))
+          ctx.json(products)
         )
       } catch (err) {
         return await res(ctx.status(403), ctx.json('Forbidden'))
@@ -26,12 +38,21 @@ export const wishlistHandlers = [
     `${config.API_ENDPOINT}/products/wishlist`,
     async (req, res, ctx) => {
       try {
-        await verifyAccessToken(parseTokenFromRequest(req))
+        const { userId } = await verifyAccessToken(parseTokenFromRequest(req))
 
         const apiDelay = req.url.searchParams.get('delay')
         const body = await req.json()
 
-        wishlistProductIdsStorage = body
+        __serverDatabase.wishlist.update({
+          where: {
+            user: {
+              id: { equals: userId },
+            },
+          },
+          data: {
+            productIds: body,
+          },
+        })
 
         return await res(
           ctx.delay(Number(apiDelay) || config.API_DELAY),
