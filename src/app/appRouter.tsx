@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react'
+import { type ReactElement } from 'react'
 import { Navigate, createBrowserRouter } from 'react-router-dom'
 import { featureToggleLoader } from '@/entities/featureToggle'
 import { selectIsAuthorized } from '@/entities/session'
@@ -14,7 +14,7 @@ import { baseLayout } from './layouts/baseLayout'
 import { layoutWithSidebar } from './layouts/layoutWithSidebar'
 
 type GuestGuardProps = {
-  children: ReactNode
+  children: ReactElement
 }
 
 function GuestGuard({ children }: GuestGuardProps) {
@@ -26,7 +26,7 @@ function GuestGuard({ children }: GuestGuardProps) {
 }
 
 type AuthGuardProps = {
-  children: ReactNode
+  children: ReactElement
 }
 
 function AuthGuard({ children }: AuthGuardProps) {

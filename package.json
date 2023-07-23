@@ -15,6 +15,7 @@
     "build:storybook": "storybook build",
     "prepare": "husky install",
     "lint": "eslint src",
+    "lint:types": "tsc --noEmit",
     "postinstall": "patch-package"
   },
   "dependencies": {
