@@ -1,16 +1,12 @@
-import { type ProductDto } from '@/entities/product/@x/cart'
+import {
+  type CartDatabaseModel,
+  type ProductDatabaseModel,
+} from '@/shared/lib/server'
 import { type CartDto } from '../types'
 
-// TODO: infer type from database
-type CartDatabaseModal = {
-  version: number
-  itemsProductId: number[]
-  itemsProductQuantity: number[]
-}
-
 export function mockCartDto(
-  cart: CartDatabaseModal,
-  products: ProductDto[]
+  cart: CartDatabaseModel,
+  products: ProductDatabaseModel[]
 ): CartDto {
   return {
     deliveryPrice: 0,
