@@ -1,6 +1,38 @@
 import { rest } from 'msw'
 import { config } from '@/shared/lib'
-import { __serverDatabase } from '@/shared/lib/server'
+import {
+  type ProductDatabaseModel,
+  __serverDatabase,
+} from '@/shared/lib/server'
+import { type ProductDetailsDto, type ProductDto } from '../types'
+
+function mockProductDto(product: ProductDatabaseModel): ProductDto {
+  return {
+    id: product.id,
+    name: product.name,
+    badge: product.badge,
+    subtitle: product.subtitle,
+    discountPrice: product.discountPrice,
+    price: product.price,
+    imageUrl: product.imageUrl,
+  }
+}
+
+function mockProductDetailsDto(
+  product: ProductDatabaseModel
+): ProductDetailsDto {
+  return {
+    id: product.id,
+    name: product.name,
+    badge: product.badge,
+    subtitle: product.subtitle,
+    discountPrice: product.discountPrice,
+    price: product.price,
+    imageUrl: product.imageUrl,
+    detailsImageUrl: product.detailsImageUrl ?? [],
+    description: product.description ?? '',
+  }
+}
 
 export const productsHandlers = [
   rest.get(`${config.API_ENDPOINT}/products/popular`, async (_, res, ctx) => {
@@ -11,7 +43,7 @@ export const productsHandlers = [
     return await res(
       ctx.delay(config.API_DELAY),
       ctx.status(200),
-      ctx.json(products)
+      ctx.json(products.map(mockProductDto))
     )
   }),
   rest.get(`${config.API_ENDPOINT}/products/:id`, async (req, res, ctx) => {
@@ -21,10 +53,17 @@ export const productsHandlers = [
       where: { id: { equals: Number(id) } },
     })
 
+    if (!maybeProduct)
+      return await res(
+        ctx.delay(config.API_DELAY),
+        ctx.status(404),
+        ctx.json('Not found')
+      )
+
     return await res(
       ctx.delay(config.API_DELAY),
-      ctx.status(maybeProduct ? 200 : 404),
-      ctx.json(maybeProduct ?? 'Not found')
+      ctx.status(200),
+      ctx.json(mockProductDetailsDto(maybeProduct))
     )
   }),
   rest.get(`${config.API_ENDPOINT}/products`, async (req, res, ctx) => {
@@ -36,7 +75,7 @@ export const productsHandlers = [
     return await res(
       ctx.delay(config.API_DELAY),
       ctx.status(200),
-      ctx.json(products)
+      ctx.json(products.map(mockProductDto))
     )
   }),
 ]
