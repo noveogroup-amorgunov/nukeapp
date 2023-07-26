@@ -1,7 +1,11 @@
 import { rest } from 'msw'
 import { config } from '@/shared/lib'
-import { __serverDatabase } from '@/shared/lib/server'
-import { type CategoryWithProductsDto } from '../types'
+import {
+  type ProductDatabaseModel,
+  __serverDatabase,
+} from '@/shared/lib/server'
+import { mockCategoryDto } from './mockCategoryDto'
+import { mockCategoryWithProductsDto } from './mockCategoryWithProductsDto'
 
 // Emulate sortBy product's feature
 const productSortByCompareFunctionMap: Record<
@@ -23,7 +27,7 @@ export const categoriesHandlers = [
     return await res(
       ctx.delay(config.API_DELAY),
       ctx.status(200),
-      ctx.json(categories)
+      ctx.json(mockCategoryDto(categories))
     )
   }),
 
@@ -44,25 +48,26 @@ export const categoriesHandlers = [
       )
     }
 
-    const categoryDto: CategoryWithProductsDto = {
-      ...maybeCategory,
-      products: [],
-    }
+    let maybeProducts: ProductDatabaseModel[] = []
 
-    categoryDto.products = __serverDatabase.product.findMany({
+    maybeProducts = __serverDatabase.product.findMany({
       where: { categoryId: { equals: maybeCategory.id } },
     })
 
     if (sortBy) {
-      categoryDto.products = categoryDto.products.sort(
+      maybeProducts = maybeProducts.sort(
         productSortByCompareFunctionMap[sortBy]
       )
     }
+    const categoryWithProductsDto = mockCategoryWithProductsDto(
+      maybeCategory,
+      maybeProducts
+    )
 
     return await res(
       ctx.delay(Number(apiDelay) || config.API_DELAY),
       ctx.status(200),
-      ctx.json(categoryDto)
+      ctx.json(categoryWithProductsDto)
     )
   }),
 ]

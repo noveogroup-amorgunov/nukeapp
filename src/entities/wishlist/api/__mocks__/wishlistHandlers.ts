@@ -1,6 +1,7 @@
 import { rest } from 'msw'
 import { config, parseTokenFromRequest, verifyAccessToken } from '@/shared/lib'
 import { __serverDatabase } from '@/shared/lib/server'
+import { mockWishlistDto } from './mockWishlistDto'
 
 export const wishlistHandlers = [
   rest.get(
@@ -26,7 +27,7 @@ export const wishlistHandlers = [
         return await res(
           ctx.delay(config.API_DELAY),
           ctx.status(200),
-          ctx.json(products)
+          ctx.json(mockWishlistDto(products))
         )
       } catch (err) {
         return await res(ctx.status(403), ctx.json('Forbidden'))

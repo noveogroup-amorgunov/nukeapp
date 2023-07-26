@@ -5,3 +5,5 @@ export { startDatabaseMigration as __serverStartDatabaseMigration } from './migr
 
 export { default as productsMock } from './__mocks__/products.json'
 export { default as categoriesMock } from './__mocks__/categories.json'
+
+export * from './types'
