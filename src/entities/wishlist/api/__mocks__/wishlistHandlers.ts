@@ -4,7 +4,7 @@ import { __serverDatabase } from '@/shared/lib/server'
 
 export const wishlistHandlers = [
   rest.get(
-    `${config.API_ENDPOINT}/products/wishlist`,
+    `${config.API_ENDPOINT}/wishlist/products`,
     async (req, res, ctx) => {
       try {
         const { userId } = await verifyAccessToken(parseTokenFromRequest(req))
@@ -35,7 +35,7 @@ export const wishlistHandlers = [
   ),
 
   rest.patch(
-    `${config.API_ENDPOINT}/products/wishlist`,
+    `${config.API_ENDPOINT}/wishlist/products`,
     async (req, res, ctx) => {
       try {
         const { userId } = await verifyAccessToken(parseTokenFromRequest(req))

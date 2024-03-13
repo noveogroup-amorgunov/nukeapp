@@ -15,9 +15,9 @@ type Layer = 'widget' | 'feature' | 'entity'
 type ModuleName = `${Layer}/${string}`
 
 const colorMap: Record<Layer, string> = {
-  widget: '#fa0ee9',
-  feature: '#14a200',
-  entity: '#2573e5',
+  widget: '#fa0ee9aa',
+  feature: '#14a200aa',
+  entity: '#2573e5aa',
 } as const
 
 export function useFeatureSlicedDebug<T extends HTMLElement = HTMLDivElement>(

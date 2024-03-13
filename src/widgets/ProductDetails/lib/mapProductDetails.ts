@@ -1,5 +1,6 @@
+import { type ProductId } from '@/entities/product'
 import { type ProductDetailsDto } from '../api/types'
-import { type ProductDetails, type ProductId } from '../model/types'
+import { type ProductDetails } from '../model/types'
 
 export function mapProductDetails(dto: ProductDetailsDto): ProductDetails {
   return {

@@ -5,6 +5,7 @@
   grid-template-columns: repeat(5, minmax(0, 1fr));
   grid-auto-rows: max-content;
   gap: 16px;
+  padding: 16px 0;
   max-width: 100%;
 
   &.rootIsFetching {

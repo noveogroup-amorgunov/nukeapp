@@ -1,4 +1,3 @@
-import { usePopularProductsQuery } from '@/entities/product'
 import { useFeatureSlicedDebug } from '@/shared/lib'
 /**
  * 👇 ATTENTION (FSD)
@@ -9,6 +8,7 @@ import { useFeatureSlicedDebug } from '@/shared/lib'
  * @see https://github.com/noveogroup-amorgunov/nukeapp/blob/main/docs/architecture.md#widgets-cross-imports
  */
 import { ProductList } from '@/widgets/ProductList'
+import { usePopularProductsQuery } from '../api/widgetProductPopularListApi'
 import css from './ProductPopularList.module.css'
 
 export function ProductPopularList() {

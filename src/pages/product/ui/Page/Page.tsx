@@ -1,8 +1,10 @@
 import { skipToken } from '@reduxjs/toolkit/dist/query'
 import { Link, useParams } from 'react-router-dom'
 import { type ProductId } from '@/entities/product'
-import { useProductDetailsQuery } from '@/entities/product'
-import { ProductDetails } from '@/widgets/ProductDetails'
+import {
+  ProductDetails,
+  useProductDetailsQuery,
+} from '@/widgets/ProductDetails'
 
 export function ProductPage() {
   const { productId } = useParams<{ productId: string }>()
