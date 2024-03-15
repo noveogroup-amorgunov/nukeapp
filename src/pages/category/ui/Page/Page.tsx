@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { useCategoryDetailsQuery } from '@/entities/category'
 import { useAppSelector } from '@/shared/model'
-import { ProductList } from '@/widgets/ProductList'
+import { BaseProductList } from '@/widgets/BaseProductList'
 import { selectSortBy } from '../../model/slice'
 import { PageHeader } from '../PageHeader/PageHeader'
 
@@ -38,7 +38,7 @@ export function CategoryPage() {
   return (
     <div>
       <PageHeader category={data} />
-      <ProductList isFetching={isFetching} products={data.products} />
+      <BaseProductList isFetching={isFetching} products={data.products} />
     </div>
   )
 }

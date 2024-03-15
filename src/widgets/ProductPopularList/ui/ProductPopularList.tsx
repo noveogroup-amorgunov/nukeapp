@@ -1,13 +1,18 @@
 import { useFeatureSlicedDebug } from '@/shared/lib'
 /**
- * 👇 ATTENTION (FSD)
+ * 👇 ATTENTION (FSD Custom feature)
  *
- * By default cross imports on widgets level are not allowed
- * But there approach have a lot of duplicate logic and prop-hell
- * So cross imports on widgets are сonscious action in this project
+ * By default cross imports on widgets level are not allowed.
+ * In classic FSD you need move widget to entity level (entities/product/ui/BaseProduct),
+ * but there approach have a lot of duplicate logic and prop-hell (dont forget DRY).
+ *
+ * So to solve this problem there is a new layer for base widgets (widgets/Base*),
+ * which allow import them in other slices in this project.
+ * For example you can import widgets/BaseProductList in other widgets
+ *
  * @see https://github.com/noveogroup-amorgunov/nukeapp/blob/main/docs/architecture.md#widgets-cross-imports
  */
-import { ProductList } from '@/widgets/ProductList'
+import { BaseProductList } from '@/widgets/BaseProductList'
 import { usePopularProductsQuery } from '../api/widgetProductPopularListApi'
 import css from './ProductPopularList.module.css'
 
@@ -22,7 +27,7 @@ export function ProductPopularList() {
   return (
     <div className={css.root} {...rootAttributes}>
       <h2>Featured products</h2>
-      <ProductList isFetching={isFetching} products={data} />
+      <BaseProductList isFetching={isFetching} products={data} />
     </div>
   )
 }

@@ -1,0 +1,1 @@
+export { BaseProductList } from './BaseProductList'

@@ -1,11 +1,11 @@
 import cn from 'classnames'
-import { type ReactNode } from 'react'
+import { type ReactNode, useCallback } from 'react'
 import { ProductCard, type Product, type ProductId } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
 import { AddToWishlistIcon } from '@/features/wishlist/addToWishlist'
 import { useFeatureSlicedDebug } from '@/shared/lib'
 import { useAppSelector } from '@/shared/model'
-import css from './ProductList.module.css'
+import css from './BaseProductList.module.css'
 
 type Props<T extends Product> = {
   products: T[]
@@ -15,10 +15,25 @@ type Props<T extends Product> = {
   size?: 's' | 'm'
 }
 
-export function ProductList<T extends Product>(props: Props<T>) {
-  const { rootAttributes } = useFeatureSlicedDebug('widget/ProductList')
+export function BaseProductList<T extends Product>(props: Props<T>) {
+  const { rootAttributes } = useFeatureSlicedDebug('widget/BaseProductList')
   const { isFetching, products, size = 'm' } = props
   const isAuthorized = useAppSelector(selectIsAuthorized)
+
+  const getActionSlot = useCallback(
+    (product: Product) => {
+      if (props.productCardActionsSlot) {
+        return props.productCardActionsSlot(product.id)
+      }
+
+      if (isAuthorized) {
+        return <AddToWishlistIcon productId={product.id} />
+      }
+
+      return null
+    },
+    [props.productCardActionsSlot, isAuthorized]
+  )
 
   if (Boolean(isFetching) && products.length === 0) {
     return <div className={css.root}>Fetching...</div>
@@ -47,15 +62,9 @@ export function ProductList<T extends Product>(props: Props<T>) {
           bottomContentSlot={
             props.productCardBottomSlot
               ? props.productCardBottomSlot(product)
-              : undefined
+              : null
           }
-          // TODO: Move ProductList to entity/product from widgets
-          // (and compose <AddToWishlistIcon productId={product.id} />)
-          actionSlot={
-            props.productCardActionsSlot
-              ? props.productCardActionsSlot(product.id)
-              : isAuthorized && <AddToWishlistIcon productId={product.id} />
-          }
+          actionSlot={getActionSlot(product)}
         />
       ))}
     </div>

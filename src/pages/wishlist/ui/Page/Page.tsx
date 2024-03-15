@@ -6,7 +6,7 @@ import { useWishlistProductsQuery } from '@/entities/wishlist'
 import { useAddToWishlistMutation } from '@/entities/wishlist/api/wishlistApi'
 import { useAppSelector } from '@/shared/model'
 import { Button } from '@/shared/ui'
-import { ProductList } from '@/widgets/ProductList'
+import { BaseProductList } from '@/widgets/BaseProductList'
 
 export function WishlistPage() {
   const isAuthorized = useAppSelector(selectIsAuthorized)
@@ -48,7 +48,7 @@ export function WishlistPage() {
 
     return (
       <div>
-        <ProductList size="m" products={products} isFetching={isFetching} />
+        <BaseProductList size="m" products={products} isFetching={isFetching} />
       </div>
     )
   }, [isAuthorized, isFetching, products])
