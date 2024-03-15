@@ -1,1 +1,1 @@
-export { BaseProductList } from './BaseProductList'
+export { BaseProductList } from './ui/BaseProductList'
