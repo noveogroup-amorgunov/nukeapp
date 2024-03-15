@@ -5,7 +5,7 @@ import { mapProduct } from '../../lib/mapProduct'
 import { ProductCard } from './ProductCard'
 
 const meta: Meta<typeof ProductCard> = {
-  title: 'entities/ProductCard',
+  title: 'entities/product/ProductCard',
   component: ProductCard,
 }
 

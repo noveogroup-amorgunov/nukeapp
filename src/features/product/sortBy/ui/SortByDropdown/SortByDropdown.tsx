@@ -1,3 +1,4 @@
+import 'rc-dropdown/assets/index.css'
 import Dropdown from 'rc-dropdown'
 import { useState } from 'react'
 import { useFeatureSlicedDebug } from '@/shared/lib'

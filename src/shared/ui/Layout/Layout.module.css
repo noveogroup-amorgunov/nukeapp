@@ -17,6 +17,11 @@
   flex-direction: row;
   gap: 12px;
   flex-grow: 1;
+
+
+  @media (--s-viewport) {
+    flex-direction: column-reverse;
+  }
 }
 
 .content {
@@ -30,8 +35,8 @@
   min-width: 300px;
   display: flex;
 
-  @media (--m-viewport) {
-    display: none;
+  @media (--s-viewport) {
+    min-width: 100%;
   }
 }
 
