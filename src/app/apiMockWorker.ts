@@ -7,8 +7,15 @@ import { sessionHandlers } from '@/entities/session/api/__mocks__/sessionHandler
 import { wishlistHandlers } from '@/entities/wishlist/api/__mocks__/wishlistHandlers'
 // eslint-disable-next-line no-restricted-imports
 import { __serverStartDatabaseMigration } from '@/shared/lib/server'
+import { widgetProductDetailsHandlers } from '@/widgets/ProductDetails/api/__mocks__/widgetProductDetailsHandlers'
+import { widgetProductPopularListHandlers } from '@/widgets/ProductPopularList/api/__mocks__/widgetProductPopularListHandlers'
 
 const apiMockWorker = setupWorker(
+  // @widgets layer handlers
+  ...widgetProductPopularListHandlers,
+  ...widgetProductDetailsHandlers,
+
+  // @entities layer handlers
   ...categoriesHandlers,
   ...wishlistHandlers,
   ...productsHandlers,

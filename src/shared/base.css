@@ -63,7 +63,6 @@ a:hover {
 [data-fsd] {
   outline: 2px solid var(--fsd-color);
   position: relative;
-  background-color: var(--fsd-background-color);
 }
 
 [data-fsd]::after {
@@ -80,6 +79,19 @@ a:hover {
   font-weight: bold;
   padding: 0 2px;
   font-family: sans-serif;
+}
+
+[data-fsd]::before {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: var(--fsd-background-color);
+  content: '';
+  z-index: 1;
+  opacity: 0.8;
 }
 
 .text_xs {

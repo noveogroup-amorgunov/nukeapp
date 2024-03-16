@@ -7,14 +7,14 @@ export const wishlistApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     wishlistProducts: build.query<Product[], void>({
       query: () => ({
-        url: `/products/wishlist`,
+        url: `/wishlist/products`,
       }),
       providesTags: [WISHLIST_TAG],
       transformResponse: (response: WishlistDto) => mapWishlist(response),
     }),
     addToWishlist: build.mutation<{}, number[]>({
       query: (productsInWishlistIds) => ({
-        url: `/products/wishlist`,
+        url: `/wishlist/products`,
         method: 'PATCH',
         body: productsInWishlistIds,
         params: { delay: 500 },

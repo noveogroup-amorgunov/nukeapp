@@ -1,4 +1,4 @@
-export type ProductDto = {
+export type ProductDetailsDto = {
   id: number
   name: string
   badge: string
@@ -6,4 +6,7 @@ export type ProductDto = {
   discountPrice?: number
   price: number
   imageUrl: string[]
+
+  detailsImageUrl: string[]
+  description: string
 }
