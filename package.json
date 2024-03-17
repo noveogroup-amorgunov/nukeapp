@@ -41,7 +41,7 @@
     "@storybook/addon-essentials": "7.6.17",
     "@storybook/addon-links": "7.0.9",
     "@storybook/builder-vite": "8.0.0",
-    "@storybook/react": "7.0.9",
+    "@storybook/react": "7.6.9",
     "@storybook/react-vite": "7.6.17",
     "@total-typescript/ts-reset": "0.4.2",
     "@types/react": "18.0.26",
