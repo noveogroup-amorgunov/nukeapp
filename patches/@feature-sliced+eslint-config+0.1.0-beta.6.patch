@@ -1,5 +1,5 @@
 diff --git a/node_modules/@feature-sliced/eslint-config/rules/layers-slices/index.js b/node_modules/@feature-sliced/eslint-config/rules/layers-slices/index.js
-index 569d37f..7f067b3 100644
+index 569d37f..219ff95 100644
 --- a/node_modules/@feature-sliced/eslint-config/rules/layers-slices/index.js
 +++ b/node_modules/@feature-sliced/eslint-config/rules/layers-slices/index.js
 @@ -1,23 +1,55 @@
@@ -21,9 +21,9 @@ index 569d37f..7f067b3 100644
 +                relatedSlices: "${from.slices}"
 +            }],
 +        ],
-+    }
++    };
 +
-+    return [entitiesCrossImports, ...base]
++    return [entitiesCrossImports, ...base];
 +}
 +
  const sharedLayerRule = {
@@ -50,7 +50,7 @@ index 569d37f..7f067b3 100644
 +        pattern: `entities/*/@x/*.ts`,
 +        mode: "file",
 +        capture: ["slices", "relatedSlices"],
-+    }
++    };
 +
 +    const baseWidgetsCrossImports = {
 +        type: 'baseWidgets',
@@ -58,7 +58,7 @@ index 569d37f..7f067b3 100644
          mode: "folder",
          capture: ["slices"],
 -    }));
-+    }
++    };
 +
 +    return [entitiesCrossImports, baseWidgetsCrossImports, ...base]
 +}
@@ -66,14 +66,13 @@ index 569d37f..7f067b3 100644
  const getGodModeRules = () =>
      layersLib.FS_LAYERS.map((layer) => ({
 diff --git a/node_modules/@feature-sliced/eslint-config/utils/layers.js b/node_modules/@feature-sliced/eslint-config/utils/layers.js
-index a92fb83..e9f9c9a 100644
+index a92fb83..25b635e 100644
 --- a/node_modules/@feature-sliced/eslint-config/utils/layers.js
 +++ b/node_modules/@feature-sliced/eslint-config/utils/layers.js
-@@ -1,8 +1,13 @@
+@@ -1,8 +1,12 @@
  const FS_LAYERS = [
      "app",
 -    "processes",
-+
 +    // Remove deprecated layer
 +    // "processes",
      "pages",
