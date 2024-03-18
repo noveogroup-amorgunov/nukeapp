@@ -16,8 +16,9 @@ type Props = {
 export function ProductCard(props: Props) {
   const { size = 'm', product, actionSlot, bottomContentSlot } = props
   const { oldPrice, price, image, subname, name } = product
-  const { rootAttributes } =
-    useFeatureSlicedDebug<HTMLAnchorElement>('entity/ProductCard')
+  const { rootAttributes } = useFeatureSlicedDebug<HTMLAnchorElement>(
+    'entity/product/ProductCard'
+  )
 
   return (
     <Link

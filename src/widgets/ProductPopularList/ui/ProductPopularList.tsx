@@ -10,7 +10,7 @@ import { useFeatureSlicedDebug } from '@/shared/lib'
  * which allow import them in other slices in this project.
  * For example you can import widgets/BaseProductList in other widgets
  *
- * @see https://github.com/noveogroup-amorgunov/nukeapp/blob/main/docs/architecture.md#widgets-cross-imports
+ * @see https://github.com/noveogroup-amorgunov/nukeapp/blob/main/docs/en/architecture.md#widgets-cross-imports
  */
 import { BaseProductList } from '@/widgets/BaseProductList'
 import { usePopularProductsQuery } from '../api/widgetProductPopularListApi'

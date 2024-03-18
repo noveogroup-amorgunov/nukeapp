@@ -15,9 +15,9 @@ type Layer = 'widget' | 'feature' | 'entity'
 type ModuleName = `${Layer}/${string}`
 
 const colorMap: Record<Layer, string> = {
-  widget: '#fa0ee9aa',
-  feature: '#14a200aa',
-  entity: '#2573e5aa',
+  widget: '#fa0ee9',
+  feature: '#14a200',
+  entity: '#2573e5',
 } as const
 
 export function useFeatureSlicedDebug<T extends HTMLElement = HTMLDivElement>(
@@ -30,8 +30,8 @@ export function useFeatureSlicedDebug<T extends HTMLElement = HTMLDivElement>(
   if (isDebugMode) {
     rootAttributes['data-fsd'] = name
     rootAttributes.style = {
-      '--fsd-color': colorMap[layer],
-      '--fsd-background-color': `${colorMap[layer]}10`,
+      '--fsd-color': `${colorMap[layer]}dd`,
+      '--fsd-background-color': `${colorMap[layer]}07`,
     } as CustomCSSProperties
   }
 
