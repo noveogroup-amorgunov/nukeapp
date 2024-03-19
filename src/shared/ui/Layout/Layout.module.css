@@ -4,11 +4,15 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 50px 24px 16px;
+  padding: 64px 24px 16px;
   min-height: 100vh;
 
   @media (--s-viewport) {
-    padding: 50px 8px 16px;
+    padding: 64px 8px 16px;
+  }
+
+  @media (--xs-viewport) {
+    padding-top: 84px;
   }
 }
 

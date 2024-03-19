@@ -6,7 +6,7 @@ export function AdBlock() {
 
   return (
     <div {...rootAttributes} className={css.root}>
-      ad widget
+      ads widget
     </div>
   )
 }
