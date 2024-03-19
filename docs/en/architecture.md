@@ -15,7 +15,7 @@ Solved common problems:
 Limitation (or extension of the canonical FSD):
 
 - [Entities cross imports](#Entities-cross-imports)
-- [Widgets cross imports](#Widgets-cross-imports)
+- [Widgets cross imports](#Widgets-cross-imports-custom-sublayers)
 
 ## Solved common problems
 
@@ -33,13 +33,13 @@ See [entities/session/\*](https://github.com/noveogroup-amorgunov/nukeapp/tree/m
 
 Split layout to dumb component (with markup) and smart component for widget compositions. Dumb layout can be placed in `share/ui/Layout`, smart - `app/layouts/baseLayout.tsx`.
 
-See [app/appLayout.tsx](https://github.com/noveogroup-amorgunov/nukeapp/blob/main/src/app/layouts/baseLayout.tsx) and [shared/ui/Layout/\*](https://github.com/noveogroup-amorgunov/nukeapp/tree/main/src/shared/ui/Layout) in code.
+See [app/layouts/baseLayout.tsx](https://github.com/noveogroup-amorgunov/nukeapp/blob/main/src/app/layouts/baseLayout.tsx) and [shared/ui/Layout/\*](https://github.com/noveogroup-amorgunov/nukeapp/tree/main/src/shared/ui/Layout) in code.
 
 ### Using features into entity
 
 Use render prop pattern (render slot) and pass features via props.
 
-See example [widgets/BaseProductList/BaseProductList.tsx](https://github.com/noveogroup-amorgunov/nukeapp/blob/main/src/widgets/BaseProductList/ui/BaseProductList.tsx) in code. `entity/ProductCard` has `feature/AddToWishlist` and get it in props from `widget/ProductList`. So we don't violate FSD and can use features into entity.
+See example [widgets/BaseProductList/BaseProductList.tsx](https://github.com/noveogroup-amorgunov/nukeapp/blob/main/src/widgets/BaseProductList/ui/BaseProductList.tsx) in code. `entity/ProductCard` has `feature/AddToWishlist` and get it in props from `widget/BaseProductList`. So we don't violate FSD and can use features into entity.
 
 ### Relations between entities
 
@@ -90,7 +90,7 @@ type Product = {
 }
 ```
 
-If we need to use `CategoryId`` in other entity, we create `@x/{entity}` and export required dependencies as well. Advantages over plain cross imports are described in RFC, but the main of them:
+If we need to use `CategoryId` in other entity, we create `@x/{entity}` and export required dependencies as well. Advantages over plain cross imports are described in RFC, but the main of them:
 
 - Writing such index files is a little bulky, which discourages cross-imports and encourages the search for alternative solutions that do not require cross-imports
 - The list of types and objects that are shared between slices is explicit and predictable
@@ -108,7 +108,7 @@ I think you agree with me, that user interfaces are very complex nowadays. In FS
 
 For example, we have widget `BaseProductList` which use different entities and features. At the same time we have N widgets like `{Any}ProductList` (for example `PopularProductList` or `CartProductList`) which use `BaseProductList`:
 
-![](../example-cross-imports@dark.png#gh-dark-mode-only) ![](../example-cross-imports@light.png#gh-light-mode-only)
+![](../example-cross-imports@dark.jpg#gh-dark-mode-only) ![](../example-cross-imports@light.jpg#gh-light-mode-only)
 
 Of course, we can make dumb `ProductList`, place it on `entities/product` slice and pass all data as props. Sometimes render-props is a very powerful pattern and it works. But in this example it's a wrong way (a lot of duplicate logic and prop-hell components because every of N widgets will duplicate each other's logic):
 
@@ -135,7 +135,7 @@ function PopularProductList() {
 So, there are several options:
 
 - 1️⃣ Follow the classic FSD version and move widgets to entity (hello prop drilling and hell of duplication 👎);
-- 2️⃣ Allow cross-imports between widgets (it's a pretty simple workaround, but hello low cohesion 👎);
+- 2️⃣ Allow cross-imports between widgets (it's a pretty simple workaround, but hello high coupling 👎);
 - 3️⃣ Add a new layer like `page-widgets` or `entity-widgets` (it complicates architecture and module communication in general 👎);
 - 4️⃣ Add a new sublayer for base widgets (similar with previous options, but we don't introduce new global layer 🤔).
 
