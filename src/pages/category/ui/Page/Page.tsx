@@ -13,8 +13,6 @@ export function CategoryPage() {
   const sortBy = useAppSelector(selectSortBy)
   const sortByIsEnabled = useFeatureToggle('productsSort')
 
-  console.log(sortByIsEnabled)
-
   // TODO: Add zod validation
   const { data, isFetching, isLoading } = useCategoryDetailsQuery({
     categoryId: Number.parseInt(categoryId ?? '1', 10),
