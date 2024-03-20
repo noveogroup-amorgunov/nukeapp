@@ -1,4 +1,9 @@
-![Nuke App](./public/images/logo@dark.png#gh-dark-mode-only) ![](./public/images/logo@light.png#gh-light-mode-only)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./public/images/logo@dark.png">
+  <img alt="Nuke App" width="290px" src="./public/images/logo@light.png">
+</picture>
+<br />
+<br />
 
 [![Netlify Status](https://img.shields.io/netlify/d1054c75-ff07-48af-8017-83083dc30951?style=flat&colorA=000000&colorB=000000)](https://app.netlify.com/sites/nukeapp/deploys) ![](https://img.shields.io/badge/designed%20by%20feature%20sliced%20design-000000?style=flat)
 
