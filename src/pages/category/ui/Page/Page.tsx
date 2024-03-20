@@ -1,13 +1,17 @@
 import { Link, useParams } from 'react-router-dom'
 import { useCategoryDetailsQuery } from '@/entities/category'
-import { useAppSelector } from '@/shared/model'
+import { useFeatureToggle } from '@/entities/featureToggle'
+import { type ProductSortBy, SortByDropdown } from '@/features/product/sortBy'
+import { useAppSelector, useAppDispatch } from '@/shared/model'
+import { PageHeader } from '@/shared/ui'
 import { BaseProductList } from '@/widgets/BaseProductList'
-import { selectSortBy } from '../../model/slice'
-import { PageHeader } from '../PageHeader/PageHeader'
+import { selectSortBy, changeSortBy } from '../../model/slice'
 
 export function CategoryPage() {
   const { categoryId } = useParams<{ categoryId: string }>()
+  const dispatch = useAppDispatch()
   const sortBy = useAppSelector(selectSortBy)
+  const sortByIsEnabled = useFeatureToggle('productsSort')
 
   // TODO: Add zod validation
   const { data, isFetching, isLoading } = useCategoryDetailsQuery({
@@ -37,7 +41,19 @@ export function CategoryPage() {
 
   return (
     <div>
-      <PageHeader category={data} />
+      <PageHeader
+        title={data.name}
+        rightSlot={
+          sortByIsEnabled && (
+            <SortByDropdown
+              defaultSortBy={sortBy}
+              onChange={(sortBy: ProductSortBy) =>
+                dispatch(changeSortBy(sortBy))
+              }
+            />
+          )
+        }
+      />
       <BaseProductList isFetching={isFetching} products={data.products} />
     </div>
   )

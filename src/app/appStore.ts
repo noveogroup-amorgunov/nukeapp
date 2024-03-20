@@ -15,7 +15,7 @@ import { sessionSlice } from '@/entities/session'
 import { themeSlice } from '@/entities/theme'
 import { invalidateAccessTokenListener } from '@/features/authentication/invalidateAccessToken'
 import { baseApi } from '@/shared/api'
-import { debugModeSlice } from '@/shared/model'
+import { debugModeSlice } from '@/widgets/DebugModeToggler'
 import { rootReducer } from './rootReducer'
 
 const persistConfig = {

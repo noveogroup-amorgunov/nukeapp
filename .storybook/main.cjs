@@ -19,16 +19,4 @@ module.exports = {
   "core": {
     "builder": "@storybook/builder-vite"
   },
-  // async viteFinal(config, { configType }) {
-  //   return mergeConfig(config, {
-  //     plugins: [svgr()],
-  //     // TODO: //
-  //     // resolve: {
-  //     //   alias: {
-  //     //     '@components': resolve(__dirname, '../src/components'),
-  //     //     '@shared': resolve(__dirname, '../src/shared'),
-  //     //   },
-  //     // },
-  //   })
-  // },
 }

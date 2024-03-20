@@ -1,4 +1,5 @@
-import { useAppDispatch, useAppSelector, toggleDebugMode } from '@/shared/model'
+import { useAppDispatch, useAppSelector } from '@/shared/model'
+import { toggleDebugMode } from '../model/slice'
 import css from './DebugModeToggler.module.css'
 
 export function DebugModeToggler() {

@@ -9,8 +9,8 @@ export const layoutWithSidebar = (
     announcementSlot={
       <Announcement>
         <span>
-          An open source frontend application built with React ⚛️ and
-          Feature-Sliced Design 🍰.
+          🚀&nbsp;&nbsp;An&nbsp;open source frontend application built with
+          React and Feature-Sliced&nbsp;Design.
         </span>
       </Announcement>
     }

@@ -3,7 +3,7 @@ import { Provider as ReduxProvider } from 'react-redux'
 import { makeStore } from '@/app/appStore'
 import { loginThunk } from '@/features/authentication/login/model/login'
 import { config } from '@/shared/lib'
-import { toggleDebugMode } from '@/shared/model'
+import { toggleDebugMode } from '@/widgets/DebugModeToggler/model/slice'
 
 const store = makeStore()
 
