@@ -141,7 +141,7 @@ So, there are several options:
 
 Initially, this project used the second approach 2️⃣ (we use this approach on the working project as well), when cross-imports between widgets were allowed. But this options violates the low coupling principle, and this can become a problem in large projects.
 
-So in the project we introduces a fourth option: 4️⃣ a new sublayer for base widgets that can be imported by other widgets. If a widget's name starts with `widget/Base*`, then it is a base widget and can be imported by other widgets.
+So this project is introducing a fourth option: 4️⃣ a new sublayer for base widgets that can be imported by other widgets. If a widget's name starts with `widget/Base*`, then it is a base widget and can be imported by other widgets.
 
 You can see example in [widgets/PopularProductList/\*](https://github.com/noveogroup-amorgunov/nukeapp/blob/main/src/widgets/ProductPopularList/ui/ProductPopularList.tsx#L10)
 
