@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { mapProduct } from '@/entities/product'
 import { mockProductDtoByIds } from '@/entities/product/api/__mocks__/mockProductDtoByIds'
-import { ProductList } from './ProductList'
+import { BaseProductList } from './BaseProductList'
 
-const meta: Meta<typeof ProductList> = {
-  title: 'widgets/ProductList',
-  component: ProductList,
+const meta: Meta<typeof BaseProductList> = {
+  title: 'widgets/BaseProductList',
+  component: BaseProductList,
 }
 
 export default meta
 
-type Story = StoryObj<typeof ProductList>
+type Story = StoryObj<typeof BaseProductList>
 
 export const Common: Story = {
   args: {

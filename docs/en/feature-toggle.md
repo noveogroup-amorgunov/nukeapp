@@ -4,8 +4,10 @@ The application has a mechanism to enable or disable certain features for users.
 
 ## How to use
 
-- Set values in [`src/entities/featureToggle/api/__mocks__/mockFeatureToggleDto.ts`](/src/entities/featureToggle/api/__mocks__/featureToggleHandlers.ts)
-- Or pass actual feature toggle value in request query like `{host}/?{feature}=(true|false)`:
+There are two available options:
+
+- 1️⃣ Set values in [`src/entities/featureToggle/api/__mocks__/mockFeatureToggleDto.ts`](/src/entities/featureToggle/api/__mocks__/featureToggleHandlers.ts);
+- 2️⃣ Or pass actual feature toggle value in request query like `/?{feature}=(true|false)`.
 
 Examples:
 

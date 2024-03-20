@@ -4,7 +4,7 @@ import { type Product, formatPrice } from '@/entities/product'
 import { AddToCartButton } from '@/features/cart/addToCart'
 import { RemoveIcon } from '@/features/cart/addToCart/ui/RemoveIcon/RemoveIcon'
 import { AddToWishlistIcon } from '@/features/wishlist/addToWishlist'
-import { ProductList } from '@/widgets/ProductList'
+import { BaseProductList } from '@/widgets/BaseProductList'
 import css from './CartProductList.module.css'
 
 type CartProduct = Product & { quantity: number }
@@ -24,7 +24,7 @@ export function CartProductList(props: Props) {
   }, [props.products])
 
   return (
-    <ProductList<CartProduct>
+    <BaseProductList<CartProduct>
       size="s"
       productCardBottomSlot={(product: CartProduct) => {
         return (

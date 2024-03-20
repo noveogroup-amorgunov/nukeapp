@@ -1,8 +1,8 @@
 diff --git a/node_modules/@feature-sliced/eslint-config/rules/layers-slices/index.js b/node_modules/@feature-sliced/eslint-config/rules/layers-slices/index.js
-index 569d37f..b6edb11 100644
+index 569d37f..219ff95 100644
 --- a/node_modules/@feature-sliced/eslint-config/rules/layers-slices/index.js
 +++ b/node_modules/@feature-sliced/eslint-config/rules/layers-slices/index.js
-@@ -1,24 +1,52 @@
+@@ -1,23 +1,55 @@
  const { layersLib } = require("../../utils");
  
 -const getNotSharedLayersRules = () =>
@@ -21,14 +21,9 @@ index 569d37f..b6edb11 100644
 +                relatedSlices: "${from.slices}"
 +            }],
 +        ],
-+    }
++    };
 +
-+    const widgetsCrossImports = {
-+        from: 'widgets',
-+        allow: 'widgets'
-+    }
-+
-+    return [entitiesCrossImports, widgetsCrossImports, ...base]
++    return [entitiesCrossImports, ...base];
 +}
 +
  const sharedLayerRule = {
@@ -38,24 +33,53 @@ index 569d37f..b6edb11 100644
  
 -const getLayersBoundariesElements = () =>
 -    layersLib.FS_LAYERS.map((layer) => ({
+-        type: layer,
+-        pattern: `${layer}/!(_*){,/*}`,
 +const getLayersBoundariesElements = () => {
-+    const base = layersLib.FS_LAYERS.map((layer) => ({
-         type: layer,
-         pattern: `${layer}/!(_*){,/*}`,
-         mode: "folder",
-         capture: ["slices"],
-     }));
- 
++    const base = layersLib.FS_LAYERS
++        .filter(layer => layer !== 'baseWidgets')
++        .map((layer) => ({
++            type: layer,
++            pattern: `${layer}/!(_*){,/*}`,
++            mode: "folder",
++            capture: ["slices"],
++        }));
++
 +    const entitiesCrossImports = {
 +        type: 'entities/@x',
 +        pattern: `entities/*/@x/*.ts`,
 +        mode: "file",
 +        capture: ["slices", "relatedSlices"],
-+    }
++    };
 +
-+    return [entitiesCrossImports, ...base]
++    const baseWidgetsCrossImports = {
++        type: 'baseWidgets',
++        pattern: `widgets/Base*`,
+         mode: "folder",
+         capture: ["slices"],
+-    }));
++    };
++
++    return [entitiesCrossImports, baseWidgetsCrossImports, ...base]
 +}
-+
+ 
  const getGodModeRules = () =>
      layersLib.FS_LAYERS.map((layer) => ({
-         from: `gm_${layer}`,
+diff --git a/node_modules/@feature-sliced/eslint-config/utils/layers.js b/node_modules/@feature-sliced/eslint-config/utils/layers.js
+index a92fb83..25b635e 100644
+--- a/node_modules/@feature-sliced/eslint-config/utils/layers.js
++++ b/node_modules/@feature-sliced/eslint-config/utils/layers.js
+@@ -1,8 +1,12 @@
+ const FS_LAYERS = [
+     "app",
+-    "processes",
++    // Remove deprecated layer
++    // "processes",
+     "pages",
+     "widgets",
++
++    // Add custom layer for base widgets (widgets/Base*)
++    "baseWidgets",
+     "features",
+     "entities",
+     "shared",

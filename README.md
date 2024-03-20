@@ -1,6 +1,6 @@
 # Nuke App
 
-[![Netlify Status](https://img.shields.io/netlify/d1054c75-ff07-48af-8017-83083dc30951?style=flat&colorA=000000&colorB=000000)](https://app.netlify.com/sites/nukeapp/deploys)
+[![Netlify Status](https://img.shields.io/netlify/d1054c75-ff07-48af-8017-83083dc30951?style=flat&colorA=000000&colorB=000000)](https://app.netlify.com/sites/nukeapp/deploys) ![](https://img.shields.io/badge/designed%20by%20feature%20sliced%20design-000000?style=flat)
 
 An open source frontend application built using the **React** ⚛️ and **Feature-Sliced Design** 🍰.
 
@@ -8,18 +8,18 @@ An open source frontend application built using the **React** ⚛️ and **Featu
 
 - React, Redux Toolkit, React Hook Form, Zod
 - Vite, TypeScript, Postcss
-- Feature Sliced
+- Architecture based on Feature-Sliced Design
 
 ## Live demo
 
 ![](./public/images/preview@dark.png#gh-dark-mode-only)![](./public/images/preview@light.png#gh-light-mode-only)
 
-- [nukeapp.netlify.app](https://nukeapp.netlify.app/)
+- [Application stand](https://nukeapp.netlify.app/)
 - [Storybook stand](https://nukeapp-story.netlify.app/)
 
 ## About project
 
-Right now, I'm using this project as an experiment polygon to try modern technologies and see how a can see frontend application in {CURRENT_YEAR}. This project structure combines clean architecture and feature sliced methodology.
+Right now, I'm using this project as an experiment polygon to try modern technologies and see how a can see frontend application in {CURRENT_YEAR}. This project structure combines two methodology: Clean Architecture and Feature-Sliced Design.
 
 ## Features
 
