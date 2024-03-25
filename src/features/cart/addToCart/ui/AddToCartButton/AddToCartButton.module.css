@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  line-height: 16px;
 }
 
 .buttonAction {
@@ -12,5 +13,20 @@
   &:hover {
     background: var(--primary-color);
     opacity: 0.7;
+  }
+}
+
+.noMore {
+  font-size: 12px;
+}
+
+.noMoreAction {
+  color: var(--color-dark);
+  opacity: 0.4 !important;
+}
+
+.root {
+  &_noMore:hover {
+    background: var(--primary-color) !important;
   }
 }

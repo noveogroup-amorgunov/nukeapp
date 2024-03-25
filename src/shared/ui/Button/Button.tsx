@@ -13,6 +13,7 @@ type Props = {
   type?: 'submit'
   isLoading?: boolean
   disabled?: boolean
+  className?: string
 }
 
 export function Button({
@@ -23,12 +24,14 @@ export function Button({
   theme = 'primary',
   disabled,
   type,
+  className,
 }: Props) {
   return (
     <button
       type={type}
       disabled={disabled}
       className={cn(
+        className,
         css.root,
         css[`root_size_${size}`],
         css[`root_theme_${theme}`],

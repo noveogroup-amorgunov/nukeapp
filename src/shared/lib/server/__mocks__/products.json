@@ -7,6 +7,7 @@
     "subtitle": "Men's Shoes",
     "price": 15000,
     "discountPrice": 15000,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/d0b94722-d603-4e66-829c-51f1801ec3fa/air-max-pulse-mens-shoes-ShS3tL.png"
@@ -20,6 +21,7 @@
     "subtitle": "Men's Shoes",
     "price": 11000,
     "discountPrice": 11000,
+    "stocks": 0,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/4f37fca8-6bce-43e7-ad07-f57ae3c13142/air-force-1-07-mens-shoes-5QFp5Z.png"
@@ -33,6 +35,7 @@
     "subtitle": "Men's Shoes",
     "price": 13000,
     "discountPrice": 13000,
+    "stocks": 0,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/baa2520d-49da-4a27-ab2c-7fb133fb3008/air-max-90-mens-shoes-6n3vKB.png"
@@ -46,6 +49,7 @@
     "subtitle": "Men's Road Racing Shoes",
     "price": 25000,
     "discountPrice": 25000,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/09f365a5-5753-450f-901d-7fafe8915ca0/vaporfly-3-mens-road-racing-shoes-Q4PBPK.png"
@@ -66,6 +70,7 @@
     "subtitle": "Men's Road Racing Shoes",
     "price": 27500,
     "discountPrice": 27500,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/f9645056-9dc0-4b24-9006-57bf348e8f47/alphafly-2-mens-road-racing-shoes-8lD0jN.png"
@@ -79,6 +84,7 @@
     "subtitle": "Road Racing Shoes",
     "price": 16000,
     "discountPrice": 16000,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/24d5a5ec-db76-4512-99a8-36231b9a9b41/streakfly-road-racing-shoes-W3FNgf.png"
@@ -92,6 +98,7 @@
     "subtitle": "Men's Road Running Shoes",
     "price": 16000,
     "discountPrice": 16000,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/6ad50b7b-34e6-4d08-a7d3-a0a095400932/zoom-fly-5-mens-road-running-shoes-lpFskk.png"
@@ -105,6 +112,7 @@
     "subtitle": "Basketball Shoes",
     "price": 20000,
     "discountPrice": 20000,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/9bb98e33-4c04-4b5d-bf55-185509adeec5/lebron-xx-basketball-shoes-ct1qVm.png"
@@ -118,6 +126,7 @@
     "subtitle": "Basketball Shoes",
     "price": 16000,
     "discountPrice": 16000,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/c130c296-24c3-4419-9516-d6461e4e87ea/lebron-nxxt-gen-basketball-shoes-55g4w1.png"
@@ -132,6 +141,7 @@
     "subtitle": "Basketball Shoes",
     "price": 17000,
     "discountPrice": 17000,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/c090c62f-a2d1-4ae6-8e84-f454d6e93b46/air-zoom-gt-cut-2-basketball-shoes-tmfmFl.png"
@@ -146,6 +156,7 @@
     "subtitle": "Basketball Shoes",
     "price": 18000,
     "discountPrice": 18000,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/a211ad68-32b6-4434-99d0-10dad0d23626/air-zoom-gt-jump-basketball-shoes-Mj4kHp.png"
@@ -160,6 +171,7 @@
     "subtitle": "Men's Shoes",
     "price": 11500,
     "discountPrice": 11500,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/71d0c2f0-0fe6-44df-aa02-81b3dd2bab38/blazer-mid-pro-club-mens-shoes-Vgslvc.png"
@@ -174,6 +186,7 @@
     "subtitle": "Men's Shoes",
     "price": 10500,
     "discountPrice": 10500,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/389b709e-5102-4e55-aa5d-07099b500831/blazer-mid-77-vintage-mens-shoes-nw30B2.png"
@@ -188,6 +201,7 @@
     "subtitle": "Men's Shoes",
     "price": 16000,
     "discountPrice": 16000,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/a52e5eb5-17a1-48c5-9ee1-08b048d8d69c/air-max-270-mens-shoes-KkLcGR.png"
@@ -202,6 +216,7 @@
     "subtitle": "Men's Golf Shoes",
     "price": 15000,
     "discountPrice": 15000,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/deccafa7-f7c5-401f-be8e-065b5773c6eb/air-max-1-86-og-g-mens-golf-shoes-qT5Dtm.png"
@@ -216,6 +231,7 @@
     "subtitle": "Men's Golf Shoes",
     "price": 20000,
     "discountPrice": 20000,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/8b2d1313-3a3d-4cc9-b877-865f5a13be03/air-zoom-victory-tour-3-nrg-mens-golf-shoes-pgZWf5.png"
@@ -230,6 +246,7 @@
     "subtitle": "Golf Shoes",
     "price": 18000,
     "discountPrice": 18000,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/e3ffb91f-6db1-49b3-b756-a8353e163101/air-zoom-infinity-tour-next-nrg-golf-shoes-Qz3VFg.png"
@@ -244,6 +261,7 @@
     "subtitle": "Men's Slides",
     "price": 7500,
     "discountPrice": 7500,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/dc490213-e462-4597-adea-510d924f5d95/air-max-1-mens-slides-Frt1JC.png"
@@ -258,6 +276,7 @@
     "subtitle": "Men's Slides",
     "price": 4000,
     "discountPrice": 4000,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/f2fe44c4-c15a-4f29-8426-4ca64b742ff9/offcourt-adjust-mens-slides-n7mcwr.png"
@@ -272,6 +291,7 @@
     "subtitle": "Men's Shoes",
     "price": 17500,
     "discountPrice": 17500,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/cuvuokzz86meuxcssbma/air-max-97-mens-shoes-LJmK45.png"
@@ -286,6 +306,7 @@
     "subtitle": "Men's Shoes",
     "price": 18500,
     "discountPrice": 18500,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/f9522b40-4cc5-4fd2-b6fe-27f60b3ba886/air-max-97-og-mens-shoes-zV9FQs.png"
@@ -300,6 +321,7 @@
     "subtitle": "Men's Shoes",
     "price": 10000,
     "discountPrice": 10000,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/ec905341-5574-4757-b9f9-8459271f3432/air-max-systm-mens-shoes-TwgLWK.png"
@@ -314,6 +336,7 @@
     "subtitle": "Men's Road Running Shoes",
     "price": 16000,
     "discountPrice": 11997,
+    "stocks": 0,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/544603ac-af2f-440d-b80c-7a914146d56c/react-infinity-3-mens-road-running-shoes-1bRq75.png"
@@ -328,6 +351,7 @@
     "subtitle": "Men's Road Running Shoes",
     "price": 18000,
     "discountPrice": 18000,
+    "stocks": 5,
     "inStock": true,
     "imageUrl": [
       "https://static.nike.com/a/images/t_default/514c0c6c-8c60-4d65-94c4-73158a3028be/invincible-3-mens-road-running-shoes-CLdFjq.png"

@@ -34,6 +34,8 @@ export function AddToCartButton(props: Props) {
     selectProductInCart(state, props.product.id)
   )
   const productInCartQuantity = useAppSelector(selectTotalQuantity)
+  const productNoMoreStocks =
+    (productInCart?.quantity ?? 0) >= props.product.stocks
 
   const handleClick = useCallback(
     (addOne: boolean) => {
@@ -51,6 +53,10 @@ export function AddToCartButton(props: Props) {
           onCancel: () => loginModal.remove(),
         })
 
+        return
+      }
+
+      if (addOne && productNoMoreStocks) {
         return
       }
 
@@ -97,9 +103,24 @@ export function AddToCartButton(props: Props) {
     [handleClick]
   )
 
+  if (props.product.stocks === 0) {
+    return (
+      <div {...rootAttributes}>
+        <Button size={props.size} disabled theme="secondary">
+          <span>Out of stocks</span>
+        </Button>
+      </div>
+    )
+  }
+
   return (
     <div {...rootAttributes}>
-      <Button size={props.size} onClick={onAddProduct} theme="primary">
+      <Button
+        className={cn(css.root, productNoMoreStocks && css.root_noMore)}
+        size={props.size}
+        onClick={onAddProduct}
+        theme="primary"
+      >
         {productInCart && (
           <div className={css.buttonContent}>
             <span
@@ -114,8 +135,22 @@ export function AddToCartButton(props: Props) {
                 : `${formatPrice(props.product.price)}x${
                     productInCart.quantity
                   }`}
+              {!props.showOnlyQuantity && productNoMoreStocks && (
+                <>
+                  <br />
+                  <span className={css.noMore}>No more</span>
+                </>
+              )}
             </span>
-            <span className={cn(css.buttonAction, 'text_xl')}>+</span>
+            <span
+              className={cn(
+                css.buttonAction,
+                productNoMoreStocks && css.noMoreAction,
+                'text_xl'
+              )}
+            >
+              +
+            </span>
           </div>
         )}
         {!productInCart && (

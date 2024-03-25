@@ -2,6 +2,7 @@ import { type ProductId } from '@/entities/product'
 
 export type ProductDetails = {
   id: ProductId
+  stocks: number
   name: string
   subname: string
   description: string
