@@ -1,0 +1,25 @@
+@import url("/src/shared/colors.css");
+
+.oldPrice {
+  margin-left: 4px;
+  color: var(--color-grey);
+  text-decoration: line-through;
+  opacity: 0.3;
+}
+
+.outOfStocks {
+  color: var(--color-grey);
+}
+
+.stocks {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background: var(--text-color);
+  color: var(--background-color);
+  padding: 0 2px;
+  font-size: 12px;
+  font-weight: bold;
+  height: 14px;
+  line-height: 14px;
+}

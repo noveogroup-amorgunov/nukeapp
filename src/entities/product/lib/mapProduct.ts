@@ -4,6 +4,7 @@ import { type Product, type ProductId } from '../model/types'
 export function mapProduct(dto: ProductDto): Product {
   return {
     id: dto.id as ProductId,
+    stocks: dto.stocks,
     name: dto.name,
     label: dto.badge,
     subname: dto.subtitle,

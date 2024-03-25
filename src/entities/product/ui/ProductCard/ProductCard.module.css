@@ -66,10 +66,3 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
-
-.oldPrice {
-  margin-left: 4px;
-  color: var(--color-grey1);
-  text-decoration: line-through;
-  opacity: 0.3;
-}

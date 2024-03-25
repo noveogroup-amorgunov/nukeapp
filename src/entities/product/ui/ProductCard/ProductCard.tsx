@@ -2,8 +2,8 @@ import cn from 'classnames'
 import { type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { useFeatureSlicedDebug } from '@/shared/lib'
-import { formatPrice } from '../../lib/formatPrice'
 import { type Product } from '../../model/types'
+import { ProductPrice } from '../ProductPrice/ProductPrice'
 import css from './ProductCard.module.css'
 
 type Props = {
@@ -15,7 +15,7 @@ type Props = {
 
 export function ProductCard(props: Props) {
   const { size = 'm', product, actionSlot, bottomContentSlot } = props
-  const { oldPrice, price, image, subname, name } = product
+  const { image, subname, name } = product
   const { rootAttributes } = useFeatureSlicedDebug<HTMLAnchorElement>(
     'entity/product/ProductCard'
   )
@@ -35,12 +35,7 @@ export function ProductCard(props: Props) {
       <div className={css.content}>
         <div className={cn(css.label, 'text_xs')}>{subname}</div>
         <div className={cn(css.title, 'text_base')}>{name}</div>
-        <div className={cn(css.price, 'text_bold')}>
-          {formatPrice(price)}
-          {oldPrice && oldPrice !== price && (
-            <span className={css.oldPrice}>{formatPrice(oldPrice, false)}</span>
-          )}
-        </div>
+        <ProductPrice product={product} />
         {bottomContentSlot && (
           <div className={css.contentActions}>{bottomContentSlot}</div>
         )}

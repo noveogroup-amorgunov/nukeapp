@@ -26,6 +26,7 @@ export const db = factory({
   },
   product: {
     id: primaryKey(Number),
+    stocks: Number,
     categoryId: Number,
     popular: Boolean,
     name: String,
