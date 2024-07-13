@@ -1,3 +1,4 @@
+export { env } from './env'
 export { config } from './config'
 export { useFeatureSlicedDebug } from './useFeatureSlicedDebug'
 export {

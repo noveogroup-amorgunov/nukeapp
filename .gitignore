@@ -14,6 +14,7 @@ dist-ssr
 .temp
 storybook-static/*
 stats.html
+src/shared/lib/env.mjs
 
 # Editor directories and files
 .vscode/*

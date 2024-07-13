@@ -88,6 +88,10 @@ module.exports = {
         "name": "@/shared/lib/server",
         "message": "Not allowed use server modules in client"
       }],
+    }],
+    "no-restricted-syntax": ["error", {
+      selector: "MemberExpression[object.meta.name='import'][object.property.name='meta'][property.name='env']",
+      message: "The use of import.meta.env is not allowed. Use import { env } from '@/shared/lib'",
     }]
   },
   "overrides": [
