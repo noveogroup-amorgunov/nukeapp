@@ -1,11 +1,11 @@
 import { rest } from 'msw'
-import { config, parseTokenFromRequest, verifyAccessToken } from '@/shared/lib'
+import { env, parseTokenFromRequest, verifyAccessToken } from '@/shared/lib'
 import { __serverDatabase } from '@/shared/lib/server'
 import type { CartItemDto } from '../types'
 import { mockCartDto } from './mockCartDto'
 
 export const cartHandlers = [
-  rest.get(`${config.API_ENDPOINT}/cart`, async (req, res, ctx) => {
+  rest.get(`${env.VITE_API_ENDPOINT}/cart`, async (req, res, ctx) => {
     try {
       const { userId } = await verifyAccessToken(parseTokenFromRequest(req))
 
@@ -28,7 +28,7 @@ export const cartHandlers = [
       })
 
       return await res(
-        ctx.delay(config.API_DELAY),
+        ctx.delay(env.VITE_API_DELAY),
         ctx.status(200),
         ctx.json(mockCartDto(maybeCart, products))
       )
@@ -37,7 +37,7 @@ export const cartHandlers = [
     }
   }),
 
-  rest.patch(`${config.API_ENDPOINT}/cart`, async (req, res, ctx) => {
+  rest.patch(`${env.VITE_API_ENDPOINT}/cart`, async (req, res, ctx) => {
     try {
       const { userId } = await verifyAccessToken(parseTokenFromRequest(req))
 
@@ -61,7 +61,7 @@ export const cartHandlers = [
       })
 
       return await res(
-        ctx.delay(Number(apiDelay) || config.API_DELAY),
+        ctx.delay(Number(apiDelay) || env.VITE_API_DELAY),
         ctx.status(200),
         ctx.json({})
       )

@@ -4,7 +4,7 @@
 ENV_FILE=src/shared/lib/env
 
 SOURCE_FILE=$ENV_FILE.ts
-COMPILED_FILE=$ENV_FILE.mjs
+COMPILED_FILE=$ENV_FILE--compiled.mjs
 
 npx tsc $SOURCE_FILE --skipLibCheck --module esnext --moduleResolution node --types 'vite/client'
 mv $ENV_FILE.js $COMPILED_FILE

@@ -1,6 +1,6 @@
 import { rest } from 'msw'
 import {
-  config,
+  env,
   parseTokenFromRequest,
   signAccessToken,
   verifyAccessToken,
@@ -8,12 +8,12 @@ import {
 import { __serverDatabase } from '@/shared/lib/server'
 
 export const sessionHandlers = [
-  rest.get(`${config.API_ENDPOINT}/me`, async (req, res, ctx) => {
+  rest.get(`${env.VITE_API_ENDPOINT}/me`, async (req, res, ctx) => {
     try {
       const payload = await verifyAccessToken(parseTokenFromRequest(req))
 
       return await res(
-        ctx.delay(config.API_DELAY),
+        ctx.delay(env.VITE_API_DELAY),
         ctx.status(200),
         ctx.json({
           id: payload.userId,
@@ -28,7 +28,7 @@ export const sessionHandlers = [
     }
   }),
 
-  rest.post(`${config.API_ENDPOINT}/login`, async (req, res, ctx) => {
+  rest.post(`${env.VITE_API_ENDPOINT}/login`, async (req, res, ctx) => {
     const body = await req.json()
     const { email, password } = body
 
@@ -49,7 +49,7 @@ export const sessionHandlers = [
     })
 
     return await res(
-      ctx.delay(config.API_DELAY),
+      ctx.delay(env.VITE_API_DELAY),
       ctx.status(200),
       ctx.json({
         accessToken,

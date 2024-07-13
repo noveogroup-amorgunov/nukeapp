@@ -1,6 +1,6 @@
 import { rest } from 'msw'
 import { z } from 'zod'
-import { config } from '@/shared/lib'
+import { env } from '@/shared/lib'
 import { mockFeatureToggleDto } from './mockFeatureToggleDto'
 
 /**
@@ -19,14 +19,14 @@ const featureToggleQuerySchema = z.object({
 })
 
 export const featureToggleHandlers = [
-  rest.get(`${config.API_ENDPOINT}/feature-toggle`, async (req, res, ctx) => {
+  rest.get(`${env.VITE_API_ENDPOINT}/feature-toggle`, async (req, res, ctx) => {
     try {
       const params = Object.fromEntries(req.url.searchParams.entries())
       // silent validation
       const query = featureToggleQuerySchema.safeParse(params)
 
       return await res(
-        ctx.delay(config.API_DELAY),
+        ctx.delay(env.VITE_API_DELAY),
         ctx.status(200),
         ctx.json(mockFeatureToggleDto(query.success ? query.data : {}))
       )
@@ -34,7 +34,7 @@ export const featureToggleHandlers = [
       console.error(error)
 
       return await res(
-        ctx.delay(config.API_DELAY),
+        ctx.delay(env.VITE_API_DELAY),
         ctx.status(400),
         ctx.json('Bad request params')
       )

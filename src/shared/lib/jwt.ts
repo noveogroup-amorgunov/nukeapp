@@ -1,9 +1,9 @@
 import * as jose from 'jose'
 import { type RestRequest } from 'msw'
-import { config } from '@/shared/lib'
+import { env } from '@/shared/lib'
 
 export async function signAccessToken(payload: Record<string, unknown>) {
-  const secret = new TextEncoder().encode(config.JWT_SECRET)
+  const secret = new TextEncoder().encode(env.VITE_JWT_SECRET)
 
   return await new jose.SignJWT(payload)
     .setProtectedHeader({ alg: 'HS256' })
@@ -13,7 +13,7 @@ export async function signAccessToken(payload: Record<string, unknown>) {
 }
 
 export async function verifyAccessToken(jwt: string) {
-  const secret = new TextEncoder().encode(config.JWT_SECRET)
+  const secret = new TextEncoder().encode(env.VITE_JWT_SECRET)
   const { payload } = await jose.jwtVerify(jwt, secret)
 
   return payload as { email: Email; userId: Id }

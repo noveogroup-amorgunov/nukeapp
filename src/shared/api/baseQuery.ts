@@ -5,7 +5,7 @@ import {
   type FetchBaseQueryMeta,
 } from '@reduxjs/toolkit/dist/query/fetchBaseQuery'
 import { fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { config } from '../lib/config'
+import { env } from '../lib/env'
 
 export const baseQuery: BaseQueryFn<
   string | FetchArgs,
@@ -14,7 +14,7 @@ export const baseQuery: BaseQueryFn<
   {},
   FetchBaseQueryMeta
 > = fetchBaseQuery({
-  baseUrl: config.API_ENDPOINT,
+  baseUrl: env.VITE_API_ENDPOINT,
   prepareHeaders: (headers, { getState }) => {
     const { accessToken } = (getState() as RootState).session
 
