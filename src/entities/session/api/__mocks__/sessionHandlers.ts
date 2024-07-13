@@ -1,33 +1,8 @@
 import { rest } from 'msw'
-import {
-  env,
-  parseTokenFromRequest,
-  signAccessToken,
-  verifyAccessToken,
-} from '@/shared/lib'
+import { env, signAccessToken } from '@/shared/lib'
 import { __serverDatabase } from '@/shared/lib/server'
 
 export const sessionHandlers = [
-  rest.get(`${env.VITE_API_ENDPOINT}/me`, async (req, res, ctx) => {
-    try {
-      const payload = await verifyAccessToken(parseTokenFromRequest(req))
-
-      return await res(
-        ctx.delay(env.VITE_API_DELAY),
-        ctx.status(200),
-        ctx.json({
-          id: payload.userId,
-          email: payload.email,
-        })
-      )
-    } catch (err) {
-      return await res(
-        ctx.status(401),
-        ctx.json('Token is expired or not valid')
-      )
-    }
-  }),
-
   rest.post(`${env.VITE_API_ENDPOINT}/login`, async (req, res, ctx) => {
     const body = await req.json()
     const { email, password } = body

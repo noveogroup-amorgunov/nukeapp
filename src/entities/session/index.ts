@@ -3,4 +3,4 @@ export {
   clearSessionData,
   sessionSlice,
 } from './model/slice'
-export { sessionApi, useMeQuery } from './api/sessionApi'
+export { sessionApi } from './api/sessionApi'

@@ -10,8 +10,3 @@ export type RequestLoginBody = {
   email: string
   password: string
 }
-
-export type UserDto = {
-  id: number
-  email: Email
-}
