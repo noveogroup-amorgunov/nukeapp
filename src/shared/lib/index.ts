@@ -1,4 +1,4 @@
-export { config } from './config'
+export { env } from './env'
 export { useFeatureSlicedDebug } from './useFeatureSlicedDebug'
 export {
   parseTokenFromRequest,

@@ -1,10 +1,10 @@
 import { rest } from 'msw'
-import { config, parseTokenFromRequest, verifyAccessToken } from '@/shared/lib'
+import { env, parseTokenFromRequest, verifyAccessToken } from '@/shared/lib'
 import { __serverDatabase } from '@/shared/lib/server'
 
 export const wishlistHandlers = [
   rest.get(
-    `${config.API_ENDPOINT}/wishlist/products`,
+    `${env.VITE_API_ENDPOINT}/wishlist/products`,
     async (req, res, ctx) => {
       try {
         const { userId } = await verifyAccessToken(parseTokenFromRequest(req))
@@ -24,7 +24,7 @@ export const wishlistHandlers = [
         })
 
         return await res(
-          ctx.delay(config.API_DELAY),
+          ctx.delay(env.VITE_API_DELAY),
           ctx.status(200),
           ctx.json(products)
         )
@@ -35,7 +35,7 @@ export const wishlistHandlers = [
   ),
 
   rest.patch(
-    `${config.API_ENDPOINT}/wishlist/products`,
+    `${env.VITE_API_ENDPOINT}/wishlist/products`,
     async (req, res, ctx) => {
       try {
         const { userId } = await verifyAccessToken(parseTokenFromRequest(req))
@@ -55,7 +55,7 @@ export const wishlistHandlers = [
         })
 
         return await res(
-          ctx.delay(Number(apiDelay) || config.API_DELAY),
+          ctx.delay(Number(apiDelay) || env.VITE_API_DELAY),
           ctx.status(200),
           ctx.json({})
         )

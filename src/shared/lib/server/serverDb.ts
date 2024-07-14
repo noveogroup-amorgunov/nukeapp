@@ -1,5 +1,5 @@
 import { factory, nullable, oneOf, persist, primaryKey } from '@mswjs/data'
-import { config } from '../config'
+import { env } from '../env'
 
 /**
  * Its database, which using only in @mswjs "server" handlers
@@ -47,5 +47,6 @@ export const db = factory({
 })
 
 persist(db, {
-  storage: config.API_STORAGE_MODE === 'local' ? localStorage : sessionStorage,
+  storage:
+    env.VITE_API_STORAGE_MODE === 'local' ? localStorage : sessionStorage,
 })

@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { LoginForm } from '@/features/authentication/login'
-import { config } from '@/shared/lib'
+import { env } from '@/shared/lib'
 
 export function LoginPage() {
   const navigate = useNavigate()
@@ -15,8 +15,8 @@ export function LoginPage() {
     <div>
       <h1>Login page</h1>
       <p>
-        Use {config.API_USER_EMAIL} / {config.API_USER_PASSWORD} as test user
-        credentials
+        Use {env.VITE_API_USER_EMAIL} / {env.VITE_API_USER_PASSWORD} as test
+        user credentials
       </p>
       <LoginForm onComplete={onComplete} />
     </div>
