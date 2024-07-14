@@ -1,7 +1,12 @@
 import { useCallback } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+<<<<<<< HEAD
 import { LoginForm } from '@/features/authentication/login'
 import { env } from '@/shared/lib'
+=======
+import { LoginForm } from '@/features/session/login'
+import { config } from '@/shared/lib'
+>>>>>>> 30f5a92 (Rename authentication/* feature group to session/*)
 
 export function LoginPage() {
   const navigate = useNavigate()

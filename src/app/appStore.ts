@@ -13,7 +13,7 @@ import {
 import storage from 'redux-persist/lib/storage'
 import { sessionSlice } from '@/entities/session'
 import { themeSlice } from '@/entities/theme'
-import { logoutMiddleware } from '@/features/authentication/logout'
+import { logoutMiddleware } from '@/features/session/logout'
 import { baseApi } from '@/shared/api'
 import { debugModeSlice } from '@/widgets/DebugModeToggler'
 import { rootReducer } from './rootReducer'
