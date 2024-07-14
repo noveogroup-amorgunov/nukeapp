@@ -63,9 +63,11 @@ export default antfu(
         },
       }],
     },
+    // TODO: Turn on
     // feature-sliced/layers-slices
     // 'boundaries/element-types': 'error',
 
+    // TODO: Turn on
     // feature-sliced/public-api
     // "import/no-internal-modules": "warn" // ~ 1,
   },
