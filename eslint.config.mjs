@@ -72,8 +72,14 @@ export default antfu(
     // "import/no-internal-modules": "warn" // ~ 1,
   },
   {
-    files: ['**/*.stories.tsx', 'vite.config.ts', 'eslint.config.mjs'],
+    files: [
+      '**/*.stories.tsx',
+      'vite.config.mts',
+      'eslint.config.mjs',
+      'public/mockServiceWorker.js',
+    ],
     rules: {
+      'eslint-comments/no-unlimited-disable': 'off',
       'import/no-default-export': 'off',
       'no-restricted-imports': 'off',
     },

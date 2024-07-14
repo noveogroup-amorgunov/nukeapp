@@ -90,6 +90,8 @@
     "*": "eslint --fix"
   },
   "msw": {
-    "workerDirectory": "public"
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
