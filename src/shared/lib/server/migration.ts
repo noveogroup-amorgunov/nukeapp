@@ -49,7 +49,7 @@ export function startDatabaseMigration() {
   })
   createUser({ email: 'test@ya.ru', password: '123456' })
 
-  categoriesMock.forEach((row) => db.category.create(row))
+  categoriesMock.forEach(row => db.category.create(row))
 
-  productsMock.forEach((row) => db.product.create(row))
+  productsMock.forEach(row => db.product.create(row))
 }

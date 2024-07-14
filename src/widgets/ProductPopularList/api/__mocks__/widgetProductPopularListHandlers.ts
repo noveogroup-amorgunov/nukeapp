@@ -11,7 +11,7 @@ export const widgetProductPopularListHandlers = [
     return await res(
       ctx.delay(env.VITE_API_DELAY),
       ctx.status(200),
-      ctx.json(products)
+      ctx.json(products),
     )
   }),
 ]

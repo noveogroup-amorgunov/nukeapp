@@ -16,7 +16,7 @@ Examples:
 
 ## Available features
 
-| Feature   | Description   | Default Value |
-|-----------|---------------|---------------|
-| `canTurnDarkMode`  | dark mode  | true          |
-| `canSortProducts`  | sort products in category      | true          |
+| Feature           | Description               | Default Value |
+| ----------------- | ------------------------- | ------------- |
+| `canTurnDarkMode` | dark mode                 | true          |
+| `canSortProducts` | sort products in category | true          |

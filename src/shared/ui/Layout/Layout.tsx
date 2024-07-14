@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { Outlet, ScrollRestoration } from 'react-router-dom'
 import css from './Layout.module.css'
 
@@ -26,7 +26,9 @@ export function Layout(props: Props) {
       </div>
       <footer className={css.footer}>
         <div className="text_sm">
-          {new Date().getFullYear()}, see source code on{' '}
+          {new Date().getFullYear()}
+          , see source code on
+          {' '}
           <a href="https://github.com/noveogroup-amorgunov/nukeapp">
             github/noveogroup-amorgunov/nukeapp
           </a>

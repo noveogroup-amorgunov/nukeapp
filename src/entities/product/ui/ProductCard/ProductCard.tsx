@@ -1,9 +1,9 @@
 import cn from 'classnames'
-import { type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { useFeatureSlicedDebug } from '@/shared/lib'
 import { formatPrice } from '../../lib/formatPrice'
-import { type Product } from '../../model/types'
+import type { Product } from '../../model/types'
 import css from './ProductCard.module.css'
 
 type Props = {
@@ -17,7 +17,7 @@ export function ProductCard(props: Props) {
   const { size = 'm', product, actionSlot, bottomContentSlot } = props
   const { oldPrice, price, image, subname, name } = product
   const { rootAttributes } = useFeatureSlicedDebug<HTMLAnchorElement>(
-    'entity/product/ProductCard'
+    'entity/product/ProductCard',
   )
 
   return (
@@ -30,7 +30,8 @@ export function ProductCard(props: Props) {
         <div
           className={css.image}
           style={{ backgroundImage: `url('${image}')` }}
-        ></div>
+        >
+        </div>
       </div>
       <div className={css.content}>
         <div className={cn(css.label, 'text_xs')}>{subname}</div>

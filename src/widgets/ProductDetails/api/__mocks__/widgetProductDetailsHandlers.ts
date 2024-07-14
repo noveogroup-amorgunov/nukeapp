@@ -13,7 +13,7 @@ export const widgetProductDetailsHandlers = [
     return await res(
       ctx.delay(env.VITE_API_DELAY),
       ctx.status(maybeProduct ? 200 : 404),
-      ctx.json(maybeProduct ?? 'Not found')
+      ctx.json(maybeProduct ?? 'Not found'),
     )
   }),
 ]

@@ -1,4 +1,4 @@
-@import url("../../breakpoints.css");
+@import url('../../breakpoints.css');
 
 .root {
   overflow: hidden;
@@ -63,7 +63,7 @@
   height: 18px;
   width: 18px;
 
-  [data-theme="dark"] .root_theme_secondary & {
+  [data-theme='dark'] .root_theme_secondary & {
     filter: invert(1) !important;
   }
 }

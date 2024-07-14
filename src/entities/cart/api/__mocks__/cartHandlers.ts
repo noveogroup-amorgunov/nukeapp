@@ -30,9 +30,10 @@ export const cartHandlers = [
       return await res(
         ctx.delay(env.VITE_API_DELAY),
         ctx.status(200),
-        ctx.json(mockCartDto(maybeCart, products))
+        ctx.json(mockCartDto(maybeCart, products)),
       )
-    } catch (err) {
+    }
+    catch {
       return await res(ctx.status(403), ctx.json('Forbidden'))
     }
   }),
@@ -54,7 +55,7 @@ export const cartHandlers = [
         data: {
           version: body.version,
           itemsProductQuantity: body.items.map(
-            (item: CartItemDto) => item.quantity
+            (item: CartItemDto) => item.quantity,
           ),
           itemsProductId: body.items.map((item: CartItemDto) => item.productId),
         },
@@ -63,9 +64,10 @@ export const cartHandlers = [
       return await res(
         ctx.delay(Number(apiDelay) || env.VITE_API_DELAY),
         ctx.status(200),
-        ctx.json({})
+        ctx.json({}),
       )
-    } catch (err) {
+    }
+    catch {
       return await res(ctx.status(403), ctx.json('Forbidden'))
     }
   }),

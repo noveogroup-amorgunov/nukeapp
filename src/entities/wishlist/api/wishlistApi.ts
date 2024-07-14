@@ -1,10 +1,10 @@
 import type { Product } from '@/entities/product/@x/wishlist'
-import { baseApi, WISHLIST_TAG } from '@/shared/api'
+import { WISHLIST_TAG, baseApi } from '@/shared/api'
 import { mapWishlist } from '../lib/mapWishlist'
-import { type WishlistDto } from './types'
+import type { WishlistDto } from './types'
 
 export const wishlistApi = baseApi.injectEndpoints({
-  endpoints: (build) => ({
+  endpoints: build => ({
     wishlistProducts: build.query<Product[], void>({
       query: () => ({
         url: `/wishlist/products`,
@@ -12,8 +12,8 @@ export const wishlistApi = baseApi.injectEndpoints({
       providesTags: [WISHLIST_TAG],
       transformResponse: (response: WishlistDto) => mapWishlist(response),
     }),
-    addToWishlist: build.mutation<{}, number[]>({
-      query: (productsInWishlistIds) => ({
+    addToWishlist: build.mutation<object, number[]>({
+      query: productsInWishlistIds => ({
         url: `/wishlist/products`,
         method: 'PATCH',
         body: productsInWishlistIds,
@@ -24,5 +24,5 @@ export const wishlistApi = baseApi.injectEndpoints({
   }),
 })
 
-export const { useWishlistProductsQuery, useAddToWishlistMutation } =
-  wishlistApi
+export const { useWishlistProductsQuery, useAddToWishlistMutation }
+  = wishlistApi

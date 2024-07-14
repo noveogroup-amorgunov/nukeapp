@@ -26,12 +26,13 @@ export const wishlistHandlers = [
         return await res(
           ctx.delay(env.VITE_API_DELAY),
           ctx.status(200),
-          ctx.json(products)
+          ctx.json(products),
         )
-      } catch (err) {
+      }
+      catch {
         return await res(ctx.status(403), ctx.json('Forbidden'))
       }
-    }
+    },
   ),
 
   rest.patch(
@@ -57,11 +58,12 @@ export const wishlistHandlers = [
         return await res(
           ctx.delay(Number(apiDelay) || env.VITE_API_DELAY),
           ctx.status(200),
-          ctx.json({})
+          ctx.json({}),
         )
-      } catch (err) {
+      }
+      catch {
         return await res(ctx.status(403), ctx.json('Forbidden'))
       }
-    }
+    },
   ),
 ]

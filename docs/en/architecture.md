@@ -112,7 +112,7 @@ For example, we have widget `BaseProductList` which use different entities and f
 
 Of course, we can make dumb `ProductList`, place it on `entities/product` slice and pass all data as props. Sometimes render-props is a very powerful pattern and it works. But in this example it's a wrong way (a lot of duplicate logic and prop-hell components because every of N widgets will duplicate each other's logic):
 
-```ts
+```tsx
 // 📁 widgets/PopularProductList/ui/PopularProductList.tsx
 
 function PopularProductList() {
@@ -120,12 +120,12 @@ function PopularProductList() {
     <ProductList
       // 👎 A lot duplicated props in every N widget
       // which use ProductList
-      cardItemSlot={...}
-      actionCardItemSlot={...}
-      onAddToWishlist={...}
+      cardItemSlot={/* ... */}
+      actionCardItemSlot={/* ... */}
+      onAddToWishlist={/* ... */}
       onAddToCart={}
       onRemoveFromCart={}
-      {/* ... */}
+      // A lot of props ....
       products={products}
     />
   )

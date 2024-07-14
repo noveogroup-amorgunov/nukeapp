@@ -10,7 +10,7 @@ import { mockFeatureToggleDto } from './mockFeatureToggleDto'
  */
 const featureSchema = z
   .enum(['false', 'true'])
-  .transform((value) => value === 'true')
+  .transform(value => value === 'true')
   .optional()
 
 const featureToggleQuerySchema = z.object({
@@ -28,15 +28,16 @@ export const featureToggleHandlers = [
       return await res(
         ctx.delay(env.VITE_API_DELAY),
         ctx.status(200),
-        ctx.json(mockFeatureToggleDto(query.success ? query.data : {}))
+        ctx.json(mockFeatureToggleDto(query.success ? query.data : {})),
       )
-    } catch (error) {
+    }
+    catch (error) {
       console.error(error)
 
       return await res(
         ctx.delay(env.VITE_API_DELAY),
         ctx.status(400),
-        ctx.json('Bad request params')
+        ctx.json('Bad request params'),
       )
     }
   }),

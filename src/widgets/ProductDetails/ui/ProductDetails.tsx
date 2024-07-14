@@ -5,7 +5,7 @@ import { AddToCartButton } from '@/features/cart/addToCart'
 import { AddToWishlistButton } from '@/features/wishlist/addToWishlist'
 import { useFeatureSlicedDebug } from '@/shared/lib'
 import { transformProductDetailsToProduct } from '../lib/transformProductDetailsToProduct'
-import { type ProductDetails as ProductDetailsType } from '../model/types'
+import type { ProductDetails as ProductDetailsType } from '../model/types'
 import css from './ProductDetails.module.css'
 
 type Props = {
@@ -23,7 +23,7 @@ export function ProductDetails({ productDetails, isFetching }: Props) {
       Array.from({
         length: MIN_IMAGE_COUNT - (productDetails?.images.length ?? 0),
       }),
-    [productDetails]
+    [productDetails],
   )
 
   if (isFetching) {

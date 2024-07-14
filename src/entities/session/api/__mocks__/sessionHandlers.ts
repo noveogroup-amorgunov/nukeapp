@@ -32,7 +32,7 @@ export const sessionHandlers = [
           email,
           id: maybeUser.id,
         },
-      })
+      }),
     )
   }),
 ]

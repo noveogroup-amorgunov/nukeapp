@@ -1,10 +1,10 @@
-import { baseApi, CART_TAG } from '@/shared/api'
+import { CART_TAG, baseApi } from '@/shared/api'
 import { mapCart } from '../lib/mapCart'
-import { type Cart } from '../model/types'
-import { type CartDto, type CartItemDto } from './types'
+import type { Cart } from '../model/types'
+import type { CartDto, CartItemDto } from './types'
 
 export const cartApi = baseApi.injectEndpoints({
-  endpoints: (build) => ({
+  endpoints: build => ({
     cart: build.query<Cart, void>({
       query: () => ({
         url: `/cart`,
@@ -12,7 +12,7 @@ export const cartApi = baseApi.injectEndpoints({
       providesTags: [CART_TAG],
       transformResponse: (response: CartDto) => mapCart(response),
     }),
-    updateCart: build.mutation<{}, { items: CartItemDto[]; version: number }>({
+    updateCart: build.mutation<object, { items: CartItemDto[], version: number }>({
       query: ({ items, version }) => ({
         url: `/cart`,
         method: 'PATCH',

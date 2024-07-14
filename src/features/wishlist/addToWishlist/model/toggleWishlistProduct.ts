@@ -1,10 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import type { ProductId } from '@/entities/product'
 import {
-  wishlistApi,
   selectIsInWishlist,
   selectProductIdsInWishlist,
   toggleWishlistProduct,
+  wishlistApi,
 } from '@/entities/wishlist'
 
 export const toggleWishlistProductThunk = createAsyncThunk<
@@ -27,18 +27,19 @@ export const toggleWishlistProductThunk = createAsyncThunk<
 
     try {
       const nextProductsInWishlistIds = isInWishlish
-        ? productsIds.filter((id) => id !== productId)
+        ? productsIds.filter(id => id !== productId)
         : productsIds.concat(productId)
 
       await dispatch(
         wishlistApi.endpoints.addToWishlist.initiate(
           nextProductsInWishlistIds,
-          { fixedCacheKey: 'shared-add-to-wishlist' }
-        )
+          { fixedCacheKey: 'shared-add-to-wishlist' },
+        ),
       ).unwrap()
-    } catch (error) {
+    }
+    catch {
       // can show error state with repeat action button
       dispatch(toggleWishlistProduct(productId))
     }
-  }
+  },
 )

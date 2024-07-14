@@ -1,15 +1,15 @@
 import { rest } from 'msw'
 import { env } from '@/shared/lib'
 import { __serverDatabase } from '@/shared/lib/server'
-import { type CategoryWithProductsDto } from '../types'
+import type { CategoryWithProductsDto } from '../types'
 
 // Emulate sortBy product's feature
 const productSortByCompareFunctionMap: Record<
   string,
   (productA: { price: number }, productB: { price: number }) => number
 > = {
-  Featured: (pA, pB) => 1,
-  Newest: (pA, pB) => -1,
+  Featured: () => 1,
+  Newest: () => -1,
   PriceHighLow: (pA, pB) => pB.price - pA.price,
   PriceLowHigh: (pA, pB) => pA.price - pB.price,
 } as const
@@ -25,9 +25,9 @@ export const categoriesHandlers = [
       return await res(
         ctx.delay(env.VITE_API_DELAY),
         ctx.status(200),
-        ctx.json(categories)
+        ctx.json(categories),
       )
-    }
+    },
   ),
 
   rest.get(`${env.VITE_API_ENDPOINT}/categories/:id`, async (req, res, ctx) => {
@@ -43,7 +43,7 @@ export const categoriesHandlers = [
       return await res(
         ctx.delay(Number(apiDelay) || env.VITE_API_DELAY),
         ctx.status(404),
-        ctx.json('Not found')
+        ctx.json('Not found'),
       )
     }
 
@@ -58,14 +58,14 @@ export const categoriesHandlers = [
 
     if (sortBy) {
       categoryDto.products = categoryDto.products.sort(
-        productSortByCompareFunctionMap[sortBy]
+        productSortByCompareFunctionMap[sortBy],
       )
     }
 
     return await res(
       ctx.delay(Number(apiDelay) || env.VITE_API_DELAY),
       ctx.status(200),
-      ctx.json(categoryDto)
+      ctx.json(categoryDto),
     )
   }),
 ]

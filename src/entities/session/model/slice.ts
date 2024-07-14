@@ -1,18 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { sessionApi } from '../api/sessionApi'
-import { type SessionUserId } from './types'
+import type { SessionUserId } from './types'
 
 type SessionSliceState =
   | {
-      accessToken: string
-      userId: SessionUserId
-      isAuthorized: true
-    }
+    accessToken: string
+    userId: SessionUserId
+    isAuthorized: true
+  }
   | {
-      isAuthorized: false
-      accessToken?: string
-      userId?: SessionUserId
-    }
+    isAuthorized: false
+    accessToken?: string
+    userId?: SessionUserId
+  }
 
 const initialState: SessionSliceState = {
   isAuthorized: false,
@@ -39,13 +39,14 @@ export const sessionSlice = createSlice({
           state.userId = payload.userId
           state.accessToken = payload.accessToken
         }
-      }
+      },
     )
   },
 })
 
-export const selectIsAuthorized = (state: RootState) =>
-  state.session.isAuthorized
+export function selectIsAuthorized(state: RootState) {
+  return state.session.isAuthorized
+}
 
 export const selectUserId = (state: RootState) => state.session.userId
 

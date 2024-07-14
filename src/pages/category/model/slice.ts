@@ -1,5 +1,5 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { type ProductSortBy } from '@/features/product/sortBy'
+import type { ProductSortBy } from '@/features/product/sortBy'
 
 type CategoryPageSliceState = {
   sortBy: ProductSortBy

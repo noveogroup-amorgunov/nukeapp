@@ -1,4 +1,4 @@
-import { type ReactElement } from 'react'
+import type { ReactElement } from 'react'
 import { Navigate, createBrowserRouter } from 'react-router-dom'
 import { featureToggleLoader } from '@/entities/featureToggle'
 import { selectIsAuthorized } from '@/entities/session'
@@ -20,7 +20,8 @@ type GuestGuardProps = {
 function GuestGuard({ children }: GuestGuardProps) {
   const isAuthorized = useAppSelector(selectIsAuthorized)
 
-  if (!isAuthorized) return <Navigate to="/login" />
+  if (!isAuthorized)
+    return <Navigate to="/login" />
 
   return children
 }
@@ -32,13 +33,14 @@ type AuthGuardProps = {
 function AuthGuard({ children }: AuthGuardProps) {
   const isAuthorized = useAppSelector(selectIsAuthorized)
 
-  if (isAuthorized) return <Navigate to="/" />
+  if (isAuthorized)
+    return <Navigate to="/" />
 
   return children
 }
 
-export const appRouter = () =>
-  createBrowserRouter([
+export function appRouter() {
+  return createBrowserRouter([
     {
       element: baseLayout,
       errorElement: <div>error</div>,
@@ -94,3 +96,4 @@ export const appRouter = () =>
       ],
     },
   ])
+}

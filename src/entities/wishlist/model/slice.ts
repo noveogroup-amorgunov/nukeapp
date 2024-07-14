@@ -1,7 +1,7 @@
 import {
   type PayloadAction,
-  createSlice,
   createSelector,
+  createSlice,
 } from '@reduxjs/toolkit'
 import type { Product, ProductId } from '@/entities/product/@x/wishlist'
 import { wishlistApi } from '../api/wishlistApi'
@@ -24,7 +24,8 @@ export const wishlistSlice = createSlice({
     toggleWishlistProduct: (state, action: PayloadAction<ProductId>) => {
       if (state.products[action.payload]) {
         state.products[action.payload] = false
-      } else {
+      }
+      else {
         state.products[action.payload] = true
       }
     },
@@ -38,7 +39,7 @@ export const wishlistSlice = createSlice({
         payload.forEach((product: Product) => {
           state.products[product.id] = true
         })
-      }
+      },
     )
   },
 })
@@ -47,14 +48,14 @@ export const selectIsInWishlist = createSelector(
   (state: RootState) => state.wishlist.products,
   (_: RootState, productId: ProductId) => productId,
   (products: Record<ProductId, boolean>, productId: ProductId): boolean =>
-    Boolean(products[productId])
+    Boolean(products[productId]),
 )
 
 export const selectProductIdsInWishlist = createSelector(
   (state: RootState) => state.wishlist.products,
   (products: Record<ProductId, boolean>) =>
-    Object.keys(products).filter(Boolean).map(Number) as ProductId[]
+    Object.keys(products).filter(Boolean).map(Number) as ProductId[],
 )
 
-export const { toggleWishlistProduct, clearWishlistData } =
-  wishlistSlice.actions
+export const { toggleWishlistProduct, clearWishlistData }
+  = wishlistSlice.actions

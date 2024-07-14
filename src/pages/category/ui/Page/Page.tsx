@@ -2,10 +2,10 @@ import { Link, useParams } from 'react-router-dom'
 import { useCategoryDetailsQuery } from '@/entities/category'
 import { useFeatureToggle } from '@/entities/featureToggle'
 import { type ProductSortBy, SortByDropdown } from '@/features/product/sortBy'
-import { useAppSelector, useAppDispatch } from '@/shared/model'
+import { useAppDispatch, useAppSelector } from '@/shared/model'
 import { PageHeader } from '@/shared/ui'
 import { BaseProductList } from '@/widgets/BaseProductList'
-import { selectSortBy, changeSortBy } from '../../model/slice'
+import { changeSortBy, selectSortBy } from '../../model/slice'
 
 export function CategoryPage() {
   const { categoryId } = useParams<{ categoryId: string }>()
@@ -34,7 +34,9 @@ export function CategoryPage() {
   if (!data?.products) {
     return (
       <div>
-        Category not found, go to <Link to="/">main page</Link>
+        Category not found, go to
+        {' '}
+        <Link to="/">main page</Link>
       </div>
     )
   }
@@ -48,8 +50,7 @@ export function CategoryPage() {
             <SortByDropdown
               defaultSortBy={sortBy}
               onChange={(sortBy: ProductSortBy) =>
-                dispatch(changeSortBy(sortBy))
-              }
+                dispatch(changeSortBy(sortBy))}
             />
           )
         }

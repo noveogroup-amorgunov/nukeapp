@@ -1,5 +1,5 @@
+/* eslint-disable eslint-comments/no-unlimited-disable */
 /* eslint-disable */
-/* tslint:disable */
 
 /**
  * Mock Service Worker (1.2.1).

@@ -5,7 +5,7 @@
 <br />
 <br />
 
-[![Netlify Status](https://img.shields.io/netlify/d1054c75-ff07-48af-8017-83083dc30951?style=flat&colorA=000000&colorB=000000)](https://app.netlify.com/sites/nukeapp/deploys) ![](https://img.shields.io/badge/designed%20by%20feature%20sliced%20design-000000?style=flat)
+[![Netlify Status](https://img.shields.io/netlify/d1054c75-ff07-48af-8017-83083dc30951?style=flat&colorA=000000&colorB=000000)](https://app.netlify.com/sites/nukeapp/deploys) ![](https://img.shields.io/badge/architecture-%20Feature--Sliced%20Design-000000?style=flat) [![](https://img.shields.io/badge/code%20style-Anthony%20Fu-000000?style=flat)](https://github.com/antfu/eslint-config)
 
 An open source frontend application built using the **React** ⚛️ and **Feature-Sliced Design** 🍰.
 
@@ -49,13 +49,6 @@ App business logic:
 - [ ] Product details sizes
 - [ ] Private routes
 
-Technologies:
-
-- [ ] CSS Modules → Tailwind CSS (?)
-- [ ] Redux Toolkit Query → React Query (?)
-- [ ] Redux Toolkit → Zustand (?)
-- [ ] Vite → NextJS in SPA mode (?)
-
 Other:
 
 - [x] Move colors to css vars
@@ -75,7 +68,7 @@ Other:
 1. Install dependencies
 
 ```bash
-npm install
+pnpm install
 ```
 
 2. Copy `.env.example` to `.env.local`
@@ -87,18 +80,18 @@ cp .env.example .env.local
 3. Start Vite development server
 
 ```bash
-npm start
+pnpm start
 ```
 
 or start Storybook stand
 
 ```bash
-npm run storybook
+pnpm run storybook
 ```
 
 ## Troubleshoots
 
-- Package `@mswjs/data` can not sync data in `localStorage`. With the current implementation (without synchronization), after updating the page, the state (cart, wishlist) is lost. I made a pull request with this feature (https://github.com/mswjs/data/pull/277), but it has not merged yet. So I use forked version (you can see path in *package.json*).
+- Package `@mswjs/data` can not sync data in `localStorage`. With the current implementation (without synchronization), after updating the page, the state (cart, wishlist) is lost. I made a pull request with this feature (https://github.com/mswjs/data/pull/277), but it has not merged yet. So I use forked version (you can see path in _package.json_).
 
 ## License
 

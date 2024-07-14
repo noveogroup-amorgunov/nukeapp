@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import css from './PageHeader.module.css'
 
 type Props = {

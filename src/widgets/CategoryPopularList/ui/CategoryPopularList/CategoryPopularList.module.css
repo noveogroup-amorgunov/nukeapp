@@ -1,6 +1,6 @@
 .item:nth-child(1) {
-    grid-column: col1-start / col2-start;
-    grid-row: row1-start ;
+  grid-column: col1-start / col2-start;
+  grid-row: row1-start;
 }
 
 .item:nth-child(2) {
@@ -9,8 +9,8 @@
 }
 
 .item:nth-child(3) {
-  grid-column: col1-start / col2-start;;
-  grid-row: row2-start ;
+  grid-column: col1-start / col2-start;
+  grid-row: row2-start;
 }
 
 .content {

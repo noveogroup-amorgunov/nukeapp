@@ -38,7 +38,7 @@ export function LoginForm(props: Props) {
           setError('email', { type: 'server', message: error.message })
         })
     },
-    []
+    [],
   )
 
   return (

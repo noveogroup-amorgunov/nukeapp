@@ -1,7 +1,7 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// eslint-disable-next-line ts/no-explicit-any
 export function debounce<T extends (...args: any[]) => void>(
   func: T,
-  timeout = 300
+  timeout = 300,
 ) {
   let timer: ReturnType<typeof setTimeout>
   return function <U>(this: U, ...args: Parameters<T>) {

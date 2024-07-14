@@ -1,14 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import {
-  persistStore,
-  persistReducer,
   FLUSH,
-  REHYDRATE,
   PAUSE,
   PERSIST,
   PURGE,
   REGISTER,
+  REHYDRATE,
+  persistReducer,
+  persistStore,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import { sessionSlice } from '@/entities/session'
@@ -29,9 +29,9 @@ export function makeStore() {
     // 👇 ATTENTION: persistReducer broke infering RootState
     reducer: persistReducer(
       persistConfig,
-      rootReducer
+      rootReducer,
     ) as unknown as typeof rootReducer,
-    middleware: (getDefaultMiddleware) =>
+    middleware: getDefaultMiddleware =>
       getDefaultMiddleware({
         serializableCheck: {
           ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],

@@ -1,4 +1,4 @@
-import { useModal, create as createModal } from '@ebay/nice-modal-react'
+import { create as createModal, useModal } from '@ebay/nice-modal-react'
 import { Button, Modal } from '../ui'
 
 type Props = {
@@ -31,6 +31,6 @@ function ConfirmModalPresenter(props: Props) {
 
 export const ConfirmModal = createModal(ConfirmModalPresenter)
 
-export const useConfirmModal = () => {
+export function useConfirmModal() {
   return useModal(ConfirmModal)
 }

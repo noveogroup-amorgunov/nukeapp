@@ -7,7 +7,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 import '@/shared/base.css'
 import { ThemeProvider } from '@/entities/theme'
 import { appRouter } from './appRouter'
-import { persistedStore, appStore } from './appStore'
+import { appStore, persistedStore } from './appStore'
 
 const root = document.getElementById('root') as HTMLElement
 
@@ -29,6 +29,6 @@ initApp().then(() => {
           </PersistGate>
         </ReduxProvider>
       </ModalProvider>
-    </React.StrictMode>
+    </React.StrictMode>,
   )
 })

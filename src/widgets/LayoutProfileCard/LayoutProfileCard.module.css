@@ -1,4 +1,4 @@
-@import url("/src/shared/breakpoints.css");
+@import url('/src/shared/breakpoints.css');
 
 .root {
   display: flex;
@@ -8,7 +8,7 @@
 .icon {
   display: block;
   position: relative;
-  
+
   &::after {
     content: attr(data-size);
     position: absolute;
@@ -19,7 +19,7 @@
     border-radius: 5px;
     font-size: 10px;
     line-height: 1;
-    color: var(--background-color);;
+    color: var(--background-color);
     padding: 3px 5px;
     font-weight: bold;
   }

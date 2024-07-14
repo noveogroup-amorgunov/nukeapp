@@ -23,15 +23,15 @@ const apiMockWorker = setupWorker(
   ...sessionHandlers,
   ...featureToggleHandlers,
   ...cartHandlers,
-  ...userHandlers
+  ...userHandlers,
 )
 
 __serverStartDatabaseMigration()
 
-export const startApiMockWorker = async () => {
+export async function startApiMockWorker() {
   await apiMockWorker.start({
     onUnhandledRequest(req, print) {
-      if (/\.(png|jpg|svg|tsx?|css|jsx?|woff2)$/.test(req.url.pathname)) {
+      if (/\.png|jpg|svg|tsx?|css|jsx?|woff2$/.test(req.url.pathname)) {
         return
       }
 

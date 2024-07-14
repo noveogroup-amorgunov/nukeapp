@@ -1,12 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import {
-  cartApi,
+  type CartItemDto,
   addOneItem,
+  cartApi,
+  incVersion,
+  mapCartItemDto,
   removeOneItem,
   removeProductFromCart,
-  mapCartItemDto,
-  type CartItemDto,
-  incVersion,
 } from '@/entities/cart'
 import type { Product, ProductId } from '@/entities/product'
 import { debounce } from '@/shared/lib'
@@ -21,7 +21,7 @@ const SYNC_CART_WITH_SERVER_TIMEOUT_MS = 1500
  */
 export const updateCartThunk = createAsyncThunk<
   void,
-  { items: CartItemDto[]; version: number },
+  { items: CartItemDto[], version: number },
   { state: RootState }
 >('cart/updateCartThunk', async (payload, { dispatch }) => {
   await dispatch(cartApi.endpoints.updateCart.initiate(payload)).unwrap()
@@ -30,7 +30,7 @@ export const updateCartThunk = createAsyncThunk<
 const syncCart = debounce((dispatch: AppDispatch, state: RootState) => {
   const cartItemsDto = mapCartItemDto(state.cart)
   return dispatch(
-    updateCartThunk({ items: cartItemsDto, version: state.cart.version })
+    updateCartThunk({ items: cartItemsDto, version: state.cart.version }),
   )
 }, SYNC_CART_WITH_SERVER_TIMEOUT_MS)
 
@@ -45,7 +45,7 @@ export const removeCartItemThunk = createAsyncThunk<
     dispatch(removeProductFromCart(productId))
     dispatch(incVersion())
     syncCart(dispatch as AppDispatch, getState())
-  }
+  },
 )
 
 export const removeCartProductThunk = createAsyncThunk<
@@ -58,7 +58,7 @@ export const removeCartProductThunk = createAsyncThunk<
     dispatch(removeOneItem(product))
     dispatch(incVersion())
     syncCart(dispatch as AppDispatch, getState())
-  }
+  },
 )
 
 export const addCartProductThunk = createAsyncThunk<
@@ -71,5 +71,5 @@ export const addCartProductThunk = createAsyncThunk<
     dispatch(addOneItem(product))
     dispatch(incVersion())
     syncCart(dispatch as AppDispatch, getState())
-  }
+  },
 )

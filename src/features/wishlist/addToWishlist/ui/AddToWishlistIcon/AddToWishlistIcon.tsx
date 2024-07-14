@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { type ProductId } from '@/entities/product'
+import type { ProductId } from '@/entities/product'
 import { selectIsInWishlist } from '@/entities/wishlist'
 import { useFeatureSlicedDebug } from '@/shared/lib'
 import { useAppDispatch, useAppSelector } from '@/shared/model'
@@ -12,8 +12,8 @@ type Props = {
 
 export function AddToWishlistIcon({ productId }: Props) {
   const { rootAttributes } = useFeatureSlicedDebug('feature/AddToWishlist')
-  const isInWishlist = useAppSelector((state) =>
-    selectIsInWishlist(state, productId)
+  const isInWishlist = useAppSelector(state =>
+    selectIsInWishlist(state, productId),
   )
   const dispatch = useAppDispatch()
 
@@ -23,7 +23,7 @@ export function AddToWishlistIcon({ productId }: Props) {
       e.preventDefault()
       dispatch(toggleWishlistProductThunk(productId))
     },
-    [productId]
+    [productId],
   )
 
   return (

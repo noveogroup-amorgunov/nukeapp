@@ -1,4 +1,4 @@
-import { type ProductId } from '@/entities/product'
+import type { ProductId } from '@/entities/product'
 
 export type ProductDetails = {
   id: ProductId

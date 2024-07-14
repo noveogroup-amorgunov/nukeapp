@@ -1,5 +1,5 @@
-import { type CategoryDto } from '../api/types'
-import { type Category, type CategoryId } from '../model/types'
+import type { CategoryDto } from '../api/types'
+import type { Category, CategoryId } from '../model/types'
 
 export function mapCategory(dto: CategoryDto): Category {
   return {

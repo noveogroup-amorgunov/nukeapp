@@ -27,7 +27,7 @@ export function Icon(props: Props) {
       className={cn(
         css.root,
         { [css.root_clickable]: Boolean(props.onClick) },
-        props.className
+        props.className,
       )}
       onClick={props.onClick}
     >

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import type { TypedUseSelectorHook } from 'react-redux'
-import type { RootState, AppDispatch } from './appStore'
+import type { AppDispatch, RootState } from './appStore'
 
 /**
  * ✅ DX Best practice

@@ -14,7 +14,7 @@ export function ChangeTheme() {
       e.stopPropagation()
       dispatch(changeTheme(currentTheme === 'light' ? 'dark' : 'light'))
     },
-    [currentTheme]
+    [currentTheme],
   )
 
   return (

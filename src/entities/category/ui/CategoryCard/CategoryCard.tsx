@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import { Link } from 'react-router-dom'
-import { type Category } from '../../model/types'
+import type { Category } from '../../model/types'
 import css from './CategoryCard.module.css'
 
 type Props = {
@@ -16,7 +16,8 @@ export function CategoryCard(props: Props) {
         <div
           className={css.image}
           style={{ backgroundImage: `url('${image}')` }}
-        ></div>
+        >
+        </div>
         <div className={cn(css.title, 'text_bold')}>{name}</div>
       </div>
     </Link>

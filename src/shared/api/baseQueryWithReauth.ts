@@ -1,11 +1,11 @@
-import { type FetchBaseQueryMeta } from '@reduxjs/toolkit/dist/query/fetchBaseQuery'
-import {
-  type FetchArgs,
-  type FetchBaseQueryError,
+import type { FetchBaseQueryMeta } from '@reduxjs/toolkit/dist/query/fetchBaseQuery'
+import type {
+  FetchArgs,
+  FetchBaseQueryError,
 } from '@reduxjs/toolkit/query'
-import {
-  type BaseQueryApi,
-  type QueryReturnValue,
+import type {
+  BaseQueryApi,
+  QueryReturnValue,
 } from '@reduxjs/toolkit/src/query/baseQueryTypes'
 import { apiAccessTokenIsBrokenEvent } from './apiAccessTokenIsBrokenEvent'
 import { baseQuery } from './baseQuery'
@@ -15,7 +15,7 @@ const AUTH_ERROR_CODES = new Set([401])
 export async function baseQueryWithReauth(
   args: string | FetchArgs,
   api: BaseQueryApi,
-  extraOptions: {}
+  extraOptions: object,
 ): Promise<QueryReturnValue<unknown, FetchBaseQueryError, FetchBaseQueryMeta>> {
   const result = await baseQuery(args, api, extraOptions)
 
@@ -34,8 +34,8 @@ export async function baseQueryWithReauth(
    * See example in `@/features/session/logout/*`
    */
   if (
-    typeof result.error?.status === 'number' &&
-    AUTH_ERROR_CODES.has(result.error.status)
+    typeof result.error?.status === 'number'
+    && AUTH_ERROR_CODES.has(result.error.status)
   ) {
     api.dispatch(apiAccessTokenIsBrokenEvent())
   }

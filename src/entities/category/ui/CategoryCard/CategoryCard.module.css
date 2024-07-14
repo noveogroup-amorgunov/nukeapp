@@ -1,5 +1,5 @@
-@import url("/src/shared/breakpoints.css");
-  
+@import url('/src/shared/breakpoints.css');
+
 .root {
   position: relative;
   display: flex;
@@ -30,10 +30,10 @@
     min-height: 200px;
   }
 
-  [data-theme="dark"] & {
-    filter: brightness(.8) contrast(1.2);
+  [data-theme='dark'] & {
+    filter: brightness(0.8) contrast(1.2);
   }
-  
+
   .root:active & {
     filter: brightness(93%);
   }

@@ -29,7 +29,7 @@
   max-width: 100%;
   height: auto;
   max-height: 100%;
-  background-size: cover; 
+  background-size: cover;
   aspect-ratio: 1;
   overflow: hidden;
   transition: transform 0.2s ease-in-out;

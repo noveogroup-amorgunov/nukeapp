@@ -14,14 +14,14 @@ import { LayoutProfileCard } from '@/widgets/LayoutProfileCard'
  */
 export const baseLayout = (
   <Layout
-    announcementSlot={
+    announcementSlot={(
       <Announcement>
         <span>
           🚀&nbsp;&nbsp;An&nbsp;open source frontend application built with
           React and Feature-Sliced&nbsp;Design.
         </span>
       </Announcement>
-    }
+    )}
     bottomSlot={<DebugModeToggler />}
     headerSlot={<LayoutHeader rightContentSlot={<LayoutProfileCard />} />}
   />

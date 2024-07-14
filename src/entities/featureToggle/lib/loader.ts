@@ -5,10 +5,12 @@ export async function featureToggleLoader(dispatch: AppDispatch) {
 
   try {
     return await loader.unwrap()
-  } catch (error) {
+  }
+  catch (error) {
     console.error(error)
     // TODO: use fallback feature config
-  } finally {
+  }
+  finally {
     loader.unsubscribe()
   }
 }
