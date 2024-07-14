@@ -1,4 +1,4 @@
-import { skipToken } from '@reduxjs/toolkit/dist/query'
+import { skipToken } from '@reduxjs/toolkit/query'
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { selectCartTotalPrice, selectProductsInCart } from '@/entities/cart'

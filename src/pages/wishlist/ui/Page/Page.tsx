@@ -1,4 +1,4 @@
-import { skipToken } from '@reduxjs/toolkit/dist/query'
+import { skipToken } from '@reduxjs/toolkit/query'
 import { useCallback, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { selectIsAuthorized } from '@/entities/session'

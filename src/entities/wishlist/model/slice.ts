@@ -50,10 +50,11 @@ export const selectIsInWishlist = createSelector(
     Boolean(products[productId])
 )
 
-export const selectProductIdsInWishlist = (state: RootState) =>
-  Object.keys(state.wishlist.products)
-    .filter(Boolean)
-    .map(Number) as ProductId[]
+export const selectProductIdsInWishlist = createSelector(
+  (state: RootState) => state.wishlist.products,
+  (products: Record<ProductId, boolean>) =>
+    Object.keys(products).filter(Boolean).map(Number) as ProductId[]
+)
 
 export const { toggleWishlistProduct, clearWishlistData } =
   wishlistSlice.actions

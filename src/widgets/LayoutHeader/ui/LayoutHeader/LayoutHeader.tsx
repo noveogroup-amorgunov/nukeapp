@@ -1,4 +1,4 @@
-import { skipToken } from '@reduxjs/toolkit/dist/query'
+import { skipToken } from '@reduxjs/toolkit/query'
 import { type ReactNode } from 'react'
 import { useCartQuery } from '@/entities/cart/api/cartApi'
 import { useFeatureToggle } from '@/entities/featureToggle'

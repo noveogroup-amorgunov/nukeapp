@@ -1,4 +1,4 @@
-import { skipToken } from '@reduxjs/toolkit/dist/query'
+import { skipToken } from '@reduxjs/toolkit/query'
 import { Link, useParams } from 'react-router-dom'
 import { type ProductId } from '@/entities/product'
 import {

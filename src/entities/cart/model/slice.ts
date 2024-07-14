@@ -79,8 +79,10 @@ export const selectCartTotalPrice = (state: RootState) =>
     0
   )
 
-export const selectProductsInCart = (state: RootState) =>
-  Object.values(state.cart.itemsMap)
+export const selectProductsInCart = createSelector(
+  (state: RootState) => state.cart.itemsMap,
+  (itemsMap: Record<ProductId, CartItem>) => Object.values(itemsMap)
+)
 
 export const selectTotalQuantity = (state: RootState) =>
   Object.values(state.cart.itemsMap).reduce(
