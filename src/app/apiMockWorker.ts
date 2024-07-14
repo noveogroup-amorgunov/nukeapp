@@ -4,6 +4,7 @@ import { categoriesHandlers } from '@/entities/category/api/__mocks__/categoryHa
 import { featureToggleHandlers } from '@/entities/featureToggle/api/__mocks__/featureToggleHandlers'
 import { productsHandlers } from '@/entities/product/api/__mocks__/productHandlers'
 import { sessionHandlers } from '@/entities/session/api/__mocks__/sessionHandlers'
+import { userHandlers } from '@/entities/user/api/__mocks__/userHandlers'
 import { wishlistHandlers } from '@/entities/wishlist/api/__mocks__/wishlistHandlers'
 // eslint-disable-next-line no-restricted-imports
 import { __serverStartDatabaseMigration } from '@/shared/lib/server'
@@ -21,7 +22,8 @@ const apiMockWorker = setupWorker(
   ...productsHandlers,
   ...sessionHandlers,
   ...featureToggleHandlers,
-  ...cartHandlers
+  ...cartHandlers,
+  ...userHandlers
 )
 
 __serverStartDatabaseMigration()
