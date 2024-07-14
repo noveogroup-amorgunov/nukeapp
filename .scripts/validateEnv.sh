@@ -1,13 +1,7 @@
 #!/bin/bash
 
-# Path for env validation file
-ENV_FILE=src/shared/lib/env
-
-SOURCE_FILE=$ENV_FILE.ts
-COMPILED_FILE=$ENV_FILE--compiled.mjs
-
-npx tsc $SOURCE_FILE --skipLibCheck --module esnext --moduleResolution node --types 'vite/client'
-mv $ENV_FILE.js $COMPILED_FILE
-sed -i '' -e 's/import.meta.env/process.env/g' $COMPILED_FILE
-node -r dotenv/config $COMPILED_FILE dotenv_config_path=.env dotenv_config_path=.env.local
+npx tsc src/shared/lib/env.ts --skipLibCheck --module esnext --moduleResolution node --types 'vite/client'
+mv src/shared/lib/env.js src/shared/lib/env--compiled.mjs
+sed -i '' -e 's/import.meta.env/process.env/g' src/shared/lib/env--compiled.mjs
+node -r dotenv/config src/shared/lib/env--compiled.mjs dotenv_config_path=.env dotenv_config_path=.env.local
 exit
