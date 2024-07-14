@@ -25,7 +25,7 @@
 
 Команда разработчиков FSD рекомендует выносить всю логику по обновление access-токена и авторизации пользователя в `shared/api` и хранить access-токен в `entity/session`. Это решает две проблемы: кросс-импорты и дублирование кода.
 
-Но в данном проекте используется продвинутый подход, в котором обновление access-токена и авторизации пользователя вынесены в фичу `features/authorization`. Когда токен протухает, эмитится специальное событие [invalidateAccessToken](https://github.com/noveogroup-amorgunov/nukeapp/blob/main/src/shared/api/baseQueryWithReauth.ts#L36) из `shared/api`, которое слушают другие слои (в том числе фича обновление access-токена).
+Но в данном проекте используется продвинутый подход, в котором обновление access-токена и авторизации пользователя вынесены в фичу `features/authorization`. Когда токен протухает, эмитится специальное событие [apiAccessTokenIsBrokenEvent](https://github.com/noveogroup-amorgunov/nukeapp/blob/main/src/shared/api/baseQueryWithReauth.ts#L36) из `shared/api`, которое слушают другие слои (в том числе фича обновление access-токена).
 
 Смотрите пример реализации в [entities/session/\*](https://github.com/noveogroup-amorgunov/nukeapp/tree/main/src/entities/session), [features/authorization/\*](https://github.com/noveogroup-amorgunov/nukeapp/tree/main/src/features/authentication) и [shared/api/\*](https://github.com/noveogroup-amorgunov/nukeapp/tree/main/src/shared/api).
 
