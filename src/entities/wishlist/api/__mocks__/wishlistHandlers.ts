@@ -1,13 +1,13 @@
-import { rest } from 'msw'
+import { HttpResponse, delay, http } from 'msw'
 import { env, parseTokenFromRequest, verifyAccessToken } from '@/shared/lib'
 import { __serverDatabase } from '@/shared/lib/server'
 
 export const wishlistHandlers = [
-  rest.get(
+  http.get(
     `${env.VITE_API_ENDPOINT}/wishlist/products`,
-    async (req, res, ctx) => {
+    async ({ request }) => {
       try {
-        const { userId } = await verifyAccessToken(parseTokenFromRequest(req))
+        const { userId } = await verifyAccessToken(parseTokenFromRequest(request))
 
         const maybeWishlist = __serverDatabase.wishlist.findFirst({
           where: {
@@ -23,26 +23,25 @@ export const wishlistHandlers = [
           },
         })
 
-        return await res(
-          ctx.delay(env.VITE_API_DELAY),
-          ctx.status(200),
-          ctx.json(products),
-        )
+        await delay(env.VITE_API_DELAY)
+        return HttpResponse.json(products, { status: 200 })
       }
       catch {
-        return await res(ctx.status(403), ctx.json('Forbidden'))
+        await delay(env.VITE_API_DELAY)
+        return HttpResponse.json('Forbidden', { status: 403 })
       }
     },
   ),
 
-  rest.patch(
+  http.patch<object, number[]>(
     `${env.VITE_API_ENDPOINT}/wishlist/products`,
-    async (req, res, ctx) => {
+    async ({ request }) => {
       try {
-        const { userId } = await verifyAccessToken(parseTokenFromRequest(req))
+        const { userId } = await verifyAccessToken(parseTokenFromRequest(request))
+        const url = new URL(request.url)
 
-        const apiDelay = req.url.searchParams.get('delay')
-        const body = await req.json()
+        const apiDelay = url.searchParams.get('delay')
+        const body = await request.json()
 
         __serverDatabase.wishlist.update({
           where: {
@@ -55,14 +54,12 @@ export const wishlistHandlers = [
           },
         })
 
-        return await res(
-          ctx.delay(Number(apiDelay) || env.VITE_API_DELAY),
-          ctx.status(200),
-          ctx.json({}),
-        )
+        await delay(Number(apiDelay) || env.VITE_API_DELAY)
+        return HttpResponse.json({}, { status: 200 })
       }
       catch {
-        return await res(ctx.status(403), ctx.json('Forbidden'))
+        await delay(env.VITE_API_DELAY)
+        return HttpResponse.json('Forbidden', { status: 403 })
       }
     },
   ),

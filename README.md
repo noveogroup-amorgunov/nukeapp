@@ -12,7 +12,7 @@ An open source frontend application built using the **React** ⚛️ and **Featu
 > This app is a work in progress. See the roadmap below.
 
 - React, Redux Toolkit, React Hook Form, Zod
-- Vite, TypeScript, Postcss
+- Vite, TypeScript, PostCSS
 - Architecture based on Feature-Sliced Design
 
 ## Live demo
@@ -24,7 +24,7 @@ An open source frontend application built using the **React** ⚛️ and **Featu
 
 ## About project
 
-Right now, I'm using this project as an experiment polygon to try modern technologies and see how a can see frontend application in {CURRENT_YEAR}. This project structure combines two methodology: Clean Architecture and Feature-Sliced Design.
+Right now, I'm using this project as an experiment polygon to try modern technologies and see how a can see frontend application in {{CURRENT_YEAR}}. This project structure combines two methodology: Clean Architecture and Feature-Sliced Design.
 
 ## Features
 
@@ -88,6 +88,8 @@ or start Storybook stand
 ```bash
 pnpm run storybook
 ```
+
+4. If you use VSCode, you can set custom settings for auto fix on save (provided by [antfu/eslint-config](https://github.com/antfu/eslint-config?tab=readme-ov-file#vs-code-support-auto-fix-on-save))
 
 ## Troubleshoots
 

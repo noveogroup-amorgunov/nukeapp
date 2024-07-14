@@ -1,4 +1,4 @@
-import { rest } from 'msw'
+import { HttpResponse, delay, http } from 'msw'
 import { env } from '@/shared/lib'
 import { __serverDatabase } from '@/shared/lib/server'
 import type { CategoryWithProductsDto } from '../types'
@@ -15,36 +15,29 @@ const productSortByCompareFunctionMap: Record<
 } as const
 
 export const categoriesHandlers = [
-  rest.get(
-    `${env.VITE_API_ENDPOINT}/categories/popular`,
-    async (_, res, ctx) => {
-      const categories = __serverDatabase.category.findMany({
-        where: { popular: { equals: true } },
-      })
+  http.get(`${env.VITE_API_ENDPOINT}/categories/popular`, async () => {
+    const categories = __serverDatabase.category.findMany({
+      where: { popular: { equals: true } },
+    })
 
-      return await res(
-        ctx.delay(env.VITE_API_DELAY),
-        ctx.status(200),
-        ctx.json(categories),
-      )
-    },
-  ),
+    await delay(env.VITE_API_DELAY)
 
-  rest.get(`${env.VITE_API_ENDPOINT}/categories/:id`, async (req, res, ctx) => {
-    const { id } = req.params
-    const sortBy = req.url.searchParams.get('sortBy')
-    const apiDelay = req.url.searchParams.get('delay')
+    return HttpResponse.json(categories, { status: 200 })
+  }),
+
+  http.get(`${env.VITE_API_ENDPOINT}/categories/:id`, async ({ request, params }) => {
+    const { id } = params
+    const url = new URL(request.url)
+    const sortBy = url.searchParams.get('sortBy')
+    const apiDelay = url.searchParams.get('delay')
 
     const maybeCategory = __serverDatabase.category.findFirst({
       where: { id: { equals: Number(id) } },
     })
 
     if (!maybeCategory) {
-      return await res(
-        ctx.delay(Number(apiDelay) || env.VITE_API_DELAY),
-        ctx.status(404),
-        ctx.json('Not found'),
-      )
+      await delay(Number(apiDelay) || env.VITE_API_DELAY)
+      return HttpResponse.json('Not found', { status: 404 })
     }
 
     const categoryDto: CategoryWithProductsDto = {
@@ -62,10 +55,7 @@ export const categoriesHandlers = [
       )
     }
 
-    return await res(
-      ctx.delay(Number(apiDelay) || env.VITE_API_DELAY),
-      ctx.status(200),
-      ctx.json(categoryDto),
-    )
+    await delay(Number(apiDelay) || env.VITE_API_DELAY)
+    return HttpResponse.json(categoryDto, { status: 200 })
   }),
 ]
