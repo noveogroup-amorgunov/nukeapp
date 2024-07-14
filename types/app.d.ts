@@ -40,8 +40,8 @@ declare global {
   /**
    * ⚠️ FSD
    *
-   * Its hack way to export redux infering types from @/app
-   * and use it in @/shared/model/hooks.ts
+   * This is a hacky way to export Redux types inferred from @/app
+   * and use them in @/shared/model/hooks.ts
    */
   declare type RootState = import('../src/app/appStore').RootState
   declare type AppDispatch = import('../src/app/appStore').AppDispatch
