@@ -1,10 +1,10 @@
-import { baseApi, USER_TAG } from '@/shared/api'
+import { USER_TAG, baseApi } from '@/shared/api'
 import { mapUser } from '../lib/mapUser'
-import { type User } from '../model/types'
-import { type UserDto } from './types'
+import type { User } from '../model/types'
+import type { UserDto } from './types'
 
 export const userApi = baseApi.injectEndpoints({
-  endpoints: (build) => ({
+  endpoints: build => ({
     me: build.query<User, void>({
       query: () => ({
         url: `/me`,

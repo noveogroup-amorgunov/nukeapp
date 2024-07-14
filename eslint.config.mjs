@@ -25,6 +25,10 @@ export default antfu(
       'ts/no-explicit-any': 'error',
       'ts/consistent-type-definitions': ['error', 'type'],
       'import/no-default-export': 'error',
+      'no-restricted-syntax': ['error', {
+        selector: 'MemberExpression[object.meta.name=\'import\'][object.property.name=\'meta\'][property.name=\'env\']',
+        message: 'The use of import.meta.env is not allowed. Use import { env } from \'@/shared/lib\'',
+      }],
     },
   },
   // Feature-Sliced Design rules
