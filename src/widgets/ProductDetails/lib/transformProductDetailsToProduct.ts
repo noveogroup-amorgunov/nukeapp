@@ -6,6 +6,7 @@ export function transformProductDetailsToProduct(
 ): Product {
   return {
     id: productDetails.id,
+    stocks: productDetails.stocks,
     name: productDetails.name,
     label: productDetails.label,
     subname: productDetails.subname,
