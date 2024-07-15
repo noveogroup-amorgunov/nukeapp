@@ -12,14 +12,15 @@ export const loginThunk = createAsyncThunk<void, Params, { state: RootState }>(
   async (body: Params, { dispatch }) => {
     try {
       await dispatch(sessionApi.endpoints.login.initiate(body)).unwrap()
-    } catch (error) {
+    }
+    catch (error) {
       if (isFetchBaseQueryError(error)) {
         if (typeof error.data === 'string') {
-          throw new Error(error.data)
+          throw new TypeError(error.data)
         }
       }
 
       throw new Error('Unknown error')
     }
-  }
+  },
 )

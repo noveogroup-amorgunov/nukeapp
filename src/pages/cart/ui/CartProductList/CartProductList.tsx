@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { type CartItem } from '@/entities/cart'
+import type { CartItem } from '@/entities/cart'
 import { type Product, formatPrice } from '@/entities/product'
 import { AddToCartButton } from '@/features/cart/addToCart'
 import { RemoveIcon } from '@/features/cart/addToCart/ui/RemoveIcon/RemoveIcon'
@@ -30,7 +30,8 @@ export function CartProductList(props: Props) {
         return (
           <div className={css.productCardBottomActions}>
             <div>
-              Total price:{' '}
+              Total price:
+              {' '}
               <span className="text_bold">
                 {formatPrice(product.quantity * product.price)}
               </span>
@@ -39,7 +40,7 @@ export function CartProductList(props: Props) {
           </div>
         )
       }}
-      productCardActionsSlot={(productId) => (
+      productCardActionsSlot={productId => (
         <div className={css.productCardActions}>
           <AddToWishlistIcon productId={productId} />
           <RemoveIcon productId={productId} />

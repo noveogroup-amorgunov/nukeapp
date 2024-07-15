@@ -1,5 +1,5 @@
-import { type FeatureToggleDto } from '../api/types'
-import { type FeatureToggle } from '../model/types'
+import type { FeatureToggleDto } from '../api/types'
+import type { FeatureToggle } from '../model/types'
 
 export function mapFeatureToggle(dto: FeatureToggleDto): FeatureToggle {
   return {

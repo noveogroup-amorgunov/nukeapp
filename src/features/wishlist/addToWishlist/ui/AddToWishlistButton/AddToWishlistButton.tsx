@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { type ProductId } from '@/entities/product'
+import type { ProductId } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
 import { selectIsInWishlist } from '@/entities/wishlist'
 import { useConfirmModal, useFeatureSlicedDebug } from '@/shared/lib'
@@ -18,8 +18,8 @@ export function AddToWishlistButton({ productId }: Props) {
   const loginModal = useConfirmModal()
   const navigate = useNavigate()
   const isAuthorized = useAppSelector(selectIsAuthorized)
-  const isInWishlist = useAppSelector((state) =>
-    selectIsInWishlist(state, productId)
+  const isInWishlist = useAppSelector(state =>
+    selectIsInWishlist(state, productId),
   )
   const dispatch = useAppDispatch()
 
@@ -50,7 +50,7 @@ export function AddToWishlistButton({ productId }: Props) {
         setIsLoading(false)
       })
     },
-    [productId, isAuthorized]
+    [productId, isAuthorized],
   )
 
   return (

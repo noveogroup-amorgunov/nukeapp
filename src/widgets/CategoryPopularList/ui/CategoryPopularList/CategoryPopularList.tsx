@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { usePopularCategoriesQuery, CategoryCard } from '@/entities/category'
+import { CategoryCard, usePopularCategoriesQuery } from '@/entities/category'
 import { useFeatureSlicedDebug } from '@/shared/lib'
 import css from './CategoryPopularList.module.css'
 
@@ -21,7 +21,7 @@ export function CategoryPopularList() {
     <div className={css.root} {...rootAttributes}>
       <h2>New Collections</h2>
       <div className={css.content}>
-        {items.map((category) => (
+        {items.map(category => (
           <div key={category.id} className={css.item}>
             <CategoryCard category={category} />
           </div>

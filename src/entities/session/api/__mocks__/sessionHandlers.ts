@@ -1,10 +1,15 @@
-import { rest } from 'msw'
-import { env, signAccessToken } from '@/shared/lib'
+import { HttpResponse, delay, http } from 'msw'
+import {
+  env,
+  parseTokenFromRequest,
+  signAccessToken,
+  verifyAccessToken,
+} from '@/shared/lib'
 import { __serverDatabase } from '@/shared/lib/server'
 
 export const sessionHandlers = [
-  rest.post(`${env.VITE_API_ENDPOINT}/login`, async (req, res, ctx) => {
-    const body = await req.json()
+  http.post<object, { email: string, password: string }>(`${env.VITE_API_ENDPOINT}/login`, async ({ request }) => {
+    const body = await request.json()
     const { email, password } = body
 
     const maybeUser = __serverDatabase.user.findFirst({
@@ -15,7 +20,8 @@ export const sessionHandlers = [
     })
 
     if (!maybeUser) {
-      return await res(ctx.status(400), ctx.json('Wrong email or password'))
+      await delay(env.VITE_API_DELAY)
+      return HttpResponse.json('Wrong email or password', { status: 400 })
     }
 
     const accessToken = await signAccessToken({
@@ -23,16 +29,15 @@ export const sessionHandlers = [
       email,
     })
 
-    return await res(
-      ctx.delay(env.VITE_API_DELAY),
-      ctx.status(200),
-      ctx.json({
-        accessToken,
-        user: {
-          email,
-          id: maybeUser.id,
-        },
-      })
-    )
+    const responseData = {
+      accessToken,
+      user: {
+        email,
+        id: maybeUser.id,
+      },
+    }
+
+    await delay(env.VITE_API_DELAY)
+    return HttpResponse.json(responseData, { status: 200 })
   }),
 ]

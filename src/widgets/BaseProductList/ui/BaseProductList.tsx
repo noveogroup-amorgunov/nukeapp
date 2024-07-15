@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import { type ReactNode, useCallback } from 'react'
-import { ProductCard, type Product, type ProductId } from '@/entities/product'
+import { type Product, ProductCard, type ProductId } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
 import { AddToWishlistIcon } from '@/features/wishlist/addToWishlist'
 import { useFeatureSlicedDebug } from '@/shared/lib'
@@ -32,7 +32,7 @@ export function BaseProductList<T extends Product>(props: Props<T>) {
 
       return null
     },
-    [props.productCardActionsSlot, isAuthorized]
+    [props.productCardActionsSlot, isAuthorized],
   )
 
   if (Boolean(isFetching) && products.length === 0) {
@@ -51,10 +51,10 @@ export function BaseProductList<T extends Product>(props: Props<T>) {
       className={cn(
         css.root,
         isFetching && css.rootIsFetching,
-        css[`root_size_${size}`]
+        css[`root_size_${size}`],
       )}
     >
-      {products.map((product) => (
+      {products.map(product => (
         <ProductCard
           size={size}
           key={product.id}

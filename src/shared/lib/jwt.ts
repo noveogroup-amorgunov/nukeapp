@@ -1,5 +1,5 @@
 import * as jose from 'jose'
-import { type RestRequest } from 'msw'
+import type { DefaultBodyType, StrictRequest } from 'msw'
 import { env } from '@/shared/lib'
 
 export async function signAccessToken(payload: Record<string, unknown>) {
@@ -16,10 +16,10 @@ export async function verifyAccessToken(jwt: string) {
   const secret = new TextEncoder().encode(env.VITE_JWT_SECRET)
   const { payload } = await jose.jwtVerify(jwt, secret)
 
-  return payload as { email: Email; userId: Id }
+  return payload as { email: Email, userId: Id }
 }
 
-export function parseTokenFromRequest(req: RestRequest) {
+export function parseTokenFromRequest(req: StrictRequest<DefaultBodyType>) {
   const tokenHeader = req.headers.get('Authorization') ?? ''
   const [, token] = tokenHeader.split(' ')
 

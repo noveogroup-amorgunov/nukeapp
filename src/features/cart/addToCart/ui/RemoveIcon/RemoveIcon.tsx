@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { type ProductId } from '@/entities/product'
+import type { ProductId } from '@/entities/product'
 import { useConfirmModal } from '@/shared/lib'
 import { useAppDispatch } from '@/shared/model'
 import { Icon } from '@/shared/ui'
@@ -28,7 +28,7 @@ export function RemoveIcon(props: Props) {
         onCancel: () => confirmRemoveModal.remove(),
       })
     },
-    [props.productId]
+    [props.productId],
   )
 
   return <Icon type="trash" onClick={onClickToRemove} />

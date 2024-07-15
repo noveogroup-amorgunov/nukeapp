@@ -1,4 +1,4 @@
-@import url("../../breakpoints.css");
+@import url('../../breakpoints.css');
 
 .root {
   display: flex;
@@ -21,7 +21,6 @@
   flex-direction: row;
   gap: 12px;
   flex-grow: 1;
-
 
   @media (--s-viewport) {
     flex-direction: column-reverse;

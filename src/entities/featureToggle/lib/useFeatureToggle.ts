@@ -1,5 +1,5 @@
 import { useFeatureToggleQuery } from '../api/featureToggleApi'
-import { type FeatureToggle } from '../model/types'
+import type { FeatureToggle } from '../model/types'
 
 export function useFeatureToggle(feature: Keys<FeatureToggle>) {
   const { data } = useFeatureToggleQuery()

@@ -1,8 +1,8 @@
-import { type Product } from '@/entities/product'
-import { type ProductDetails } from '../model/types'
+import type { Product } from '@/entities/product'
+import type { ProductDetails } from '../model/types'
 
 export function transformProductDetailsToProduct(
-  productDetails: ProductDetails
+  productDetails: ProductDetails,
 ): Product {
   return {
     id: productDetails.id,

@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { Icon } from '@/shared/ui'
 import css from './Button.module.css'
 
@@ -32,7 +32,7 @@ export function Button({
         css.root,
         css[`root_size_${size}`],
         css[`root_theme_${theme}`],
-        disabled && css.root_disabled
+        disabled && css.root_disabled,
       )}
       onClick={onClick}
     >

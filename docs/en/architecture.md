@@ -25,7 +25,7 @@ The project has a lot of example how we can solve different cases with methodolo
 
 Core team recommends move all logic with updating access tokens and authorization in `shared/api` and store access token in `entity/session`. It solves two problems: cross imports and code duplication.
 
-But I use advanced approach and move authorization/invalidating tokens in `features/authorization`. When token is expired, we emit special action [invalidateAccessToken](https://github.com/noveogroup-amorgunov/nukeapp/blob/main/src/shared/api/baseQueryWithReauth.ts#L36) from shared api, which listen in other layers.
+But I use advanced approach and move authorization/invalidating tokens in `features/authorization`. When token is expired, we emit special action [apiAccessTokenIsBrokenEvent](https://github.com/noveogroup-amorgunov/nukeapp/blob/main/src/shared/api/baseQueryWithReauth.ts#L36) from shared api, which listen in other layers.
 
 See [entities/session/\*](https://github.com/noveogroup-amorgunov/nukeapp/tree/main/src/entities/session), [features/authorization/\*](https://github.com/noveogroup-amorgunov/nukeapp/tree/main/src/features/authentication) and [shared/api/\*](https://github.com/noveogroup-amorgunov/nukeapp/tree/main/src/shared/api) in code.
 
@@ -112,7 +112,7 @@ For example, we have widget `BaseProductList` which use different entities and f
 
 Of course, we can make dumb `ProductList`, place it on `entities/product` slice and pass all data as props. Sometimes render-props is a very powerful pattern and it works. But in this example it's a wrong way (a lot of duplicate logic and prop-hell components because every of N widgets will duplicate each other's logic):
 
-```ts
+```tsx
 // 📁 widgets/PopularProductList/ui/PopularProductList.tsx
 
 function PopularProductList() {
@@ -120,12 +120,12 @@ function PopularProductList() {
     <ProductList
       // 👎 A lot duplicated props in every N widget
       // which use ProductList
-      cardItemSlot={...}
-      actionCardItemSlot={...}
-      onAddToWishlist={...}
+      cardItemSlot={/* ... */}
+      actionCardItemSlot={/* ... */}
+      onAddToWishlist={/* ... */}
       onAddToCart={}
       onRemoveFromCart={}
-      {/* ... */}
+      // A lot of props ....
       products={products}
     />
   )

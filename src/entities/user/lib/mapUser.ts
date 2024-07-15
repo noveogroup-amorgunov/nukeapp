@@ -1,5 +1,5 @@
-import { type UserDto } from '../api/types'
-import { type User, type UserId } from '../model/types'
+import type { UserDto } from '../api/types'
+import type { User, UserId } from '../model/types'
 
 export function mapUser(dto: UserDto): User {
   return {

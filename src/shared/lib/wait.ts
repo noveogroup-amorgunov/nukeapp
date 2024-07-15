@@ -1,2 +1,3 @@
-export const wait = async (ms = 500) =>
-  await new Promise((resolve) => setTimeout(resolve, ms))
+export async function wait(ms = 500) {
+  return await new Promise(resolve => setTimeout(resolve, ms))
+}

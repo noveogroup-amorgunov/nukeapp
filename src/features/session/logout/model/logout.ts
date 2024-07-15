@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { cartApi, clearCartData } from '@/entities/cart'
-import { sessionApi, clearSessionData } from '@/entities/session'
+import { clearSessionData, sessionApi } from '@/entities/session'
 import { userApi } from '@/entities/user/api/userApi'
-import { wishlistApi, clearWishlistData } from '@/entities/wishlist'
-import { SESSION_TAG, WISHLIST_TAG, CART_TAG, USER_TAG } from '@/shared/api'
+import { clearWishlistData, wishlistApi } from '@/entities/wishlist'
+import { CART_TAG, SESSION_TAG, USER_TAG, WISHLIST_TAG } from '@/shared/api'
 import { wait } from '@/shared/lib'
 
 export const logoutThunk = createAsyncThunk<void, void, { state: RootState }>(
@@ -25,5 +25,5 @@ export const logoutThunk = createAsyncThunk<void, void, { state: RootState }>(
     dispatch(userApi.util.invalidateTags([USER_TAG]))
     dispatch(wishlistApi.util.invalidateTags([WISHLIST_TAG]))
     dispatch(cartApi.util.invalidateTags([CART_TAG]))
-  }
+  },
 )

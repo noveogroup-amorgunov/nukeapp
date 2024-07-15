@@ -1,4 +1,4 @@
-import { setupWorker } from 'msw'
+import { setupWorker } from 'msw/browser'
 import { cartHandlers } from '@/entities/cart/api/__mocks__/cartHandlers'
 import { categoriesHandlers } from '@/entities/category/api/__mocks__/categoryHandlers'
 import { featureToggleHandlers } from '@/entities/featureToggle/api/__mocks__/featureToggleHandlers'
@@ -23,15 +23,17 @@ const apiMockWorker = setupWorker(
   ...sessionHandlers,
   ...featureToggleHandlers,
   ...cartHandlers,
-  ...userHandlers
+  ...userHandlers,
 )
 
 __serverStartDatabaseMigration()
 
-export const startApiMockWorker = async () => {
+export async function startApiMockWorker() {
   await apiMockWorker.start({
-    onUnhandledRequest(req, print) {
-      if (/\.(png|jpg|svg|tsx?|css|jsx?|woff2)$/.test(req.url.pathname)) {
+    onUnhandledRequest(request, print) {
+      const url = new URL(request.url)
+
+      if (/\.png|jpg|svg|tsx?|css|jsx?|woff2$/.test(url.pathname)) {
         return
       }
 

@@ -1,4 +1,4 @@
-import { useModal, create as createModal } from '@ebay/nice-modal-react'
+import { create as createModal, useModal } from '@ebay/nice-modal-react'
 import { Button, Modal } from '../ui'
 
 type Props = {
@@ -20,6 +20,6 @@ function AlertModalPresenter(props: Props) {
 
 export const AlertModal = createModal(AlertModalPresenter)
 
-export const useAlertModal = () => {
+export function useAlertModal() {
   return useModal(AlertModal)
 }

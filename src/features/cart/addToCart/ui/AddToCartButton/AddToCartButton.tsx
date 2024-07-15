@@ -2,15 +2,15 @@ import cn from 'classnames'
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { selectProductInCart, selectTotalQuantity } from '@/entities/cart'
-import { formatPrice, type Product } from '@/entities/product'
+import { type Product, formatPrice } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
 import { useConfirmModal, useFeatureSlicedDebug } from '@/shared/lib'
 import { useAlertModal } from '@/shared/lib/useAlertModal'
 import { useAppDispatch, useAppSelector } from '@/shared/model'
 import { Button } from '@/shared/ui'
 import {
-  removeCartProductThunk,
   addCartProductThunk,
+  removeCartProductThunk,
 } from '../../model/actions'
 import css from './AddToCartButton.module.css'
 
@@ -23,15 +23,15 @@ type Props = {
 
 export function AddToCartButton(props: Props) {
   const { rootAttributes } = useFeatureSlicedDebug(
-    'feature/cart/AddToCartButton'
+    'feature/cart/AddToCartButton',
   )
   const loginModal = useConfirmModal()
   const updateCartModal = useAlertModal()
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const isAuthorized = useAppSelector(selectIsAuthorized)
-  const productInCart = useAppSelector((state) =>
-    selectProductInCart(state, props.product.id)
+  const productInCart = useAppSelector(state =>
+    selectProductInCart(state, props.product.id),
   )
   const productInCartQuantity = useAppSelector(selectTotalQuantity)
 
@@ -56,7 +56,8 @@ export function AddToCartButton(props: Props) {
 
       if (addOne) {
         dispatch(addCartProductThunk(props.product))
-      } else {
+      }
+      else {
         dispatch(removeCartProductThunk(props.product))
       }
 
@@ -76,7 +77,7 @@ export function AddToCartButton(props: Props) {
       props.showAlertAfterAddAction,
       productInCart,
       productInCartQuantity,
-    ]
+    ],
   )
 
   const onAddProduct = useCallback(
@@ -85,7 +86,7 @@ export function AddToCartButton(props: Props) {
       e.preventDefault()
       handleClick(true)
     },
-    [handleClick]
+    [handleClick],
   )
 
   const onRemoveProduct = useCallback(
@@ -94,7 +95,7 @@ export function AddToCartButton(props: Props) {
       e.preventDefault()
       handleClick(false)
     },
-    [handleClick]
+    [handleClick],
   )
 
   return (
@@ -119,7 +120,11 @@ export function AddToCartButton(props: Props) {
           </div>
         )}
         {!productInCart && (
-          <span>Add to bag ({formatPrice(props.product.price)})</span>
+          <span>
+            Add to bag (
+            {formatPrice(props.product.price)}
+            )
+          </span>
         )}
       </Button>
     </div>

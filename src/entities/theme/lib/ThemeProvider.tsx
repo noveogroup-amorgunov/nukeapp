@@ -2,7 +2,7 @@ import { type ReactNode, useEffect } from 'react'
 import { useFeatureToggle } from '@/entities/featureToggle/@x/theme'
 import { useAppDispatch, useAppSelector } from '@/shared/model/hooks'
 import { changeTheme, selectCurrentTheme } from '../model/slice'
-import { type Theme } from '../model/types'
+import type { Theme } from '../model/types'
 
 type Props = {
   theme?: Theme

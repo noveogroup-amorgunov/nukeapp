@@ -1,13 +1,13 @@
-import { rest } from 'msw'
+import { HttpResponse, delay, http } from 'msw'
 import { env, parseTokenFromRequest, verifyAccessToken } from '@/shared/lib'
 import { __serverDatabase } from '@/shared/lib/server'
 import type { CartItemDto } from '../types'
 import { mockCartDto } from './mockCartDto'
 
 export const cartHandlers = [
-  rest.get(`${env.VITE_API_ENDPOINT}/cart`, async (req, res, ctx) => {
+  http.get(`${env.VITE_API_ENDPOINT}/cart`, async ({ request }) => {
     try {
-      const { userId } = await verifyAccessToken(parseTokenFromRequest(req))
+      const { userId } = await verifyAccessToken(parseTokenFromRequest(request))
 
       const maybeCart = __serverDatabase.cart.findFirst({
         where: {
@@ -18,7 +18,7 @@ export const cartHandlers = [
       })
 
       if (!maybeCart) {
-        return await res(ctx.status(400), ctx.json('Bad request'))
+        return HttpResponse.json('Bad request', { status: 400 })
       }
 
       const products = __serverDatabase.product.findMany({
@@ -27,23 +27,23 @@ export const cartHandlers = [
         },
       })
 
-      return await res(
-        ctx.delay(env.VITE_API_DELAY),
-        ctx.status(200),
-        ctx.json(mockCartDto(maybeCart, products))
-      )
-    } catch (err) {
-      return await res(ctx.status(403), ctx.json('Forbidden'))
+      await delay(env.VITE_API_DELAY)
+
+      return HttpResponse.json(mockCartDto(maybeCart, products), { status: 200 })
+    }
+    catch {
+      return HttpResponse.json('Forbidden', { status: 403 })
     }
   }),
 
-  rest.patch(`${env.VITE_API_ENDPOINT}/cart`, async (req, res, ctx) => {
+  http.patch<object, { version: number, items: CartItemDto[] }>(`${env.VITE_API_ENDPOINT}/cart`, async ({ request }) => {
     try {
-      const { userId } = await verifyAccessToken(parseTokenFromRequest(req))
+      const { userId } = await verifyAccessToken(parseTokenFromRequest(request))
+      const url = new URL(request.url)
 
       // TODO: add validation
-      const apiDelay = req.url.searchParams.get('delay')
-      const body = await req.json()
+      const apiDelay = url.searchParams.get('delay')
+      const body = await request.json()
 
       __serverDatabase.cart.update({
         where: {
@@ -54,19 +54,18 @@ export const cartHandlers = [
         data: {
           version: body.version,
           itemsProductQuantity: body.items.map(
-            (item: CartItemDto) => item.quantity
+            (item: CartItemDto) => item.quantity,
           ),
           itemsProductId: body.items.map((item: CartItemDto) => item.productId),
         },
       })
 
-      return await res(
-        ctx.delay(Number(apiDelay) || env.VITE_API_DELAY),
-        ctx.status(200),
-        ctx.json({})
-      )
-    } catch (err) {
-      return await res(ctx.status(403), ctx.json('Forbidden'))
+      await delay(Number(apiDelay) || env.VITE_API_DELAY)
+
+      return HttpResponse.json({}, { status: 200 })
+    }
+    catch {
+      return HttpResponse.json('Forbidden', { status: 403 })
     }
   }),
 ]

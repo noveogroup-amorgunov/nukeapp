@@ -1,4 +1,4 @@
-@import url("/src/shared/breakpoints.css");
+@import url('/src/shared/breakpoints.css');
 
 .root {
   width: 244px;
@@ -7,7 +7,7 @@
   background-size: contain;
   background-repeat: no-repeat;
 
-  [data-theme="dark"] & {
+  [data-theme='dark'] & {
     background-image: url('/images/logo@dark.png');
   }
 

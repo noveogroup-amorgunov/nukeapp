@@ -1,5 +1,5 @@
-import { type SessionDto } from '../api/types'
-import { type Session, type SessionUserId } from '../model/types'
+import type { SessionDto } from '../api/types'
+import type { Session, SessionUserId } from '../model/types'
 
 export function mapSession(dto: SessionDto): Session {
   return {

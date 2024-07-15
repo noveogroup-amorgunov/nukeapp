@@ -1,23 +1,23 @@
-import { rest } from 'msw'
+import { HttpResponse, delay, http } from 'msw'
 import { env, parseTokenFromRequest, verifyAccessToken } from '@/shared/lib'
 
 export const userHandlers = [
-  rest.get(`${env.VITE_API_ENDPOINT}/me`, async (req, res, ctx) => {
+  http.get(`${env.VITE_API_ENDPOINT}/me`, async ({ request }) => {
     try {
-      const payload = await verifyAccessToken(parseTokenFromRequest(req))
+      const payload = await verifyAccessToken(parseTokenFromRequest(request))
 
-      return await res(
-        ctx.delay(env.VITE_API_DELAY),
-        ctx.status(200),
-        ctx.json({
+      await delay(env.VITE_API_DELAY)
+      return HttpResponse.json(
+        {
           id: payload.userId,
           email: payload.email,
-        })
+        },
+        { status: 200 },
       )
-    } catch (err) {
-      return await res(
-        ctx.status(401),
-        ctx.json('Token is expired or not valid')
+    }
+    catch {
+      await delay(env.VITE_API_DELAY)
+      return HttpResponse.json('Token is expired or not valid', { status: 401 },
       )
     }
   }),

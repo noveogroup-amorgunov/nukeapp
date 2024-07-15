@@ -1,5 +1,5 @@
 import { productsMock } from '@/shared/lib/server'
-import { type ProductDto } from '../types'
+import type { ProductDto } from '../types'
 
 // Example with faker
 // import { faker } from '@faker-js/faker'
@@ -13,7 +13,7 @@ import { type ProductDto } from '../types'
 // discountPrice: faker.datatype.number({ min: 1, max: price }),
 
 export function mockProductDto(
-  initialProps: Partial<ProductDto> = {}
+  initialProps: Partial<ProductDto> = {},
 ): ProductDto {
   return {
     ...productsMock[0],

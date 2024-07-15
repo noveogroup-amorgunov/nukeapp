@@ -1,5 +1,5 @@
-@import url("./colors.css");
-@import url("./breakpoints.css");
+@import url('./colors.css');
+@import url('./breakpoints.css');
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
@@ -33,7 +33,7 @@ body {
   color: var(--text-color);
 }
 
-[data-theme="dark"] body {
+[data-theme='dark'] body {
   font-weight: 350;
 }
 
@@ -46,18 +46,18 @@ a:hover {
   filter: brightness(80%);
 }
 
-[data-theme="dark"] input {
+[data-theme='dark'] input {
   background-color: #0009;
   border-color: #0009;
   color: var(--text-color) !important;
 }
 
-[data-theme="dark"] input:focus {
+[data-theme='dark'] input:focus {
   color: var(--text-color) !important;
 }
 
-[data-theme="dark"] img {
-  filter: brightness(.8) contrast(1.2);
+[data-theme='dark'] img {
+  filter: brightness(0.8) contrast(1.2);
 }
 
 [data-fsd] {
@@ -106,7 +106,7 @@ a:hover {
 
 .text_base {
   font-size: 1rem; /* 16px */
- line-height: 1.5rem; /* 24px */
+  line-height: 1.5rem; /* 24px */
 }
 
 .text_lg {
@@ -119,12 +119,12 @@ a:hover {
   line-height: 1.75rem; /* 28px */
 }
 
-.text_2xl	{
+.text_2xl {
   font-size: 1.5rem; /* 24px */
   line-height: 2rem; /* 32px */
 }
 
-.text_3xl	{
+.text_3xl {
   font-size: 1.875rem; /* 30px */
   line-height: 2.25rem; /* 36px */
 }
@@ -139,19 +139,23 @@ a:hover {
   line-height: 1;
 }
 
-.text_6xl	 {font-size: 3.75rem; /* 60px */
+.text_6xl {
+  font-size: 3.75rem; /* 60px */
   line-height: 1;
 }
 
-.text_7xl	 {font-size: 4.5rem; /* 72px */
+.text_7xl {
+  font-size: 4.5rem; /* 72px */
   line-height: 1;
 }
 
-.text_8xl {	font-size: 6rem; /* 96px */
+.text_8xl {
+  font-size: 6rem; /* 96px */
   line-height: 1;
 }
 
-.text_9xl {	font-size: 8rem; /* 128px */
+.text_9xl {
+  font-size: 8rem; /* 128px */
   line-height: 1;
 }
 
@@ -159,6 +163,6 @@ a:hover {
   font-weight: 700;
 }
 
-[data-theme="dark"] .text_bold {
+[data-theme='dark'] .text_bold {
   font-weight: 600;
 }

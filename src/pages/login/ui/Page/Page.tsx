@@ -15,7 +15,15 @@ export function LoginPage() {
     <div>
       <h1>Login page</h1>
       <p>
-        Use {env.VITE_API_USER_EMAIL} / {env.VITE_API_USER_PASSWORD} as test
+        Use
+        {' '}
+        {env.VITE_API_USER_EMAIL}
+        {' '}
+        /
+        {' '}
+        {env.VITE_API_USER_PASSWORD}
+        {' '}
+        as test
         user credentials
       </p>
       <LoginForm onComplete={onComplete} />

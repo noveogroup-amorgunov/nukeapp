@@ -1,15 +1,15 @@
 import { baseApi } from '@/shared/api'
 import { mapCategory } from '../lib/mapCategory'
 import { mapCategoryWithProducts } from '../lib/mapCategoryWithProducts'
-import { type Category, type CategoryWithProducts } from '../model/types'
-import {
-  type CategoryDto,
-  type CategoryWithProductsDto,
-  type CategoryDetailsRequestArgs,
+import type { Category, CategoryWithProducts } from '../model/types'
+import type {
+  CategoryDetailsRequestArgs,
+  CategoryDto,
+  CategoryWithProductsDto,
 } from './types'
 
 export const categoryApi = baseApi.injectEndpoints({
-  endpoints: (build) => ({
+  endpoints: build => ({
     popularCategories: build.query<Category[], void>({
       query: () => ({
         url: `/categories/popular`,
@@ -30,5 +30,5 @@ export const categoryApi = baseApi.injectEndpoints({
   }),
 })
 
-export const { usePopularCategoriesQuery, useCategoryDetailsQuery } =
-  categoryApi
+export const { usePopularCategoriesQuery, useCategoryDetailsQuery }
+  = categoryApi

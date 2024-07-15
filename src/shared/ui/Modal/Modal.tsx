@@ -12,6 +12,8 @@ const BODY_MODAL_IS_OPENED_CLASS = 'modalIsOpened'
 export function Modal(props: Props) {
   const modal = useModal()
 
+  const onEscapeKeyClick = () => modal.remove()
+
   useEffect(() => {
     document.addEventListener('keydown', onEscapeKeyClick)
     document.body.classList.add(BODY_MODAL_IS_OPENED_CLASS)
@@ -21,8 +23,6 @@ export function Modal(props: Props) {
       document.body.classList.remove(BODY_MODAL_IS_OPENED_CLASS)
     }
   }, [])
-
-  const onEscapeKeyClick = () => modal.remove()
 
   return (
     <div className={css.root}>

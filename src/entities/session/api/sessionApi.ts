@@ -1,12 +1,12 @@
-import { baseApi, SESSION_TAG, WISHLIST_TAG } from '@/shared/api'
+import { SESSION_TAG, WISHLIST_TAG, baseApi } from '@/shared/api'
 import { mapSession } from '../lib/mapSession'
-import { type Session } from '../model/types'
-import { type RequestLoginBody, type SessionDto } from './types'
+import type { Session } from '../model/types'
+import type { RequestLoginBody, SessionDto } from './types'
 
 export const sessionApi = baseApi.injectEndpoints({
-  endpoints: (build) => ({
+  endpoints: build => ({
     login: build.mutation<Session, RequestLoginBody>({
-      query: (body) => ({
+      query: body => ({
         url: `/login`,
         method: 'POST',
         body,

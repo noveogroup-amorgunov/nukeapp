@@ -13,7 +13,7 @@
     border-radius: 8px;
   }
 
-  :global([data-theme="dark"]) & {
+  :global([data-theme='dark']) & {
     filter: invert(1);
   }
 }
@@ -23,4 +23,3 @@
   height: 100%;
   background-size: cover;
 }
-

@@ -1,4 +1,4 @@
-import { rest } from 'msw'
+import { HttpResponse, delay, http } from 'msw'
 import { z } from 'zod'
 import { env } from '@/shared/lib'
 import { mockFeatureToggleDto } from './mockFeatureToggleDto'
@@ -10,7 +10,7 @@ import { mockFeatureToggleDto } from './mockFeatureToggleDto'
  */
 const featureSchema = z
   .enum(['false', 'true'])
-  .transform((value) => value === 'true')
+  .transform(value => value === 'true')
   .optional()
 
 const featureToggleQuerySchema = z.object({
@@ -19,25 +19,21 @@ const featureToggleQuerySchema = z.object({
 })
 
 export const featureToggleHandlers = [
-  rest.get(`${env.VITE_API_ENDPOINT}/feature-toggle`, async (req, res, ctx) => {
+  http.get(`${env.VITE_API_ENDPOINT}/feature-toggle`, async ({ request }) => {
     try {
-      const params = Object.fromEntries(req.url.searchParams.entries())
+      const url = new URL(request.url)
+      const params = Object.fromEntries(url.searchParams.entries())
       // silent validation
       const query = featureToggleQuerySchema.safeParse(params)
 
-      return await res(
-        ctx.delay(env.VITE_API_DELAY),
-        ctx.status(200),
-        ctx.json(mockFeatureToggleDto(query.success ? query.data : {}))
-      )
-    } catch (error) {
+      await delay(env.VITE_API_DELAY)
+      return HttpResponse.json(mockFeatureToggleDto(query.success ? query.data : {}), { status: 200 })
+    }
+    catch (error) {
       console.error(error)
 
-      return await res(
-        ctx.delay(env.VITE_API_DELAY),
-        ctx.status(400),
-        ctx.json('Bad request params')
-      )
+      await delay(env.VITE_API_DELAY)
+      return HttpResponse.json('Bad request params', { status: 400 })
     }
   }),
 ]

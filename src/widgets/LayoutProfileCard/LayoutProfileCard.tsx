@@ -1,4 +1,4 @@
-import { skipToken } from '@reduxjs/toolkit/dist/query'
+import { skipToken } from '@reduxjs/toolkit/query'
 import cn from 'classnames'
 import { Link } from 'react-router-dom'
 import { selectTotalQuantity } from '@/entities/cart'
@@ -20,7 +20,7 @@ export function LayoutProfileCard() {
     isAuthorized ? undefined : skipToken,
     {
       skip: !isAuthorized,
-    }
+    },
   )
 
   if (!isAuthorized) {
@@ -34,7 +34,10 @@ export function LayoutProfileCard() {
   return (
     <div className={css.root} {...rootAttributes}>
       <div>
-        Hey, <span className="text_bold">{profileData?.email}</span>!&nbsp;
+        Hey,
+        {' '}
+        <span className="text_bold">{profileData?.email}</span>
+        !&nbsp;
         <LogoutButton />
       </div>
       {isAuthorized && (

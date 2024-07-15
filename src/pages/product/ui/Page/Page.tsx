@@ -1,6 +1,6 @@
-import { skipToken } from '@reduxjs/toolkit/dist/query'
+import { skipToken } from '@reduxjs/toolkit/query'
 import { Link, useParams } from 'react-router-dom'
-import { type ProductId } from '@/entities/product'
+import type { ProductId } from '@/entities/product'
 import {
   ProductDetails,
   useProductDetailsQuery,
@@ -12,7 +12,7 @@ export function ProductPage() {
   // TODO: Add zod validation
   const { data, isFetching } = useProductDetailsQuery(
     productId ? (Number.parseInt(productId, 10) as ProductId) : skipToken,
-    { skip: !productId }
+    { skip: !productId },
   )
 
   const isNotFound = !productId || (!isFetching && !data)
@@ -20,7 +20,9 @@ export function ProductPage() {
   if (isNotFound) {
     return (
       <div>
-        Product not found, go to <Link to="/">main page</Link>
+        Product not found, go to
+        {' '}
+        <Link to="/">main page</Link>
       </div>
     )
   }

@@ -1,4 +1,4 @@
-import { type HTMLAttributes, type CSSProperties } from 'react'
+import type { CSSProperties, HTMLAttributes } from 'react'
 import { useAppSelector } from '@/shared/model'
 
 type CustomCSSProperties = {
@@ -21,9 +21,9 @@ const colorMap: Record<Layer, string> = {
 } as const
 
 export function useFeatureSlicedDebug<T extends HTMLElement = HTMLDivElement>(
-  name: ModuleName
+  name: ModuleName,
 ) {
-  const isDebugMode = useAppSelector((state) => state.debugMode.isEnabled)
+  const isDebugMode = useAppSelector(state => state.debugMode.isEnabled)
   const rootAttributes: CustomHTMLAttributes<T> = {}
   const [layer] = name.split('/') as [Layer]
 
