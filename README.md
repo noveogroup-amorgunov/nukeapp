@@ -65,6 +65,8 @@ Other:
 
 ## Running locally
 
+> Note: You can use `npm` or `yarn` as package manager instead of `pnpm`, just remove [`npx only-allow pnpm`](https://github.com/noveogroup-amorgunov/nukeapp/blob/main/package.json#L12) from `package.json`.
+
 1. Install dependencies
 
 ```bash
@@ -86,7 +88,7 @@ pnpm start
 or start Storybook stand
 
 ```bash
-pnpm run storybook
+pnpm storybook
 ```
 
 4. If you use VSCode, you can set custom settings for auto fix on save (provided by [antfu/eslint-config](https://github.com/antfu/eslint-config?tab=readme-ov-file#vs-code-support-auto-fix-on-save))
