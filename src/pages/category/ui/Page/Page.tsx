@@ -1,21 +1,30 @@
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { z } from 'zod'
 import { useCategoryDetailsQuery } from '@/entities/category'
+import type { CategoryId } from '@/entities/category/model/types'
 import { useFeatureToggle } from '@/entities/featureToggle'
 import { type ProductSortBy, SortByDropdown } from '@/features/product/sortBy'
+import { useTypedParams } from '@/shared/lib/useTypedParams'
 import { useAppDispatch, useAppSelector } from '@/shared/model'
 import { PageHeader } from '@/shared/ui'
 import { BaseProductList } from '@/widgets/BaseProductList'
 import { changeSortBy, selectSortBy } from '../../model/slice'
 
+const pageParamsSchema = z.object({
+  categoryId: z.coerce
+    .number()
+    .positive()
+    .transform(value => value as CategoryId),
+})
+
 export function CategoryPage() {
-  const { categoryId } = useParams<{ categoryId: string }>()
+  const { categoryId } = useTypedParams(pageParamsSchema)
   const dispatch = useAppDispatch()
   const sortBy = useAppSelector(selectSortBy)
   const sortByIsEnabled = useFeatureToggle('productsSort')
 
-  // TODO: Add zod validation
   const { data, isFetching, isLoading } = useCategoryDetailsQuery({
-    categoryId: Number.parseInt(categoryId ?? '1', 10),
+    categoryId,
     sortBy,
   })
 

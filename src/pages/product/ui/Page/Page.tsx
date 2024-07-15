@@ -1,21 +1,24 @@
-import { skipToken } from '@reduxjs/toolkit/query'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { z } from 'zod'
 import type { ProductId } from '@/entities/product'
+import { useTypedParams } from '@/shared/lib/useTypedParams'
 import {
   ProductDetails,
   useProductDetailsQuery,
 } from '@/widgets/ProductDetails'
 
+const pageParamsSchema = z.object({
+  productId: z.coerce
+    .number()
+    .positive()
+    .transform(value => value as ProductId),
+})
+
 export function ProductPage() {
-  const { productId } = useParams<{ productId: string }>()
+  const { productId } = useTypedParams(pageParamsSchema)
+  const { data, isFetching } = useProductDetailsQuery(productId)
 
-  // TODO: Add zod validation
-  const { data, isFetching } = useProductDetailsQuery(
-    productId ? (Number.parseInt(productId, 10) as ProductId) : skipToken,
-    { skip: !productId },
-  )
-
-  const isNotFound = !productId || (!isFetching && !data)
+  const isNotFound = !isFetching && !data
 
   if (isNotFound) {
     return (
