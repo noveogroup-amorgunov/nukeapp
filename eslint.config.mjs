@@ -38,7 +38,7 @@ export default antfu(
           {
             name: 'react-router-dom',
             importNames: ['useParams'],
-            message: 'Use `useTypedParams` from `@/shared/lib/useTypedParams` instead.',
+            message: 'Use `import { useTypedParams } from @/shared/lib/router` instead.',
           },
         ],
       }],

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { z } from 'zod'
 import type { ProductId } from '@/entities/product'
-import { useTypedParams } from '@/shared/lib/useTypedParams'
+import { useTypedParams } from '@/shared/lib/router'
 import {
   ProductDetails,
   useProductDetailsQuery,
