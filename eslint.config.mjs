@@ -29,18 +29,24 @@ export default antfu(
         selector: 'MemberExpression[object.meta.name=\'import\'][object.property.name=\'meta\'][property.name=\'env\']',
         message: 'The use of import.meta.env is not allowed. Use import { env } from \'@/shared/lib\'',
       }],
+      'no-restricted-imports': ['error', {
+        paths: [
+          {
+            name: '@/shared/lib/server',
+            message: 'Don\'t use server modules in client code',
+          },
+          {
+            name: 'react-router-dom',
+            importNames: ['useParams'],
+            message: 'Use `import { useTypedParams } from @/shared/lib/router` instead.',
+          },
+        ],
+      }],
     },
   },
   // Feature-Sliced Design rules
   {
     rules: {
-      // disallow import @/shared/lib/server
-      'no-restricted-imports': ['error', {
-        paths: [{
-          name: '@/shared/lib/server',
-          message: 'Not allowed use server modules in client',
-        }],
-      }],
       'import/order': ['error', {
         'groups': ['builtin', 'external', 'internal', 'parent', 'sibling'],
         'pathGroups': [{

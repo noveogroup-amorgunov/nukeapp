@@ -1,21 +1,46 @@
-import { Link, useParams } from 'react-router-dom'
+import { useLayoutEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { z } from 'zod'
 import { useCategoryDetailsQuery } from '@/entities/category'
+import type { CategoryId } from '@/entities/category/model/types'
 import { useFeatureToggle } from '@/entities/featureToggle'
 import { type ProductSortBy, SortByDropdown } from '@/features/product/sortBy'
+import { useTypedParams, useTypedQueryParams } from '@/shared/lib/router'
 import { useAppDispatch, useAppSelector } from '@/shared/model'
 import { PageHeader } from '@/shared/ui'
 import { BaseProductList } from '@/widgets/BaseProductList'
 import { changeSortBy, selectSortBy } from '../../model/slice'
 
+const pageParamsSchema = z.object({
+  categoryId: z.coerce
+    .number()
+    .positive()
+    .transform(value => value as CategoryId),
+})
+
+const pageQueryParamsSchema = z.object({
+  sortBy: z
+    .enum(['Featured', 'Newest', 'PriceHighLow', 'PriceLowHigh'])
+    .optional()
+    .transform(value => value as ProductSortBy | undefined)
+    .catch(undefined),
+})
+
 export function CategoryPage() {
-  const { categoryId } = useParams<{ categoryId: string }>()
+  const { categoryId } = useTypedParams(pageParamsSchema)
+  const { sortBy: initialSortBy } = useTypedQueryParams(pageQueryParamsSchema)
   const dispatch = useAppDispatch()
   const sortBy = useAppSelector(selectSortBy)
   const sortByIsEnabled = useFeatureToggle('productsSort')
 
-  // TODO: Add zod validation
+  useLayoutEffect(() => {
+    if (initialSortBy && sortBy !== initialSortBy) {
+      dispatch(changeSortBy(initialSortBy))
+    }
+  }, [])
+
   const { data, isFetching, isLoading } = useCategoryDetailsQuery({
-    categoryId: Number.parseInt(categoryId ?? '1', 10),
+    categoryId,
     sortBy,
   })
 

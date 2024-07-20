@@ -55,7 +55,7 @@ Other:
 - [x] Fix FSD errors
 - [x] Add Dark theme
 - [x] Add FSD public API pattern
-- [х] Turn on stylelint on commit
+- [x] Turn on stylelint on commit
 - [ ] Fix TODO into code
 - [ ] Write storybook stories
 - [ ] Write article to my blog about main concepts
@@ -96,7 +96,6 @@ pnpm storybook
 ## Troubleshoots
 
 - Package `@mswjs/data` can not sync data in `localStorage`. With the current implementation (without synchronization), after updating the page, the state (cart, wishlist) is lost. I made a pull request with this feature (https://github.com/mswjs/data/pull/277), but it has not merged yet. So I use forked version (you can see path in _package.json_).
-
 - Package `@feature-sliced/eslint-config` don't work on eslint 9 with flat config. That's why it's turned off now.
 
 ## License

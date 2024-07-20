@@ -43,7 +43,7 @@ export function appRouter() {
   return createBrowserRouter([
     {
       element: baseLayout,
-      errorElement: <div>error</div>,
+      errorElement: <div>Error happened</div>,
       loader: async () => {
         return await featureToggleLoader(appStore.dispatch)
       },
