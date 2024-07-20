@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { z } from 'zod'
 import { useCategoryDetailsQuery } from '@/entities/category'
@@ -33,8 +33,8 @@ export function CategoryPage() {
   const sortBy = useAppSelector(selectSortBy)
   const sortByIsEnabled = useFeatureToggle('productsSort')
 
-  useEffect(() => {
-    if (initialSortBy) {
+  useLayoutEffect(() => {
+    if (initialSortBy && sortBy !== initialSortBy) {
       dispatch(changeSortBy(initialSortBy))
     }
   }, [])

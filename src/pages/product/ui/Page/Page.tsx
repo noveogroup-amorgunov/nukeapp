@@ -8,7 +8,8 @@ import {
 } from '@/widgets/ProductDetails'
 
 const pageParamsSchema = z.object({
-  productId: z.coerce
+  productId: z
+    .coerce
     .number()
     .positive()
     .transform(value => value as ProductId),
@@ -17,7 +18,6 @@ const pageParamsSchema = z.object({
 export function ProductPage() {
   const { productId } = useTypedParams(pageParamsSchema)
   const { data, isFetching } = useProductDetailsQuery(productId)
-
   const isNotFound = !isFetching && !data
 
   if (isNotFound) {
