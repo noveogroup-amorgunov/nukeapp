@@ -4,7 +4,7 @@ import type { ProductId } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
 import { selectIsInWishlist } from '@/entities/wishlist'
 import { useConfirmModal, useFeatureSlicedDebug } from '@/shared/lib'
-import { useAppDispatch, useAppSelector } from '@/shared/model'
+import { useAppDispatch, useAppSelector } from '@/shared/lib/store'
 import { Button } from '@/shared/ui'
 import { toggleWishlistProductThunk } from '../../model/toggleWishlistProduct'
 

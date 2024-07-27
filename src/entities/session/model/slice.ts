@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { rootReducer } from '@/shared/lib/store/rootReducer'
 import { sessionApi } from '../api/sessionApi'
 import type { SessionUserId } from './types'
 
-type SessionSliceState =
+export type SessionSliceState =
   | {
     accessToken: string
     userId: SessionUserId
@@ -21,8 +22,12 @@ const initialState: SessionSliceState = {
 export const sessionSlice = createSlice({
   name: 'session',
   initialState,
+  selectors: {
+    isAuthorized: state => state.isAuthorized,
+    userId: state => state.userId,
+  },
   reducers: {
-    clearSessionData: (state) => {
+    clear: (state) => {
       state.accessToken = undefined
       state.userId = undefined
       state.isAuthorized = false
@@ -44,10 +49,4 @@ export const sessionSlice = createSlice({
   },
 })
 
-export function selectIsAuthorized(state: RootState) {
-  return state.session.isAuthorized
-}
-
-export const selectUserId = (state: RootState) => state.session.userId
-
-export const { clearSessionData } = sessionSlice.actions
+rootReducer.inject(sessionSlice)

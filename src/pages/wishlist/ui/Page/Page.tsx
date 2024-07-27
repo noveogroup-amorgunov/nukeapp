@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { selectIsAuthorized } from '@/entities/session'
 import { useWishlistProductsQuery } from '@/entities/wishlist'
 import { useAddToWishlistMutation } from '@/entities/wishlist/api/wishlistApi'
-import { useAppSelector } from '@/shared/model'
+import { useAppSelector } from '@/shared/lib/store'
 import { Button } from '@/shared/ui'
 import { BaseProductList } from '@/widgets/BaseProductList'
 

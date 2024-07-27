@@ -7,7 +7,7 @@ import { useMeQuery } from '@/entities/user'
 import { selectProductIdsInWishlist } from '@/entities/wishlist'
 import { LogoutButton } from '@/features/session/logout'
 import { useFeatureSlicedDebug } from '@/shared/lib'
-import { useAppSelector } from '@/shared/model'
+import { useAppSelector } from '@/shared/lib/store'
 import { Icon } from '@/shared/ui'
 import css from './LayoutProfileCard.module.css'
 

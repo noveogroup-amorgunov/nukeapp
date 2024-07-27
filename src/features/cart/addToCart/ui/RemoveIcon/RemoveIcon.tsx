@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import type { ProductId } from '@/entities/product'
 import { useConfirmModal } from '@/shared/lib'
-import { useAppDispatch } from '@/shared/model'
+import { useAppDispatch } from '@/shared/lib/store'
 import { Icon } from '@/shared/ui'
 import { removeCartItemThunk } from '../../model/actions'
 

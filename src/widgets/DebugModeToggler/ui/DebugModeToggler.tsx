@@ -1,14 +1,14 @@
-import { useAppDispatch, useAppSelector } from '@/shared/model'
-import { toggleDebugMode } from '../model/slice'
+import { useAppDispatch, useAppSelector } from '@/shared/lib/store'
+import { debugModeSlice } from '../model/slice'
 import css from './DebugModeToggler.module.css'
 
 export function DebugModeToggler() {
-  const isDebugMode = useAppSelector(state => state.debugMode.isEnabled)
+  const isDebugMode = useAppSelector(debugModeSlice.selectors.isEnabled)
   const dispatch = useAppDispatch()
 
   return (
     <div className={css.root}>
-      <button onClick={() => dispatch(toggleDebugMode())}>
+      <button onClick={() => dispatch(debugModeSlice.actions.toggle())}>
         {isDebugMode ? '✅ debug mode' : '☑️ debug mode'}
       </button>
     </div>

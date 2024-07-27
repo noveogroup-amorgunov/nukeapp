@@ -6,7 +6,7 @@ import { selectIsAuthorized } from '@/entities/session'
 import { useWishlistProductsQuery } from '@/entities/wishlist'
 import { ChangeTheme } from '@/features/theme/changeTheme'
 import { useFeatureSlicedDebug } from '@/shared/lib'
-import { useAppSelector } from '@/shared/model'
+import { useAppSelector } from '@/shared/lib/store'
 import { Logo } from '../Logo/Logo'
 import css from './LayoutHeader.module.css'
 

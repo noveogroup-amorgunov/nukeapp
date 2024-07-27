@@ -1,4 +1,5 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { rootReducer } from '@/shared/lib/store/rootReducer'
 import type { Theme } from './types'
 
 type ThemeSliceState = {
@@ -15,12 +16,13 @@ export const themeSlice = createSlice({
   name: 'theme',
   initialState,
   reducers: {
-    changeTheme: (state, action: PayloadAction<Theme>) => {
+    change: (state, action: PayloadAction<Theme>) => {
       state.currentTheme = action.payload
     },
   },
+  selectors: {
+    currentTheme: state => state.currentTheme,
+  },
 })
 
-export const selectCurrentTheme = (state: RootState) => state.theme.currentTheme
-
-export const { changeTheme } = themeSlice.actions
+themeSlice.injectInto(rootReducer)

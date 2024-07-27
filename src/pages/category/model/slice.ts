@@ -1,5 +1,6 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
 import type { ProductSortBy } from '@/features/product/sortBy'
+import { rootReducer } from '@/shared/lib/store/rootReducer'
 
 type CategoryPageSliceState = {
   sortBy: ProductSortBy
@@ -12,13 +13,14 @@ const initialState: CategoryPageSliceState = {
 export const categoryPageSlice = createSlice({
   name: 'categoryPage',
   initialState,
+  selectors: {
+    sortBy: (state: CategoryPageSliceState) => state.sortBy,
+  },
   reducers: {
-    changeSortBy: (state, action: PayloadAction<ProductSortBy>) => {
+    change: (state, action: PayloadAction<ProductSortBy>) => {
       state.sortBy = action.payload
     },
   },
 })
 
-export const { changeSortBy } = categoryPageSlice.actions
-
-export const selectSortBy = (state: RootState) => state.categoryPage.sortBy
+rootReducer.inject(categoryPageSlice)

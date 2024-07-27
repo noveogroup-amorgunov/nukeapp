@@ -4,6 +4,7 @@ import {
   createSlice,
 } from '@reduxjs/toolkit'
 import type { Product, ProductId } from '@/entities/product/@x/wishlist'
+import { rootReducer } from '@/shared/lib/store/rootReducer'
 import { wishlistApi } from '../api/wishlistApi'
 
 type WishlistSliceState = {
@@ -17,17 +18,25 @@ const initialState: WishlistSliceState = {
 export const wishlistSlice = createSlice({
   name: 'wishlist',
   initialState,
+  selectors: {
+    productInWishlist: createSelector(
+      (state: WishlistSliceState) => state.products,
+      (_: WishlistSliceState, productId: ProductId) => productId,
+      (products: Record<ProductId, boolean>, productId: ProductId): boolean =>
+        Boolean(products[productId]),
+    ),
+    productIdsInWishlist: createSelector(
+      (state: WishlistSliceState) => state.products,
+      (products: Record<ProductId, boolean>) =>
+        Object.keys(products).filter(Boolean).map(Number) as ProductId[],
+    ),
+  },
   reducers: {
-    clearWishlistData: (state) => {
+    clear: (state) => {
       state.products = {}
     },
-    toggleWishlistProduct: (state, action: PayloadAction<ProductId>) => {
-      if (state.products[action.payload]) {
-        state.products[action.payload] = false
-      }
-      else {
-        state.products[action.payload] = true
-      }
+    toggleProduct: (state, action: PayloadAction<ProductId>) => {
+      state.products[action.payload] = !state.products[action.payload]
     },
   },
   extraReducers: (builder) => {
@@ -44,18 +53,4 @@ export const wishlistSlice = createSlice({
   },
 })
 
-export const selectIsInWishlist = createSelector(
-  (state: RootState) => state.wishlist.products,
-  (_: RootState, productId: ProductId) => productId,
-  (products: Record<ProductId, boolean>, productId: ProductId): boolean =>
-    Boolean(products[productId]),
-)
-
-export const selectProductIdsInWishlist = createSelector(
-  (state: RootState) => state.wishlist.products,
-  (products: Record<ProductId, boolean>) =>
-    Object.keys(products).filter(Boolean).map(Number) as ProductId[],
-)
-
-export const { toggleWishlistProduct, clearWishlistData }
-  = wishlistSlice.actions
+wishlistSlice.injectInto(rootReducer)

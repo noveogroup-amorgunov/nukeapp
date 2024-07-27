@@ -4,6 +4,7 @@ import {
   createSlice,
 } from '@reduxjs/toolkit'
 import type { Product, ProductId } from '@/entities/product/@x/cart'
+import { rootReducer } from '@/shared/lib/store/rootReducer'
 import { cartApi } from '../api/cartApi'
 import type { Cart, CartItem } from './types'
 
@@ -24,6 +25,20 @@ function createCartItem(product: Product): CartItem {
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
+  selectors: {
+    totalPrice: state => Object.values(state.itemsMap).reduce(
+      (acc, item) => acc + item.quantity * item.product.price,
+      0,
+    ),
+    products: createSelector(
+      state => state.itemsMap,
+      (itemsMap: Record<ProductId, CartItem>) => Object.values(itemsMap),
+    ),
+    totalQuantity: state => Object.values(state.itemsMap).reduce(
+      (acc, item) => acc + item.quantity,
+      0,
+    ),
+  },
   reducers: {
     clearCartData: (state) => {
       state.itemsMap = {}
@@ -75,31 +90,21 @@ export const cartSlice = createSlice({
   },
 })
 
-export function selectCartTotalPrice(state: RootState) {
-  return Object.values(state.cart.itemsMap).reduce(
-    (acc, item) => acc + item.quantity * item.product.price,
-    0,
-  )
-}
+rootReducer.inject(cartSlice)
 
-export const selectProductsInCart = createSelector(
-  (state: RootState) => state.cart.itemsMap,
-  (itemsMap: Record<ProductId, CartItem>) => Object.values(itemsMap),
-)
-
-export function selectTotalQuantity(state: RootState) {
-  return Object.values(state.cart.itemsMap).reduce(
-    (acc, item) => acc + item.quantity,
-    0,
-  )
-}
-
+// TODO: fix it
 export const selectProductInCart = createSelector(
-  selectProductsInCart,
-  (_: RootState, productId: ProductId) => productId,
+  cartSlice.selectors.products,
+  (_: CartSliceState, productId: ProductId) => productId,
   (items: CartItem[], productId: ProductId): CartItem | undefined =>
     items.find(({ product }) => product.id === productId),
 )
+
+export const selectCartTotalPrice = cartSlice.selectors.totalPrice
+
+export const selectProductsInCart = cartSlice.selectors.products
+
+export const selectTotalQuantity = cartSlice.selectors.totalQuantity
 
 export const {
   incVersion,

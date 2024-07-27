@@ -1,12 +1,12 @@
-import { createAsyncThunk } from '@reduxjs/toolkit'
 import { cartApi, clearCartData } from '@/entities/cart'
 import { clearSessionData, sessionApi } from '@/entities/session'
 import { userApi } from '@/entities/user/api/userApi'
 import { clearWishlistData, wishlistApi } from '@/entities/wishlist'
 import { CART_TAG, SESSION_TAG, USER_TAG, WISHLIST_TAG } from '@/shared/api'
 import { wait } from '@/shared/lib'
+import { createAppAsyncThunk } from '@/shared/lib/store/createAppAsyncThunk'
 
-export const logoutThunk = createAsyncThunk<void, void, { state: RootState }>(
+export const logoutThunk = createAppAsyncThunk<void, void>(
   'authentication/logout',
   async (_: unknown, { dispatch }) => {
     dispatch(clearSessionData())

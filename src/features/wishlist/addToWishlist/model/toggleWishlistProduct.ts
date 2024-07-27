@@ -1,4 +1,3 @@
-import { createAsyncThunk } from '@reduxjs/toolkit'
 import type { ProductId } from '@/entities/product'
 import {
   selectIsInWishlist,
@@ -6,11 +5,11 @@ import {
   toggleWishlistProduct,
   wishlistApi,
 } from '@/entities/wishlist'
+import { createAppAsyncThunk } from '@/shared/lib/store/createAppAsyncThunk'
 
-export const toggleWishlistProductThunk = createAsyncThunk<
+export const toggleWishlistProductThunk = createAppAsyncThunk<
   void,
-  ProductId,
-  { state: RootState }
+  ProductId
 >(
   'wishlist/toggleWishlistProduct',
   async (productId: ProductId, { dispatch, getState }) => {

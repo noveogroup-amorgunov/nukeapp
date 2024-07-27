@@ -11,7 +11,7 @@ export function mapProductDetails(dto: ProductDetailsDto): ProductDetails {
     price: dto.discountPrice ?? dto.price,
     oldPrice: dto.price,
     mainImage: dto.imageUrl[0],
-    images: dto.detailsImageUrl ?? [],
+    images: dto.detailsImageUrl.length > 0 ? dto.detailsImageUrl : Array(3).fill(dto.imageUrl[0]),
     description: dto.description ?? '',
   }
 }

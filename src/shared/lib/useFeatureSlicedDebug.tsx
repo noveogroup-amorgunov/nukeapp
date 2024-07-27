@@ -1,5 +1,6 @@
 import type { CSSProperties, HTMLAttributes } from 'react'
-import { useAppSelector } from '@/shared/model'
+import { useAppSelector } from '@/shared/lib/store'
+import { selectIsEnabledDebugMode } from '@/widgets/DebugModeToggler'
 
 type CustomCSSProperties = {
   '--fsd-background-color': string
@@ -23,7 +24,7 @@ const colorMap: Record<Layer, string> = {
 export function useFeatureSlicedDebug<T extends HTMLElement = HTMLDivElement>(
   name: ModuleName,
 ) {
-  const isDebugMode = useAppSelector(state => state.debugMode.isEnabled)
+  const isDebugMode = useAppSelector(selectIsEnabledDebugMode)
   const rootAttributes: CustomHTMLAttributes<T> = {}
   const [layer] = name.split('/') as [Layer]
 

@@ -1,6 +1,11 @@
-export {
-  selectIsAuthorized,
-  clearSessionData,
-  sessionSlice,
-} from './model/slice'
+import { sessionSlice } from './model/slice'
+
+export { sessionSlice } from './model/slice'
 export { sessionApi } from './api/sessionApi'
+
+export const {
+  isAuthorized: selectIsAuthorized,
+  userId: selectUserId,
+} = sessionSlice.selectors
+
+export const clearSessionData = sessionSlice.actions.clear

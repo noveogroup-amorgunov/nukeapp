@@ -6,10 +6,10 @@ import type { CategoryId } from '@/entities/category/model/types'
 import { useFeatureToggle } from '@/entities/featureToggle'
 import { type ProductSortBy, SortByDropdown } from '@/features/product/sortBy'
 import { useTypedParams, useTypedQueryParams } from '@/shared/lib/router'
-import { useAppDispatch, useAppSelector } from '@/shared/model'
+import { useAppDispatch, useAppSelector } from '@/shared/lib/store'
 import { PageHeader } from '@/shared/ui'
 import { BaseProductList } from '@/widgets/BaseProductList'
-import { changeSortBy, selectSortBy } from '../../model/slice'
+import { categoryPageSlice } from '../../model/slice'
 
 const pageParamsSchema = z.object({
   categoryId: z.coerce
@@ -30,12 +30,12 @@ export function CategoryPage() {
   const { categoryId } = useTypedParams(pageParamsSchema)
   const { sortBy: initialSortBy } = useTypedQueryParams(pageQueryParamsSchema)
   const dispatch = useAppDispatch()
-  const sortBy = useAppSelector(selectSortBy)
+  const sortBy = useAppSelector(categoryPageSlice.selectors.sortBy)
   const sortByIsEnabled = useFeatureToggle('productsSort')
 
   useLayoutEffect(() => {
     if (initialSortBy && sortBy !== initialSortBy) {
-      dispatch(changeSortBy(initialSortBy))
+      dispatch(categoryPageSlice.actions.change(initialSortBy))
     }
   }, [])
 
@@ -75,7 +75,7 @@ export function CategoryPage() {
             <SortByDropdown
               defaultSortBy={sortBy}
               onChange={(sortBy: ProductSortBy) =>
-                dispatch(changeSortBy(sortBy))}
+                dispatch(categoryPageSlice.actions.change(sortBy))}
             />
           )
         }

@@ -8,7 +8,7 @@ import { LoginPage } from '@/pages/login'
 import { MainPage } from '@/pages/main'
 import { ProductPage } from '@/pages/product'
 import { WishlistPage } from '@/pages/wishlist'
-import { useAppSelector } from '@/shared/model'
+import { useAppSelector } from '@/shared/lib/store'
 import { appStore } from './appStore'
 import { baseLayout } from './layouts/baseLayout'
 import { layoutWithSidebar } from './layouts/layoutWithSidebar'
@@ -84,7 +84,7 @@ export function appRouter() {
     },
     {
       element: layoutWithSidebar,
-      errorElement: <div>error</div>,
+      errorElement: <div>Error happened</div>,
       loader: async () => {
         return await featureToggleLoader(appStore.dispatch)
       },

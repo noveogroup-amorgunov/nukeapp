@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { rootReducer } from '@/shared/lib/store/rootReducer'
 
 type DebugModeSlice = {
   isEnabled: boolean
@@ -12,10 +13,17 @@ export const debugModeSlice = createSlice({
   name: 'debugMode',
   initialState,
   reducers: {
-    toggleDebugMode: (state) => {
+    toggle: (state) => {
       state.isEnabled = !state.isEnabled
+    },
+  },
+  selectors: {
+    isEnabled: (state) => {
+      return state.isEnabled
     },
   },
 })
 
-export const { toggleDebugMode } = debugModeSlice.actions
+debugModeSlice.injectInto(rootReducer)
+
+// rootReducer.inject(debugModeSlice)

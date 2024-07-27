@@ -5,8 +5,8 @@ import { selectProductInCart, selectTotalQuantity } from '@/entities/cart'
 import { type Product, formatPrice } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
 import { useConfirmModal, useFeatureSlicedDebug } from '@/shared/lib'
+import { useAppDispatch, useAppSelector } from '@/shared/lib/store'
 import { useAlertModal } from '@/shared/lib/useAlertModal'
-import { useAppDispatch, useAppSelector } from '@/shared/model'
 import { Button } from '@/shared/ui'
 import {
   addCartProductThunk,
