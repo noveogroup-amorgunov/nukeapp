@@ -1,5 +1,5 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { rootReducer } from '@/shared/lib/store/rootReducer'
+import { rootReducer } from '@/shared/lib/store'
 import type { Theme } from './types'
 
 type ThemeSliceState = {
@@ -25,4 +25,4 @@ export const themeSlice = createSlice({
   },
 })
 
-themeSlice.injectInto(rootReducer)
+rootReducer.inject(themeSlice)

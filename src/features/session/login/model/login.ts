@@ -1,6 +1,6 @@
 import { sessionApi } from '@/entities/session'
 import { isFetchBaseQueryError } from '@/shared/api'
-import { createAppAsyncThunk } from '@/shared/lib/store/createAppAsyncThunk'
+import { createAppAsyncThunk } from '@/shared/lib/store'
 
 type Params = {
   email: Email

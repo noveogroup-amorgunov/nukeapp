@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { rootReducer } from '@/shared/lib/store/rootReducer'
+import { rootReducer } from '@/shared/lib/store'
 
 type DebugModeSlice = {
   isEnabled: boolean
@@ -24,6 +24,4 @@ export const debugModeSlice = createSlice({
   },
 })
 
-debugModeSlice.injectInto(rootReducer)
-
-// rootReducer.inject(debugModeSlice)
+rootReducer.inject(debugModeSlice)

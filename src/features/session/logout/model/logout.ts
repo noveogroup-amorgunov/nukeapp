@@ -4,7 +4,7 @@ import { userApi } from '@/entities/user/api/userApi'
 import { clearWishlistData, wishlistApi } from '@/entities/wishlist'
 import { CART_TAG, SESSION_TAG, USER_TAG, WISHLIST_TAG } from '@/shared/api'
 import { wait } from '@/shared/lib'
-import { createAppAsyncThunk } from '@/shared/lib/store/createAppAsyncThunk'
+import { createAppAsyncThunk } from '@/shared/lib/store'
 
 export const logoutThunk = createAppAsyncThunk<void, void>(
   'authentication/logout',

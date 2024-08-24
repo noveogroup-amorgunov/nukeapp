@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { rootReducer } from '@/shared/lib/store/rootReducer'
+import { rootReducer } from '@/shared/lib/store'
 import { sessionApi } from '../api/sessionApi'
 import type { SessionUserId } from './types'
 

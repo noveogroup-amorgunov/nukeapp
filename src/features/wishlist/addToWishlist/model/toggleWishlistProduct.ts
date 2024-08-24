@@ -5,7 +5,7 @@ import {
   toggleWishlistProduct,
   wishlistApi,
 } from '@/entities/wishlist'
-import { createAppAsyncThunk } from '@/shared/lib/store/createAppAsyncThunk'
+import { createAppAsyncThunk } from '@/shared/lib/store'
 
 export const toggleWishlistProductThunk = createAppAsyncThunk<
   void,

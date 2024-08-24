@@ -9,8 +9,8 @@ import {
 } from '@/entities/cart'
 import type { Product, ProductId } from '@/entities/product'
 import { debounce } from '@/shared/lib'
-import { createAppAsyncThunk } from '@/shared/lib/store/createAppAsyncThunk'
-import type { AppDispatch, AppState } from '@/shared/lib/store/types'
+import { createAppAsyncThunk } from '@/shared/lib/store'
+import type { AppDispatch, AppState } from '@/shared/lib/store'
 
 const SYNC_CART_WITH_SERVER_TIMEOUT_MS = 1500
 

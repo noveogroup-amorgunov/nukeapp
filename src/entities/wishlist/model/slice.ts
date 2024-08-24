@@ -4,7 +4,7 @@ import {
   createSlice,
 } from '@reduxjs/toolkit'
 import type { Product, ProductId } from '@/entities/product/@x/wishlist'
-import { rootReducer } from '@/shared/lib/store/rootReducer'
+import { rootReducer } from '@/shared/lib/store'
 import { wishlistApi } from '../api/wishlistApi'
 
 type WishlistSliceState = {
@@ -53,4 +53,4 @@ export const wishlistSlice = createSlice({
   },
 })
 
-wishlistSlice.injectInto(rootReducer)
+rootReducer.inject(wishlistSlice)

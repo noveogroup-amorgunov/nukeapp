@@ -15,7 +15,7 @@ import { sessionSlice } from '@/entities/session'
 import { themeSlice } from '@/entities/theme'
 import { logoutMiddleware } from '@/features/session/logout'
 import { baseApi } from '@/shared/api'
-import { rootReducer } from '@/shared/lib/store/rootReducer'
+import { rootReducer } from '@/shared/lib/store'
 import { debugModeSlice } from '@/widgets/DebugModeToggler'
 
 const persistConfig = {

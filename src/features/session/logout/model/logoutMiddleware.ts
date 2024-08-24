@@ -3,7 +3,7 @@ import {
   createListenerMiddleware,
 } from '@reduxjs/toolkit'
 import { apiAccessTokenIsBrokenEvent } from '@/shared/api'
-import type { AppDispatch, AppState } from '@/shared/lib/store/types'
+import type { AppDispatch, AppState } from '@/shared/lib/store'
 import { logoutThunk } from './logout'
 
 export const logoutMiddleware = createListenerMiddleware()

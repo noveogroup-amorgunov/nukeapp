@@ -1,4 +1,4 @@
-import type { AppDispatch } from '@/shared/lib/store/types'
+import type { AppDispatch } from '@/shared/lib/store'
 import { featureToggleApi } from '../api/featureToggleApi'
 
 export async function featureToggleLoader(dispatch: AppDispatch) {

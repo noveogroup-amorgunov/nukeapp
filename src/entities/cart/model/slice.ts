@@ -4,7 +4,7 @@ import {
   createSlice,
 } from '@reduxjs/toolkit'
 import type { Product, ProductId } from '@/entities/product/@x/cart'
-import { rootReducer } from '@/shared/lib/store/rootReducer'
+import { rootReducer } from '@/shared/lib/store'
 import { cartApi } from '../api/cartApi'
 import type { Cart, CartItem } from './types'
 
