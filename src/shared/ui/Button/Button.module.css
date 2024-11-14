@@ -6,7 +6,7 @@
   padding: 0 20px;
   height: 46px;
   line-height: 46px;
-  background: var(--primary-color);
+  background: red;
   color: var(--color-dark);
   border: 0;
   font-size: 16px;
