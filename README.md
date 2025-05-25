@@ -34,6 +34,12 @@ Right now, I'm using this project as an experiment polygon to try modern technol
 - Storybook stories
 - Best practice comments in code ✅
 
+## Dependency graph
+
+<a href="./dependency-graph.svg">
+  <img alt="Nuke App" width="290px" src="./dependency-graph.svg">
+</a>
+
 # Roadmap
 
 App business logic:

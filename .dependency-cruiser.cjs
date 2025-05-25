@@ -2,40 +2,56 @@
 module.exports = {
   forbidden: [
     {
+      name: 'not-into-entities',
+      comment:
+        'Code outside of entities should not depend on entities, except app, features, pages and widgets',
+      severity: 'error',
+      from: { pathNot: ['^src/entities', '^src/features', '^src/pages', '^src/widgets', '^src/app'] },
+      to: { path: '^src/entities' },
+    },
+    {
+      name: 'not-into-widgets',
+      comment:
+        'Code outside of widgets should not depend on widgets, except app and pages',
+      severity: 'error',
+      from: { pathNot: ['^src/pages', '^src/widgets', '^src/app'] },
+      to: { path: '^src/widgets' },
+    },
+    {
+      name: 'not-into-features',
+      comment:
+        'Code outside of features should not depend on features, except app, pages and widgets',
+      severity: 'error',
+      from: { pathNot: ['^src/features', '^src/pages', '^src/widgets', '^src/app'] },
+      to: { path: '^src/features' },
+    },
+    {
       name: 'entity-not-to-entity',
       comment:
-          'One entity should not depend on another entity (in a separate folder)',
+          'One entity should not depend on another entities (in a separate folder)',
       severity: 'warn',
       from: { path: '(^src/entities/)([^/]+)/' },
       to: { path: '^$1', pathNot: '$1$2' },
     },
-    // {
-    //   name: 'not-into-features',
-    //   comment:
-    //     'Code outside of features should not depend on features, except app',
-    //   severity: 'error',
-    //   from: { pathNot: ['^features', '^app'] },
-    //   to: { path: '^features' },
-    // },
-    // {
-    //   name: 'features-not-to-features',
-    //   comment:
-    //     'One feature should not depend on another feature (in a separate folder)',
-    //   severity: 'error',
-    //   from: { path: '(^features/)([^/]+)/' },
-    //   to: { path: '^$1', pathNot: '$1$2' },
-    // },
+    {
+      name: 'feature-not-to-feature',
+      comment:
+          'One feature should not depend on another features (in a separate folder)',
+      severity: 'warn',
+      from: { path: '(^src/features/)([^/]+)/' },
+      to: { path: '^$1', pathNot: '$1$2' },
+    },
     {
       name: 'widget-not-to-widget',
       comment:
         'One widget should not depend on another widgets (in a separate folder)',
-      severity: 'error',
+      severity: 'warn',
       from: { path: '(^src/widgets/)([^/]+)/' },
       to: { path: '^$1', pathNot: '$1$2' },
     },
     {
       name: 'no-circular',
-      severity: 'warn',
+      severity: 'error',
       comment:
         'This dependency is part of a circular relationship. You might want to revise '
         + 'your solution (i.e. use dependency inversion, make sure the modules have a single responsibility) ',
