@@ -5,7 +5,6 @@ import { useFeatureToggle } from '@/entities/featureToggle'
 import { selectIsAuthorized } from '@/entities/session'
 import { useWishlistProductsQuery } from '@/entities/wishlist'
 import { ChangeTheme } from '@/features/theme/changeTheme'
-import { useFeatureSlicedDebug } from '@/shared/lib'
 import { useAppSelector } from '@/shared/redux'
 import { Logo } from '../Logo/Logo'
 import css from './LayoutHeader.module.css'
@@ -15,7 +14,6 @@ type Props = {
 }
 
 export function LayoutHeader(props: Props) {
-  const { rootAttributes } = useFeatureSlicedDebug('widget/LayoutHeader')
   const darkModeIsEnabled = useFeatureToggle('darkMode')
   const isAuthorized = useAppSelector(selectIsAuthorized)
 
@@ -28,7 +26,7 @@ export function LayoutHeader(props: Props) {
   })
 
   return (
-    <header className={css.root} {...rootAttributes}>
+    <header data-fsd="widget/LayoutHeader" className={css.root}>
       <Logo />
       <div className={css.right}>
         {props.rightContentSlot}

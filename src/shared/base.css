@@ -60,37 +60,64 @@ a:hover {
   filter: brightness(0.8) contrast(1.2);
 }
 
-[data-fsd] {
-  outline: 2px solid var(--fsd-color);
+/* FSD debug layers */
+
+[data-fsd^='widget'] {
+  --fsd-color: #fa0ee9;
+}
+
+[data-fsd^='feature'] {
+  --fsd-color: #14a200;
+}
+
+[data-fsd^='entity'] {
+  --fsd-color: #2573e5;
+}
+
+[data-fsd^='shared'] {
+  --fsd-color: #b6bc59;
+}
+
+[data-fsd^='page'] {
+  --fsd-color: #88aaaa;
+}
+
+.fsd-debug-mode [data-fsd] {
   position: relative;
+  outline: 2px solid var(--fsd-color);
 }
 
-[data-fsd]::after {
-  content: attr(data-fsd);
-  pointer-events: none;
+.fsd-debug-mode [data-fsd]::after {
   position: absolute;
   top: 0;
   right: 0;
+
+  z-index: 11;
   box-sizing: border-box;
-  background: var(--fsd-color);
-  color: var(--color-white);
-  font-size: 10px;
-  line-height: 1;
-  font-weight: bold;
+  max-width: calc(100% - 10px);
   padding: 0 2px;
+  overflow: hidden;
   font-family: sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 1;
+  color: var(--color-white);
+  text-overflow: ellipsis;
+  pointer-events: none;
+  content: attr(data-fsd);
+  background: var(--fsd-color);
 }
 
-[data-fsd]::before {
-  pointer-events: none;
+.fsd-debug-mode [data-fsd]::before {
   position: absolute;
   top: 0;
   right: 0;
-  left: 0;
   bottom: 0;
-  background: var(--fsd-background-color);
-  content: '';
+  left: 0;
   z-index: 1;
+  pointer-events: none;
+  content: '';
+  background: color-mix(in srgb, var(--fsd-color) 15%, transparent);
   opacity: 0.8;
 }
 

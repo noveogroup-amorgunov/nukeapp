@@ -1,7 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useCallback } from 'react'
 import { useForm } from 'react-hook-form'
-import { useFeatureSlicedDebug } from '@/shared/lib'
 import { useAppDispatch } from '@/shared/redux'
 import { Button } from '@/shared/ui'
 import { loginThunk } from '../../model/login'
@@ -16,8 +15,6 @@ type Props = {
 }
 
 export function LoginForm(props: Props) {
-  const { rootAttributes } = useFeatureSlicedDebug('feature/LoginForm')
-
   const dispatch = useAppDispatch()
 
   const {
@@ -42,7 +39,7 @@ export function LoginForm(props: Props) {
   )
 
   return (
-    <div {...rootAttributes}>
+    <div data-fsd="feature/session/LoginForm">
       <form onSubmit={handleSubmit(onSubmitHandler)}>
         <div>
           <div>

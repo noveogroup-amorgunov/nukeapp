@@ -3,7 +3,6 @@ import { type ReactNode, useCallback } from 'react'
 import { type Product, ProductCard, type ProductId } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
 import { AddToWishlistIcon } from '@/features/wishlist/addToWishlist'
-import { useFeatureSlicedDebug } from '@/shared/lib'
 import { useAppSelector } from '@/shared/redux'
 import css from './BaseProductList.module.css'
 
@@ -16,7 +15,6 @@ type Props<T extends Product> = {
 }
 
 export function BaseProductList<T extends Product>(props: Props<T>) {
-  const { rootAttributes } = useFeatureSlicedDebug('widget/BaseProductList')
   const { isFetching, products, size = 'm' } = props
   const isAuthorized = useAppSelector(selectIsAuthorized)
 
@@ -47,7 +45,7 @@ export function BaseProductList<T extends Product>(props: Props<T>) {
    */
   return (
     <div
-      {...rootAttributes}
+      data-fsd="widget/BaseProductList"
       className={cn(
         css.root,
         isFetching && css.rootIsFetching,
