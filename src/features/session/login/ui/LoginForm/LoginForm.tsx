@@ -2,7 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useCallback } from 'react'
 import { useForm } from 'react-hook-form'
 import { useFeatureSlicedDebug } from '@/shared/lib'
-import { useAppDispatch } from '@/shared/model'
+import { useAppDispatch } from '@/shared/redux'
 import { Button } from '@/shared/ui'
 import { loginThunk } from '../../model/login'
 import {

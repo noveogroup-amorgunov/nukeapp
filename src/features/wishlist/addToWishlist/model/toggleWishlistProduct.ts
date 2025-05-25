@@ -1,22 +1,21 @@
-import { createAsyncThunk } from '@reduxjs/toolkit'
 import type { ProductId } from '@/entities/product'
 import {
-  selectIsInWishlist,
   selectProductIdsInWishlist,
+  selectProductIsInWishlist,
   toggleWishlistProduct,
   wishlistApi,
 } from '@/entities/wishlist'
+import { createAppAsyncThunk } from '@/shared/redux'
 
-export const toggleWishlistProductThunk = createAsyncThunk<
+export const toggleWishlistProductThunk = createAppAsyncThunk<
   void,
-  ProductId,
-  { state: RootState }
+  ProductId
 >(
   'wishlist/toggleWishlistProduct',
   async (productId: ProductId, { dispatch, getState }) => {
     const state = getState()
     const productsIds = selectProductIdsInWishlist(state)
-    const isInWishlish = selectIsInWishlist(state, productId)
+    const isInWishlish = selectProductIsInWishlist(state, productId)
 
     /**
      * ✅ UX Best practice

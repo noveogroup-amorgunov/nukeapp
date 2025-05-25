@@ -4,7 +4,7 @@ import { type Product, ProductCard, type ProductId } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
 import { AddToWishlistIcon } from '@/features/wishlist/addToWishlist'
 import { useFeatureSlicedDebug } from '@/shared/lib'
-import { useAppSelector } from '@/shared/model'
+import { useAppSelector } from '@/shared/redux'
 import css from './BaseProductList.module.css'
 
 type Props<T extends Product> = {

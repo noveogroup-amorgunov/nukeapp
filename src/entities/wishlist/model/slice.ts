@@ -1,9 +1,7 @@
-import {
-  type PayloadAction,
-  createSelector,
-  createSlice,
-} from '@reduxjs/toolkit'
+import type { PayloadAction, WithSlice } from '@reduxjs/toolkit'
+import { createSelector, createSlice } from '@reduxjs/toolkit'
 import type { Product, ProductId } from '@/entities/product/@x/wishlist'
+import { rootReducer } from '@/shared/redux'
 import { wishlistApi } from '../api/wishlistApi'
 
 type WishlistSliceState = {
@@ -14,20 +12,28 @@ const initialState: WishlistSliceState = {
   products: {},
 }
 
-export const wishlistSlice = createSlice({
+const slice = createSlice({
   name: 'wishlist',
   initialState,
+  selectors: {
+    productInWishlist: createSelector(
+      (state: WishlistSliceState) => state.products,
+      (_: WishlistSliceState, productId: ProductId) => productId,
+      (products: Record<ProductId, boolean>, productId: ProductId): boolean =>
+        Boolean(products[productId]),
+    ),
+    productIdsInWishlist: createSelector(
+      (state: WishlistSliceState) => state.products,
+      (products: Record<ProductId, boolean>) =>
+        Object.keys(products).filter(Boolean).map(Number) as ProductId[],
+    ),
+  },
   reducers: {
-    clearWishlistData: (state) => {
+    reset: (state) => {
       state.products = {}
     },
-    toggleWishlistProduct: (state, action: PayloadAction<ProductId>) => {
-      if (state.products[action.payload]) {
-        state.products[action.payload] = false
-      }
-      else {
-        state.products[action.payload] = true
-      }
+    toggleProduct: (state, action: PayloadAction<ProductId>) => {
+      state.products[action.payload] = !state.products[action.payload]
     },
   },
   extraReducers: (builder) => {
@@ -44,18 +50,9 @@ export const wishlistSlice = createSlice({
   },
 })
 
-export const selectIsInWishlist = createSelector(
-  (state: RootState) => state.wishlist.products,
-  (_: RootState, productId: ProductId) => productId,
-  (products: Record<ProductId, boolean>, productId: ProductId): boolean =>
-    Boolean(products[productId]),
-)
+declare module '@/shared/redux/model/types' {
+  // eslint-disable-next-line ts/consistent-type-definitions
+  export interface LazyLoadedReduxSlices extends WithSlice<typeof slice> {}
+}
 
-export const selectProductIdsInWishlist = createSelector(
-  (state: RootState) => state.wishlist.products,
-  (products: Record<ProductId, boolean>) =>
-    Object.keys(products).filter(Boolean).map(Number) as ProductId[],
-)
-
-export const { toggleWishlistProduct, clearWishlistData }
-  = wishlistSlice.actions
+export const wishlistSlice = slice.injectInto(rootReducer)

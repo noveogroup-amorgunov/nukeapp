@@ -1,9 +1,8 @@
-import {
-  type PayloadAction,
-  createSelector,
-  createSlice,
-} from '@reduxjs/toolkit'
+import { createSelector, createSlice } from '@reduxjs/toolkit'
+import type { PayloadAction, WithSlice } from '@reduxjs/toolkit'
 import type { Product, ProductId } from '@/entities/product/@x/cart'
+import type { AppState } from '@/shared/redux'
+import { rootReducer } from '@/shared/redux'
 import { cartApi } from '../api/cartApi'
 import type { Cart, CartItem } from './types'
 
@@ -21,11 +20,26 @@ function createCartItem(product: Product): CartItem {
   }
 }
 
-export const cartSlice = createSlice({
+const slice = createSlice({
   name: 'cart',
   initialState,
+  selectors: {
+    cart: state => state,
+    totalPrice: state => Object.values(state.itemsMap).reduce(
+      (acc, item) => acc + item.quantity * item.product.price,
+      0,
+    ),
+    products: createSelector(
+      state => state.itemsMap,
+      (itemsMap: Record<ProductId, CartItem>) => Object.values(itemsMap),
+    ),
+    totalQuantity: state => Object.values(state.itemsMap).reduce(
+      (acc, item) => acc + item.quantity,
+      0,
+    ),
+  },
   reducers: {
-    clearCartData: (state) => {
+    reset: (state) => {
       state.itemsMap = {}
     },
     addOneItem: (state, action: PayloadAction<Product>) => {
@@ -75,36 +89,16 @@ export const cartSlice = createSlice({
   },
 })
 
-export function selectCartTotalPrice(state: RootState) {
-  return Object.values(state.cart.itemsMap).reduce(
-    (acc, item) => acc + item.quantity * item.product.price,
-    0,
-  )
+declare module '@/shared/redux/model/types' {
+  // eslint-disable-next-line ts/consistent-type-definitions
+  export interface LazyLoadedReduxSlices extends WithSlice<typeof slice> {}
 }
 
-export const selectProductsInCart = createSelector(
-  (state: RootState) => state.cart.itemsMap,
-  (itemsMap: Record<ProductId, CartItem>) => Object.values(itemsMap),
-)
-
-export function selectTotalQuantity(state: RootState) {
-  return Object.values(state.cart.itemsMap).reduce(
-    (acc, item) => acc + item.quantity,
-    0,
-  )
-}
+export const cartSlice = slice.injectInto(rootReducer)
 
 export const selectProductInCart = createSelector(
-  selectProductsInCart,
-  (_: RootState, productId: ProductId) => productId,
+  cartSlice.selectors.products,
+  (_: AppState, productId: ProductId) => productId,
   (items: CartItem[], productId: ProductId): CartItem | undefined =>
     items.find(({ product }) => product.id === productId),
 )
-
-export const {
-  incVersion,
-  addOneItem,
-  removeOneItem,
-  removeItem,
-  clearCartData,
-} = cartSlice.actions

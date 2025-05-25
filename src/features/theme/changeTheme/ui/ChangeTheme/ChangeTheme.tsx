@@ -1,18 +1,18 @@
 import React, { useCallback } from 'react'
-import { changeTheme, selectCurrentTheme } from '@/entities/theme'
+import { themeSlice } from '@/entities/theme'
 import { useFeatureSlicedDebug } from '@/shared/lib'
-import { useAppDispatch, useAppSelector } from '@/shared/model'
+import { useAppDispatch, useAppSelector } from '@/shared/redux'
 import { Icon } from '@/shared/ui'
 
 export function ChangeTheme() {
   const { rootAttributes } = useFeatureSlicedDebug('feature/ChangeTheme')
-  const currentTheme = useAppSelector(selectCurrentTheme)
+  const currentTheme = useAppSelector(themeSlice.selectors.currentTheme)
   const dispatch = useAppDispatch()
 
   const onClick = useCallback(
     (e: React.MouseEvent<HTMLElement>) => {
       e.stopPropagation()
-      dispatch(changeTheme(currentTheme === 'light' ? 'dark' : 'light'))
+      dispatch(themeSlice.actions.toggle(currentTheme === 'light' ? 'dark' : 'light'))
     },
     [currentTheme],
   )

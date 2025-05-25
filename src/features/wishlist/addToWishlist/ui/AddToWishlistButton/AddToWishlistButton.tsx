@@ -2,9 +2,9 @@ import React, { useCallback, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import type { ProductId } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
-import { selectIsInWishlist } from '@/entities/wishlist'
+import { selectProductIsInWishlist } from '@/entities/wishlist'
 import { useConfirmModal, useFeatureSlicedDebug } from '@/shared/lib'
-import { useAppDispatch, useAppSelector } from '@/shared/model'
+import { useAppDispatch, useAppSelector } from '@/shared/redux'
 import { Button } from '@/shared/ui'
 import { toggleWishlistProductThunk } from '../../model/toggleWishlistProduct'
 
@@ -19,7 +19,7 @@ export function AddToWishlistButton({ productId }: Props) {
   const navigate = useNavigate()
   const isAuthorized = useAppSelector(selectIsAuthorized)
   const isInWishlist = useAppSelector(state =>
-    selectIsInWishlist(state, productId),
+    selectProductIsInWishlist(state, productId),
   )
   const dispatch = useAppDispatch()
 

@@ -1,5 +1,6 @@
 import type { CSSProperties, HTMLAttributes } from 'react'
-import { useAppSelector } from '@/shared/model'
+import { useAppSelector } from '@/shared/redux'
+import { selectIsDebugModeEnabled } from '@/widgets/DebugModeToggler'
 
 type CustomCSSProperties = {
   '--fsd-background-color': string
@@ -20,10 +21,11 @@ const colorMap: Record<Layer, string> = {
   entity: '#2573e5',
 } as const
 
+// TODO: replace this component to plain css
 export function useFeatureSlicedDebug<T extends HTMLElement = HTMLDivElement>(
   name: ModuleName,
 ) {
-  const isDebugMode = useAppSelector(state => state.debugMode.isEnabled)
+  const isDebugMode = useAppSelector(selectIsDebugModeEnabled)
   const rootAttributes: CustomHTMLAttributes<T> = {}
   const [layer] = name.split('/') as [Layer]
 

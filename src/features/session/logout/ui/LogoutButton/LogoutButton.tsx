@@ -1,5 +1,5 @@
 import { useConfirmModal } from '@/shared/lib'
-import { useAppDispatch } from '@/shared/model'
+import { useAppDispatch } from '@/shared/redux'
 import { logoutThunk } from '../../model/logout'
 
 export function LogoutButton() {

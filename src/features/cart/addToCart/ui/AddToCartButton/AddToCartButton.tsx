@@ -6,7 +6,7 @@ import { type Product, formatPrice } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
 import { useConfirmModal, useFeatureSlicedDebug } from '@/shared/lib'
 import { useAlertModal } from '@/shared/lib/useAlertModal'
-import { useAppDispatch, useAppSelector } from '@/shared/model'
+import { useAppDispatch, useAppSelector } from '@/shared/redux'
 import { Button } from '@/shared/ui'
 import {
   addCartProductThunk,
