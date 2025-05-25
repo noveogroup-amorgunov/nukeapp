@@ -11,7 +11,6 @@ import {
   persistStore,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import { baseApi } from '@/shared/api'
 import { rootReducer } from './rootReducer'
 
 export const dynamicMiddleware = createDynamicMiddleware()
@@ -19,7 +18,6 @@ export const dynamicMiddleware = createDynamicMiddleware()
 const persistConfig = {
   key: 'root',
   storage,
-  // FIXME: inject to makeStore from @/app/appEntry.tsx
   whitelist: ['session', 'theme', 'debugMode'],
 }
 
@@ -28,16 +26,14 @@ export function makeStore() {
     reducer: persistReducer(
       persistConfig,
       rootReducer,
-    ),
+    // FIXME: persistReducer broke types, so force cast it to rootReducer
+    ) as unknown as typeof rootReducer,
     middleware: getDefaultMiddleware =>
       getDefaultMiddleware({
         serializableCheck: {
           ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         },
-      }).concat(
-        baseApi.middleware,
-        dynamicMiddleware.middleware,
-      ),
+      }).concat(dynamicMiddleware.middleware),
   })
 
   setupListeners(store.dispatch)

@@ -18,7 +18,7 @@ export const baseQuery: BaseQueryFn<
   baseUrl: env.VITE_API_ENDPOINT,
   prepareHeaders: (headers, { getState }) => {
     // FIXME: Attach access token to api without linking to session store
-    const { accessToken } = (getState() as AppState).session
+    const accessToken = (getState() as AppState).session?.accessToken
 
     if (accessToken) {
       headers.set('Authorization', `Bearer ${accessToken}`)
