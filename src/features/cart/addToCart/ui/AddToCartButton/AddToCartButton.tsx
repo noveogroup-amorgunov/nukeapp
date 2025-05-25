@@ -31,7 +31,6 @@ export function AddToCartButton(props: Props) {
   const dispatch = useAppDispatch()
   const isAuthorized = useAppSelector(selectIsAuthorized)
   const productInCart = useAppSelector(state =>
-    // @ts-expect-error: FIXME wrong type of state
     selectProductInCart(state, props.product.id),
   )
   const productInCartQuantity = useAppSelector(selectTotalQuantity)

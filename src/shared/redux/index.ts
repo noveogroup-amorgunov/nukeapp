@@ -11,4 +11,6 @@ export { createAppAsyncThunk } from './lib/createAppAsyncThunk'
 export { appStore, persistedStore } from './model/store'
 export { makeStore } from './model/store'
 
+// Can't not typing in place in `./model/store.ts`,
+// bacause we get recursive type of AppState
 export const dynamicMiddleware = dynamicMiddlewareNotTyped as ReturnType<typeof createDynamicMiddleware<AppState, AppDispatch>>

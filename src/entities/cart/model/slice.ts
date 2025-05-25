@@ -1,6 +1,7 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction, WithSlice } from '@reduxjs/toolkit'
 import type { Product, ProductId } from '@/entities/product/@x/cart'
+import type { AppState } from '@/shared/redux'
 import { rootReducer } from '@/shared/redux'
 import { cartApi } from '../api/cartApi'
 import type { Cart, CartItem } from './types'
@@ -97,7 +98,7 @@ export const cartSlice = slice.injectInto(rootReducer)
 
 export const selectProductInCart = createSelector(
   cartSlice.selectors.products,
-  (_: CartSliceState, productId: ProductId) => productId,
+  (_: AppState, productId: ProductId) => productId,
   (items: CartItem[], productId: ProductId): CartItem | undefined =>
     items.find(({ product }) => product.id === productId),
 )
