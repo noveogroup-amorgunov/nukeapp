@@ -19,7 +19,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "lint:types": "tsc --noEmit",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "depcruise": "depcruise src --include-only '^src' --output-type dot | dot -T svg > dependency-graph.svg"
   },
   "dependencies": {
     "@ebay/nice-modal-react": "1.2.13",
@@ -58,6 +59,7 @@
     "@types/react-router-dom": "5.3.3",
     "@vitejs/plugin-react": "4.3.1",
     "autoprefixer": "10.4.19",
+    "dependency-cruiser": "16.10.2",
     "dotenv": "16.4.5",
     "eslint": "9.7.0",
     "eslint-plugin-format": "0.1.2",
