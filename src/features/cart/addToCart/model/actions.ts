@@ -1,4 +1,3 @@
-import { createAsyncThunk } from '@reduxjs/toolkit'
 import {
   type CartItemDto,
   addOneItem,
@@ -10,6 +9,8 @@ import {
 } from '@/entities/cart'
 import type { Product, ProductId } from '@/entities/product'
 import { debounce } from '@/shared/lib'
+import type { AppDispatch, AppState } from '@/shared/redux'
+import { createAppAsyncThunk } from '@/shared/redux'
 
 const SYNC_CART_WITH_SERVER_TIMEOUT_MS = 1500
 
@@ -19,15 +20,15 @@ const SYNC_CART_WITH_SERVER_TIMEOUT_MS = 1500
  * Use client optimistic update for cart and
  * send request by debounce
  */
-export const updateCartThunk = createAsyncThunk<
+export const updateCartThunk = createAppAsyncThunk<
   void,
-  { items: CartItemDto[], version: number },
-  { state: RootState }
+  { items: CartItemDto[], version: number }
 >('cart/updateCartThunk', async (payload, { dispatch }) => {
   await dispatch(cartApi.endpoints.updateCart.initiate(payload)).unwrap()
 })
 
-const syncCart = debounce((dispatch: AppDispatch, state: RootState) => {
+const syncCart = debounce((dispatch: AppDispatch, state: AppState) => {
+  // TODO: fix it
   const cartItemsDto = mapCartItemDto(state.cart)
   return dispatch(
     updateCartThunk({ items: cartItemsDto, version: state.cart.version }),
@@ -35,10 +36,9 @@ const syncCart = debounce((dispatch: AppDispatch, state: RootState) => {
 }, SYNC_CART_WITH_SERVER_TIMEOUT_MS)
 
 // TODO: Fix naming (thunk for remove product from cart with any quantity)
-export const removeCartItemThunk = createAsyncThunk<
+export const removeCartItemThunk = createAppAsyncThunk<
   void,
-  ProductId,
-  { state: RootState }
+  ProductId
 >(
   'cart/removeCartItemThunk',
   async (productId: ProductId, { dispatch, getState }) => {
@@ -48,23 +48,21 @@ export const removeCartItemThunk = createAsyncThunk<
   },
 )
 
-export const removeCartProductThunk = createAsyncThunk<
+export const removeCartProductThunk = createAppAsyncThunk<
   void,
-  Product,
-  { state: RootState }
+  Product
 >(
   'cart/removeCartProductThunk',
   async (product: Product, { dispatch, getState }) => {
     dispatch(removeOneItem(product))
     dispatch(incVersion())
-    syncCart(dispatch as AppDispatch, getState())
+    syncCart(dispatch, getState())
   },
 )
 
-export const addCartProductThunk = createAsyncThunk<
+export const addCartProductThunk = createAppAsyncThunk<
   void,
-  Product,
-  { state: RootState }
+  Product
 >(
   'cart/addCartProductThunk',
   async (product: Product, { dispatch, getState }) => {

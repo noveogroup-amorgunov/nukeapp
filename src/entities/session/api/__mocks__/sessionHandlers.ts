@@ -1,10 +1,5 @@
 import { HttpResponse, delay, http } from 'msw'
-import {
-  env,
-  parseTokenFromRequest,
-  signAccessToken,
-  verifyAccessToken,
-} from '@/shared/lib'
+import { env, signAccessToken } from '@/shared/lib'
 import { __serverDatabase } from '@/shared/lib/server'
 
 export const sessionHandlers = [

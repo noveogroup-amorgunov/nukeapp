@@ -1,7 +1,7 @@
 import { type ReactNode, useEffect } from 'react'
 import { useFeatureToggle } from '@/entities/featureToggle/@x/theme'
-import { useAppDispatch, useAppSelector } from '@/shared/model/hooks'
-import { changeTheme, selectCurrentTheme } from '../model/slice'
+import { useAppDispatch, useAppSelector } from '@/shared/redux'
+import { themeSlice } from '../model/slice'
 import type { Theme } from '../model/types'
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 }
 
 export function ThemeProvider({ children, theme }: Props) {
-  const currentTheme = useAppSelector(selectCurrentTheme)
+  const currentTheme = useAppSelector(themeSlice.selectors.currentTheme)
   const darkModeIsEnabled = useFeatureToggle('darkMode')
   const dispatch = useAppDispatch()
 
@@ -20,7 +20,7 @@ export function ThemeProvider({ children, theme }: Props) {
     }
 
     if (theme && theme !== currentTheme) {
-      dispatch(changeTheme(theme))
+      dispatch(themeSlice.actions.toggle(theme))
 
       return
     }

@@ -4,10 +4,10 @@ import ReactDOM from 'react-dom/client'
 import { Provider as ReduxProvider } from 'react-redux'
 import { RouterProvider } from 'react-router-dom'
 import { PersistGate } from 'redux-persist/integration/react'
-import '@/shared/base.css'
 import { ThemeProvider } from '@/entities/theme'
+import { appStore, persistedStore } from '@/shared/redux'
 import { appRouter } from './appRouter'
-import { appStore, persistedStore } from './appStore'
+import '@/shared/base.css'
 
 const root = document.getElementById('root') as HTMLElement
 
@@ -21,6 +21,7 @@ initApp().then(() => {
   ReactDOM.createRoot(root).render(
     <React.StrictMode>
       <ModalProvider>
+        {/* TODO: move to shared/redux provider */}
         <ReduxProvider store={appStore}>
           <PersistGate loading={null} persistor={persistedStore}>
             <ThemeProvider>

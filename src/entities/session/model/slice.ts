@@ -1,8 +1,10 @@
+import type { WithSlice } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
+import { rootReducer } from '@/shared/redux'
 import { sessionApi } from '../api/sessionApi'
 import type { SessionUserId } from './types'
 
-type SessionSliceState =
+export type SessionSliceState =
   | {
     accessToken: string
     userId: SessionUserId
@@ -18,11 +20,15 @@ const initialState: SessionSliceState = {
   isAuthorized: false,
 }
 
-export const sessionSlice = createSlice({
+const slice = createSlice({
   name: 'session',
   initialState,
+  selectors: {
+    isAuthorized: state => state.isAuthorized,
+    userId: state => state.userId,
+  },
   reducers: {
-    clearSessionData: (state) => {
+    reset: (state) => {
       state.accessToken = undefined
       state.userId = undefined
       state.isAuthorized = false
@@ -44,10 +50,9 @@ export const sessionSlice = createSlice({
   },
 })
 
-export function selectIsAuthorized(state: RootState) {
-  return state.session.isAuthorized
+declare module '@/shared/redux/model/types' {
+  // eslint-disable-next-line ts/consistent-type-definitions
+  export interface LazyLoadedReduxSlices extends WithSlice<typeof slice> {}
 }
 
-export const selectUserId = (state: RootState) => state.session.userId
-
-export const { clearSessionData } = sessionSlice.actions
+export const sessionSlice = slice.injectInto(rootReducer)

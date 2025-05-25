@@ -1,4 +1,6 @@
-import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
+import type { PayloadAction, WithSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
+import { rootReducer } from '@/shared/redux'
 import type { Theme } from './types'
 
 type ThemeSliceState = {
@@ -11,16 +13,22 @@ const initialState: ThemeSliceState = {
     : 'light',
 }
 
-export const themeSlice = createSlice({
+const slice = createSlice({
   name: 'theme',
   initialState,
+  selectors: {
+    currentTheme: state => state.currentTheme,
+  },
   reducers: {
-    changeTheme: (state, action: PayloadAction<Theme>) => {
+    toggle: (state, action: PayloadAction<Theme>) => {
       state.currentTheme = action.payload
     },
   },
 })
 
-export const selectCurrentTheme = (state: RootState) => state.theme.currentTheme
+declare module '@/shared/redux/model/types' {
+  // eslint-disable-next-line ts/consistent-type-definitions
+  export interface LazyLoadedReduxSlices extends WithSlice<typeof slice> {}
+}
 
-export const { changeTheme } = themeSlice.actions
+export const themeSlice = slice.injectInto(rootReducer)

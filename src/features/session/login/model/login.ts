@@ -1,13 +1,13 @@
-import { createAsyncThunk } from '@reduxjs/toolkit'
 import { sessionApi } from '@/entities/session'
 import { isFetchBaseQueryError } from '@/shared/api'
+import { createAppAsyncThunk } from '@/shared/redux'
 
 type Params = {
   email: Email
   password: string
 }
 
-export const loginThunk = createAsyncThunk<void, Params, { state: RootState }>(
+export const loginThunk = createAppAsyncThunk<void, Params>(
   'authentication/login',
   async (body: Params, { dispatch }) => {
     try {

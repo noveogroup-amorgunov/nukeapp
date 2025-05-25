@@ -1,2 +1,2 @@
-export { themeSlice, changeTheme, selectCurrentTheme } from './model/slice'
+export { themeSlice } from './model/slice'
 export { ThemeProvider } from './lib/ThemeProvider'
