@@ -7,13 +7,13 @@
 
 [![Netlify Status](https://img.shields.io/netlify/d1054c75-ff07-48af-8017-83083dc30951?style=flat&colorA=000000&colorB=000000)](https://app.netlify.com/sites/nukeapp/deploys) ![](https://img.shields.io/badge/architecture-%20Feature--Sliced%20Design-000000?style=flat) [![](https://img.shields.io/badge/code%20style-Anthony%20Fu-000000?style=flat)](https://github.com/antfu/eslint-config)
 
-An open source frontend application built using the **React** ⚛️ and **Feature-Sliced Design** 🍰.
+An open source frontend application built using the **React** ⚛️ and [**Feature-Sliced Design**](https://feature-sliced.github.io/documentation/) 🍰.
 
 > This app is a work in progress. See the roadmap below.
 
-- React, Redux Toolkit, React Hook Form, Zod
-- Vite, TypeScript, PostCSS
-- Architecture based on Feature-Sliced Design
+- _React_, _Redux Toolkit_, _React Hook Form_, _Zod_
+- _Vite_, _TypeScript_, _PostCSS_
+- Architecture based on _Feature-Sliced Design_
 
 ## Live demo
 
@@ -24,7 +24,7 @@ An open source frontend application built using the **React** ⚛️ and **Featu
 
 ## About project
 
-Right now, I'm using this project as an experiment polygon to try modern technologies and see how a can see frontend application in {{CURRENT_YEAR}}. This project structure combines two methodology: Clean Architecture and Feature-Sliced Design.
+Right now, I'm using this project as an experiment polygon to try modern technologies and see how a can see frontend application in {{CURRENT_YEAR}}. This project structure combines two architecture methodology: Clean Architecture and Feature-Sliced Design.
 
 ## Features
 
@@ -37,7 +37,7 @@ Right now, I'm using this project as an experiment polygon to try modern technol
 ## Dependency graph
 
 <a href="./dependency-graph.svg">
-  <img alt="Nuke App" width="290px" src="./dependency-graph.svg">
+  <img alt="Nuke App" width="390px" src="./dependency-graph.svg">
 </a>
 
 # Roadmap
