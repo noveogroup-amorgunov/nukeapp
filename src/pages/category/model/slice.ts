@@ -1,7 +1,7 @@
 import type { PayloadAction, WithSlice } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
-import type { ProductSortBy } from '@/features/product/sortBy'
 import { rootReducer } from '@/shared/redux'
+import type { ProductSortBy } from './types'
 
 type CategoryPageSliceState = {
   sortBy: ProductSortBy

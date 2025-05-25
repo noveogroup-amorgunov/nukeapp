@@ -402,6 +402,30 @@
 </a>
 </g>
 </g>
+<!-- src/entities/theme/&#45;&gt;src/shared/ui/ -->
+<g id="edge44" class="edge">
+<title>src/entities/theme/&#45;&gt;src/shared/ui/</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M526.34,-691.81C534.31,-689.64 542.46,-686.02 548.25,-680 557.81,-670.05 545.83,-659.04 556.25,-650 604.35,-608.28 650.6,-674.95 698.5,-633 718.72,-615.29 730.95,-534.54 735.48,-498.48"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="737.51,-499.18 736.15,-492.97 733.34,-498.67 737.51,-499.18"/>
+</g>
+<!-- src/shared/lib/ -->
+<g id="node25" class="node">
+<title>src/shared/lib/</title>
+<g id="a_node25"><a xlink:href="src/shared/lib/" xlink:title="no&#45;orphans">
+<polygon fill="#ccffcc" stroke="orange" points="698.5,-459.88 646.47,-459.88 644.5,-457.9 644.5,-442.12 696.53,-442.12 698.5,-444.1 698.5,-459.88"/>
+<polyline fill="none" stroke="orange" points="696.53,-457.9 644.5,-457.9"/>
+<polyline fill="none" stroke="orange" points="696.53,-457.9 696.53,-442.12"/>
+<polyline fill="none" stroke="orange" points="696.53,-457.9 698.5,-459.88"/>
+<text text-anchor="start" x="666.62" y="-447.32" font-family="Helvetica,sans-Serif" font-size="9.00" fill="orange">lib</text>
+</a>
+</g>
+</g>
+<!-- src/entities/theme/&#45;&gt;src/shared/lib/ -->
+<g id="edge43" class="edge">
+<title>src/entities/theme/&#45;&gt;src/shared/lib/</title>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" d="M526.26,-692.33C534.42,-690.21 542.71,-686.48 548.25,-680 564.3,-661.22 543.79,-646.33 556.25,-625 578.99,-586.08 610.91,-600.1 636.5,-563 656.59,-533.87 665.08,-492.55 668.46,-469.1"/>
+<polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="670.53,-469.46 669.22,-463.24 666.36,-468.92 670.53,-469.46"/>
+</g>
 <!-- src/app/layouts/baseLayout.tsx&#45;&gt;src/shared/ui/ -->
 <g id="edge18" class="edge">
 <title>src/app/layouts/baseLayout.tsx&#45;&gt;src/shared/ui/</title>
@@ -619,7 +643,7 @@
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="467.19,-868.08 473.53,-868.5 468.83,-864.21 467.19,-868.08"/>
 </g>
 <!-- src/features/wishlist/addToWishlist/ -->
-<g id="node34" class="node">
+<g id="node32" class="node">
 <title>src/features/wishlist/addToWishlist/</title>
 <g id="a_node34"><a xlink:href="src/features/wishlist/addToWishlist/" xlink:title="addToWishlist">
 <polygon fill="#ffffcc" stroke="black" points="542.62,-944.13 471.6,-944.13 469.62,-942.16 469.62,-926.38 540.65,-926.38 542.62,-928.35 542.62,-944.13"/>
@@ -637,7 +661,7 @@
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="460.33,-923.98 466.56,-925.2 462.45,-920.35 460.33,-923.98"/>
 </g>
 <!-- src/widgets/BaseProductList/ -->
-<g id="node35" class="node">
+<g id="node33" class="node">
 <title>src/widgets/BaseProductList/</title>
 <g id="a_node35"><a xlink:href="src/widgets/BaseProductList/" xlink:title="BaseProductList">
 <polygon fill="#ffffcc" stroke="black" points="547.5,-350.13 466.72,-350.13 464.75,-348.16 464.75,-332.38 545.53,-332.38 547.5,-334.35 547.5,-350.13"/>
@@ -727,7 +751,7 @@
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="756.01,-657.81 754.93,-651.55 751.87,-657.12 756.01,-657.81"/>
 </g>
 <!-- src/features/session/login/ -->
-<g id="node31" class="node">
+<g id="node30" class="node">
 <title>src/features/session/login/</title>
 <g id="a_node31"><a xlink:href="src/features/session/login/" xlink:title="login">
 <polygon fill="#ffffcc" stroke="black" points="533.12,-824.13 481.1,-824.13 479.12,-822.16 479.12,-806.38 531.15,-806.38 533.12,-808.35 533.12,-824.13"/>
@@ -745,7 +769,7 @@
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="469.39,-811.37 475.74,-811.02 470.56,-807.33 469.39,-811.37"/>
 </g>
 <!-- src/widgets/CategoryPopularList/ -->
-<g id="node36" class="node">
+<g id="node34" class="node">
 <title>src/widgets/CategoryPopularList/</title>
 <g id="a_node36"><a xlink:href="src/widgets/CategoryPopularList/" xlink:title="CategoryPopularList">
 <polygon fill="#ffffcc" stroke="black" points="444.5,-380.13 346.47,-380.13 344.5,-378.16 344.5,-362.38 442.53,-362.38 444.5,-364.35 444.5,-380.13"/>
@@ -763,7 +787,7 @@
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="344.02,-361.95 350.34,-361.25 344.96,-357.86 344.02,-361.95"/>
 </g>
 <!-- src/widgets/ProductPopularList/ -->
-<g id="node37" class="node">
+<g id="node35" class="node">
 <title>src/widgets/ProductPopularList/</title>
 <g id="a_node37"><a xlink:href="src/widgets/ProductPopularList/" xlink:title="ProductPopularList">
 <polygon fill="#ffffcc" stroke="black" points="441.5,-350.13 349.47,-350.13 347.5,-348.16 347.5,-332.38 439.53,-332.38 441.5,-334.35 441.5,-350.13"/>
@@ -793,7 +817,7 @@
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="755.38,-657.67 754.5,-651.38 751.26,-656.84 755.38,-657.67"/>
 </g>
 <!-- src/widgets/ProductDetails/ -->
-<g id="node38" class="node">
+<g id="node36" class="node">
 <title>src/widgets/ProductDetails/</title>
 <g id="a_node38"><a xlink:href="src/widgets/ProductDetails/" xlink:title="ProductDetails">
 <polygon fill="#ffffcc" stroke="black" points="432.5,-500.13 358.47,-500.13 356.5,-498.16 356.5,-482.38 430.53,-482.38 432.5,-484.35 432.5,-500.13"/>
@@ -949,7 +973,7 @@
 <polygon fill="#000000" fill-opacity="0.200000" stroke="#000000" stroke-width="2" stroke-opacity="0.200000" points="566.31,-487.91 572.51,-486.47 566.77,-483.73 566.31,-487.91"/>
 </g>
 <!-- src/features/session/logout/ -->
-<g id="node32" class="node">
+<g id="node31" class="node">
 <title>src/features/session/logout/</title>
 <g id="a_node32"><a xlink:href="src/features/session/logout/" xlink:title="logout">
 <polygon fill="#ffffcc" stroke="black" points="533.12,-794.13 481.1,-794.13 479.12,-792.16 479.12,-776.38 531.15,-776.38 533.12,-778.35 533.12,-794.13"/>

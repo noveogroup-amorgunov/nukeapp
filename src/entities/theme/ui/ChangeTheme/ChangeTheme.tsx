@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
-import { themeSlice } from '@/entities/theme'
 import { useAppDispatch, useAppSelector } from '@/shared/redux'
 import { Icon } from '@/shared/ui'
+import { themeSlice } from '../../model/slice'
 
 export function ChangeTheme() {
   const currentTheme = useAppSelector(themeSlice.selectors.currentTheme)
