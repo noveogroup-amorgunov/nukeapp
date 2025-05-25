@@ -1,6 +1,4 @@
-import type { WithSlice } from '@reduxjs/toolkit'
 import { createApi } from '@reduxjs/toolkit/query/react'
-import { rootReducer } from '../redux'
 import { baseQueryWithReauth } from './baseQueryWithReauth'
 import { CART_TAG, SESSION_TAG, USER_TAG, WISHLIST_TAG } from './tags'
 
@@ -10,10 +8,3 @@ export const baseApi = createApi({
   baseQuery: baseQueryWithReauth,
   endpoints: () => ({}),
 })
-
-declare module '@/shared/redux/model/types' {
-  // eslint-disable-next-line ts/consistent-type-definitions
-  export interface LazyLoadedReduxSlices extends WithSlice<typeof baseApi> {}
-}
-
-rootReducer.inject(baseApi)

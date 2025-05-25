@@ -5,11 +5,8 @@ import type {
   FetchBaseQueryMeta,
 } from '@reduxjs/toolkit/dist/query/fetchBaseQuery'
 import { fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-// import type { SessionSliceState } from '@/entities/session/model/slice'
 import { env } from '../lib/env'
-
-// FIXME: remove this import
-// type StateWithSession = { session: SessionSliceState }
+import type { AppState } from '../redux'
 
 export const baseQuery: BaseQueryFn<
   string | FetchArgs,
@@ -20,7 +17,8 @@ export const baseQuery: BaseQueryFn<
 > = fetchBaseQuery({
   baseUrl: env.VITE_API_ENDPOINT,
   prepareHeaders: (headers, { getState }) => {
-    const { accessToken } = (getState() as unknown as any).session
+    // FIXME: Attach access token to api without linking to session store
+    const { accessToken } = (getState() as AppState).session
 
     if (accessToken) {
       headers.set('Authorization', `Bearer ${accessToken}`)

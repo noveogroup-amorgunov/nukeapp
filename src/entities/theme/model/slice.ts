@@ -1,5 +1,6 @@
 import type { PayloadAction, WithSlice } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
+import { REHYDRATE } from 'redux-persist'
 import { rootReducer } from '@/shared/redux'
 import type { Theme } from './types'
 
@@ -23,6 +24,15 @@ const slice = createSlice({
     toggle: (state, action: PayloadAction<Theme>) => {
       state.currentTheme = action.payload
     },
+  },
+  extraReducers: (builder) => {
+    // Restore state from redux-persist
+    builder.addCase(REHYDRATE, (state, action) => {
+      const typedAction = action as PayloadAction<{ theme: ThemeSliceState }>
+      if (typedAction.payload?.theme) {
+        state.currentTheme = typedAction.payload.theme.currentTheme
+      }
+    })
   },
 })
 

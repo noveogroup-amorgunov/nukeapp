@@ -6,6 +6,7 @@ import {
   mapCartItemDto,
   removeOneItem,
   removeProductFromCart,
+  selectCart,
 } from '@/entities/cart'
 import type { Product, ProductId } from '@/entities/product'
 import { debounce } from '@/shared/lib'
@@ -28,10 +29,10 @@ export const updateCartThunk = createAppAsyncThunk<
 })
 
 const syncCart = debounce((dispatch: AppDispatch, state: AppState) => {
-  // TODO: fix it
-  const cartItemsDto = mapCartItemDto(state.cart)
+  const cart = selectCart(state)
+  const cartItemsDto = mapCartItemDto(cart)
   return dispatch(
-    updateCartThunk({ items: cartItemsDto, version: state.cart.version }),
+    updateCartThunk({ items: cartItemsDto, version: cart.version }),
   )
 }, SYNC_CART_WITH_SERVER_TIMEOUT_MS)
 
@@ -44,7 +45,7 @@ export const removeCartItemThunk = createAppAsyncThunk<
   async (productId: ProductId, { dispatch, getState }) => {
     dispatch(removeProductFromCart(productId))
     dispatch(incVersion())
-    syncCart(dispatch as AppDispatch, getState())
+    syncCart(dispatch, getState())
   },
 )
 
@@ -68,6 +69,6 @@ export const addCartProductThunk = createAppAsyncThunk<
   async (product: Product, { dispatch, getState }) => {
     dispatch(addOneItem(product))
     dispatch(incVersion())
-    syncCart(dispatch as AppDispatch, getState())
+    syncCart(dispatch, getState())
   },
 )

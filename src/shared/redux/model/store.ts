@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore, createDynamicMiddleware } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import {
   FLUSH,
@@ -11,22 +11,16 @@ import {
   persistStore,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import { sessionSlice } from '@/entities/session'
-import { themeSlice } from '@/entities/theme'
-import { logoutMiddleware } from '@/features/session/logout'
 import { baseApi } from '@/shared/api'
-import { debugModeSlice } from '@/widgets/DebugModeToggler'
 import { rootReducer } from './rootReducer'
 
-// TODO: move to app layout to provider
+export const dynamicMiddleware = createDynamicMiddleware()
+
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: [
-  //   sessionSlice.name,
-  //   debugModeSlice.name,
-  //   themeSlice.name,
-  ],
+  // FIXME: inject to makeStore from @/app/appEntry.tsx
+  whitelist: ['session', 'theme', 'debugMode'],
 }
 
 export function makeStore() {
@@ -40,10 +34,11 @@ export function makeStore() {
         serializableCheck: {
           ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         },
-      }).concat(baseApi.middleware, logoutMiddleware.middleware),
+      }).concat(
+        baseApi.middleware,
+        dynamicMiddleware.middleware,
+      ),
   })
-
-  // TODO: move to lazy middlewares logoutMiddleware
 
   setupListeners(store.dispatch)
 

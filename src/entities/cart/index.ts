@@ -11,6 +11,7 @@ export const {
   totalQuantity: selectTotalQuantity,
   totalPrice: selectCartTotalPrice,
   products: selectProductsInCart,
+  cart: selectCart,
 } = cartSlice.selectors
 
 export const {

@@ -21,7 +21,6 @@ initApp().then(() => {
   ReactDOM.createRoot(root).render(
     <React.StrictMode>
       <ModalProvider>
-        {/* TODO: move to shared/redux provider */}
         <ReduxProvider store={appStore}>
           <PersistGate loading={null} persistor={persistedStore}>
             <ThemeProvider>

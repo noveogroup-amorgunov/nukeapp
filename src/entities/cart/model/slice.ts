@@ -23,6 +23,7 @@ const slice = createSlice({
   name: 'cart',
   initialState,
   selectors: {
+    cart: state => state,
     totalPrice: state => Object.values(state.itemsMap).reduce(
       (acc, item) => acc + item.quantity * item.product.price,
       0,
@@ -94,7 +95,6 @@ declare module '@/shared/redux/model/types' {
 
 export const cartSlice = slice.injectInto(rootReducer)
 
-// TODO: fix it
 export const selectProductInCart = createSelector(
   cartSlice.selectors.products,
   (_: CartSliceState, productId: ProductId) => productId,
