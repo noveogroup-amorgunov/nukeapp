@@ -1,4 +1,4 @@
-import type { Product } from '@/entities/product/@x/category'
+import type { EntitiesDomain } from '@/shared/domain'
 
 export type CategoryId = Brand<Id, 'CategoryId'>
 
@@ -9,5 +9,5 @@ export type Category = {
 }
 
 export type CategoryWithProducts = Category & {
-  products: Product[]
+  products: EntitiesDomain['Product'][]
 }

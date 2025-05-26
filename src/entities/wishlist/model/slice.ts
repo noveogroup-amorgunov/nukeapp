@@ -1,11 +1,11 @@
 import type { PayloadAction, WithSlice } from '@reduxjs/toolkit'
 import { createSelector, createSlice } from '@reduxjs/toolkit'
-import type { Product, ProductId } from '@/entities/product/@x/wishlist'
+import type { EntitiesDomain } from '@/shared/domain'
 import { rootReducer } from '@/shared/redux'
 import { wishlistApi } from '../api/wishlistApi'
 
 type WishlistSliceState = {
-  products: Record<ProductId, boolean>
+  products: Record<EntitiesDomain['ProductId'], boolean>
 }
 
 const initialState: WishlistSliceState = {
@@ -18,21 +18,21 @@ const slice = createSlice({
   selectors: {
     productInWishlist: createSelector(
       (state: WishlistSliceState) => state.products,
-      (_: WishlistSliceState, productId: ProductId) => productId,
-      (products: Record<ProductId, boolean>, productId: ProductId): boolean =>
+      (_: WishlistSliceState, productId: EntitiesDomain['ProductId']) => productId,
+      (products: Record<EntitiesDomain['ProductId'], boolean>, productId: EntitiesDomain['ProductId']): boolean =>
         Boolean(products[productId]),
     ),
     productIdsInWishlist: createSelector(
       (state: WishlistSliceState) => state.products,
-      (products: Record<ProductId, boolean>) =>
-        Object.keys(products).filter(Boolean).map(Number) as ProductId[],
+      (products: Record<EntitiesDomain['ProductId'], boolean>) =>
+        Object.keys(products).filter(Boolean).map(Number) as EntitiesDomain['ProductId'][],
     ),
   },
   reducers: {
     reset: (state) => {
       state.products = {}
     },
-    toggleProduct: (state, action: PayloadAction<ProductId>) => {
+    toggleProduct: (state, action: PayloadAction<EntitiesDomain['ProductId']>) => {
       state.products[action.payload] = !state.products[action.payload]
     },
   },
@@ -42,7 +42,7 @@ const slice = createSlice({
       (state: WishlistSliceState, { payload }) => {
         state.products = {}
 
-        payload.forEach((product: Product) => {
+        payload.forEach((product: EntitiesDomain['Product']) => {
           state.products[product.id] = true
         })
       },

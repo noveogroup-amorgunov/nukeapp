@@ -1,4 +1,4 @@
-import type { ProductDto } from '@/entities/product/@x/cart'
+import type { ProductDto } from '@/shared/api'
 import type { CartDto } from '../types'
 
 // TODO: infer type from database

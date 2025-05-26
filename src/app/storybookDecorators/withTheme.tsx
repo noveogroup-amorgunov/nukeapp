@@ -1,5 +1,5 @@
 import type { Decorator } from '@storybook/react'
-import { ThemeProvider } from '@/entities/theme'
+import { ThemeProvider } from '../providers/theme/ThemeProvider'
 
 export const withTheme: Decorator = (StoryFn, context) => {
   const theme = context.parameters.theme || context.globals.theme

@@ -1,3 +1,4 @@
+// TODO: docs
 export type ProductDto = {
   id: number
   name: string

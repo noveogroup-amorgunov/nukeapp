@@ -1,11 +1,11 @@
-import type { Product } from '@/entities/product/@x/wishlist'
 import { WISHLIST_TAG, baseApi } from '@/shared/api'
+import type { EntitiesDomain } from '@/shared/domain'
 import { mapWishlist } from '../lib/mapWishlist'
 import type { WishlistDto } from './types'
 
 export const wishlistApi = baseApi.injectEndpoints({
   endpoints: build => ({
-    wishlistProducts: build.query<Product[], void>({
+    wishlistProducts: build.query<EntitiesDomain['Product'][], void>({
       query: () => ({
         url: `/wishlist/products`,
       }),
