@@ -17,13 +17,8 @@ export function LayoutHeader(props: Props) {
   const darkModeIsEnabled = useFeatureToggle('darkMode')
   const isAuthorized = useAppSelector(selectIsAuthorized)
 
-  useWishlistProductsQuery(isAuthorized ? undefined : skipToken, {
-    skip: !isAuthorized,
-  })
-
-  useCartQuery(isAuthorized ? undefined : skipToken, {
-    skip: !isAuthorized,
-  })
+  useWishlistProductsQuery(isAuthorized ? undefined : skipToken)
+  useCartQuery(isAuthorized ? undefined : skipToken)
 
   return (
     <header data-fsd="widget/LayoutHeader" className={css.root}>

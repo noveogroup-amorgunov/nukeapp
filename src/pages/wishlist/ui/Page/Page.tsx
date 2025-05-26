@@ -18,7 +18,6 @@ export function WishlistPage() {
   })
   const { data: products = [], isFetching } = useWishlistProductsQuery(
     isAuthorized ? undefined : skipToken,
-    { skip: !isAuthorized },
   )
 
   const onLogin = useCallback(() => {

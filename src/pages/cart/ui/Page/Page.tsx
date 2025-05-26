@@ -15,9 +15,7 @@ export function CartPage() {
   const navigate = useNavigate()
   const totalPrice = useAppSelector(selectCartTotalPrice)
   const cartProducts = useAppSelector(selectProductsInCart)
-  const { isLoading } = useCartQuery(isAuthorized ? undefined : skipToken, {
-    skip: !isAuthorized,
-  })
+  const { isLoading } = useCartQuery(isAuthorized ? undefined : skipToken)
 
   const onLogin = useCallback(() => {
     navigate('/login', {

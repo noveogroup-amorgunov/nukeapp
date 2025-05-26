@@ -14,12 +14,7 @@ export function LayoutProfileCard() {
   const isAuthorized = useAppSelector(selectIsAuthorized)
   const productsInCartQuantity = useAppSelector(selectTotalQuantity)
   const productIdsInWishlist = useAppSelector(selectProductIdsInWishlist)
-  const { data: profileData } = useMeQuery(
-    isAuthorized ? undefined : skipToken,
-    {
-      skip: !isAuthorized,
-    },
-  )
+  const { data: profileData } = useMeQuery(isAuthorized ? undefined : skipToken)
 
   if (!isAuthorized) {
     return (
