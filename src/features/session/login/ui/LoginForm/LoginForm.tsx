@@ -5,9 +5,10 @@ import { useAppDispatch } from '@/shared/redux'
 import { Button } from '@/shared/ui'
 import { loginThunk } from '../../model/login'
 import {
-  type LoginFormSchema,
+
   loginFormSchema,
 } from '../../model/loginFormSchema'
+import type { LoginFormSchema } from '../../model/loginFormSchema'
 import css from './LoginForm.module.css'
 
 type Props = {

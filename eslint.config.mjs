@@ -22,6 +22,7 @@ export default antfu(
   // Common rules
   {
     rules: {
+      'perfectionist/sort-imports': 'off',
       'ts/no-explicit-any': 'error',
       'ts/consistent-type-definitions': ['error', 'type'],
       'import/no-default-export': 'error',

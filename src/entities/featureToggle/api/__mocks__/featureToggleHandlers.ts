@@ -1,4 +1,4 @@
-import { HttpResponse, delay, http } from 'msw'
+import { delay, http, HttpResponse } from 'msw'
 import { z } from 'zod'
 import { env } from '@/shared/lib'
 import { mockFeatureToggleDto } from './mockFeatureToggleDto'

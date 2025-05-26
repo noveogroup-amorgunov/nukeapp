@@ -1,4 +1,4 @@
-import { ZodError, z } from 'zod'
+import { z, ZodError } from 'zod'
 
 const booleanSchema = z
   .enum(['true', 'false', '1', '0'])

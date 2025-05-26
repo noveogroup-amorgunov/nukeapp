@@ -1,7 +1,7 @@
 import { sessionSlice } from './model/slice'
 
-export { sessionSlice } from './model/slice'
 export { sessionApi } from './api/sessionApi'
+export { sessionSlice } from './model/slice'
 
 export const {
   isAuthorized: selectIsAuthorized,
