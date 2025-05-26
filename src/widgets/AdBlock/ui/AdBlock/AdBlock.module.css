@@ -1,15 +1,41 @@
 @import url('/src/shared/breakpoints.css');
 
-.root {
+a.root {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: end;
+  align-items: start;
+  gap: 8px;
   background: var(--alternate-background-color);
+  background-size: cover;
   width: 100%;
   margin-top: 64px;
   height: 400px;
+  text-decoration: none;
 
   @media (--s-viewport) {
     margin-top: 0;
+    height: 200px;
   }
+}
+
+a.root:hover {
+  text-decoration: none;
+}
+
+.content {
+  padding: 16px;
+  backdrop-filter: blur(5px);
+}
+
+.text {
+  font-weight: 700;
+  color: var(--text-color);
+  font-size: 20px;
+}
+
+.ad {
+  opacity: 0.5;
+  color: var(--text-color);
+  font-size: 16px;
 }

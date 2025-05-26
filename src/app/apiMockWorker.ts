@@ -10,11 +10,13 @@ import { productPopularListHandlers } from '@/pages/main/api/__mocks__/productPo
 import { productDetailsHandlers } from '@/pages/product/api/__mocks__/productDetailsHandlers'
 // eslint-disable-next-line no-restricted-imports
 import { __serverStartDatabaseMigration } from '@/shared/lib/server'
+import { adBlockHandlers } from '@/widgets/AdBlock/api/__mocks__/adBlockHandlers'
 
 const apiMockWorker = setupWorker(
   // @widgets/@pages layer handlers
   ...productPopularListHandlers,
   ...productDetailsHandlers,
+  ...adBlockHandlers,
 
   // @entities layer handlers
   ...categoriesHandlers,
