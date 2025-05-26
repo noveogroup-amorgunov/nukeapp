@@ -1,6 +1,6 @@
 import { skipToken } from '@reduxjs/toolkit/query'
 import type { ReactNode } from 'react'
-import { useCartQuery } from '@/entities/cart/api/cartApi'
+import { useCartQuery } from '@/entities/cart'
 import { useFeatureToggle } from '@/entities/featureToggle'
 import { selectIsAuthorized } from '@/entities/session'
 import { ChangeTheme } from '@/entities/theme'

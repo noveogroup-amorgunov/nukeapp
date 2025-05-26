@@ -1,6 +1,6 @@
 import { cartApi, resetCartData } from '@/entities/cart'
 import { resetSessionData, sessionApi } from '@/entities/session'
-import { userApi } from '@/entities/user/api/userApi'
+import { userApi } from '@/entities/user'
 import { resetWishlistData, wishlistApi } from '@/entities/wishlist'
 import { CART_TAG, SESSION_TAG, USER_TAG, WISHLIST_TAG } from '@/shared/api'
 import { wait } from '@/shared/lib'

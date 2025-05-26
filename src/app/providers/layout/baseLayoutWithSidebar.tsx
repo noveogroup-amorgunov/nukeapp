@@ -1,6 +1,5 @@
 import { AdBlock } from '@/widgets/AdBlock'
 import { Layout } from '@/widgets/Layout'
-import { LayoutProfileCard } from '@/widgets/LayoutProfileCard'
 
 /**
  * ✅ FSD Best practice
@@ -12,8 +11,5 @@ import { LayoutProfileCard } from '@/widgets/LayoutProfileCard'
  * Pass widgets as props to layout
  */
 export const baseLayoutWithSidebar = (
-  <Layout
-    sidebarSlot={<AdBlock />}
-    headerRightSlot={<LayoutProfileCard />}
-  />
+  <Layout sidebarSlot={<AdBlock />} />
 )

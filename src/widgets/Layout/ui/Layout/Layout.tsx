@@ -3,6 +3,7 @@ import { Outlet, ScrollRestoration } from 'react-router-dom'
 import { Announcement } from '@/shared/ui'
 import { DebugModeToggler } from '../DebugModeToggler/DebugModeToggler'
 import { LayoutHeader } from '../LayoutHeader/LayoutHeader'
+import { LayoutProfileCard } from '../LayoutProfileCard/LayoutProfileCard'
 import css from './Layout.module.css'
 
 type Props = {
@@ -19,7 +20,7 @@ export function Layout(props: Props) {
           React and Feature-Sliced&nbsp;Design.
         </span>
       </Announcement>
-      <LayoutHeader rightContentSlot={props.headerRightSlot} />
+      <LayoutHeader rightContentSlot={props.headerRightSlot ?? <LayoutProfileCard />} />
       <div className={css.container}>
         <div className={css.content}>
           <Outlet />
