@@ -6,7 +6,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { ThemeProvider } from '@/entities/theme'
 import { appStore, persistedStore } from '@/shared/redux'
 import { DebugModeProvider } from '@/widgets/Layout'
-import { RouterProvider } from './prodivers/router/RouterProvider'
+import { RouterProvider } from './providers/router/RouterProvider'
 import '@/shared/base.css'
 
 const root = document.getElementById('root') as HTMLElement

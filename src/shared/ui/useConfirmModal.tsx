@@ -1,5 +1,5 @@
 import { create as createModal, useModal } from '@ebay/nice-modal-react'
-import { Button, Modal } from '../ui'
+import { Button, Modal } from '.'
 
 type Props = {
   title: string

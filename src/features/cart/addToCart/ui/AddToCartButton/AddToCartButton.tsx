@@ -4,10 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { selectProductInCart, selectTotalQuantity } from '@/entities/cart'
 import { type Product, formatPrice } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
-import { useConfirmModal } from '@/shared/lib'
-import { useAlertModal } from '@/shared/lib/useAlertModal'
 import { useAppDispatch, useAppSelector } from '@/shared/redux'
-import { Button } from '@/shared/ui'
+import { Button, useAlertModal, useConfirmModal } from '@/shared/ui'
 import {
   addCartProductThunk,
   removeCartProductThunk,
