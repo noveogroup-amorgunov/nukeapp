@@ -24,6 +24,7 @@ const envVariablesSchema = z.object({
 let env: z.infer<typeof envVariablesSchema>
 
 try {
+  // eslint-disable-next-line no-restricted-syntax
   env = envVariablesSchema.parse(import.meta.env)
 }
 catch (err) {
