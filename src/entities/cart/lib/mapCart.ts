@@ -1,4 +1,5 @@
-import { type ProductId, mapProduct } from '@/entities/product/@x/cart'
+import { mapProduct } from '@/entities/product/@x/cart'
+import type { ProductId } from '@/entities/product/@x/cart'
 import type { CartDto } from '../api/types'
 import type { Cart } from '../model/types'
 

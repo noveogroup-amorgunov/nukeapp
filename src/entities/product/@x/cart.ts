@@ -6,5 +6,5 @@
  * @see https://github.com/feature-sliced/documentation/discussions/390#discussioncomment-5570073
  */
 export type { ProductDto } from '../api/types'
-export type { Product, ProductId } from '../model/types'
 export { mapProduct } from '../lib/mapProduct'
+export type { Product, ProductId } from '../model/types'

@@ -1,4 +1,4 @@
-import { SESSION_TAG, WISHLIST_TAG, baseApi } from '@/shared/api'
+import { baseApi, SESSION_TAG, WISHLIST_TAG } from '@/shared/api'
 import { mapSession } from '../lib/mapSession'
 import type { Session } from '../model/types'
 import type { RequestLoginBody, SessionDto } from './types'

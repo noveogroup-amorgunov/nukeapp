@@ -1,4 +1,4 @@
-import { USER_TAG, baseApi } from '@/shared/api'
+import { baseApi, USER_TAG } from '@/shared/api'
 import { mapUser } from '../lib/mapUser'
 import type { User } from '../model/types'
 import type { UserDto } from './types'

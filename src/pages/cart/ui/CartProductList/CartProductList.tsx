@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import type { CartItem } from '@/entities/cart'
-import { type Product, formatPrice } from '@/entities/product'
+import { formatPrice } from '@/entities/product'
+import type { Product } from '@/entities/product'
 import { AddToCartButton, RemoveIcon } from '@/features/cart/addToCart'
 import { AddToWishlistIcon } from '@/features/wishlist/addToWishlist'
 import { BaseProductList } from '@/widgets/BaseProductList'

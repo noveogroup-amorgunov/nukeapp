@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react'
-import { Navigate, createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, Navigate } from 'react-router-dom'
 import { featureToggleLoader } from '@/entities/featureToggle'
 import { selectIsAuthorized } from '@/entities/session'
 import { CartPage } from '@/pages/cart'

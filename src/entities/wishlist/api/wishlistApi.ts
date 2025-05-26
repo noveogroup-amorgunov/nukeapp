@@ -1,5 +1,5 @@
 import type { Product } from '@/entities/product/@x/wishlist'
-import { WISHLIST_TAG, baseApi } from '@/shared/api'
+import { baseApi, WISHLIST_TAG } from '@/shared/api'
 import { mapWishlist } from '../lib/mapWishlist'
 import type { WishlistDto } from './types'
 

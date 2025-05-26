@@ -1,5 +1,4 @@
 import {
-  type CartItemDto,
   addOneItem,
   cartApi,
   incVersion,
@@ -8,6 +7,7 @@ import {
   removeProductFromCart,
   selectCart,
 } from '@/entities/cart'
+import type { CartItemDto } from '@/entities/cart'
 import type { Product, ProductId } from '@/entities/product'
 import { debounce } from '@/shared/lib'
 import type { AppDispatch, AppState } from '@/shared/redux'

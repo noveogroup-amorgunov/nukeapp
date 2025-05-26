@@ -1,4 +1,4 @@
-import { HttpResponse, delay, http } from 'msw'
+import { delay, http, HttpResponse } from 'msw'
 import { env, parseTokenFromRequest, verifyAccessToken } from '@/shared/lib'
 
 export const userHandlers = [

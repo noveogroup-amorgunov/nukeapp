@@ -2,7 +2,8 @@ import cn from 'classnames'
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { selectProductInCart, selectTotalQuantity } from '@/entities/cart'
-import { type Product, formatPrice } from '@/entities/product'
+import { formatPrice } from '@/entities/product'
+import type { Product } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
 import { useAppDispatch, useAppSelector } from '@/shared/redux'
 import { Button, useAlertModal, useConfirmModal } from '@/shared/ui'
@@ -108,8 +109,8 @@ export function AddToCartButton(props: Props) {
               {props.showOnlyQuantity
                 ? productInCart.quantity
                 : `${formatPrice(props.product.price)}x${
-                    productInCart.quantity
-                  }`}
+                  productInCart.quantity
+                }`}
             </span>
             <span className={cn(css.buttonAction, 'text_xl')}>+</span>
           </div>
