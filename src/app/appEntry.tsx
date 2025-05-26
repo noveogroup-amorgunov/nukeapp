@@ -6,10 +6,20 @@ import { RouterProvider } from 'react-router-dom'
 import { PersistGate } from 'redux-persist/integration/react'
 import { ThemeProvider } from '@/entities/theme'
 import { appStore, persistedStore } from '@/shared/redux'
+import { DebugModeProvider } from '@/widgets/DebugModeToggler'
 import { appRouter } from './appRouter'
 import '@/shared/base.css'
 
 const root = document.getElementById('root') as HTMLElement
+
+declare module 'react' {
+  type FeatureSliceLayers = 'feature' | 'entity' | 'shared' | 'widget' | 'page'
+
+  // eslint-disable-next-line ts/consistent-type-definitions
+  interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
+    'data-fsd'?: `${FeatureSliceLayers}/${string}`
+  }
+}
 
 async function initApp() {
   // Move @mswjs worker to lazy import
@@ -24,7 +34,9 @@ initApp().then(() => {
         <ReduxProvider store={appStore}>
           <PersistGate loading={null} persistor={persistedStore}>
             <ThemeProvider>
-              <RouterProvider router={appRouter()} />
+              <DebugModeProvider>
+                <RouterProvider router={appRouter()} />
+              </DebugModeProvider>
             </ThemeProvider>
           </PersistGate>
         </ReduxProvider>

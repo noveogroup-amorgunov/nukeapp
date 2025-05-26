@@ -1,7 +1,6 @@
 import 'rc-dropdown/assets/index.css'
 import Dropdown from 'rc-dropdown'
 import { useState } from 'react'
-import { useFeatureSlicedDebug } from '@/shared/lib'
 import { Icon } from '@/shared/ui'
 import { productSortByNamesMap } from '../../model/consts'
 import type { ProductSortBy } from '../../model/types'
@@ -14,9 +13,6 @@ type Props = {
 }
 
 export function SortByDropdown(props: Props) {
-  const { rootAttributes } = useFeatureSlicedDebug(
-    'feature/product/SortByDropdown',
-  )
   const [isVisibleSortByDropdown, setIsVisibleSortByDropdown] = useState(false)
   const [sortBy, setSortBy] = useState<ProductSortBy>(
     props.defaultSortBy ?? 'Featured',
@@ -38,7 +34,7 @@ export function SortByDropdown(props: Props) {
       animation="slide-up"
       onVisibleChange={isVisible => setIsVisibleSortByDropdown(isVisible)}
     >
-      <div {...rootAttributes} className={css.control}>
+      <div data-fsd="feature/product/SortByDropdown" className={css.control}>
         <span className="">Sort By:</span>
         {' '}
         <span className={css.controlValue}>

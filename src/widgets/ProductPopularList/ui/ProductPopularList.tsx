@@ -1,4 +1,3 @@
-import { useFeatureSlicedDebug } from '@/shared/lib'
 /**
  * 👇 ATTENTION (FSD Custom feature)
  *
@@ -17,7 +16,6 @@ import { usePopularProductsQuery } from '../api/widgetProductPopularListApi'
 import css from './ProductPopularList.module.css'
 
 export function ProductPopularList() {
-  const { rootAttributes } = useFeatureSlicedDebug('widget/ProductPopularList')
   const { data = [], isFetching } = usePopularProductsQuery()
 
   if (data.length < 1) {
@@ -25,7 +23,7 @@ export function ProductPopularList() {
   }
 
   return (
-    <div className={css.root} {...rootAttributes}>
+    <div data-fsd="widget/ProductPopularList" className={css.root}>
       <h2>Featured products</h2>
       <BaseProductList isFetching={isFetching} products={data} />
     </div>

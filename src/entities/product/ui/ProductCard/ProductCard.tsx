@@ -1,7 +1,6 @@
 import cn from 'classnames'
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { useFeatureSlicedDebug } from '@/shared/lib'
 import { formatPrice } from '../../lib/formatPrice'
 import type { Product } from '../../model/types'
 import css from './ProductCard.module.css'
@@ -16,15 +15,12 @@ type Props = {
 export function ProductCard(props: Props) {
   const { size = 'm', product, actionSlot, bottomContentSlot } = props
   const { oldPrice, price, image, subname, name } = product
-  const { rootAttributes } = useFeatureSlicedDebug<HTMLAnchorElement>(
-    'entity/product/ProductCard',
-  )
 
   return (
     <Link
       to={`/product/${product.id}`}
       className={cn(css.root, css[`root_size_${size}`])}
-      {...rootAttributes}
+      data-fsd="entity/product/ProductCard"
     >
       <div className={css.imageContainer}>
         <div

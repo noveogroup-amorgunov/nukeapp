@@ -1,5 +1,4 @@
 export { env } from './env'
-export { useFeatureSlicedDebug } from './useFeatureSlicedDebug'
 export {
   parseTokenFromRequest,
   signAccessToken,

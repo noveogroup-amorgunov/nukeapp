@@ -1,11 +1,8 @@
 import { useMemo } from 'react'
 import { CategoryCard, usePopularCategoriesQuery } from '@/entities/category'
-import { useFeatureSlicedDebug } from '@/shared/lib'
 import css from './CategoryPopularList.module.css'
 
 export function CategoryPopularList() {
-  const { rootAttributes } = useFeatureSlicedDebug('widget/CategoryPopularList')
-
   const { data: categories = [], isLoading } = usePopularCategoriesQuery()
   const items = useMemo(() => categories.slice(0, 3), [categories])
 
@@ -18,7 +15,7 @@ export function CategoryPopularList() {
   }
 
   return (
-    <div className={css.root} {...rootAttributes}>
+    <div data-fsd="widget/CategoryPopularList" className={css.root}>
       <h2>New Collections</h2>
       <div className={css.content}>
         {items.map(category => (

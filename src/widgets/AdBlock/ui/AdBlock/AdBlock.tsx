@@ -1,11 +1,8 @@
-import { useFeatureSlicedDebug } from '@/shared/lib'
 import css from './AdBlock.module.css'
 
 export function AdBlock() {
-  const { rootAttributes } = useFeatureSlicedDebug('widget/AdBlock')
-
   return (
-    <div {...rootAttributes} className={css.root}>
+    <div data-fsd="widget/AdBlock" className={css.root}>
       ads widget
     </div>
   )

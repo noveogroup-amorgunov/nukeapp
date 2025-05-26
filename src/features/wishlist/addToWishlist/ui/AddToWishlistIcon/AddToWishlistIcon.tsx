@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react'
 import type { ProductId } from '@/entities/product'
 import { selectProductIsInWishlist } from '@/entities/wishlist'
-import { useFeatureSlicedDebug } from '@/shared/lib'
 import { useAppDispatch, useAppSelector } from '@/shared/redux'
 import { Icon } from '@/shared/ui'
 import { toggleWishlistProductThunk } from '../../model/toggleWishlistProduct'
@@ -11,7 +10,6 @@ type Props = {
 }
 
 export function AddToWishlistIcon({ productId }: Props) {
-  const { rootAttributes } = useFeatureSlicedDebug('feature/AddToWishlist')
   const isInWishlist = useAppSelector(state =>
     selectProductIsInWishlist(state, productId),
   )
@@ -27,7 +25,7 @@ export function AddToWishlistIcon({ productId }: Props) {
   )
 
   return (
-    <div {...rootAttributes}>
+    <div data-fsd="feature/wishlist/AddToWishlistIcon">
       <Icon onClick={onClick} type={isInWishlist ? 'liked' : 'like'} />
     </div>
   )

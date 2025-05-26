@@ -6,13 +6,11 @@ import { selectIsAuthorized } from '@/entities/session'
 import { useMeQuery } from '@/entities/user'
 import { selectProductIdsInWishlist } from '@/entities/wishlist'
 import { LogoutButton } from '@/features/session/logout'
-import { useFeatureSlicedDebug } from '@/shared/lib'
 import { useAppSelector } from '@/shared/redux'
 import { Icon } from '@/shared/ui'
 import css from './LayoutProfileCard.module.css'
 
 export function LayoutProfileCard() {
-  const { rootAttributes } = useFeatureSlicedDebug('widget/LayoutProfileCard')
   const isAuthorized = useAppSelector(selectIsAuthorized)
   const productsInCartQuantity = useAppSelector(selectTotalQuantity)
   const productIdsInWishlist = useAppSelector(selectProductIdsInWishlist)
@@ -25,14 +23,14 @@ export function LayoutProfileCard() {
 
   if (!isAuthorized) {
     return (
-      <div {...rootAttributes}>
+      <div data-fsd="widget/LayoutProfileCard">
         <Link to="/login">login</Link>
       </div>
     )
   }
 
   return (
-    <div className={css.root} {...rootAttributes}>
+    <div data-fsd="widget/LayoutProfileCard" className={css.root}>
       <div>
         Hey,
         {' '}

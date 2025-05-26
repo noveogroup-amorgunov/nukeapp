@@ -3,7 +3,6 @@ import { useMemo } from 'react'
 import { formatPrice } from '@/entities/product'
 import { AddToCartButton } from '@/features/cart/addToCart'
 import { AddToWishlistButton } from '@/features/wishlist/addToWishlist'
-import { useFeatureSlicedDebug } from '@/shared/lib'
 import { transformProductDetailsToProduct } from '../lib/transformProductDetailsToProduct'
 import type { ProductDetails as ProductDetailsType } from '../model/types'
 import css from './ProductDetails.module.css'
@@ -16,8 +15,6 @@ type Props = {
 const MIN_IMAGE_COUNT = 4
 
 export function ProductDetails({ productDetails, isFetching }: Props) {
-  const { rootAttributes } = useFeatureSlicedDebug('widget/ProductDetails')
-
   const imageStubs = useMemo(
     () =>
       Array.from({
@@ -28,7 +25,7 @@ export function ProductDetails({ productDetails, isFetching }: Props) {
 
   if (isFetching) {
     return (
-      <div {...rootAttributes} className={css.root}>
+      <div data-fsd="widget/ProductDetails" className={css.root}>
         <div className={css.images}>
           {imageStubs.map((_, idx) => (
             <div className={css.image} key={idx} />
@@ -44,7 +41,7 @@ export function ProductDetails({ productDetails, isFetching }: Props) {
   }
 
   return (
-    <div {...rootAttributes} className={css.root}>
+    <div data-fsd="widget/ProductDetails" className={css.root}>
       <div className={css.images}>
         {productDetails.images.map((image, idx) => (
           <img

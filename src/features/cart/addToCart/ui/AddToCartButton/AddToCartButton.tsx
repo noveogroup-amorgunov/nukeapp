@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { selectProductInCart, selectTotalQuantity } from '@/entities/cart'
 import { type Product, formatPrice } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
-import { useConfirmModal, useFeatureSlicedDebug } from '@/shared/lib'
+import { useConfirmModal } from '@/shared/lib'
 import { useAlertModal } from '@/shared/lib/useAlertModal'
 import { useAppDispatch, useAppSelector } from '@/shared/redux'
 import { Button } from '@/shared/ui'
@@ -22,9 +22,6 @@ type Props = {
 }
 
 export function AddToCartButton(props: Props) {
-  const { rootAttributes } = useFeatureSlicedDebug(
-    'feature/cart/AddToCartButton',
-  )
   const loginModal = useConfirmModal()
   const updateCartModal = useAlertModal()
   const navigate = useNavigate()
@@ -99,7 +96,7 @@ export function AddToCartButton(props: Props) {
   )
 
   return (
-    <div {...rootAttributes}>
+    <div data-fsd="feature/cart/AddToCartButton">
       <Button size={props.size} onClick={onAddProduct} theme="primary">
         {productInCart && (
           <div className={css.buttonContent}>
