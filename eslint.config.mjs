@@ -44,7 +44,6 @@ export default antfu(
       }],
     },
   },
-  // Feature-Sliced Design rules
   {
     rules: {
       'import/order': ['error', {
@@ -73,19 +72,13 @@ export default antfu(
         },
       }],
     },
-    // TODO: Turn on
-    // feature-sliced/layers-slices
-    // 'boundaries/element-types': 'error',
-
-    // TODO: Turn on
-    // feature-sliced/public-api
-    // "import/no-internal-modules": "warn" // ~ 1,
   },
   {
     files: [
       '**/*.stories.tsx',
       'vite.config.mts',
       'eslint.config.mjs',
+      'steiger.config.js',
       'public/mockServiceWorker.js',
     ],
     rules: {

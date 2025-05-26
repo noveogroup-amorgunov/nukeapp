@@ -1,4 +1,4 @@
-import type { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query'
+import type { FetchBaseQueryError } from '@reduxjs/toolkit/query'
 
 export function isFetchBaseQueryError(
   error: unknown,

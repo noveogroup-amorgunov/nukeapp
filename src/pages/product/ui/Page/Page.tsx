@@ -2,10 +2,8 @@ import { Link } from 'react-router-dom'
 import { z } from 'zod'
 import type { ProductId } from '@/entities/product'
 import { useTypedParams } from '@/shared/lib/router'
-import {
-  ProductDetails,
-  useProductDetailsQuery,
-} from '@/widgets/ProductDetails'
+import { useProductDetailsQuery } from '../../api/widgetProductDetailsApi'
+import { ProductDetails } from '../ProductDetails/ProductDetails'
 
 const pageParamsSchema = z.object({
   productId: z

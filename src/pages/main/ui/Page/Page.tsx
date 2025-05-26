@@ -1,5 +1,5 @@
-import { CategoryPopularList } from '@/widgets/CategoryPopularList'
-import { ProductPopularList } from '@/widgets/ProductPopularList'
+import { CategoryPopularList } from '../CategoryPopularList/CategoryPopularList'
+import { ProductPopularList } from '../ProductPopularList/ProductPopularList'
 
 export function MainPage() {
   return (

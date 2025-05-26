@@ -3,9 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import type { ProductId } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
 import { selectProductIsInWishlist } from '@/entities/wishlist'
-import { useConfirmModal } from '@/shared/lib'
 import { useAppDispatch, useAppSelector } from '@/shared/redux'
-import { Button } from '@/shared/ui'
+import { Button, useConfirmModal } from '@/shared/ui'
 import { toggleWishlistProductThunk } from '../../model/toggleWishlistProduct'
 
 type Props = {

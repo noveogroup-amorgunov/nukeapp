@@ -254,6 +254,7 @@ module.exports = {
         'src/app/apiMockWorker.ts',
         'src/shared/lib/server/*',
         'src/app/storybookDecorators/*',
+        'env--compiled.mjs',
       ],
     },
 
@@ -414,13 +415,16 @@ module.exports = {
            the external modules, but their innards.
          */
         collapsePattern: [
-          'src/(app)/providers/[^/]+/',
+          'src/(app/(?!providers)[^/]+/)',
+          'src/(app/providers/[^/]+/)',
           'src/(entities/[^/]+/)',
           'src/(features/[^/]+/[^/]+/)',
           'src/(pages/[^/]+/)',
           'src/(widgets/[^/]+/)',
-          'src/(shared/services/[^/]+/)',
           'src/(shared/[^/]+/)',
+
+          // 'src/(shared/(?!ui)[^/]+/)',
+          // 'src/(shared/ui/[^/]+/)',
         ],
 
         /* Options to tweak the appearance of your graph.See

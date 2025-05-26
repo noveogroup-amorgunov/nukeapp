@@ -29,7 +29,7 @@ Right now, I'm using this project as an experiment polygon to try modern technol
 ## Features
 
 - Fully Typed (API adapters, catched error with type guards, form and env variables validators by `zod`)
-- Developing by Feature Sliced Design (Layers isolation and composition, Public API, DDD)
+- Developing by Feature Sliced Design (Layers isolation and composition, Public API, DDD) and validate with [steiger](https://github.com/feature-sliced/steiger) linter and [dependency-cruiser](https://github.com/sverweij/dependency-cruiser) graph.
 - Fully API emulation with `mswjs` (all enpoints with JWT authorization)
 - Storybook stories
 - Best practice comments in code ✅

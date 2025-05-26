@@ -1,12 +1,10 @@
-import type { FetchBaseQueryMeta } from '@reduxjs/toolkit/dist/query/fetchBaseQuery'
-import type {
-  FetchArgs,
-  FetchBaseQueryError,
-} from '@reduxjs/toolkit/query'
 import type {
   BaseQueryApi,
+  FetchArgs,
+  FetchBaseQueryError,
+  FetchBaseQueryMeta,
   QueryReturnValue,
-} from '@reduxjs/toolkit/src/query/baseQueryTypes'
+} from '@reduxjs/toolkit/query'
 import { apiAccessTokenIsBrokenEvent } from './apiAccessTokenIsBrokenEvent'
 import { baseQuery } from './baseQuery'
 

@@ -1,6 +1,6 @@
 import * as jose from 'jose'
 import type { DefaultBodyType, StrictRequest } from 'msw'
-import { env } from '@/shared/lib'
+import { env } from './env'
 
 export async function signAccessToken(payload: Record<string, unknown>) {
   const secret = new TextEncoder().encode(env.VITE_JWT_SECRET)

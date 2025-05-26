@@ -2,8 +2,7 @@ import { skipToken } from '@reduxjs/toolkit/query'
 import { useCallback, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { selectIsAuthorized } from '@/entities/session'
-import { useWishlistProductsQuery } from '@/entities/wishlist'
-import { useAddToWishlistMutation } from '@/entities/wishlist/api/wishlistApi'
+import { useAddToWishlistMutation, useWishlistProductsQuery } from '@/entities/wishlist'
 import { useAppSelector } from '@/shared/redux'
 import { Button } from '@/shared/ui'
 import { BaseProductList } from '@/widgets/BaseProductList'
@@ -18,7 +17,6 @@ export function WishlistPage() {
   })
   const { data: products = [], isFetching } = useWishlistProductsQuery(
     isAuthorized ? undefined : skipToken,
-    { skip: !isAuthorized },
   )
 
   const onLogin = useCallback(() => {

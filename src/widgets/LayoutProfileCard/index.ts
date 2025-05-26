@@ -1,1 +1,0 @@
-export { LayoutProfileCard } from './LayoutProfileCard'

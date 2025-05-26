@@ -2,12 +2,11 @@ import { Provider as ModalProvider } from '@ebay/nice-modal-react'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider as ReduxProvider } from 'react-redux'
-import { RouterProvider } from 'react-router-dom'
 import { PersistGate } from 'redux-persist/integration/react'
 import { ThemeProvider } from '@/entities/theme'
 import { appStore, persistedStore } from '@/shared/redux'
-import { DebugModeProvider } from '@/widgets/DebugModeToggler'
-import { appRouter } from './appRouter'
+import { DebugModeProvider } from '@/widgets/Layout'
+import { RouterProvider } from './providers/router/RouterProvider'
 import '@/shared/base.css'
 
 const root = document.getElementById('root') as HTMLElement
@@ -35,7 +34,7 @@ initApp().then(() => {
           <PersistGate loading={null} persistor={persistedStore}>
             <ThemeProvider>
               <DebugModeProvider>
-                <RouterProvider router={appRouter()} />
+                <RouterProvider />
               </DebugModeProvider>
             </ThemeProvider>
           </PersistGate>

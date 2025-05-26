@@ -6,15 +6,15 @@ import { productsHandlers } from '@/entities/product/api/__mocks__/productHandle
 import { sessionHandlers } from '@/entities/session/api/__mocks__/sessionHandlers'
 import { userHandlers } from '@/entities/user/api/__mocks__/userHandlers'
 import { wishlistHandlers } from '@/entities/wishlist/api/__mocks__/wishlistHandlers'
+import { productPopularListHandlers } from '@/pages/main/api/__mocks__/productPopularListHandlers'
+import { productDetailsHandlers } from '@/pages/product/api/__mocks__/productDetailsHandlers'
 // eslint-disable-next-line no-restricted-imports
 import { __serverStartDatabaseMigration } from '@/shared/lib/server'
-import { widgetProductDetailsHandlers } from '@/widgets/ProductDetails/api/__mocks__/widgetProductDetailsHandlers'
-import { widgetProductPopularListHandlers } from '@/widgets/ProductPopularList/api/__mocks__/widgetProductPopularListHandlers'
 
 const apiMockWorker = setupWorker(
-  // @widgets layer handlers
-  ...widgetProductPopularListHandlers,
-  ...widgetProductDetailsHandlers,
+  // @widgets/@pages layer handlers
+  ...productPopularListHandlers,
+  ...productDetailsHandlers,
 
   // @entities layer handlers
   ...categoriesHandlers,
