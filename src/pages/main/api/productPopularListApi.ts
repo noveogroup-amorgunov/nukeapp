@@ -1,10 +1,10 @@
-import { mapProduct } from '@/entities/product'
-import type { Product, ProductDto } from '@/entities/product'
-import { baseApi } from '@/shared/api'
+import type { ProductDto } from '@/shared/api'
+import { baseApi, mapProduct } from '@/shared/api'
+import type { EntitiesDomain } from '@/shared/domain'
 
 export const productPopularListApi = baseApi.injectEndpoints({
   endpoints: build => ({
-    popularProducts: build.query<Product[], void>({
+    popularProducts: build.query<EntitiesDomain['Product'][], void>({
       query: () => ({
         url: `/products/popular`,
       }),

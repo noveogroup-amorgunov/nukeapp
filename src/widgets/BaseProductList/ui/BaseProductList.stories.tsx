@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { mapProduct } from '@/entities/product'
 import { mockProductDtoByIds } from '@/entities/product/api/__mocks__/mockProductDtoByIds'
+import { mapProduct } from '@/shared/api'
 import { BaseProductList } from './BaseProductList'
 
 const meta: Meta<typeof BaseProductList> = {

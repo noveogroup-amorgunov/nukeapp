@@ -1,6 +1,6 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction, WithSlice } from '@reduxjs/toolkit'
-import type { Product, ProductId } from '@/entities/product/@x/cart'
+import type { EntitiesDomain } from '@/shared/domain'
 import type { AppState } from '@/shared/redux'
 import { rootReducer } from '@/shared/redux'
 import { cartApi } from '../api/cartApi'
@@ -13,7 +13,7 @@ const initialState: CartSliceState = {
   version: 0,
 }
 
-function createCartItem(product: Product): CartItem {
+function createCartItem(product: EntitiesDomain['Product']): CartItem {
   return {
     quantity: 1,
     product,
@@ -31,7 +31,7 @@ const slice = createSlice({
     ),
     products: createSelector(
       state => state.itemsMap,
-      (itemsMap: Record<ProductId, CartItem>) => Object.values(itemsMap),
+      (itemsMap: Record<EntitiesDomain['ProductId'], CartItem>) => Object.values(itemsMap),
     ),
     totalQuantity: state => Object.values(state.itemsMap).reduce(
       (acc, item) => acc + item.quantity,
@@ -42,7 +42,7 @@ const slice = createSlice({
     reset: (state) => {
       state.itemsMap = {}
     },
-    addOneItem: (state, action: PayloadAction<Product>) => {
+    addOneItem: (state, action: PayloadAction<EntitiesDomain['Product']>) => {
       const productInCart = state.itemsMap[action.payload.id]
 
       if (productInCart) {
@@ -52,7 +52,7 @@ const slice = createSlice({
         state.itemsMap[action.payload.id] = createCartItem(action.payload)
       }
     },
-    removeOneItem: (state, action: PayloadAction<Product>) => {
+    removeOneItem: (state, action: PayloadAction<EntitiesDomain['Product']>) => {
       const productInCart = state.itemsMap[action.payload.id]
       if (!productInCart) {
         return
@@ -65,7 +65,7 @@ const slice = createSlice({
         delete state.itemsMap[action.payload.id]
       }
     },
-    removeItem: (state, action: PayloadAction<ProductId>) => {
+    removeItem: (state, action: PayloadAction<EntitiesDomain['ProductId']>) => {
       const productInCart = state.itemsMap[action.payload]
       if (!productInCart) {
         return
@@ -98,7 +98,7 @@ export const cartSlice = slice.injectInto(rootReducer)
 
 export const selectProductInCart = createSelector(
   cartSlice.selectors.products,
-  (_: AppState, productId: ProductId) => productId,
-  (items: CartItem[], productId: ProductId): CartItem | undefined =>
+  (_: AppState, productId: EntitiesDomain['ProductId']) => productId,
+  (items: CartItem[], productId: EntitiesDomain['ProductId']): CartItem | undefined =>
     items.find(({ product }) => product.id === productId),
 )

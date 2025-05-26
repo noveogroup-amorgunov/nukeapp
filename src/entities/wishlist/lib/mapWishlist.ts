@@ -1,6 +1,7 @@
-import { type Product, mapProduct } from '@/entities/product/@x/wishlist'
+import { mapProduct } from '@/shared/api'
+import type { EntitiesDomain } from '@/shared/domain'
 import type { WishlistDto } from '../api/types'
 
-export function mapWishlist(dto: WishlistDto): Product[] {
+export function mapWishlist(dto: WishlistDto): EntitiesDomain['Product'][] {
   return dto.map(product => mapProduct(product))
 }

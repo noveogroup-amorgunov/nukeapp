@@ -22,3 +22,12 @@ export type Product = {
   price: Penny
   oldPrice?: Penny
 }
+
+// TODO
+declare module '@/shared/domain' {
+  // eslint-disable-next-line ts/consistent-type-definitions
+  export interface EntitiesDomain {
+    Product: Product
+    ProductId: ProductId
+  }
+}

@@ -3,10 +3,10 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider as ReduxProvider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
-import { ThemeProvider } from '@/entities/theme'
 import { appStore, persistedStore } from '@/shared/redux'
 import { DebugModeProvider } from '@/widgets/Layout'
 import { RouterProvider } from './providers/router/RouterProvider'
+import { ThemeProvider } from './providers/theme/ThemeProvider'
 import '@/shared/base.css'
 
 const root = document.getElementById('root') as HTMLElement

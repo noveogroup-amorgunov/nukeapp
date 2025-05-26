@@ -1,5 +1,5 @@
+import type { ProductDto } from '@/shared/api'
 import { productsMock } from '@/shared/lib/server'
-import type { ProductDto } from '../types'
 
 export function mockProductDtoByIds(ids: number[]) {
   return productsMock.filter(product =>

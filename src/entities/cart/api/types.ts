@@ -1,4 +1,4 @@
-import type { ProductDto } from '@/entities/product/@x/cart'
+import type { ProductDto } from '@/shared/api'
 
 export type CartDto = {
   cartItems: Array<{
