@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Layout } from './Layout'
 
 const meta: Meta<typeof Layout> = {
-  title: 'widget/Layout',
+  title: 'widgets/Layout',
   component: Layout,
 }
 

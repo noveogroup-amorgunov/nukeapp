@@ -50,4 +50,9 @@ export const globalTypes = {
   },
 }
 
-export const decorators = [withTheme, withStore, withApiMock, withRouter]
+export const decorators = [
+  withTheme,
+  withStore,
+  withApiMock,
+  withRouter,
+]
