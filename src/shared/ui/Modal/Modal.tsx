@@ -1,6 +1,6 @@
 import { useModal } from '@ebay/nice-modal-react'
 import { type ReactNode, useEffect } from 'react'
-import { Icon } from '@/shared/ui'
+import { Icon } from '../Icon/Icon'
 import css from './Modal.module.css'
 
 type Props = {

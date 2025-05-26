@@ -1,9 +1,9 @@
-import type { BaseQueryFn } from '@reduxjs/toolkit/dist/query/baseQueryTypes'
 import type {
+  BaseQueryFn,
   FetchArgs,
   FetchBaseQueryError,
   FetchBaseQueryMeta,
-} from '@reduxjs/toolkit/dist/query/fetchBaseQuery'
+} from '@reduxjs/toolkit/query'
 import { fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { env } from '../lib/env'
 import type { AppState } from '../redux'

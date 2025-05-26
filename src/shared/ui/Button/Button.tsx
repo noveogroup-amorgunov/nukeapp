@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import type { ReactNode } from 'react'
-import { Icon } from '@/shared/ui'
+import { Icon } from '../Icon/Icon'
 import css from './Button.module.css'
 
 type ButtonTheme = 'primary' | 'secondary'

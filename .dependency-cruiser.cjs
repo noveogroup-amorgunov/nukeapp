@@ -421,11 +421,10 @@ module.exports = {
           'src/(features/[^/]+/[^/]+/)',
           'src/(pages/[^/]+/)',
           'src/(widgets/[^/]+/)',
-          'src/(shared/services/[^/]+/)',
           'src/(shared/[^/]+/)',
 
-          // 'src/(shared/(?!lib)[^/]+/)',
-          // 'src/(shared/lib/[^/]+/)',
+          // 'src/(shared/(?!ui)[^/]+/)',
+          // 'src/(shared/ui/[^/]+/)',
         ],
 
         /* Options to tweak the appearance of your graph.See

@@ -16,16 +16,19 @@ importers:
         version: 3.9.0(react-hook-form@7.52.1(react@18.3.1))
       '@mswjs/data':
         specifier: github:noveogroup-amorgunov/mswjs-data#feat-persist
-        version: https://codeload.github.com/noveogroup-amorgunov/mswjs-data/tar.gz/7bfd31dd673ad7c19bb3ef0c841a59787adb2adf(@types/node@20.14.10)(typescript@5.5.3)
+        version: https://codeload.github.com/noveogroup-amorgunov/mswjs-data/tar.gz/7bfd31dd673ad7c19bb3ef0c841a59787adb2adf(@types/node@22.15.21)(typescript@5.5.3)
       '@reduxjs/toolkit':
-        specifier: 2.2.6
-        version: 2.2.6(react-redux@9.1.2(@types/react@18.3.3)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
+        specifier: 2.8.2
+        version: 2.8.2(react-redux@9.1.2(@types/react@18.3.3)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
       classnames:
         specifier: 2.5.1
         version: 2.5.1
       jose:
         specifier: 5.6.3
         version: 5.6.3
+      msw:
+        specifier: 2.3.1
+        version: 2.3.1(typescript@5.5.3)
       rc-dropdown:
         specifier: 4.2.0
         version: 4.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -83,13 +86,13 @@ importers:
         version: 8.2.3(storybook@8.2.3(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
       '@storybook/builder-vite':
         specifier: 8.2.3
-        version: 8.2.3(storybook@8.2.3(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39)))
+        version: 8.2.3(storybook@8.2.3(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(typescript@5.5.3)(vite@5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39)))
       '@storybook/react':
         specifier: 8.2.3
         version: 8.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.3(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(typescript@5.5.3)
       '@storybook/react-vite':
         specifier: 8.2.3
-        version: 8.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.18.1)(storybook@8.2.3(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39)))
+        version: 8.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.18.1)(storybook@8.2.3(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(typescript@5.5.3)(vite@5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39)))
       '@total-typescript/ts-reset':
         specifier: 0.5.1
         version: 0.5.1
@@ -107,7 +110,7 @@ importers:
         version: 5.3.3
       '@vitejs/plugin-react':
         specifier: 4.3.1
-        version: 4.3.1(vite@5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39)))
+        version: 4.3.1(vite@5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39)))
       autoprefixer:
         specifier: 10.4.19
         version: 10.4.19(postcss@8.4.39)
@@ -138,9 +141,6 @@ importers:
       lint-staged:
         specifier: 15.2.7
         version: 15.2.7
-      msw:
-        specifier: 2.3.1
-        version: 2.3.1(typescript@5.5.3)
       patch-package:
         specifier: 8.0.0
         version: 8.0.0
@@ -182,13 +182,13 @@ importers:
         version: 5.5.3
       vite:
         specifier: 5.3.3
-        version: 5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39))
+        version: 5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39))
       vite-plugin-svgr:
         specifier: 4.2.0
-        version: 4.2.0(rollup@4.18.1)(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39)))
+        version: 4.2.0(rollup@4.18.1)(typescript@5.5.3)(vite@5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39)))
       vite-tsconfig-paths:
         specifier: 4.3.2
-        version: 4.3.2(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39)))
+        version: 4.3.2(typescript@5.5.3)(vite@5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39)))
 
 packages:
 
@@ -938,9 +938,6 @@ packages:
   '@base2/pretty-print-object@1.0.1':
     resolution: {integrity: sha512-4iri8i1AqYHJE2DstZYkyEprg6Pq6sKx3xn5FpySk9sNhH7qN2LLlHJCfDTZRILNwQNPD7mATWM0TBui7uC1pA==}
 
-  '@bundled-es-modules/cookie@2.0.0':
-    resolution: {integrity: sha512-Or6YHg/kamKHpxULAdSqhGqnWFneIXu1NKvvfBBzKGwpVsYuFIQ5aBPHDnnoR3ghW1nvSkALd+EF9iMtY7Vjxw==}
-
   '@bundled-es-modules/cookie@2.0.1':
     resolution: {integrity: sha512-8o+5fRPLNbjbdGRRmJj3h6Hh1AQJf2dk3qQ/5ZFb+PXkRNiSoMGGUKlsgLfrxneb72axVJyIYji64E2+nNfYyw==}
 
@@ -1237,8 +1234,8 @@ packages:
     resolution: {integrity: sha512-d2CGZR2o7fS6sWB7DG/3a95bGKQyHMACZ5aW8qGkkqQpUoZV6C0X7Pc7l4ZNMZkfNBf4VWNe9E1jRsf0G146Ew==}
     engines: {node: '>=18.18'}
 
-  '@inquirer/confirm@3.1.14':
-    resolution: {integrity: sha512-nbLSX37b2dGPtKWL3rPuR/5hOuD30S+pqJ/MuFiUEgN6GiMs8UMxiurKAMDzKt6C95ltjupa8zH6+3csXNHWpA==}
+  '@inquirer/confirm@3.2.0':
+    resolution: {integrity: sha512-oOIwPs0Dvq5220Z8lGL/6LHRTEr9TgLHmiI99Rj1PJ1p1czTys+olrgBqZk4E2qC0YTzeHprxSQmoHioVdJ7Lw==}
     engines: {node: '>=18'}
 
   '@inquirer/confirm@5.1.11':
@@ -1259,20 +1256,20 @@ packages:
       '@types/node':
         optional: true
 
-  '@inquirer/core@9.0.2':
-    resolution: {integrity: sha512-nguvH3TZar3ACwbytZrraRTzGqyxJfYJwv+ZwqZNatAosdWQMP1GV8zvmkNlBe2JeZSaw0WYBHZk52pDpWC9qA==}
+  '@inquirer/core@9.2.1':
+    resolution: {integrity: sha512-F2VBt7W/mwqEU4bL0RnHNZmC/OxzNx9cOYxHqnXX3MP6ruYvZUZAW9imgN9+h/uBT/oP8Gh888J2OZSbjSeWcg==}
     engines: {node: '>=18'}
 
   '@inquirer/figures@1.0.12':
     resolution: {integrity: sha512-MJttijd8rMFcKJC8NYmprWr6hD3r9Gd9qUC0XwPNwoEPWSMVJwA2MlXxF+nhZZNMY+HXsWa+o7KY2emWYIn0jQ==}
     engines: {node: '>=18'}
 
-  '@inquirer/figures@1.0.3':
-    resolution: {integrity: sha512-ErXXzENMH5pJt5/ssXV0DfWUZqly8nGzf0UcBV9xTnP+KyffE2mqyxIMBrZ8ijQck2nU0TQm40EQB53YreyWHw==}
+  '@inquirer/type@1.5.5':
+    resolution: {integrity: sha512-MzICLu4yS7V8AA61sANROZ9vT1H3ooca5dSmI1FjZkzq7o/koMsRfQSzRtFo+F3Ao4Sf1C0bpLKejpKB/+j6MA==}
     engines: {node: '>=18'}
 
-  '@inquirer/type@1.4.0':
-    resolution: {integrity: sha512-AjOqykVyjdJQvtfkNDGUyMYGF8xN50VUxftCQWsOyIo4DFRLr6VQhW0VItGI1JIyQGCGgIpKa7hMMwNhZb4OIw==}
+  '@inquirer/type@2.0.0':
+    resolution: {integrity: sha512-XvJRx+2KR3YXyYtPUUy+qd9i7p+GO9Ko6VIIpWlBrpWwXDv8WLFeHTxz35CfQFUiBMLXlGHhGzys7lqit9gWag==}
     engines: {node: '>=18'}
 
   '@inquirer/type@3.0.7':
@@ -1380,10 +1377,10 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
 
-  '@reduxjs/toolkit@2.2.6':
-    resolution: {integrity: sha512-kH0r495c5z1t0g796eDQAkYbEQ3a1OLYN9o8jQQVZyKyw367pfRGS+qZLkHYvFHiUUdafpoSlQ2QYObIApjPWA==}
+  '@reduxjs/toolkit@2.8.2':
+    resolution: {integrity: sha512-MYlOhQ0sLdw4ud48FoC5w0dH9VfWQjtCjreKwYTT3l+r427qYC5Y8PihNutepr8XrNaBUDQo9khWUwQxZaqt5A==}
     peerDependencies:
-      react: ^16.9.0 || ^17.0.0 || ^18
+      react: ^16.9.0 || ^17.0.0 || ^18 || ^19
       react-redux: ^7.2.1 || ^8.1.3 || ^9.0.0
     peerDependenciesMeta:
       react:
@@ -1490,6 +1487,12 @@ packages:
   '@sindresorhus/merge-streams@2.3.0':
     resolution: {integrity: sha512-LtoMMhxAlorcGhmFYI+LhPgbPZCkgP6ra1YL604EeF6U98pLlQ3iWIGMdWSC+vWmPBWBNgmDBAhnAobLROJmwg==}
     engines: {node: '>=18'}
+
+  '@standard-schema/spec@1.0.0':
+    resolution: {integrity: sha512-m2bOd0f2RT9k8QJx1JN85cZYyH1RqFBdlwtkSlf4tBDYLCiiZnv1fIIwacK6cqwXavOydf0NPToMQgpKq+dVlA==}
+
+  '@standard-schema/utils@0.3.0':
+    resolution: {integrity: sha512-e7Mew686owMaPJVNNLs55PUvgz371nKgwsc4vxE49zsODpJEnxgxRo2y/OKrqueavXgZNMDVj3DdHFlaSAeU8g==}
 
   '@storybook/addon-actions@8.2.3':
     resolution: {integrity: sha512-7ntW+hK2f0EtEZ08BRYdaMDdeCJY5IyRbaXhclMzo4FK4W3vsRnSMu+t61K42+/3+bJC8z2bnjZPrh2b7gJ34w==}
@@ -1861,6 +1864,9 @@ packages:
 
   '@types/node@20.14.10':
     resolution: {integrity: sha512-MdiXf+nDuMvY0gJKxyfZ7/6UFsETO7mGKF54MVD/ekJS6HdFtpZFBgrh6Pseu64XTb2MLyFPlbW6hj8HYRQNOQ==}
+
+  '@types/node@22.15.21':
+    resolution: {integrity: sha512-EV/37Td6c+MgKAbkcLG6vqZ2zEYHD7bvSrzqqs2RIhbA6w3x+Dqz8MZM3sP6kGTeLrdoOgKZe+Xja7tUB2DNkQ==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -2515,10 +2521,6 @@ packages:
 
   cookie-signature@1.0.6:
     resolution: {integrity: sha512-QADzlaHc8icV8I7vbaJXJwod9HWYp8uCqf1xa4OfNu1T7JVxQIrUgOWtHdNDtPiywmFbiS12VjotIXLrKM3orQ==}
-
-  cookie@0.5.0:
-    resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
-    engines: {node: '>= 0.6'}
 
   cookie@0.6.0:
     resolution: {integrity: sha512-U71cyTamuh1CRNCfpGY6to28lxvNwPG4Guz/EVjgf3Jmzv0vlDp1atT9eS5dDjMYHucpHbWns6Lwf3BKz6svdw==}
@@ -4217,9 +4219,6 @@ packages:
   path-to-regexp@0.1.7:
     resolution: {integrity: sha512-5DFkuoqlv1uYQKxy8omFBeJPQcdoE07Kv2sferDCrAq1ohOU+MSDswDIbnx3YAM60qIOnYa53wBhXW0EbMonrQ==}
 
-  path-to-regexp@6.2.2:
-    resolution: {integrity: sha512-GQX3SSMokngb36+whdpRXE+3f9V8UzyAorlYvOGx87ufGHehNTn5lCxrKtLyZ4Yl/wEKnNnr98ZzOwwDZV5ogw==}
-
   path-to-regexp@6.3.0:
     resolution: {integrity: sha512-Yhpw4T9C6hPpgPeA28us07OJeqZ5EzQTkbfwuhsUg0c237RomFoETJgmp2sa3F/41gfLE6G5cqcYwznmeEeOlQ==}
 
@@ -5135,10 +5134,6 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
 
-  type-fest@4.21.0:
-    resolution: {integrity: sha512-ADn2w7hVPcK6w1I0uWnM//y1rLXZhzB9mr0a3OirzclKF1Wp6VzevUmzz/NRAWunOT6E8HrnpGY7xOfc6K57fA==}
-    engines: {node: '>=16'}
-
   type-fest@4.41.0:
     resolution: {integrity: sha512-TeTSQ6H5YHvpqVwBRcnLDCBnDOHWYu7IvGbHT6N8AOymcr9PJGjc1GTtiWZTYg0NCgYwvnYWEkVChQAr9bjfwA==}
     engines: {node: '>=16'}
@@ -5162,6 +5157,9 @@ packages:
 
   undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+
+  undici-types@6.21.0:
+    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
 
   unicode-canonical-property-names-ecmascript@2.0.0:
     resolution: {integrity: sha512-yY5PpDlfVIU5+y/BSCxAJRBIS1Zc2dDG3Ujq+sR0U+JjUevW2JhocOF+soROYDSaAezOzOKuyyixhD6mBknSmQ==}
@@ -6478,14 +6476,9 @@ snapshots:
 
   '@base2/pretty-print-object@1.0.1': {}
 
-  '@bundled-es-modules/cookie@2.0.0':
-    dependencies:
-      cookie: 0.5.0
-
   '@bundled-es-modules/cookie@2.0.1':
     dependencies:
       cookie: 0.7.2
-    optional: true
 
   '@bundled-es-modules/statuses@1.0.1':
     dependencies:
@@ -6794,23 +6787,23 @@ snapshots:
 
   '@humanwhocodes/retry@0.3.0': {}
 
-  '@inquirer/confirm@3.1.14':
+  '@inquirer/confirm@3.2.0':
     dependencies:
-      '@inquirer/core': 9.0.2
-      '@inquirer/type': 1.4.0
+      '@inquirer/core': 9.2.1
+      '@inquirer/type': 1.5.5
 
-  '@inquirer/confirm@5.1.11(@types/node@20.14.10)':
+  '@inquirer/confirm@5.1.11(@types/node@22.15.21)':
     dependencies:
-      '@inquirer/core': 10.1.12(@types/node@20.14.10)
-      '@inquirer/type': 3.0.7(@types/node@20.14.10)
+      '@inquirer/core': 10.1.12(@types/node@22.15.21)
+      '@inquirer/type': 3.0.7(@types/node@22.15.21)
     optionalDependencies:
-      '@types/node': 20.14.10
+      '@types/node': 22.15.21
     optional: true
 
-  '@inquirer/core@10.1.12(@types/node@20.14.10)':
+  '@inquirer/core@10.1.12(@types/node@22.15.21)':
     dependencies:
       '@inquirer/figures': 1.0.12
-      '@inquirer/type': 3.0.7(@types/node@20.14.10)
+      '@inquirer/type': 3.0.7(@types/node@22.15.21)
       ansi-escapes: 4.3.2
       cli-width: 4.1.0
       mute-stream: 2.0.0
@@ -6818,18 +6811,17 @@ snapshots:
       wrap-ansi: 6.2.0
       yoctocolors-cjs: 2.1.2
     optionalDependencies:
-      '@types/node': 20.14.10
+      '@types/node': 22.15.21
     optional: true
 
-  '@inquirer/core@9.0.2':
+  '@inquirer/core@9.2.1':
     dependencies:
-      '@inquirer/figures': 1.0.3
-      '@inquirer/type': 1.4.0
+      '@inquirer/figures': 1.0.12
+      '@inquirer/type': 2.0.0
       '@types/mute-stream': 0.0.4
-      '@types/node': 20.14.10
+      '@types/node': 22.15.21
       '@types/wrap-ansi': 3.0.0
       ansi-escapes: 4.3.2
-      cli-spinners: 2.9.2
       cli-width: 4.1.0
       mute-stream: 1.0.0
       signal-exit: 4.1.0
@@ -6837,27 +6829,28 @@ snapshots:
       wrap-ansi: 6.2.0
       yoctocolors-cjs: 2.1.2
 
-  '@inquirer/figures@1.0.12':
-    optional: true
+  '@inquirer/figures@1.0.12': {}
 
-  '@inquirer/figures@1.0.3': {}
-
-  '@inquirer/type@1.4.0':
+  '@inquirer/type@1.5.5':
     dependencies:
       mute-stream: 1.0.0
 
-  '@inquirer/type@3.0.7(@types/node@20.14.10)':
+  '@inquirer/type@2.0.0':
+    dependencies:
+      mute-stream: 1.0.0
+
+  '@inquirer/type@3.0.7(@types/node@22.15.21)':
     optionalDependencies:
-      '@types/node': 20.14.10
+      '@types/node': 22.15.21
     optional: true
 
-  '@joshwooding/vite-plugin-react-docgen-typescript@0.3.1(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39)))':
+  '@joshwooding/vite-plugin-react-docgen-typescript@0.3.1(typescript@5.5.3)(vite@5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39)))':
     dependencies:
       glob: 7.2.3
       glob-promise: 4.2.2(glob@7.2.3)
       magic-string: 0.27.0
       react-docgen-typescript: 2.2.2(typescript@5.5.3)
-      vite: 5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39))
+      vite: 5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39))
     optionalDependencies:
       typescript: 5.5.3
 
@@ -6893,7 +6886,7 @@ snapshots:
 
   '@mswjs/cookies@1.1.1': {}
 
-  '@mswjs/data@https://codeload.github.com/noveogroup-amorgunov/mswjs-data/tar.gz/7bfd31dd673ad7c19bb3ef0c841a59787adb2adf(@types/node@20.14.10)(typescript@5.5.3)':
+  '@mswjs/data@https://codeload.github.com/noveogroup-amorgunov/mswjs-data/tar.gz/7bfd31dd673ad7c19bb3ef0c841a59787adb2adf(@types/node@22.15.21)(typescript@5.5.3)':
     dependencies:
       '@types/lodash': 4.14.194
       '@types/md5': 2.3.2
@@ -6909,7 +6902,7 @@ snapshots:
       strict-event-emitter: 0.2.8
       uuid: 8.3.2
     optionalDependencies:
-      msw: 2.8.4(@types/node@20.14.10)(typescript@5.5.3)
+      msw: 2.8.4(@types/node@22.15.21)(typescript@5.5.3)
     transitivePeerDependencies:
       - '@types/node'
       - supports-color
@@ -6996,8 +6989,10 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@reduxjs/toolkit@2.2.6(react-redux@9.1.2(@types/react@18.3.3)(react@18.3.1)(redux@5.0.1))(react@18.3.1)':
+  '@reduxjs/toolkit@2.8.2(react-redux@9.1.2(@types/react@18.3.3)(react@18.3.1)(redux@5.0.1))(react@18.3.1)':
     dependencies:
+      '@standard-schema/spec': 1.0.0
+      '@standard-schema/utils': 0.3.0
       immer: 10.1.1
       redux: 5.0.1
       redux-thunk: 3.1.0(redux@5.0.1)
@@ -7067,6 +7062,10 @@ snapshots:
   '@rtsao/scc@1.1.0': {}
 
   '@sindresorhus/merge-streams@2.3.0': {}
+
+  '@standard-schema/spec@1.0.0': {}
+
+  '@standard-schema/utils@0.3.0': {}
 
   '@storybook/addon-actions@8.2.3(storybook@8.2.3(@babel/preset-env@7.24.8(@babel/core@7.24.9)))':
     dependencies:
@@ -7182,7 +7181,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@storybook/builder-vite@8.2.3(storybook@8.2.3(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39)))':
+  '@storybook/builder-vite@8.2.3(storybook@8.2.3(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(typescript@5.5.3)(vite@5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39)))':
     dependencies:
       '@storybook/csf-plugin': 8.2.3(storybook@8.2.3(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
       '@types/find-cache-dir': 3.2.1
@@ -7194,7 +7193,7 @@ snapshots:
       magic-string: 0.30.10
       storybook: 8.2.3(@babel/preset-env@7.24.8(@babel/core@7.24.9))
       ts-dedent: 2.2.0
-      vite: 5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39))
+      vite: 5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39))
     optionalDependencies:
       typescript: 5.5.3
     transitivePeerDependencies:
@@ -7284,11 +7283,11 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       storybook: 8.2.3(@babel/preset-env@7.24.8(@babel/core@7.24.9))
 
-  '@storybook/react-vite@8.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.18.1)(storybook@8.2.3(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39)))':
+  '@storybook/react-vite@8.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.18.1)(storybook@8.2.3(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(typescript@5.5.3)(vite@5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39)))':
     dependencies:
-      '@joshwooding/vite-plugin-react-docgen-typescript': 0.3.1(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39)))
+      '@joshwooding/vite-plugin-react-docgen-typescript': 0.3.1(typescript@5.5.3)(vite@5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39)))
       '@rollup/pluginutils': 5.1.0(rollup@4.18.1)
-      '@storybook/builder-vite': 8.2.3(storybook@8.2.3(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39)))
+      '@storybook/builder-vite': 8.2.3(storybook@8.2.3(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(typescript@5.5.3)(vite@5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39)))
       '@storybook/react': 8.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.3(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(typescript@5.5.3)
       find-up: 5.0.0
       magic-string: 0.30.10
@@ -7298,7 +7297,7 @@ snapshots:
       resolve: 1.22.8
       storybook: 8.2.3(@babel/preset-env@7.24.8(@babel/core@7.24.9))
       tsconfig-paths: 4.2.0
-      vite: 5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39))
+      vite: 5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39))
     transitivePeerDependencies:
       - '@preact/preset-vite'
       - rollup
@@ -7559,7 +7558,7 @@ snapshots:
 
   '@types/mute-stream@0.0.4':
     dependencies:
-      '@types/node': 20.14.10
+      '@types/node': 22.15.21
 
   '@types/node@18.19.39':
     dependencies:
@@ -7568,6 +7567,10 @@ snapshots:
   '@types/node@20.14.10':
     dependencies:
       undici-types: 5.26.5
+
+  '@types/node@22.15.21':
+    dependencies:
+      undici-types: 6.21.0
 
   '@types/normalize-package-data@2.4.4': {}
 
@@ -7878,14 +7881,14 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-react@4.3.1(vite@5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39)))':
+  '@vitejs/plugin-react@4.3.1(vite@5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39)))':
     dependencies:
       '@babel/core': 7.24.8
       '@babel/plugin-transform-react-jsx-self': 7.24.7(@babel/core@7.24.8)
       '@babel/plugin-transform-react-jsx-source': 7.24.7(@babel/core@7.24.8)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
-      vite: 5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39))
+      vite: 5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39))
     transitivePeerDependencies:
       - supports-color
 
@@ -8293,12 +8296,9 @@ snapshots:
 
   cookie-signature@1.0.6: {}
 
-  cookie@0.5.0: {}
-
   cookie@0.6.0: {}
 
-  cookie@0.7.2:
-    optional: true
+  cookie@0.7.2: {}
 
   core-js-compat@3.37.1:
     dependencies:
@@ -9916,9 +9916,9 @@ snapshots:
 
   msw@2.3.1(typescript@5.5.3):
     dependencies:
-      '@bundled-es-modules/cookie': 2.0.0
+      '@bundled-es-modules/cookie': 2.0.1
       '@bundled-es-modules/statuses': 1.0.1
-      '@inquirer/confirm': 3.1.14
+      '@inquirer/confirm': 3.2.0
       '@mswjs/cookies': 1.1.1
       '@mswjs/interceptors': 0.29.1
       '@open-draft/until': 2.1.0
@@ -9929,19 +9929,19 @@ snapshots:
       headers-polyfill: 4.0.3
       is-node-process: 1.2.0
       outvariant: 1.4.3
-      path-to-regexp: 6.2.2
+      path-to-regexp: 6.3.0
       strict-event-emitter: 0.5.1
-      type-fest: 4.21.0
+      type-fest: 4.41.0
       yargs: 17.7.2
     optionalDependencies:
       typescript: 5.5.3
 
-  msw@2.8.4(@types/node@20.14.10)(typescript@5.5.3):
+  msw@2.8.4(@types/node@22.15.21)(typescript@5.5.3):
     dependencies:
       '@bundled-es-modules/cookie': 2.0.1
       '@bundled-es-modules/statuses': 1.0.1
       '@bundled-es-modules/tough-cookie': 0.1.6
-      '@inquirer/confirm': 5.1.11(@types/node@20.14.10)
+      '@inquirer/confirm': 5.1.11(@types/node@22.15.21)
       '@mswjs/interceptors': 0.37.6
       '@open-draft/deferred-promise': 2.2.0
       '@open-draft/until': 2.1.0
@@ -10187,10 +10187,7 @@ snapshots:
 
   path-to-regexp@0.1.7: {}
 
-  path-to-regexp@6.2.2: {}
-
-  path-to-regexp@6.3.0:
-    optional: true
+  path-to-regexp@6.3.0: {}
 
   path-type@4.0.0: {}
 
@@ -11165,10 +11162,7 @@ snapshots:
 
   type-fest@2.19.0: {}
 
-  type-fest@4.21.0: {}
-
-  type-fest@4.41.0:
-    optional: true
+  type-fest@4.41.0: {}
 
   type-is@1.6.18:
     dependencies:
@@ -11182,6 +11176,8 @@ snapshots:
   ufo@1.5.3: {}
 
   undici-types@5.26.5: {}
+
+  undici-types@6.21.0: {}
 
   unicode-canonical-property-names-ecmascript@2.0.0: {}
 
@@ -11280,35 +11276,35 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vite-plugin-svgr@4.2.0(rollup@4.18.1)(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39))):
+  vite-plugin-svgr@4.2.0(rollup@4.18.1)(typescript@5.5.3)(vite@5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39))):
     dependencies:
       '@rollup/pluginutils': 5.1.0(rollup@4.18.1)
       '@svgr/core': 8.1.0(typescript@5.5.3)
       '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0(typescript@5.5.3))
-      vite: 5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39))
+      vite: 5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39))
     transitivePeerDependencies:
       - rollup
       - supports-color
       - typescript
 
-  vite-tsconfig-paths@4.3.2(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39))):
+  vite-tsconfig-paths@4.3.2(typescript@5.5.3)(vite@5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39))):
     dependencies:
       debug: 4.3.5(supports-color@8.1.1)
       globrex: 0.1.2
       tsconfck: 3.1.1(typescript@5.5.3)
     optionalDependencies:
-      vite: 5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39))
+      vite: 5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39))
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  vite@5.3.3(@types/node@20.14.10)(sugarss@4.0.1(postcss@8.4.39)):
+  vite@5.3.3(@types/node@22.15.21)(sugarss@4.0.1(postcss@8.4.39)):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.39
       rollup: 4.18.1
     optionalDependencies:
-      '@types/node': 20.14.10
+      '@types/node': 22.15.21
       fsevents: 2.3.3
       sugarss: 4.0.1(postcss@8.4.39)
 
