@@ -7,7 +7,7 @@ export const adBlockHandlers = [
     const adOffer = {
       id: '2RanymhtqkD',
       text: 'Feature-Sliced Design architecture lessons. See a lot of examples in the github repository. Click now!',
-      imageUrl: '/ad-demo-banner.jpg',
+      imageUrl: '/images/ad-demo-banner.jpg',
       offerLink: 'https://github.com/noveogroup-amorgunov/fsd-lessons',
     }
 

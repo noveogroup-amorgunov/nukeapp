@@ -9,7 +9,7 @@
     "discountPrice": 15000,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/d0b94722-d603-4e66-829c-51f1801ec3fa/air-max-pulse-mens-shoes-ShS3tL.png"
+      "/images/content/air-max-pulse-mens-shoes-ShS3tL.png"
     ]
   },
   {
@@ -22,7 +22,7 @@
     "discountPrice": 11000,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/4f37fca8-6bce-43e7-ad07-f57ae3c13142/air-force-1-07-mens-shoes-5QFp5Z.png"
+      "/images/content/air-force-1-07-mens-shoes-5QFp5Z.png"
     ]
   },
   {
@@ -35,7 +35,7 @@
     "discountPrice": 13000,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/baa2520d-49da-4a27-ab2c-7fb133fb3008/air-max-90-mens-shoes-6n3vKB.png"
+      "/images/content/air-max-90-mens-shoes-6n3vKB.png"
     ]
   },
   {
@@ -48,13 +48,13 @@
     "discountPrice": 25000,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/09f365a5-5753-450f-901d-7fafe8915ca0/vaporfly-3-mens-road-racing-shoes-Q4PBPK.png"
+      "/images/content/vaporfly-3-mens-road-racing-shoes-Q4PBPK.png"
     ],
     "detailsImageUrl": [
-      "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/f655b4fb-35e9-4a63-acf8-c02dfd78cfda/zoom-fly-5-road-running-shoes-hTNv2r.png",
-      "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/a14cc209-7260-4d40-9256-cff0ad068580/zoom-fly-5-road-running-shoes-hTNv2r.png",
-      "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/ea348977-3c45-499a-81ac-65faed5a7a65/zoom-fly-5-road-running-shoes-hTNv2r.png",
-      "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/a905ed37-b430-4cb1-876f-b57ec1563f0c/zoom-fly-5-road-running-shoes-hTNv2r.png"
+      "/images/content/zoom-fly-5-road-running-shoes-hTNv2r-1.jpeg",
+      "/images/content/zoom-fly-5-road-running-shoes-hTNv2r-2.jpeg",
+      "/images/content/zoom-fly-5-road-running-shoes-hTNv2r-3.jpeg",
+      "/images/content/zoom-fly-5-road-running-shoes-hTNv2r-4.jpeg"
     ],
     "description": "Bridge the gap between your weekend training run and race day in a durable design that can be deployed not just at the starting line of your favourite race but in the days and months after your conquest. It offers comfort and reliability but with a propulsive sensation that will help you feel fast and fresh. That kind of versatility isuncommon in the running arena. But who said you can not have it all?"
   },
@@ -68,7 +68,7 @@
     "discountPrice": 27500,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/f9645056-9dc0-4b24-9006-57bf348e8f47/alphafly-2-mens-road-racing-shoes-8lD0jN.png"
+      "/images/content/alphafly-2-mens-road-racing-shoes-8lD0jN.png"
     ]
   },
   {
@@ -81,7 +81,7 @@
     "discountPrice": 16000,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/24d5a5ec-db76-4512-99a8-36231b9a9b41/streakfly-road-racing-shoes-W3FNgf.png"
+      "/images/content/streakfly-road-racing-shoes-W3FNgf.png"
     ]
   },
   {
@@ -94,7 +94,7 @@
     "discountPrice": 16000,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/6ad50b7b-34e6-4d08-a7d3-a0a095400932/zoom-fly-5-mens-road-running-shoes-lpFskk.png"
+      "/images/content/zoom-fly-5-mens-road-running-shoes-lpFskk.png"
     ]
   },
   {
@@ -107,7 +107,7 @@
     "discountPrice": 20000,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/9bb98e33-4c04-4b5d-bf55-185509adeec5/lebron-xx-basketball-shoes-ct1qVm.png"
+      "/images/content/lebron-xx-basketball-shoes-ct1qVm.png"
     ]
   },
   {
@@ -120,7 +120,7 @@
     "discountPrice": 16000,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/c130c296-24c3-4419-9516-d6461e4e87ea/lebron-nxxt-gen-basketball-shoes-55g4w1.png"
+      "/images/content/lebron-nxxt-gen-basketball-shoes-55g4w1.png"
     ]
   },
   {
@@ -134,7 +134,7 @@
     "discountPrice": 17000,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/c090c62f-a2d1-4ae6-8e84-f454d6e93b46/air-zoom-gt-cut-2-basketball-shoes-tmfmFl.png"
+      "/images/content/air-zoom-gt-cut-2-basketball-shoes-tmfmFl.png"
     ]
   },
   {
@@ -148,7 +148,7 @@
     "discountPrice": 18000,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/a211ad68-32b6-4434-99d0-10dad0d23626/air-zoom-gt-jump-basketball-shoes-Mj4kHp.png"
+      "/images/content/air-zoom-gt-jump-basketball-shoes-Mj4kHp.png"
     ]
   },
   {
@@ -162,7 +162,7 @@
     "discountPrice": 11500,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/71d0c2f0-0fe6-44df-aa02-81b3dd2bab38/blazer-mid-pro-club-mens-shoes-Vgslvc.png"
+      "/images/content/blazer-mid-pro-club-mens-shoes-Vgslvc.png"
     ]
   },
   {
@@ -176,7 +176,7 @@
     "discountPrice": 10500,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/389b709e-5102-4e55-aa5d-07099b500831/blazer-mid-77-vintage-mens-shoes-nw30B2.png"
+      "/images/content/blazer-mid-77-vintage-mens-shoes-nw30B2.png"
     ]
   },
   {
@@ -190,7 +190,7 @@
     "discountPrice": 16000,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/a52e5eb5-17a1-48c5-9ee1-08b048d8d69c/air-max-270-mens-shoes-KkLcGR.png"
+      "/images/content/air-max-270-mens-shoes-KkLcGR.png"
     ]
   },
   {
@@ -204,7 +204,7 @@
     "discountPrice": 15000,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/deccafa7-f7c5-401f-be8e-065b5773c6eb/air-max-1-86-og-g-mens-golf-shoes-qT5Dtm.png"
+      "/images/content/air-max-1-86-og-g-mens-golf-shoes-qT5Dtm.png"
     ]
   },
   {
@@ -218,7 +218,7 @@
     "discountPrice": 20000,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/8b2d1313-3a3d-4cc9-b877-865f5a13be03/air-zoom-victory-tour-3-nrg-mens-golf-shoes-pgZWf5.png"
+      "/images/content/air-zoom-victory-tour-3-nrg-mens-golf-shoes-pgZWf5.png"
     ]
   },
   {
@@ -232,7 +232,7 @@
     "discountPrice": 18000,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/e3ffb91f-6db1-49b3-b756-a8353e163101/air-zoom-infinity-tour-next-nrg-golf-shoes-Qz3VFg.png"
+      "/images/content/air-zoom-infinity-tour-next-nrg-golf-shoes-Qz3VFg.png"
     ]
   },
   {
@@ -246,7 +246,7 @@
     "discountPrice": 7500,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/dc490213-e462-4597-adea-510d924f5d95/air-max-1-mens-slides-Frt1JC.png"
+      "/images/content/air-max-1-mens-slides-Frt1JC.png"
     ]
   },
   {
@@ -260,7 +260,7 @@
     "discountPrice": 4000,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/f2fe44c4-c15a-4f29-8426-4ca64b742ff9/offcourt-adjust-mens-slides-n7mcwr.png"
+      "/images/content/offcourt-adjust-mens-slides-n7mcwr.png"
     ]
   },
   {
@@ -274,7 +274,7 @@
     "discountPrice": 17500,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/cuvuokzz86meuxcssbma/air-max-97-mens-shoes-LJmK45.png"
+      "/images/content/air-max-97-mens-shoes-LJmK45.png"
     ]
   },
   {
@@ -288,7 +288,7 @@
     "discountPrice": 18500,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/f9522b40-4cc5-4fd2-b6fe-27f60b3ba886/air-max-97-og-mens-shoes-zV9FQs.png"
+      "/images/content/air-max-97-og-mens-shoes-zV9FQs.png"
     ]
   },
   {
@@ -302,7 +302,7 @@
     "discountPrice": 10000,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/ec905341-5574-4757-b9f9-8459271f3432/air-max-systm-mens-shoes-TwgLWK.png"
+      "/images/content/air-max-systm-mens-shoes-TwgLWK.png"
     ]
   },
   {
@@ -316,7 +316,7 @@
     "discountPrice": 11997,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/544603ac-af2f-440d-b80c-7a914146d56c/react-infinity-3-mens-road-running-shoes-1bRq75.png"
+      "/images/content/react-infinity-3-mens-road-running-shoes-1bRq75.png"
     ]
   },
   {
@@ -330,7 +330,7 @@
     "discountPrice": 18000,
     "inStock": true,
     "imageUrl": [
-      "https://static.nike.com/a/images/t_default/514c0c6c-8c60-4d65-94c4-73158a3028be/invincible-3-mens-road-running-shoes-CLdFjq.png"
+      "/images/content/invincible-3-mens-road-running-shoes-CLdFjq.png"
     ]
   }
 ]
