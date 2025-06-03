@@ -4,7 +4,7 @@
     "popular": true,
     "name": "Pegasus 39",
     "imageUrl": [
-      "https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_599,c_limit/140b7dc2-96c8-4b27-86c8-c0e58c3c8dd2/nike-just-do-it.jpg"
+      "/images/content/140b7dc2-96c8-4b27-86c8-c0e58c3c8dd2.jpg"
     ]
   },
   {
@@ -12,7 +12,7 @@
     "popular": true,
     "name": "Invincible 3",
     "imageUrl": [
-      "https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_599,c_limit/b1f9d09b-45ac-4e00-8d58-0e38eafe68e4/nike-just-do-it.jpg"
+      "/images/content/b1f9d09b-45ac-4e00-8d58-0e38eafe68e4.jpg"
     ]
   },
   {
@@ -20,7 +20,7 @@
     "popular": true,
     "name": "Infinity 3",
     "imageUrl": [
-      "https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_599,c_limit/ae99a909-5587-43e9-aeca-2ff1c3086524/nike-just-do-it.jpg"
+      "/images/content/ae99a909-5587-43e9-aeca-2ff1c3086524.jpg"
     ]
   }
 ]
