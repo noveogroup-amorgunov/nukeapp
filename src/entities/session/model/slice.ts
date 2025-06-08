@@ -27,6 +27,7 @@ const slice = createSlice({
   selectors: {
     isAuthorized: state => state.isAuthorized,
     userId: state => state.userId,
+    accessToken: state => state.accessToken,
   },
   reducers: {
     reset: (state) => {
