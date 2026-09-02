@@ -5,7 +5,7 @@ import { env } from '@/shared/lib'
 import { makeStore } from '@/shared/redux'
 import { toggleDebugMode } from '@/widgets/Layout'
 
-const store = makeStore()
+const store = makeStore({ persisted: false })
 
 store.dispatch(
   loginThunk({
