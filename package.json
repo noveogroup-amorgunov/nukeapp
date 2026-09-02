@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@ebay/nice-modal-react": "1.2.13",
-    "@hookform/resolvers": "3.9.0",
+    "@hookform/resolvers": "5.9.1",
     "@mswjs/data": "github:noveogroup-amorgunov/mswjs-data#feat-persist",
     "@reduxjs/toolkit": "2.12.0",
     "classnames": "2.5.1",
@@ -38,7 +38,7 @@
     "react-redux": "9.3.0",
     "react-router-dom": "7.18.3",
     "redux-persist": "6.0.0",
-    "zod": "3.23.8"
+    "zod": "4.5.4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^9.5.1",

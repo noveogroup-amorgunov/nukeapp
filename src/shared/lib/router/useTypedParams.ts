@@ -3,9 +3,9 @@ import { useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import type { z } from 'zod'
 
-export function useTypedParams<T extends z.ZodTypeAny>(
+export function useTypedParams<T extends z.ZodType>(
   schema: T,
-): ReturnType<T['parse']> {
+): z.output<T> {
   const params = useParams()
   return useMemo(() => schema.parse(params), [params])
 }

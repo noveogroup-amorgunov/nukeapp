@@ -6,9 +6,9 @@ function useQueryParams() {
   return useMemo(() => getQueryParams(), [window.location.search])
 }
 
-export function useTypedQueryParams<T extends z.ZodTypeAny>(
+export function useTypedQueryParams<T extends z.ZodType>(
   schema: T,
-): ReturnType<T['parse']> {
+): z.output<T> {
   const queryParams = useQueryParams()
   return useMemo(() => schema.parse(queryParams), [queryParams])
 }
