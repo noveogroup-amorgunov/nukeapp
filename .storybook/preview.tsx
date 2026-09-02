@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { withRouter } from 'storybook-addon-react-router-v6'
+import { reactRouterParameters, withRouter } from 'storybook-addon-remix-react-router'
 import { INITIAL_VIEWPORTS } from 'storybook/viewport'
 import { withApiMock } from '../src/app/storybookDecorators/withApiMock'
 import { withStore } from '../src/app/storybookDecorators/withStore'
@@ -19,18 +19,20 @@ export const parameters = {
   viewport: {
     options: INITIAL_VIEWPORTS,
   },
-  reactRouter: {
-    routePath: '/',
-    errorElement: (
-      <div>
-        Storybook don't works with routes,
-        {' '}
-        <Link to="/">go back</Link>
-        {' '}
-        to stoty
-      </div>
-    ),
-  },
+  reactRouter: reactRouterParameters({
+    routing: {
+      path: '/',
+      errorElement: (
+        <div>
+          Storybook don't works with routes,
+          {' '}
+          <Link to="/">go back</Link>
+          {' '}
+          to stoty
+        </div>
+      ),
+    },
+  }),
 }
 
 export const globalTypes = {

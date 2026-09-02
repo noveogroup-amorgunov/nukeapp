@@ -24,6 +24,8 @@ trustPolicyExclude:
   - reselect@5.1.1
   - semver@6.3.1
   - undici-types@6.21.0
+  - '@mjackson/form-data-parser@0.4.0'
+  - '@mjackson/multipart-parser@0.6.3'
 
 shellEmulator: true
 
