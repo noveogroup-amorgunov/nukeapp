@@ -1,11 +1,11 @@
-import cn from 'classnames'
 import { useMemo } from 'react'
-import { formatPrice } from '@/entities/product'
-import { AddToCartButton } from '@/features/cart/addToCart'
-import { AddToWishlistButton } from '@/features/wishlist/addToWishlist'
+import cn from 'classnames'
 import { transformProductDetailsToProduct } from '../../lib/transformProductDetailsToProduct'
 import type { ProductDetails as ProductDetailsType } from '../../model/types'
 import css from './ProductDetails.module.css'
+import { formatPrice } from '@/entities/product'
+import { AddToCartButton } from '@/features/cart/addToCart'
+import { AddToWishlistButton } from '@/features/wishlist/addToWishlist'
 
 type Props = {
   productDetails?: ProductDetailsType

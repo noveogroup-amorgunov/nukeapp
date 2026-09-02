@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react'
+import { toggleWishlistProductThunk } from '../../model/toggleWishlistProduct'
 import type { ProductId } from '@/entities/product'
 import { selectProductIsInWishlist } from '@/entities/wishlist'
 import { useAppDispatch, useAppSelector } from '@/shared/redux'
 import { Icon } from '@/shared/ui'
-import { toggleWishlistProductThunk } from '../../model/toggleWishlistProduct'
 
 type Props = {
   productId: ProductId

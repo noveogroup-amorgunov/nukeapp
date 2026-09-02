@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
-import { selectCurrentTheme } from '@/entities/theme'
-import { useAppSelector } from '@/shared/redux'
 import { useAdOfferQuery } from '../../api/adBlockApi'
 import css from './AdBlock.module.css'
+import { selectCurrentTheme } from '@/entities/theme'
+import { useAppSelector } from '@/shared/redux'
 
 export function AdBlock() {
   const { data: adOffer, isFetching } = useAdOfferQuery()

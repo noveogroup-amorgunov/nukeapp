@@ -1,7 +1,7 @@
-import { baseApi, SESSION_TAG, WISHLIST_TAG } from '@/shared/api'
 import { mapSession } from '../lib/mapSession'
 import type { Session } from '../model/types'
 import type { RequestLoginBody, SessionDto } from './types'
+import { baseApi, SESSION_TAG, WISHLIST_TAG } from '@/shared/api'
 
 export const sessionApi = baseApi.injectEndpoints({
   endpoints: build => ({

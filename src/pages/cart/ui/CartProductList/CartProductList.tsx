@@ -1,11 +1,11 @@
 import { useMemo } from 'react'
+import css from './CartProductList.module.css'
 import type { CartItem } from '@/entities/cart'
 import { formatPrice } from '@/entities/product'
 import type { Product } from '@/entities/product'
 import { AddToCartButton, RemoveIcon } from '@/features/cart/addToCart'
 import { AddToWishlistIcon } from '@/features/wishlist/addToWishlist'
 import { BaseProductList } from '@/widgets/BaseProductList'
-import css from './CartProductList.module.css'
 
 type CartProduct = Product & { quantity: number }
 

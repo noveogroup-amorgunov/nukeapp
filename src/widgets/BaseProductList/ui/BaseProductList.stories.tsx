@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import { BaseProductList } from './BaseProductList'
 import { mapProduct } from '@/entities/product'
 import { mockProductDtoByIds } from '@/entities/product/api/__mocks__/mockProductDtoByIds'
-import { BaseProductList } from './BaseProductList'
 
 const meta: Meta<typeof BaseProductList> = {
   title: 'widgets/BaseProductList',

@@ -1,7 +1,7 @@
 import cn from 'classnames'
+import css from './CartSummary.module.css'
 import { formatPrice } from '@/entities/product'
 import { Button } from '@/shared/ui'
-import css from './CartSummary.module.css'
 
 type Props = {
   totalPrice: Penny

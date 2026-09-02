@@ -5,7 +5,7 @@
 <br />
 <br />
 
-[![Netlify Status](https://img.shields.io/netlify/d1054c75-ff07-48af-8017-83083dc30951?style=flat&colorA=000000&colorB=000000)](https://app.netlify.com/sites/nukeapp/deploys) ![](https://img.shields.io/badge/architecture-%20Feature--Sliced%20Design-000000?style=flat) [![](https://img.shields.io/badge/code%20style-Anthony%20Fu-000000?style=flat)](https://github.com/antfu/eslint-config)
+[![Netlify Status](https://img.shields.io/netlify/d1054c75-ff07-48af-8017-83083dc30951?style=flat&colorA=000000&colorB=000000)](https://app.netlify.com/sites/nukeapp/deploys) ![Feature-Sliced Design](https://img.shields.io/badge/architecture-%20Feature--Sliced%20Design-000000?style=flat) [![Anthony Fu code style](https://img.shields.io/badge/code%20style-Anthony%20Fu-000000?style=flat)](https://github.com/antfu/eslint-config)
 
 An open source frontend application built using the **React** ⚛️ and [**Feature-Sliced Design**](https://feature-sliced.github.io/documentation/) 🍰.
 
@@ -17,7 +17,7 @@ An open source frontend application built using the **React** ⚛️ and [**Feat
 
 ## Live demo
 
-![](./public/images/preview@dark.png#gh-dark-mode-only)![](./public/images/preview@light.png#gh-light-mode-only)
+![Nukeapp preview, dark theme](./public/images/preview@dark.png#gh-dark-mode-only)![Nukeapp preview, light theme](./public/images/preview@light.png#gh-light-mode-only)
 
 - [Application stand](https://nukeapp.netlify.app/)
 - [Storybook stand](https://nukeapp-story.netlify.app/)

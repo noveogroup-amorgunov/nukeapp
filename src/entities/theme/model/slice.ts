@@ -1,8 +1,8 @@
 import type { PayloadAction, WithSlice } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
 import { REHYDRATE } from 'redux-persist'
-import { rootReducer } from '@/shared/redux'
 import type { Theme } from './types'
+import { rootReducer } from '@/shared/redux'
 
 type ThemeSliceState = {
   currentTheme: Theme

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { INITIAL_VIEWPORTS } from 'storybook/viewport'
 import { withRouter } from 'storybook-addon-react-router-v6'
+import { INITIAL_VIEWPORTS } from 'storybook/viewport'
 import { withApiMock } from '../src/app/storybookDecorators/withApiMock'
 import { withStore } from '../src/app/storybookDecorators/withStore'
 import { withTheme } from '../src/app/storybookDecorators/withTheme'

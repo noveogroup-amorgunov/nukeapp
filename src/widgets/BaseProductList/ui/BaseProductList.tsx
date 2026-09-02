@@ -1,12 +1,12 @@
-import cn from 'classnames'
 import { useCallback } from 'react'
 import type { ReactNode } from 'react'
+import cn from 'classnames'
+import css from './BaseProductList.module.css'
 import { ProductCard } from '@/entities/product'
 import type { Product, ProductId } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
 import { AddToWishlistIcon } from '@/features/wishlist/addToWishlist'
 import { useAppSelector } from '@/shared/redux'
-import css from './BaseProductList.module.css'
 
 type Props<T extends Product> = {
   products: T[]

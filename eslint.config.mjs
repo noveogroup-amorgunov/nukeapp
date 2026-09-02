@@ -1,6 +1,6 @@
 import antfu from '@antfu/eslint-config'
-import { fixupPluginRules } from '@eslint/compat'
 import eslintPluginReact from '@eslint-react/eslint-plugin'
+import { fixupPluginRules } from '@eslint/compat'
 import eslintPluginReactHooks from 'eslint-plugin-react-hooks'
 
 export default antfu(
@@ -22,7 +22,6 @@ export default antfu(
   // Common rules
   {
     rules: {
-      'perfectionist/sort-imports': 'off',
       'ts/no-explicit-any': 'error',
       'ts/consistent-type-definitions': ['error', 'type'],
       'import/no-default-export': 'error',
@@ -47,30 +46,33 @@ export default antfu(
   },
   {
     rules: {
-      'import/order': ['error', {
-        'groups': ['builtin', 'external', 'internal', 'parent', 'sibling'],
-        'pathGroups': [{
-          pattern: 'react',
-          group: 'external',
-          position: 'before',
-        }, {
-          pattern: '*.css',
-          group: 'index',
-          patternOptions: {
-            matchBase: true,
+      'perfectionist/sort-imports': ['error', {
+        customGroups: [
+          {
+            elementNamePattern: '^react$',
+            groupName: 'react',
           },
-          position: 'after',
-        }, {
-          pattern: '@/**',
-          group: 'external',
-          position: 'after',
-        }],
-        // "pathGroupsExcludedImportTypes": ["react"],
-        'newlines-between': 'never',
-        'alphabetize': {
-          order: 'asc',
-          caseInsensitive: true,
-        },
+          {
+            elementNamePattern: '^@/',
+            groupName: 'alias',
+          },
+        ],
+        groups: [
+          'builtin',
+          'react',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+          'alias',
+          'side-effect',
+          'side-effect-style',
+          'unknown',
+        ],
+        newlinesBetween: 0,
+        order: 'asc',
+        ignoreCase: true,
       }],
     },
   },

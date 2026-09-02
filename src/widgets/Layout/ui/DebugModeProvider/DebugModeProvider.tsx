@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import { useAppSelector } from '@/shared/redux'
 import { debugModeSlice } from '../../model/debugModeSlice'
+import { useAppSelector } from '@/shared/redux'
 
 type Props = {
   children: React.ReactNode

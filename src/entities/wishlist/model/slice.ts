@@ -1,8 +1,8 @@
 import type { PayloadAction, WithSlice } from '@reduxjs/toolkit'
 import { createSelector, createSlice } from '@reduxjs/toolkit'
+import { wishlistApi } from '../api/wishlistApi'
 import type { Product, ProductId } from '@/entities/product/@x/wishlist'
 import { rootReducer } from '@/shared/redux'
-import { wishlistApi } from '../api/wishlistApi'
 
 type WishlistSliceState = {
   products: Record<ProductId, boolean>

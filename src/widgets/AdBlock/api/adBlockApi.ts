@@ -1,7 +1,7 @@
-import { baseApi } from '@/shared/api'
 import { mapAdOffer } from '../lib/mapAdOffer'
 import type { AdOffer } from '../model/types'
 import type { AdOfferDto } from './types'
+import { baseApi } from '@/shared/api'
 
 export const adBlockApi = baseApi.injectEndpoints({
   endpoints: build => ({

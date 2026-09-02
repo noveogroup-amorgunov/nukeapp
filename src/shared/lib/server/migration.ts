@@ -1,7 +1,7 @@
-import { env } from '@/shared/lib'
 import categoriesMock from './__mocks__/categories.json'
 import productsMock from './__mocks__/products.json'
 import { db } from './serverDb'
+import { env } from '@/shared/lib'
 
 type CreateUserParams = {
   email: string

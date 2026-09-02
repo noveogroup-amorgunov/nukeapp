@@ -1,8 +1,8 @@
-import { baseApi } from '@/shared/api'
-import { getQueryParams } from '@/shared/lib/router'
 import { mapFeatureToggle } from '../lib/mapFeatureToggle'
 import type { FeatureToggle } from '../model/types'
 import type { FeatureToggleDto } from './types'
+import { baseApi } from '@/shared/api'
+import { getQueryParams } from '@/shared/lib/router'
 
 export const featureToggleApi = baseApi.injectEndpoints({
   endpoints: build => ({

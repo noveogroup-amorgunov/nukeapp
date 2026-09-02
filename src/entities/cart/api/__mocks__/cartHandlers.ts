@@ -1,8 +1,8 @@
 import { delay, http, HttpResponse } from 'msw'
-import { env, parseTokenFromRequest, verifyAccessToken } from '@/shared/lib'
-import { __serverDatabase } from '@/shared/lib/server'
 import type { CartItemDto } from '../types'
 import { mockCartDto } from './mockCartDto'
+import { env, parseTokenFromRequest, verifyAccessToken } from '@/shared/lib'
+import { __serverDatabase } from '@/shared/lib/server'
 
 export const cartHandlers = [
   http.get(`${env.VITE_API_ENDPOINT}/cart`, async ({ request }) => {

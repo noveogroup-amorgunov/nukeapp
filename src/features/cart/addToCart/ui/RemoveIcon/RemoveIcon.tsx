@@ -1,8 +1,8 @@
 import { useCallback } from 'react'
+import { removeCartItemThunk } from '../../model/actions'
 import type { ProductId } from '@/entities/product'
 import { useAppDispatch } from '@/shared/redux'
 import { Icon, useConfirmModal } from '@/shared/ui'
-import { removeCartItemThunk } from '../../model/actions'
 
 type Props = {
   productId: ProductId

@@ -1,7 +1,7 @@
-import { mapProduct } from '@/entities/product/@x/category'
 import type { CategoryWithProductsDto } from '../api/types'
 import type { CategoryWithProducts } from '../model/types'
 import { mapCategory } from './mapCategory'
+import { mapProduct } from '@/entities/product/@x/category'
 
 export function mapCategoryWithProducts(
   dto: CategoryWithProductsDto,

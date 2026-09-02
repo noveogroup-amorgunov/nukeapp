@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { toggleWishlistProductThunk } from '../../model/toggleWishlistProduct'
 import type { ProductId } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
 import { selectProductIsInWishlist } from '@/entities/wishlist'
 import { useAppDispatch, useAppSelector } from '@/shared/redux'
 import { Button, useConfirmModal } from '@/shared/ui'
-import { toggleWishlistProductThunk } from '../../model/toggleWishlistProduct'
 
 type Props = {
   productId: ProductId

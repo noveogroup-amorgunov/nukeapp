@@ -1,6 +1,9 @@
 import { useLayoutEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { z } from 'zod'
+import { categoryPageSlice } from '../../model/slice'
+import type { ProductSortBy } from '../../model/types'
+import { SortByDropdown } from '../SortByDropdown/SortByDropdown'
 import { useCategoryDetailsQuery } from '@/entities/category'
 import type { CategoryId } from '@/entities/category'
 import { useFeatureToggle } from '@/entities/featureToggle'
@@ -8,9 +11,6 @@ import { useTypedParams, useTypedQueryParams } from '@/shared/lib/router'
 import { useAppDispatch, useAppSelector } from '@/shared/redux'
 import { PageHeader } from '@/shared/ui'
 import { BaseProductList } from '@/widgets/BaseProductList'
-import { categoryPageSlice } from '../../model/slice'
-import type { ProductSortBy } from '../../model/types'
-import { SortByDropdown } from '../SortByDropdown/SortByDropdown'
 
 const pageParamsSchema = z.object({
   categoryId: z.coerce

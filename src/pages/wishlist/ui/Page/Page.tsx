@@ -1,5 +1,5 @@
-import { skipToken } from '@reduxjs/toolkit/query'
 import { useCallback, useMemo } from 'react'
+import { skipToken } from '@reduxjs/toolkit/query'
 import { useNavigate } from 'react-router-dom'
 import { selectIsAuthorized } from '@/entities/session'
 import { useAddToWishlistMutation, useWishlistProductsQuery } from '@/entities/wishlist'

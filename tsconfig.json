@@ -4,11 +4,10 @@
     "jsx": "react-jsx",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "useDefineForClassFields": true,
-    "baseUrl": "./src",
     "module": "ESNext",
     "moduleResolution": "bundler",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["./src/*"]
     },
     "resolveJsonModule": true,
     "typeRoots": ["node_modules/@types", "types/"],
@@ -16,7 +15,6 @@
     "strict": true,
     "noEmit": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": false,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "skipLibCheck": true

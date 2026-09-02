@@ -108,7 +108,7 @@ I think you agree with me, that user interfaces are very complex nowadays. In FS
 
 For example, we have widget `BaseProductList` which use different entities and features. At the same time we have N widgets like `{Any}ProductList` (for example `PopularProductList` or `CartProductList`) which use `BaseProductList`:
 
-![](../example-cross-imports@dark.jpg#gh-dark-mode-only) ![](../example-cross-imports@light.jpg#gh-light-mode-only)
+![Cross-imports example, dark theme](../example-cross-imports@dark.jpg#gh-dark-mode-only) ![Cross-imports example, light theme](../example-cross-imports@light.jpg#gh-light-mode-only)
 
 Of course, we can make dumb `ProductList`, place it on `entities/product` slice and pass all data as props. Sometimes render-props is a very powerful pattern and it works. But in this example it's a wrong way (a lot of duplicate logic and prop-hell components because every of N widgets will duplicate each other's logic):
 

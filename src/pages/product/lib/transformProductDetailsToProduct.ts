@@ -1,5 +1,5 @@
-import type { Product } from '@/entities/product'
 import type { ProductDetails } from '../model/types'
+import type { Product } from '@/entities/product'
 
 export function transformProductDetailsToProduct(
   productDetails: ProductDetails,

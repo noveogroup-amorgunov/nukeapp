@@ -1,13 +1,13 @@
-import { skipToken } from '@reduxjs/toolkit/query'
 import type { ReactNode } from 'react'
+import { skipToken } from '@reduxjs/toolkit/query'
+import { Logo } from '../Logo/Logo'
+import css from './LayoutHeader.module.css'
 import { useCartQuery } from '@/entities/cart'
 import { useFeatureToggle } from '@/entities/featureToggle'
 import { selectIsAuthorized } from '@/entities/session'
 import { ChangeTheme } from '@/entities/theme'
 import { useWishlistProductsQuery } from '@/entities/wishlist'
 import { useAppSelector } from '@/shared/redux'
-import { Logo } from '../Logo/Logo'
-import css from './LayoutHeader.module.css'
 
 type Props = {
   rightContentSlot: ReactNode

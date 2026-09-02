@@ -1,4 +1,3 @@
-import { baseApi } from '@/shared/api'
 import { mapCategory } from '../lib/mapCategory'
 import { mapCategoryWithProducts } from '../lib/mapCategoryWithProducts'
 import type { Category, CategoryWithProducts } from '../model/types'
@@ -7,6 +6,7 @@ import type {
   CategoryDto,
   CategoryWithProductsDto,
 } from './types'
+import { baseApi } from '@/shared/api'
 
 export const categoryApi = baseApi.injectEndpoints({
   endpoints: build => ({

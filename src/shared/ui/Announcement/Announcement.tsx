@@ -1,5 +1,5 @@
-import cn from 'classnames'
 import type { ReactNode } from 'react'
+import cn from 'classnames'
 import css from './Announcement.module.css'
 
 type Props = {

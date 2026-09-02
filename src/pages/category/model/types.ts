@@ -1,5 +1,5 @@
-export type ProductSortBy =
-  | 'Featured'
-  | 'Newest'
-  | 'PriceHighLow'
-  | 'PriceLowHigh'
+export type ProductSortBy
+  = | 'Featured'
+    | 'Newest'
+    | 'PriceHighLow'
+    | 'PriceLowHigh'
