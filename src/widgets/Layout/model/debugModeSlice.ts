@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction, WithSlice } from '@reduxjs/toolkit'
-import { REHYDRATE } from 'redux-persist'
+import type { WithSlice } from '@reduxjs/toolkit'
 import { rootReducer } from '@/shared/redux'
 
 type DebugModeSlice = {
@@ -23,15 +22,6 @@ const slice = createSlice({
     toggle: (state) => {
       state.isEnabled = !state.isEnabled
     },
-  },
-  extraReducers: (builder) => {
-    // Restore state from redux-persist
-    builder.addCase(REHYDRATE, (state, action) => {
-      const typedAction = action as PayloadAction<{ debugMode: DebugModeSlice }>
-      if (typedAction.payload?.debugMode) {
-        state.isEnabled = typedAction.payload.debugMode.isEnabled
-      }
-    })
   },
 })
 

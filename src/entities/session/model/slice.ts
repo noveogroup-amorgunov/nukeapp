@@ -1,6 +1,5 @@
-import type { PayloadAction, WithSlice } from '@reduxjs/toolkit'
+import type { WithSlice } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
-import { REHYDRATE } from 'redux-persist'
 import { rootReducer } from '@/shared/redux'
 import { sessionApi } from '../api/sessionApi'
 import type { SessionUserId } from './types'
@@ -36,16 +35,6 @@ const slice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    // Restore state from redux-persist
-    builder.addCase(REHYDRATE, (state, action) => {
-      const typedAction = action as PayloadAction<{ session: SessionSliceState }>
-      if (typedAction.payload?.session) {
-        state.isAuthorized = typedAction.payload.session.isAuthorized as false
-        state.userId = typedAction.payload.session.userId
-        state.accessToken = typedAction.payload.session.accessToken
-      }
-    })
-
     builder.addMatcher(
       sessionApi.endpoints.login.matchFulfilled,
       (state: SessionSliceState, { payload }) => {

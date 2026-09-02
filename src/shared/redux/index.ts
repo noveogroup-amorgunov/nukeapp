@@ -7,7 +7,7 @@ export { useAppDispatch } from './lib/useAppDispatch'
 export { useAppSelector } from './lib/useAppSelector'
 export { rootReducer } from './model/rootReducer'
 export type { AppDispatch, AppState } from './model/store'
-export { appStore, persistedStore } from './model/store'
+export { appStore } from './model/store'
 export { makeStore } from './model/store'
 export type { LazyLoadedReduxSlices } from './model/types'
 

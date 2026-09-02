@@ -49,9 +49,9 @@ importers:
       react-router-dom:
         specifier: 7.18.3
         version: 7.18.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      redux-persist:
-        specifier: 6.0.0
-        version: 6.0.0(react@19.2.8)(redux@5.0.1)
+      redux-remember:
+        specifier: ^6.0.2
+        version: 6.0.2(redux@5.0.1)
       zod:
         specifier: 4.5.4
         version: 4.5.4
@@ -3795,14 +3795,10 @@ packages:
     resolution: {integrity: sha512-6tDA8g98We0zd0GvVeMT9arEOnTw9qM03L9cJXaCjrip1OO764RDBLBfrB4cwzNGDj5OA5ioymC9GkizgWJDUg==}
     engines: {node: '>=8'}
 
-  redux-persist@6.0.0:
-    resolution: {integrity: sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==}
+  redux-remember@6.0.2:
+    resolution: {integrity: sha512-Y5zvPujEEGYQMSJmODp3NjSj4BiXTHflhRs82btK/cHOwrJNh2CEVIBGlPTMRG6Pos3+Eea7M3vzhegEBFd0Lg==}
     peerDependencies:
-      react: '>=16'
-      redux: '>4.0.0'
-    peerDependenciesMeta:
-      react:
-        optional: true
+      redux: '>=5.0.0'
 
   redux-thunk@3.1.0:
     resolution: {integrity: sha512-NW2r5T6ksUKXCabzhL9z+h206HQw/NJkcLm1GPImRQ8IzfXwRGqjVhKJGauHirT0DAuyy6hjdnMZaRoAcy0Klw==}
@@ -8175,11 +8171,9 @@ snapshots:
       indent-string: 4.0.0
       strip-indent: 3.0.0
 
-  redux-persist@6.0.0(react@19.2.8)(redux@5.0.1):
+  redux-remember@6.0.2(redux@5.0.1):
     dependencies:
       redux: 5.0.1
-    optionalDependencies:
-      react: 19.2.8
 
   redux-thunk@3.1.0(redux@5.0.1):
     dependencies:
