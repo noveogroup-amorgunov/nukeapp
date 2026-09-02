@@ -26,8 +26,8 @@ importers:
         specifier: 2.5.1
         version: 2.5.1
       jose:
-        specifier: 5.6.3
-        version: 5.6.3
+        specifier: 6.2.10
+        version: 6.2.10
       msw:
         specifier: 2.15.0
         version: 2.15.0(@types/node@26.4.0)(@typescript/typescript6@6.0.2)
@@ -3024,8 +3024,8 @@ packages:
   isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
 
-  jose@5.6.3:
-    resolution: {integrity: sha512-1Jh//hEEwMhNYPDDLwXHa2ePWgWiFNNUadVmguAAw2IJ6sj9mNxV5tGXJNqlMkJAybF6Lgw1mISDxTePP/187g==}
+  jose@6.2.10:
+    resolution: {integrity: sha512-iiW7J9qRFlGxvCOIBDBDxFePQSn7ZMAnrYGhrrOo6siO/MIqwfyilLR27pkfDgUk+raLuzADS8A3S/KLBisc0g==}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -7176,7 +7176,7 @@ snapshots:
 
   isexe@2.0.0: {}
 
-  jose@5.6.3: {}
+  jose@6.2.10: {}
 
   js-tokens@4.0.0: {}
 
