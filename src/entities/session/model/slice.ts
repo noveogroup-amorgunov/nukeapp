@@ -5,8 +5,8 @@ import { rootReducer } from '@/shared/redux'
 import { sessionApi } from '../api/sessionApi'
 import type { SessionUserId } from './types'
 
-export type SessionSliceState =
-  | {
+export type SessionSliceState
+  = | {
     isAuthorized: true
     accessToken: string
     userId: SessionUserId

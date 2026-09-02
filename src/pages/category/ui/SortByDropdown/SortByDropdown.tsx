@@ -1,11 +1,11 @@
-import 'rc-dropdown/assets/index.css'
-import Dropdown from 'rc-dropdown'
 import { useState } from 'react'
+import Dropdown from 'rc-dropdown'
 import { Icon } from '@/shared/ui'
 import { productSortByNamesMap } from '../../model/consts'
 import type { ProductSortBy } from '../../model/types'
 import { SortByOptions } from '../SortByOptions/SortByOptions'
 import css from './SortByDropdown.module.css'
+import 'rc-dropdown/assets/index.css'
 
 type Props = {
   defaultSortBy?: ProductSortBy

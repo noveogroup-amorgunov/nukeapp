@@ -109,7 +109,7 @@ type Product = {
 
 Я думаю, вы согласитесь, что сегодня пользовательские интерфейсы зачастую очень сложные. И в рамках FSD обычно недостаточно слоев для композиции UI. Например, у нас есть виджет `BaseProductList`, который использует различные фичи и сущности. В тоже время у нас есть N виджетов типа `{Any}ProductList` (например, `PopularProductList` или `CartProductList`), которые используют `BaseProductList`:
 
-![](../example-cross-imports@dark.jpg#gh-dark-mode-only) ![](../example-cross-imports@light.jpg#gh-light-mode-only)
+![Cross-imports example, dark theme](../example-cross-imports@dark.jpg#gh-dark-mode-only) ![Cross-imports example, light theme](../example-cross-imports@light.jpg#gh-light-mode-only)
 
 Конечно, мы можем создать глупый компонент `ProductList` и положить его внутрь слайса `entities/product`, прокинув все свойства как пропсы. Иногда паттерн рендер-пропсов очень мощный инструмент и это работает. Но в данном примере это не так (получаем много дублирующей логике и prop-hell в компонентах, потому что каждый из N виджетов будет дублировать логику друг друга):
 

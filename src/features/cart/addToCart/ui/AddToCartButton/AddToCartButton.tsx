@@ -1,5 +1,5 @@
-import cn from 'classnames'
 import { useCallback } from 'react'
+import cn from 'classnames'
 import { useNavigate } from 'react-router-dom'
 import { selectProductInCart, selectTotalQuantity } from '@/entities/cart'
 import { formatPrice } from '@/entities/product'

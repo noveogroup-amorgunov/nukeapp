@@ -1,5 +1,5 @@
-import cn from 'classnames'
 import { useMemo } from 'react'
+import cn from 'classnames'
 import { formatPrice } from '@/entities/product'
 import { AddToCartButton } from '@/features/cart/addToCart'
 import { AddToWishlistButton } from '@/features/wishlist/addToWishlist'

@@ -1,6 +1,6 @@
-import cn from 'classnames'
 import { useCallback } from 'react'
 import type { ReactNode } from 'react'
+import cn from 'classnames'
 import { ProductCard } from '@/entities/product'
 import type { Product, ProductId } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'

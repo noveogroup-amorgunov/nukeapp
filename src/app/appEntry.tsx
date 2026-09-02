@@ -1,13 +1,13 @@
-import { Provider as ModalProvider } from '@ebay/nice-modal-react'
 import React from 'react'
+import { Provider as ModalProvider } from '@ebay/nice-modal-react'
 import ReactDOM from 'react-dom/client'
 import { Provider as ReduxProvider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import { ThemeProvider } from '@/entities/theme'
+import '@/shared/base.css'
 import { appStore, persistedStore } from '@/shared/redux'
 import { DebugModeProvider } from '@/widgets/Layout'
-import { RouterProvider } from './providers/router/RouterProvider'
-import '@/shared/base.css'
+import { RouterProvider } from './with-providers/router/RouterProvider'
 
 const root = document.getElementById('root') as HTMLElement
 

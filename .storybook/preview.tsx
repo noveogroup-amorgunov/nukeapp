@@ -1,7 +1,6 @@
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
-import React from '@storybook/react'
 import { Link } from 'react-router-dom'
-import { withRouter } from 'storybook-addon-react-router-v6'
+import { reactRouterParameters, withRouter } from 'storybook-addon-remix-react-router'
+import { INITIAL_VIEWPORTS } from 'storybook/viewport'
 import { withApiMock } from '../src/app/storybookDecorators/withApiMock'
 import { withStore } from '../src/app/storybookDecorators/withStore'
 import { withTheme } from '../src/app/storybookDecorators/withTheme'
@@ -18,21 +17,22 @@ export const parameters = {
     },
   },
   viewport: {
-    viewports: INITIAL_VIEWPORTS,
-    defaultViewport: 'iphonex',
+    options: INITIAL_VIEWPORTS,
   },
-  reactRouter: {
-    routePath: '/',
-    errorElement: (
-      <div>
-        Storybook don't works with routes,
-        {' '}
-        <Link to="/">go back</Link>
-        {' '}
-        to stoty
-      </div>
-    ),
-  },
+  reactRouter: reactRouterParameters({
+    routing: {
+      path: '/',
+      errorElement: (
+        <div>
+          Storybook don't works with routes,
+          {' '}
+          <Link to="/">go back</Link>
+          {' '}
+          to stoty
+        </div>
+      ),
+    },
+  }),
 }
 
 export const globalTypes = {
@@ -56,3 +56,10 @@ export const decorators = [
   withApiMock,
   withRouter,
 ]
+
+export const initialGlobals = {
+  viewport: {
+    value: 'iphonex',
+    isRotated: false,
+  },
+}

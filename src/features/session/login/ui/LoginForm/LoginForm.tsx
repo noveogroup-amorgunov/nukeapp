@@ -1,5 +1,5 @@
-import { zodResolver } from '@hookform/resolvers/zod'
 import { useCallback } from 'react'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { useAppDispatch } from '@/shared/redux'
 import { Button } from '@/shared/ui'
@@ -32,8 +32,11 @@ export function LoginForm(props: Props) {
       dispatch(loginThunk({ email, password }))
         .unwrap()
         .then(() => props.onComplete?.())
-        .catch((error) => {
-          setError('email', { type: 'server', message: error.message })
+        .catch((error: unknown) => {
+          setError('email', {
+            type: 'server',
+            message: error instanceof Error ? error.message : String(error),
+          })
         })
     },
     [],

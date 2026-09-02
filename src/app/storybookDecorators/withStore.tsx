@@ -1,4 +1,4 @@
-import type { Decorator } from '@storybook/react'
+import type { Decorator } from '@storybook/react-vite'
 import { Provider as ReduxProvider } from 'react-redux'
 import { loginThunk } from '@/features/session/login/model/login'
 import { env } from '@/shared/lib'
