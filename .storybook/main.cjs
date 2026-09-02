@@ -5,8 +5,9 @@ module.exports = {
   ],
   addons: [
     '@storybook/addon-links',
-    '@storybook/addon-essentials',
     'storybook-addon-react-router-v6',
+    '@storybook/addon-docs',
+    '@storybook/addon-mcp',
   ],
   framework: {
     name: '@storybook/react-vite',

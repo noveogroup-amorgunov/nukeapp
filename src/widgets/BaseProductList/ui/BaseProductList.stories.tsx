@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { mapProduct } from '@/entities/product'
 import { mockProductDtoByIds } from '@/entities/product/api/__mocks__/mockProductDtoByIds'
 import { BaseProductList } from './BaseProductList'

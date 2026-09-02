@@ -1,4 +1,4 @@
-import type { Decorator } from '@storybook/react'
+import type { Decorator } from '@storybook/react-vite'
 import { ThemeProvider } from '@/entities/theme'
 
 export const withTheme: Decorator = (StoryFn, context) => {
