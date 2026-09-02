@@ -1,6 +1,8 @@
 import { useCallback } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import { useAppDispatch } from '@/shared/redux'
+import { Button } from '@/shared/ui'
 import { loginThunk } from '../../model/login'
 import {
 
@@ -8,8 +10,6 @@ import {
 } from '../../model/loginFormSchema'
 import type { LoginFormSchema } from '../../model/loginFormSchema'
 import css from './LoginForm.module.css'
-import { useAppDispatch } from '@/shared/redux'
-import { Button } from '@/shared/ui'
 
 type Props = {
   onComplete?: () => void

@@ -1,5 +1,5 @@
-import type { ProductDto } from '../types'
 import { productsMock } from '@/shared/lib/server'
+import type { ProductDto } from '../types'
 
 // Example with faker
 // import { faker } from '@faker-js/faker'

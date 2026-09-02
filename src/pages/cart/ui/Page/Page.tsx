@@ -1,13 +1,13 @@
 import { useCallback } from 'react'
 import { skipToken } from '@reduxjs/toolkit/query'
 import { useNavigate } from 'react-router-dom'
-import { CartProductList } from '../CartProductList/CartProductList'
-import { CartSummary } from '../CartSummary/CartSummary'
-import css from './Page.module.css'
 import { selectCartTotalPrice, selectProductsInCart, useCartQuery } from '@/entities/cart'
 import { selectIsAuthorized } from '@/entities/session'
 import { useAppSelector } from '@/shared/redux'
 import { Button } from '@/shared/ui'
+import { CartProductList } from '../CartProductList/CartProductList'
+import { CartSummary } from '../CartSummary/CartSummary'
+import css from './Page.module.css'
 
 export function CartPage() {
   const isAuthorized = useAppSelector(selectIsAuthorized)

@@ -1,7 +1,6 @@
 import { skipToken } from '@reduxjs/toolkit/query'
 import cn from 'classnames'
 import { Link } from 'react-router-dom'
-import css from './LayoutProfileCard.module.css'
 import { selectTotalQuantity } from '@/entities/cart'
 import { selectIsAuthorized } from '@/entities/session'
 import { useMeQuery } from '@/entities/user'
@@ -9,6 +8,7 @@ import { selectProductIdsInWishlist } from '@/entities/wishlist'
 import { LogoutButton } from '@/features/session/logout'
 import { useAppSelector } from '@/shared/redux'
 import { Icon } from '@/shared/ui'
+import css from './LayoutProfileCard.module.css'
 
 export function LayoutProfileCard() {
   const isAuthorized = useAppSelector(selectIsAuthorized)

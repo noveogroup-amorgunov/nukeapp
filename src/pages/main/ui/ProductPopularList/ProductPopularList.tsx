@@ -1,6 +1,6 @@
+import { BaseProductList } from '@/widgets/BaseProductList'
 import { usePopularProductsQuery } from '../../api/productPopularListApi'
 import css from './ProductPopularList.module.css'
-import { BaseProductList } from '@/widgets/BaseProductList'
 
 export function ProductPopularList() {
   const { data = [], isFetching } = usePopularProductsQuery()

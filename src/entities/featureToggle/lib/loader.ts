@@ -1,5 +1,5 @@
-import { featureToggleApi } from '../api/featureToggleApi'
 import type { AppDispatch } from '@/shared/redux'
+import { featureToggleApi } from '../api/featureToggleApi'
 
 export async function featureToggleLoader(dispatch: AppDispatch) {
   const loader = dispatch(featureToggleApi.endpoints.featureToggle.initiate())

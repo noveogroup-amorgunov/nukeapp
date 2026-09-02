@@ -1,5 +1,5 @@
-import type { CartDto } from '../types'
 import type { ProductDto } from '@/entities/product/@x/cart'
+import type { CartDto } from '../types'
 
 // TODO: infer type from database
 type CartDatabaseModal = {

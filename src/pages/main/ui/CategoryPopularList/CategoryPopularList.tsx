@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
-import css from './CategoryPopularList.module.css'
 import { CategoryCard, usePopularCategoriesQuery } from '@/entities/category'
+import css from './CategoryPopularList.module.css'
 
 export function CategoryPopularList() {
   const { data: categories = [], isLoading } = usePopularCategoriesQuery()

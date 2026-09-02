@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import { Icon } from '@/shared/ui'
 import { mockProductDto } from '../../api/__mocks__/mockProductDto'
 import { mapProduct } from '../../lib/mapProduct'
 import { ProductCard } from './ProductCard'
-import { Icon } from '@/shared/ui'
 
 const meta: Meta<typeof ProductCard> = {
   title: 'entities/product/ProductCard',

@@ -1,6 +1,6 @@
+import { useAppDispatch, useAppSelector } from '@/shared/redux'
 import { debugModeSlice } from '../../model/debugModeSlice'
 import css from './DebugModeToggler.module.css'
-import { useAppDispatch, useAppSelector } from '@/shared/redux'
 
 export function DebugModeToggler() {
   const isDebugModeEnabled = useAppSelector(debugModeSlice.selectors.isEnabled)

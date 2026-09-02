@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import type { ReactNode } from 'react'
-import { themeSlice } from '../model/slice'
-import type { Theme } from '../model/types'
 import { useFeatureToggle } from '@/entities/featureToggle/@x/theme'
 import { useAppDispatch, useAppSelector } from '@/shared/redux'
+import { themeSlice } from '../model/slice'
+import type { Theme } from '../model/types'
 
 type Props = {
   theme?: Theme

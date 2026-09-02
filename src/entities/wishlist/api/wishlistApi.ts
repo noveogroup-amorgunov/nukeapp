@@ -1,7 +1,7 @@
-import { mapWishlist } from '../lib/mapWishlist'
-import type { WishlistDto } from './types'
 import type { Product } from '@/entities/product/@x/wishlist'
 import { baseApi, WISHLIST_TAG } from '@/shared/api'
+import { mapWishlist } from '../lib/mapWishlist'
+import type { WishlistDto } from './types'
 
 export const wishlistApi = baseApi.injectEndpoints({
   endpoints: build => ({

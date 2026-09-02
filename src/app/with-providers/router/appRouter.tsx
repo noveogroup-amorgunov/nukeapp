@@ -1,6 +1,5 @@
 import type { ReactElement } from 'react'
 import { createBrowserRouter, Navigate } from 'react-router-dom'
-import { baseLayoutWithSidebar } from '../layout/baseLayoutWithSidebar'
 import { featureToggleLoader } from '@/entities/featureToggle'
 import { selectIsAuthorized } from '@/entities/session'
 import { CartPage } from '@/pages/cart'
@@ -11,6 +10,7 @@ import { ProductPage } from '@/pages/product'
 import { WishlistPage } from '@/pages/wishlist'
 import { appStore, useAppSelector } from '@/shared/redux'
 import { Layout } from '@/widgets/Layout'
+import { baseLayoutWithSidebar } from '../layout/baseLayoutWithSidebar'
 
 type GuestGuardProps = {
   children: ReactElement

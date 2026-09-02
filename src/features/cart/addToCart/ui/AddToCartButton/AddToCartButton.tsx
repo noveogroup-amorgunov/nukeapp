@@ -1,17 +1,17 @@
 import { useCallback } from 'react'
 import cn from 'classnames'
 import { useNavigate } from 'react-router-dom'
-import {
-  addCartProductThunk,
-  removeCartProductThunk,
-} from '../../model/actions'
-import css from './AddToCartButton.module.css'
 import { selectProductInCart, selectTotalQuantity } from '@/entities/cart'
 import { formatPrice } from '@/entities/product'
 import type { Product } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
 import { useAppDispatch, useAppSelector } from '@/shared/redux'
 import { Button, useAlertModal, useConfirmModal } from '@/shared/ui'
+import {
+  addCartProductThunk,
+  removeCartProductThunk,
+} from '../../model/actions'
+import css from './AddToCartButton.module.css'
 
 type Props = {
   size?: 'm' | 's'

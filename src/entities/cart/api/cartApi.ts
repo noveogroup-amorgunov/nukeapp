@@ -1,7 +1,7 @@
+import { baseApi, CART_TAG } from '@/shared/api'
 import { mapCart } from '../lib/mapCart'
 import type { Cart } from '../model/types'
 import type { CartDto, CartItemDto } from './types'
-import { baseApi, CART_TAG } from '@/shared/api'
 
 export const cartApi = baseApi.injectEndpoints({
   endpoints: build => ({
