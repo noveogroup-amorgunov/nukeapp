@@ -1,14 +1,21 @@
-import type { ProductDto } from '@/entities/product/@x/category'
+import { z } from 'zod'
+import { productDtoSchema } from '@/entities/product/@x/category'
 
-export type CategoryDto = {
-  id: number
-  name: string
-  imageUrl: string[]
-}
+export const categoryDtoSchema = z.object({
+  id: z.number().positive(),
+  name: z.string(),
+  imageUrl: z.array(z.string()),
+})
 
-export type CategoryWithProductsDto = CategoryDto & {
-  products: ProductDto[]
-}
+export type CategoryDto = z.infer<typeof categoryDtoSchema>
+
+export const categoryWithProductsDtoSchema = categoryDtoSchema.extend({
+  products: z.array(productDtoSchema),
+})
+
+export type CategoryWithProductsDto = z.infer<
+  typeof categoryWithProductsDtoSchema
+>
 
 export type CategoryDetailsRequestArgs = {
   categoryId: number

@@ -1,15 +1,22 @@
-import type { ProductDto } from '@/entities/product/@x/cart'
+import { z } from 'zod'
+import { productDtoSchema } from '@/entities/product/@x/cart'
 
-export type CartDto = {
-  cartItems: Array<{
-    product: ProductDto
-    quantity: number
-  }>
-  deliveryPrice: Penny
-  version: number
-}
+export const cartItemDtoSchema = z.object({
+  productId: z.number().positive(),
+  quantity: z.number().positive(),
+})
 
-export type CartItemDto = {
-  productId: Id
-  quantity: number
-}
+export type CartItemDto = z.infer<typeof cartItemDtoSchema>
+
+export const cartDtoSchema = z.object({
+  cartItems: z.array(
+    z.object({
+      product: productDtoSchema,
+      quantity: z.number().positive(),
+    }),
+  ),
+  deliveryPrice: z.number().nonnegative(),
+  version: z.number().int().positive(),
+})
+
+export type CartDto = z.infer<typeof cartDtoSchema>

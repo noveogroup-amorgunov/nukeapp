@@ -1,3 +1,4 @@
+export { productDtoSchema } from './api/types'
 export type { ProductDto } from './api/types'
 export { formatPrice } from './lib/formatPrice'
 export { mapProduct } from './lib/mapProduct'
