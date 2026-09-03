@@ -26,7 +26,7 @@
   "dependencies": {
     "@ebay/nice-modal-react": "1.2.13",
     "@hookform/resolvers": "5.9.1",
-    "@mswjs/data": "github:noveogroup-amorgunov/mswjs-data#feat-persist",
+    "@msw/data": "^1.1.8",
     "@reduxjs/toolkit": "2.12.0",
     "classnames": "2.5.1",
     "jose": "6.2.10",

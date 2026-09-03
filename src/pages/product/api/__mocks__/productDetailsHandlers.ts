@@ -6,9 +6,9 @@ export const productDetailsHandlers = [
   http.get(`${env.VITE_API_ENDPOINT}/products/:id`, async ({ params }) => {
     const { id } = params
 
-    const maybeProduct = __serverDatabase.product.findFirst({
-      where: { id: { equals: Number(id) } },
-    })
+    const maybeProduct = __serverDatabase.product.findFirst(q =>
+      q.where({ id: Number(id) }),
+    )
 
     await delay(env.VITE_API_DELAY)
     return HttpResponse.json(

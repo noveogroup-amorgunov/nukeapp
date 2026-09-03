@@ -9,23 +9,18 @@ export const cartHandlers = [
     try {
       const { userId } = await verifyAccessToken(parseTokenFromRequest(request))
 
-      const maybeCart = __serverDatabase.cart.findFirst({
-        where: {
-          user: {
-            id: { equals: userId },
-          },
-        },
-      })
+      const maybeCart = __serverDatabase.cart.findFirst(q =>
+        q.where({ user: { id: userId } }),
+      )
 
       if (!maybeCart) {
         return HttpResponse.json('Bad request', { status: 400 })
       }
 
-      const products = __serverDatabase.product.findMany({
-        where: {
-          id: { in: maybeCart.itemsProductId ?? [] },
-        },
-      })
+      const productIds = maybeCart.itemsProductId
+      const products = __serverDatabase.product.findMany(q =>
+        q.where({ id: id => productIds.includes(id) }),
+      )
 
       await delay(env.VITE_API_DELAY)
 
@@ -45,20 +40,20 @@ export const cartHandlers = [
       const apiDelay = url.searchParams.get('delay')
       const body = await request.json()
 
-      __serverDatabase.cart.update({
-        where: {
-          user: {
-            id: { equals: userId },
+      await __serverDatabase.cart.update(
+        q => q.where({ user: { id: userId } }),
+        {
+          data(cart) {
+            cart.version = body.version
+            cart.itemsProductQuantity = body.items.map(
+              (item: CartItemDto) => item.quantity,
+            )
+            cart.itemsProductId = body.items.map(
+              (item: CartItemDto) => item.productId,
+            )
           },
         },
-        data: {
-          version: body.version,
-          itemsProductQuantity: body.items.map(
-            (item: CartItemDto) => item.quantity,
-          ),
-          itemsProductId: body.items.map((item: CartItemDto) => item.productId),
-        },
-      })
+      )
 
       await delay(Number(apiDelay) || env.VITE_API_DELAY)
 

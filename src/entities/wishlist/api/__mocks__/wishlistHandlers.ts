@@ -9,19 +9,14 @@ export const wishlistHandlers = [
       try {
         const { userId } = await verifyAccessToken(parseTokenFromRequest(request))
 
-        const maybeWishlist = __serverDatabase.wishlist.findFirst({
-          where: {
-            user: {
-              id: { equals: userId },
-            },
-          },
-        })
+        const maybeWishlist = __serverDatabase.wishlist.findFirst(q =>
+          q.where({ user: { id: userId } }),
+        )
 
-        const products = __serverDatabase.product.findMany({
-          where: {
-            id: { in: maybeWishlist?.productIds ?? [] },
-          },
-        })
+        const wishlistProductIds = maybeWishlist?.productIds ?? []
+        const products = __serverDatabase.product.findMany(q =>
+          q.where({ id: id => wishlistProductIds.includes(id) }),
+        )
 
         await delay(env.VITE_API_DELAY)
         return HttpResponse.json(products, { status: 200 })
@@ -43,16 +38,14 @@ export const wishlistHandlers = [
         const apiDelay = url.searchParams.get('delay')
         const body = await request.json()
 
-        __serverDatabase.wishlist.update({
-          where: {
-            user: {
-              id: { equals: userId },
+        await __serverDatabase.wishlist.update(
+          q => q.where({ user: { id: userId } }),
+          {
+            data(wishlist) {
+              wishlist.productIds = body
             },
           },
-          data: {
-            productIds: body,
-          },
-        })
+        )
 
         await delay(Number(apiDelay) || env.VITE_API_DELAY)
         return HttpResponse.json({}, { status: 200 })

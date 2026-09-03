@@ -28,9 +28,11 @@ const apiMockWorker = setupWorker(
   ...userHandlers,
 )
 
-__serverStartDatabaseMigration()
-
 export async function startApiMockWorker() {
+  const shouldReset = Object.fromEntries(new URLSearchParams(document.location.search)).reset === '1'
+
+  await __serverStartDatabaseMigration(shouldReset)
+
   await apiMockWorker.start({
     onUnhandledRequest(request, print) {
       const url = new URL(request.url)
