@@ -1,7 +1,7 @@
 import type { Product } from '@/entities/product/@x/wishlist'
 import { baseApi, WISHLIST_TAG } from '@/shared/api'
 import { mapWishlist } from '../lib/mapWishlist'
-import type { WishlistDto } from './types'
+import { wishlistDtoSchema } from './types'
 
 export const wishlistApi = baseApi.injectEndpoints({
   endpoints: build => ({
@@ -10,7 +10,16 @@ export const wishlistApi = baseApi.injectEndpoints({
         url: `/wishlist/products`,
       }),
       providesTags: [WISHLIST_TAG],
-      transformResponse: (response: WishlistDto) => mapWishlist(response),
+      /**
+       * ✅ DX Best practice (Type safe)
+       *
+       * By default response is any (see BaseQueryResult)
+       * Set response as unknown and validate it by zod schema
+       *
+       * @see node_modules/@reduxjs/toolkit/dist/query/baseQueryTypes.d.ts
+       */
+      transformResponse: (response: unknown) =>
+        mapWishlist(wishlistDtoSchema.parse(response)),
     }),
     addToWishlist: build.mutation<object, number[]>({
       query: productsInWishlistIds => ({

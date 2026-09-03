@@ -1,7 +1,8 @@
 import { baseApi, CART_TAG } from '@/shared/api'
 import { mapCart } from '../lib/mapCart'
 import type { Cart } from '../model/types'
-import type { CartDto, CartItemDto } from './types'
+import type { CartItemDto } from './types'
+import { cartDtoSchema } from './types'
 
 export const cartApi = baseApi.injectEndpoints({
   endpoints: build => ({
@@ -10,7 +11,15 @@ export const cartApi = baseApi.injectEndpoints({
         url: `/cart`,
       }),
       providesTags: [CART_TAG],
-      transformResponse: (response: CartDto) => mapCart(response),
+      /**
+       * ✅ DX Best practice (Type safe)
+       *
+       * By default response is any (see BaseQueryResult)
+       * Set response as unknown and validate it by zod schema
+       *
+       * @see node_modules/@reduxjs/toolkit/dist/query/baseQueryTypes.d.ts
+       */
+      transformResponse: (response: unknown) => mapCart(cartDtoSchema.parse(response)),
     }),
     updateCart: build.mutation<object, { items: CartItemDto[], version: number }>({
       query: ({ items, version }) => ({
