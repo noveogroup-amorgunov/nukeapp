@@ -6,7 +6,7 @@ import type {
 } from '@reduxjs/toolkit/query'
 import { fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { env } from '../lib/env'
-import type { AppState } from '../redux'
+import { getApiAccessToken } from './apiAccessTokenMemoryStorage'
 
 export const baseQuery: BaseQueryFn<
   string | FetchArgs,
@@ -16,9 +16,8 @@ export const baseQuery: BaseQueryFn<
   FetchBaseQueryMeta
 > = fetchBaseQuery({
   baseUrl: env.VITE_API_ENDPOINT,
-  prepareHeaders: (headers, { getState }) => {
-    // FIXME: Attach access token to api without linking to session store
-    const accessToken = (getState() as AppState).session?.accessToken
+  prepareHeaders: (headers) => {
+    const accessToken = getApiAccessToken()
 
     if (accessToken) {
       headers.set('Authorization', `Bearer ${accessToken}`)
