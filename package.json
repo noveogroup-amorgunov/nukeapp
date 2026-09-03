@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test:env": "./.scripts/validateEnv.sh",
+    "setup": "npx skills experimental_install",
     "prestart": "npm run test:env",
     "preinstall": "npx only-allow pnpm",
     "start": "vite",
