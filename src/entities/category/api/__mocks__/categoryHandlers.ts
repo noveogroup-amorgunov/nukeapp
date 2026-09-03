@@ -16,9 +16,9 @@ const productSortByCompareFunctionMap: Record<
 
 export const categoriesHandlers = [
   http.get(`${env.VITE_API_ENDPOINT}/categories/popular`, async () => {
-    const categories = __serverDatabase.category.findMany({
-      where: { popular: { equals: true } },
-    })
+    const categories = __serverDatabase.category.findMany(q =>
+      q.where({ popular: true }),
+    )
 
     await delay(env.VITE_API_DELAY)
 
@@ -31,9 +31,9 @@ export const categoriesHandlers = [
     const sortBy = url.searchParams.get('sortBy')
     const apiDelay = url.searchParams.get('delay')
 
-    const maybeCategory = __serverDatabase.category.findFirst({
-      where: { id: { equals: Number(id) } },
-    })
+    const maybeCategory = __serverDatabase.category.findFirst(q =>
+      q.where({ id: Number(id) }),
+    )
 
     if (!maybeCategory) {
       await delay(Number(apiDelay) || env.VITE_API_DELAY)
@@ -45,9 +45,9 @@ export const categoriesHandlers = [
       products: [],
     }
 
-    categoryDto.products = __serverDatabase.product.findMany({
-      where: { categoryId: { equals: maybeCategory.id } },
-    })
+    categoryDto.products = __serverDatabase.product.findMany(q =>
+      q.where({ categoryId: maybeCategory.id }),
+    )
 
     if (sortBy) {
       categoryDto.products = categoryDto.products.sort(

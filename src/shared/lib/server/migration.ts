@@ -1,7 +1,7 @@
 import { env } from '@/shared/lib'
 import categoriesMock from './__mocks__/categories.json'
 import productsMock from './__mocks__/products.json'
-import { db } from './serverDb'
+import { db, dbHydration } from './serverDb'
 
 type CreateUserParams = {
   email: string
@@ -16,16 +16,16 @@ function generateId(tableName: string) {
   return idCounters[tableName]++
 }
 
-function createUser(userData: CreateUserParams) {
-  const user = db.user.create({ ...userData, id: generateId('user') })
+async function createUser(userData: CreateUserParams) {
+  const user = await db.user.create({ ...userData, id: generateId('user') })
 
-  db.wishlist.create({
+  await db.wishlist.create({
     id: generateId('wishlist'),
     user,
     productIds: [3, 4, 5, 6, 7],
   })
 
-  db.cart.create({
+  await db.cart.create({
     id: generateId('cart'),
     user,
     version: 0,
@@ -34,22 +34,37 @@ function createUser(userData: CreateUserParams) {
   })
 }
 
-export function startDatabaseMigration() {
-  const users = db.user.getAll()
+export async function startDatabaseMigration(shouldReset: boolean) {
+  // Wait until all the collections are hydrated from the storage
+  await dbHydration
 
-  // Data already exists by persist(db)
-  if (users.length > 0) {
+  if (shouldReset) {
+    db.cart.clear()
+    db.user.clear()
+    db.wishlist.clear()
+    db.product.clear()
+    db.category.clear()
+  }
+
+  const usersCount = db.user.count()
+
+  // Data already exists by the persist extension
+  if (usersCount > 0) {
     return
   }
 
   // create test users
-  createUser({
+  await createUser({
     email: env.VITE_API_USER_EMAIL,
     password: env.VITE_API_USER_PASSWORD,
   })
-  createUser({ email: 'test@ya.ru', password: '123456' })
+  await createUser({ email: 'test@ya.ru', password: '123456' })
 
-  categoriesMock.forEach(row => db.category.create(row))
+  for (const row of categoriesMock) {
+    await db.category.create(row)
+  }
 
-  productsMock.forEach(row => db.product.create(row))
+  for (const row of productsMock) {
+    await db.product.create(row)
+  }
 }

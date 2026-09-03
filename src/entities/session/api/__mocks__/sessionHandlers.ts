@@ -7,12 +7,9 @@ export const sessionHandlers = [
     const body = await request.json()
     const { email, password } = body
 
-    const maybeUser = __serverDatabase.user.findFirst({
-      where: {
-        email: { equals: email },
-        password: { equals: password },
-      },
-    })
+    const maybeUser = __serverDatabase.user.findFirst(q =>
+      q.where({ email, password }),
+    )
 
     if (!maybeUser) {
       await delay(env.VITE_API_DELAY)
