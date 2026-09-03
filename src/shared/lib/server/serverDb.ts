@@ -39,14 +39,14 @@ const productSchema = z.object({
   categoryId: z.number().optional(),
   popular: z.boolean(),
   name: z.string(),
-  description: z.string().nullish(),
+  description: z.string().default(''),
   badge: z.string(),
   subtitle: z.string(),
   price: z.number(),
   discountPrice: z.number(),
   inStock: z.boolean(),
   imageUrl: z.array(z.string()),
-  detailsImageUrl: z.array(z.string()).nullish(),
+  detailsImageUrl: z.array(z.string()).default([]),
 })
 
 const categorySchema = z.object({
