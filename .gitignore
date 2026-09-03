@@ -27,3 +27,6 @@ src/shared/lib/env--compiled.mjs
 *.sln
 *.sw?
 debug-storybook.log
+
+# AI skills (installed from skills-lock.json via `pnpm setup`)
+.agents/
