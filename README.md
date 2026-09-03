@@ -79,6 +79,12 @@ Other:
 pnpm install
 ```
 
+Optionally, install AI agent skills pinned in [`skills-lock.json`](./skills-lock.json):
+
+```bash
+pnpm setup
+```
+
 2. Copy `.env.example` to `.env.local`
 
 ```bash
@@ -97,12 +103,7 @@ or start Storybook stand
 pnpm storybook
 ```
 
-4. If you use VSCode, you can set custom settings for auto fix on save (provided by [antfu/eslint-config](https://github.com/antfu/eslint-config?tab=readme-ov-file#vs-code-support-auto-fix-on-save))
-
-## Troubleshoots
-
-- Package `@mswjs/data` can not sync data in `localStorage`. With the current implementation (without synchronization), after updating the page, the state (cart, wishlist) is lost. I made a pull request with this feature (https://github.com/mswjs/data/pull/277), but it has not merged yet. So I use forked version (you can see path in _package.json_).
-- Package `@feature-sliced/eslint-config` don't work on eslint 9 with flat config. That's why it's turned off now.
+4. Also you can set custom settings for auto fix on save for your IDE (provided by [antfu/eslint-config](https://github.com/antfu/eslint-config#ide-support-auto-fix-on-save))
 
 ## License
 
