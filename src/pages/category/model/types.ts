@@ -1,5 +1,1 @@
-export type ProductSortBy
-  = | 'Featured'
-    | 'Newest'
-    | 'PriceHighLow'
-    | 'PriceLowHigh'
+export type { SortBy as ProductSortBy } from '@/shared/api'

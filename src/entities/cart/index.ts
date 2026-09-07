@@ -1,11 +1,9 @@
 import { cartSlice } from './model/slice'
 
-export { cartApi, useCartQuery } from './api/cartApi'
-export { type CartItemDto } from './api/types'
-export { mapCartItemDto } from './lib/mapCartItemDto'
 export { selectProductInCart } from './model/slice'
-
 export { type Cart, type CartItem } from './model/types'
+
+export { useGetCartQuery } from '@/shared/api'
 
 export const {
   totalQuantity: selectTotalQuantity,

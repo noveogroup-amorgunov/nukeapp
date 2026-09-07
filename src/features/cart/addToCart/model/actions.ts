@@ -1,19 +1,19 @@
 import {
   addOneItem,
-  cartApi,
   incVersion,
-  mapCartItemDto,
   removeOneItem,
   removeProductFromCart,
   selectCart,
 } from '@/entities/cart'
-import type { CartItemDto } from '@/entities/cart'
 import type { Product, ProductId } from '@/entities/product'
+import type { UpdateCartRequest } from '@/shared/api'
+import { generatedApi } from '@/shared/api'
 import { debounce } from '@/shared/lib'
 import type { AppDispatch, AppState } from '@/shared/redux'
 import { createAppAsyncThunk } from '@/shared/redux'
 
 const SYNC_CART_WITH_SERVER_TIMEOUT_MS = 1500
+const SYNC_CART_DELAY_MS = 500
 
 /**
  * ✅ UX Best practice
@@ -23,16 +23,24 @@ const SYNC_CART_WITH_SERVER_TIMEOUT_MS = 1500
  */
 export const updateCartThunk = createAppAsyncThunk<
   void,
-  { items: CartItemDto[], version: number }
+  UpdateCartRequest
 >('cart/updateCartThunk', async (payload, { dispatch }) => {
-  await dispatch(cartApi.endpoints.updateCart.initiate(payload)).unwrap()
+  await dispatch(
+    generatedApi.endpoints.updateCart.initiate({
+      updateCartRequest: payload,
+      delay: SYNC_CART_DELAY_MS,
+    }),
+  ).unwrap()
 })
 
 const syncCart = debounce((dispatch: AppDispatch, state: AppState) => {
   const cart = selectCart(state)
-  const cartItemsDto = mapCartItemDto(cart)
+  const items = Object.values(cart.itemsMap).map(item => ({
+    productId: item.product.id,
+    quantity: item.quantity,
+  }))
   return dispatch(
-    updateCartThunk({ items: cartItemsDto, version: cart.version }),
+    updateCartThunk({ items, version: cart.version }),
   )
 }, SYNC_CART_WITH_SERVER_TIMEOUT_MS)
 

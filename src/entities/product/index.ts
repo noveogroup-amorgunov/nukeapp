@@ -1,4 +1,4 @@
-export type { ProductDto } from './api/types'
+export { productApi, useGetPopularProductsQuery, useGetProductsQuery } from './api/productApi'
 export { formatPrice } from './lib/formatPrice'
 export { mapProduct } from './lib/mapProduct'
 export { type Product, type ProductId } from './model/types'

@@ -1,19 +1,19 @@
 import { useMemo } from 'react'
 import { selectCurrentTheme } from '@/entities/theme'
+import { useGetAdOfferQuery } from '@/shared/api'
 import { useAppSelector } from '@/shared/redux'
-import { useAdOfferQuery } from '../../api/adBlockApi'
 import css from './AdBlock.module.css'
 
 export function AdBlock() {
-  const { data: adOffer, isFetching } = useAdOfferQuery()
+  const { data: adOffer, isFetching } = useGetAdOfferQuery()
   const theme = useAppSelector(selectCurrentTheme)
 
   const image = useMemo(() => {
     if (theme === 'dark') {
-      return adOffer?.image.replace(/^([^.]+)\.(.+)$/, '$1@dark.$2')
+      return adOffer?.imageUrl.replace(/^([^.]+)\.(.+)$/, '$1@dark.$2')
     }
 
-    return adOffer?.image
+    return adOffer?.imageUrl
   }, [adOffer, theme])
 
   if (isFetching || !adOffer) {
@@ -22,7 +22,7 @@ export function AdBlock() {
 
   return (
     <a
-      href={adOffer.link}
+      href={adOffer.offerLink}
       target="_blank"
       style={{ backgroundImage: `url(${image})` }}
       data-fsd="widget/AdBlock"

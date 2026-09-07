@@ -1,8 +1,7 @@
 import { useLayoutEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { z } from 'zod'
-import { useCategoryDetailsQuery } from '@/entities/category'
-import type { CategoryId } from '@/entities/category'
+import { useGetCategoryDetailsQuery } from '@/entities/category'
 import { useFeatureToggle } from '@/entities/featureToggle'
 import { useTypedParams, useTypedQueryParams } from '@/shared/lib/router'
 import { useAppDispatch, useAppSelector } from '@/shared/redux'
@@ -15,8 +14,7 @@ import { SortByDropdown } from '../SortByDropdown/SortByDropdown'
 const pageParamsSchema = z.object({
   categoryId: z.coerce
     .number()
-    .positive()
-    .transform(value => value as CategoryId),
+    .positive(),
 })
 
 const pageQueryParamsSchema = z.object({
@@ -32,7 +30,7 @@ export function CategoryPage() {
   const { sortBy: initialSortBy } = useTypedQueryParams(pageQueryParamsSchema)
   const dispatch = useAppDispatch()
   const sortBy = useAppSelector(categoryPageSlice.selectors.sortBy)
-  const sortByIsEnabled = useFeatureToggle('productsSort')
+  const sortByIsEnabled = useFeatureToggle('canSortProducts')
 
   useLayoutEffect(() => {
     if (initialSortBy && sortBy !== initialSortBy) {
@@ -40,9 +38,10 @@ export function CategoryPage() {
     }
   }, [])
 
-  const { data, isFetching, isLoading } = useCategoryDetailsQuery({
-    categoryId,
+  const { data, isFetching, isLoading } = useGetCategoryDetailsQuery({
+    id: categoryId,
     sortBy,
+    delay: 400,
   })
 
   /**

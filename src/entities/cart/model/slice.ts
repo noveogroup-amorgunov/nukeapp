@@ -1,9 +1,10 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction, WithSlice } from '@reduxjs/toolkit'
 import type { Product, ProductId } from '@/entities/product/@x/cart'
+import { generatedApi } from '@/shared/api'
 import type { AppState } from '@/shared/redux'
 import { rootReducer } from '@/shared/redux'
-import { cartApi } from '../api/cartApi'
+import { mapCart } from '../lib/mapCart'
 import type { Cart, CartItem } from './types'
 
 type CartSliceState = Cart
@@ -31,7 +32,7 @@ const slice = createSlice({
     ),
     products: createSelector(
       state => state.itemsMap,
-      (itemsMap: Record<ProductId, CartItem>) => Object.values(itemsMap),
+      (itemsMap: Cart['itemsMap']) => Object.values(itemsMap),
     ),
     totalQuantity: state => Object.values(state.itemsMap).reduce(
       (acc, item) => acc + item.quantity,
@@ -78,11 +79,11 @@ const slice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addMatcher(
-      cartApi.endpoints.cart.matchFulfilled,
+      generatedApi.endpoints.getCart.matchFulfilled,
       (state: CartSliceState, { payload }) => {
         // update cart state if server sent actual version
         if (state.version <= payload.version) {
-          state.itemsMap = payload.itemsMap
+          state.itemsMap = mapCart(payload).itemsMap
         }
       },
     )

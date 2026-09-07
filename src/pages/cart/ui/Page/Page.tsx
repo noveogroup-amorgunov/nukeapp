@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { skipToken } from '@reduxjs/toolkit/query'
 import { useNavigate } from 'react-router-dom'
-import { selectCartTotalPrice, selectProductsInCart, useCartQuery } from '@/entities/cart'
+import { selectCartTotalPrice, selectProductsInCart, useGetCartQuery } from '@/entities/cart'
 import { selectIsAuthorized } from '@/entities/session'
 import { useAppSelector } from '@/shared/redux'
 import { Button } from '@/shared/ui'
@@ -14,7 +14,7 @@ export function CartPage() {
   const navigate = useNavigate()
   const totalPrice = useAppSelector(selectCartTotalPrice)
   const cartProducts = useAppSelector(selectProductsInCart)
-  const { isLoading } = useCartQuery(isAuthorized ? undefined : skipToken)
+  const { isLoading } = useGetCartQuery(isAuthorized ? undefined : skipToken)
 
   const onLogin = useCallback(() => {
     navigate('/login', {

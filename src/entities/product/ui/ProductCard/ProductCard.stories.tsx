@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import { mockProductDto } from '@/shared/api/mocks/products/mockProductDto'
 import { Icon } from '@/shared/ui'
-import { mockProductDto } from '../../api/__mocks__/mockProductDto'
 import { mapProduct } from '../../lib/mapProduct'
 import { ProductCard } from './ProductCard'
 

@@ -1,8 +1,8 @@
 import { sessionSlice } from './model/slice'
 
-export { sessionApi } from './api/sessionApi'
 export { accessTokenSyncMiddleware } from './model/accessTokenSyncMiddleware'
 export { sessionSlice } from './model/slice'
+export { useLoginMutation } from '@/shared/api'
 
 export const {
   isAuthorized: selectIsAuthorized,

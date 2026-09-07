@@ -2,7 +2,7 @@ import { useCallback, useMemo } from 'react'
 import { skipToken } from '@reduxjs/toolkit/query'
 import { useNavigate } from 'react-router-dom'
 import { selectIsAuthorized } from '@/entities/session'
-import { useAddToWishlistMutation, useWishlistProductsQuery } from '@/entities/wishlist'
+import { useGetWishlistProductsQuery, useUpdateWishlistProductsMutation } from '@/entities/wishlist'
 import { useAppSelector } from '@/shared/redux'
 import { Button } from '@/shared/ui'
 import { BaseProductList } from '@/widgets/BaseProductList'
@@ -10,12 +10,12 @@ import { BaseProductList } from '@/widgets/BaseProductList'
 export function WishlistPage() {
   const isAuthorized = useAppSelector(selectIsAuthorized)
   const navigate = useNavigate()
-  const [, { isLoading: isActionFetching }] = useAddToWishlistMutation({
+  const [, { isLoading: isActionFetching }] = useUpdateWishlistProductsMutation({
     // This field sync mutation which running from other place
     // @see src/features/wishlist/AddToWishlist/model/toggleWishlistProduct.ts
     fixedCacheKey: 'shared-add-to-wishlist',
   })
-  const { data: products = [], isFetching } = useWishlistProductsQuery(
+  const { data: products = [], isFetching } = useGetWishlistProductsQuery(
     isAuthorized ? undefined : skipToken,
   )
 

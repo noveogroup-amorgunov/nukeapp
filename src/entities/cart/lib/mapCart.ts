@@ -1,6 +1,6 @@
 import { mapProduct } from '@/entities/product/@x/cart'
 import type { ProductId } from '@/entities/product/@x/cart'
-import type { CartDto } from '../api/types'
+import type { Cart as CartDto } from '@/shared/api'
 import type { Cart } from '../model/types'
 
 export function mapCart(dto: CartDto): Cart {

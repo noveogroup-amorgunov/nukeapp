@@ -1,9 +1,9 @@
+import { useGetPopularProductsQuery } from '@/entities/product'
 import { BaseProductList } from '@/widgets/BaseProductList'
-import { usePopularProductsQuery } from '../../api/productPopularListApi'
 import css from './ProductPopularList.module.css'
 
 export function ProductPopularList() {
-  const { data = [], isFetching } = usePopularProductsQuery()
+  const { data = [], isFetching } = useGetPopularProductsQuery()
 
   if (data.length < 1) {
     return null

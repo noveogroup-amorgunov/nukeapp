@@ -3,9 +3,11 @@ import {
   selectProductIdsInWishlist,
   selectProductIsInWishlist,
   toggleWishlistProduct,
-  wishlistApi,
 } from '@/entities/wishlist'
+import { generatedApi } from '@/shared/api'
 import { createAppAsyncThunk } from '@/shared/redux'
+
+const SYNC_WISHLIST_DELAY_MS = 500
 
 export const toggleWishlistProductThunk = createAppAsyncThunk<
   void,
@@ -30,8 +32,11 @@ export const toggleWishlistProductThunk = createAppAsyncThunk<
         : productsIds.concat(productId)
 
       await dispatch(
-        wishlistApi.endpoints.addToWishlist.initiate(
-          nextProductsInWishlistIds,
+        generatedApi.endpoints.updateWishlistProducts.initiate(
+          {
+            wishlistUpdateRequest: nextProductsInWishlistIds,
+            delay: SYNC_WISHLIST_DELAY_MS,
+          },
           { fixedCacheKey: 'shared-add-to-wishlist' },
         ),
       ).unwrap()

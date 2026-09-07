@@ -12,7 +12,7 @@ type Props = {
 
 export function ThemeProvider({ children, theme }: Props) {
   const currentTheme = useAppSelector(themeSlice.selectors.currentTheme)
-  const darkModeIsEnabled = useFeatureToggle('darkMode')
+  const darkModeIsEnabled = useFeatureToggle('canTurnDarkMode')
   const dispatch = useAppDispatch()
 
   useEffect(() => {

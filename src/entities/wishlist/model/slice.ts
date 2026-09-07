@@ -1,6 +1,6 @@
 import type { PayloadAction, WithSlice } from '@reduxjs/toolkit'
 import { createSelector, createSlice } from '@reduxjs/toolkit'
-import type { Product, ProductId } from '@/entities/product/@x/wishlist'
+import type { ProductId } from '@/entities/product/@x/wishlist'
 import { rootReducer } from '@/shared/redux'
 import { wishlistApi } from '../api/wishlistApi'
 
@@ -38,11 +38,11 @@ const slice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addMatcher(
-      wishlistApi.endpoints.wishlistProducts.matchFulfilled,
+      wishlistApi.endpoints.getWishlistProducts.matchFulfilled,
       (state: WishlistSliceState, { payload }) => {
         state.products = {}
 
-        payload.forEach((product: Product) => {
+        payload.forEach((product) => {
           state.products[product.id] = true
         })
       },

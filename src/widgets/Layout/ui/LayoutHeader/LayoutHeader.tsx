@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react'
 import { skipToken } from '@reduxjs/toolkit/query'
-import { useCartQuery } from '@/entities/cart'
+import { useGetCartQuery } from '@/entities/cart'
 import { useFeatureToggle } from '@/entities/featureToggle'
 import { selectIsAuthorized } from '@/entities/session'
 import { ChangeTheme } from '@/entities/theme'
-import { useWishlistProductsQuery } from '@/entities/wishlist'
+import { useGetWishlistProductsQuery } from '@/entities/wishlist'
 import { useAppSelector } from '@/shared/redux'
 import { Logo } from '../Logo/Logo'
 import css from './LayoutHeader.module.css'
@@ -14,11 +14,11 @@ type Props = {
 }
 
 export function LayoutHeader(props: Props) {
-  const darkModeIsEnabled = useFeatureToggle('darkMode')
+  const darkModeIsEnabled = useFeatureToggle('canTurnDarkMode')
   const isAuthorized = useAppSelector(selectIsAuthorized)
 
-  useWishlistProductsQuery(isAuthorized ? undefined : skipToken)
-  useCartQuery(isAuthorized ? undefined : skipToken)
+  useGetWishlistProductsQuery(isAuthorized ? undefined : skipToken)
+  useGetCartQuery(isAuthorized ? undefined : skipToken)
 
   return (
     <header data-fsd="widget/LayoutHeader" className={css.root}>
