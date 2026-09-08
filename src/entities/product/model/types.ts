@@ -7,6 +7,7 @@ export type ProductId = Brand<Id, 'ProductId'>
 
 export type Product = {
   id: ProductId
+  stock: number
   name: string
   subname: string
   label: string

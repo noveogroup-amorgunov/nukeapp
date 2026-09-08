@@ -44,7 +44,7 @@ const productSchema = z.object({
   subtitle: z.string(),
   price: z.number(),
   discountPrice: z.number(),
-  inStock: z.boolean(),
+  stock: z.number().int().min(0),
   imageUrl: z.array(z.string()),
   detailsImageUrl: z.array(z.string()).default([]),
 })

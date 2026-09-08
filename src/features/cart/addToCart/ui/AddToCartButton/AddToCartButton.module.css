@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  line-height: 16px;
 }
 
 .buttonAction {
@@ -13,4 +14,12 @@
     background: var(--primary-color);
     opacity: 0.7;
   }
+}
+
+.outOfStock {
+  font-size: 12px;
+}
+
+.outOfStockAction {
+  opacity: 0.4;
 }

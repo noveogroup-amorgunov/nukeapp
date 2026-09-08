@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import cn from 'classnames'
-import { formatPrice } from '@/entities/product'
+import { ProductAvailability } from '@/entities/product'
 import { AddToCartButton } from '@/features/cart/addToCart'
 import { AddToWishlistButton } from '@/features/wishlist/addToWishlist'
 import { transformProductDetailsToProduct } from '../../lib/transformProductDetailsToProduct'
@@ -58,15 +58,21 @@ export function ProductDetails({ productDetails, isFetching }: Props) {
       <div className={css.content}>
         <div className="text_2xl text_bold">{productDetails.name}</div>
         <div className="text_base text_bold">{productDetails.subname}</div>
-        <div className={cn(css.price, 'text_bold')}>
-          {formatPrice(productDetails.price)}
+        <div className={css.price}>
+          <ProductAvailability
+            stock={productDetails.stock}
+            price={productDetails.price}
+            oldPrice={productDetails.oldPrice}
+          />
         </div>
         <div className={css.actions}>
           <AddToWishlistButton productId={productDetails.id} />
-          <AddToCartButton
-            showAlertAfterAddAction
-            product={transformProductDetailsToProduct(productDetails)}
-          />
+          {productDetails.stock > 0 && (
+            <AddToCartButton
+              showAlertAfterAddAction
+              product={transformProductDetailsToProduct(productDetails)}
+            />
+          )}
         </div>
         <div className={cn(css.description, 'text_base')}>
           {productDetails.description}

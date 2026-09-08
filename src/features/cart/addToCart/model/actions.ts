@@ -6,6 +6,7 @@ import {
   removeOneItem,
   removeProductFromCart,
   selectCart,
+  selectProductInCart,
 } from '@/entities/cart'
 import type { CartItemDto } from '@/entities/cart'
 import type { Product, ProductId } from '@/entities/product'
@@ -67,6 +68,12 @@ export const addCartProductThunk = createAppAsyncThunk<
 >(
   'cart/addCartProductThunk',
   async (product: Product, { dispatch, getState }) => {
+    // Quantity must never exceed the product Stock
+    const productInCart = selectProductInCart(getState(), product.id)
+    if ((productInCart?.quantity ?? 0) >= product.stock) {
+      return
+    }
+
     dispatch(addOneItem(product))
     dispatch(incVersion())
     syncCart(dispatch, getState())
