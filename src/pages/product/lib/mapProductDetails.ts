@@ -5,6 +5,7 @@ import type { ProductDetails } from '../model/types'
 export function mapProductDetails(dto: ProductDetailsDto): ProductDetails {
   return {
     id: dto.id as ProductId,
+    stock: dto.stock,
     name: dto.name,
     label: dto.badge,
     subname: dto.subtitle,

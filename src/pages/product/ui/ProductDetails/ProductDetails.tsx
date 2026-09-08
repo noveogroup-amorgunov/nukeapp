@@ -63,10 +63,12 @@ export function ProductDetails({ productDetails, isFetching }: Props) {
         </div>
         <div className={css.actions}>
           <AddToWishlistButton productId={productDetails.id} />
-          <AddToCartButton
-            showAlertAfterAddAction
-            product={transformProductDetailsToProduct(productDetails)}
-          />
+          {productDetails.stock > 0 && (
+            <AddToCartButton
+              showAlertAfterAddAction
+              product={transformProductDetailsToProduct(productDetails)}
+            />
+          )}
         </div>
         <div className={cn(css.description, 'text_base')}>
           {productDetails.description}

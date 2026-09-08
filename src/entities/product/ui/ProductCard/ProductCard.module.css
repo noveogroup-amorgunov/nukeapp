@@ -24,6 +24,10 @@
   }
 }
 
+.rootOutOfStock {
+  opacity: 0.5;
+}
+
 .image {
   display: block;
   max-width: 100%;

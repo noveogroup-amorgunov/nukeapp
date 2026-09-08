@@ -5,15 +5,15 @@ Spec: `product.md` (WHY + WHAT), `technical.md` (HOW).
 
 ## 1. Out of stock end-to-end
 
-- [ ] Replace `inStock: boolean` with `stock: number` in the product DTO and
+- [x] Replace `inStock: boolean` with `stock: number` in the product DTO and
       mock data
-- [ ] Add `stock: number` to the domain `Product` type and the product
+- [x] Add `stock: number` to the domain `Product` type and the product
       mapping; mirror it through the ProductDetails DTO → details → product
       transforms
-- [ ] Catalog card: when Stock = 0, show "Out of stock" instead of the price
+- [x] Catalog card: when Stock = 0, show "Out of stock" instead of the price
       and render the card at 50% opacity (card stays clickable, wishlist
       keeps working)
-- [ ] Product page: when Stock = 0, do not render the add-to-cart control
+- [x] Product page: when Stock = 0, do not render the add-to-cart control
 
 Blocked by: none (can start immediately)
 
