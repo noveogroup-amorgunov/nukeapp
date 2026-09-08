@@ -30,8 +30,7 @@ export function AddToCartButton(props: Props) {
     selectProductInCart(state, props.product.id),
   )
   const productInCartQuantity = useAppSelector(selectTotalQuantity)
-  const productNoMoreStocks
-    = (productInCart?.quantity ?? 0) >= props.product.stock
+  const isOutOfStock = (productInCart?.quantity ?? 0) >= props.product.stock
 
   const handleClick = useCallback(
     (addOne: boolean) => {
@@ -113,17 +112,19 @@ export function AddToCartButton(props: Props) {
                 : `${formatPrice(props.product.price)}x${
                   productInCart.quantity
                 }`}
-              {!props.showOnlyQuantity && productNoMoreStocks && (
+              {!props.showOnlyQuantity && isOutOfStock && (
                 <>
                   <br />
-                  <span className={css.noMore}>No more</span>
+                  <span className={css.outOfStock}>No more</span>
                 </>
               )}
             </span>
             <span
               className={cn(
                 css.buttonAction,
-                productNoMoreStocks && css.noMoreAction,
+                !props.showOnlyQuantity
+                && isOutOfStock
+                && css.outOfStockAction,
                 'text_xl',
               )}
             >

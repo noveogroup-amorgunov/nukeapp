@@ -16,10 +16,10 @@
   }
 }
 
-.noMore {
+.outOfStock {
   font-size: 12px;
 }
 
-.noMoreAction {
+.outOfStockAction {
   opacity: 0.4;
 }
