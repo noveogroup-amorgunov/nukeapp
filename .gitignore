@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 .temp
+.scratch/
 storybook-static/*
 stats.html
 src/shared/lib/env--compiled.mjs
