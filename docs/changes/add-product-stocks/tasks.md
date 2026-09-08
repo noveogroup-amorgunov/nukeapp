@@ -38,8 +38,8 @@ Blocked by: 1 (independent of 2)
 
 ## 4. Verify and update current-state docs
 
-- [ ] Run the lint suite (eslint, tsc, steiger, dependency-cruiser)
+- [x] Run the lint suite (eslint, tsc, steiger, dependency-cruiser)
 - [ ] Manually walk through the behavioral scenarios in `product.md`
-- [ ] Update `docs/product.md`: product availability + cart quantity limits
+- [x] Update `docs/product.md`: product availability + cart quantity limits
 
 Blocked by: 1, 2, 3
