@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
 import cn from 'classnames'
 import { Link } from 'react-router-dom'
-import { formatPrice } from '../../lib/formatPrice'
 import type { Product } from '../../model/types'
+import { ProductAvailability } from '../ProductAvailability/ProductAvailability'
 import css from './ProductCard.module.css'
 
 type Props = {
@@ -37,20 +37,11 @@ export function ProductCard(props: Props) {
       <div className={css.content}>
         <div className={cn(css.label, 'text_xs')}>{subname}</div>
         <div className={cn(css.title, 'text_base')}>{name}</div>
-        {isOutOfStock
-          ? (
-              <div className={cn(css.price, 'text_bold')}>Out of stock</div>
-            )
-          : (
-              <div className={cn(css.price, 'text_bold')}>
-                {formatPrice(product.price)}
-                {product.oldPrice && product.oldPrice !== product.price && (
-                  <span className={css.oldPrice}>
-                    {formatPrice(product.oldPrice, false)}
-                  </span>
-                )}
-              </div>
-            )}
+        <ProductAvailability
+          stock={product.stock}
+          price={product.price}
+          oldPrice={product.oldPrice}
+        />
         {bottomContentSlot && (
           <div className={css.contentActions}>{bottomContentSlot}</div>
         )}

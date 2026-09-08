@@ -19,8 +19,8 @@ Blocked by: none (can start immediately)
 
 ## 2. «Only 1 left» badge
 
-- [ ] Extract a reusable availability-info UI component in the product entity
-- [ ] Show a "Only 1 left" badge on the catalog card and the product page,
+- [x] Extract a reusable availability-info UI component in the product entity
+- [x] Show a "Only 1 left" badge on the catalog card and the product page,
       strictly when Stock = 1; no stock number otherwise
 
 Blocked by: 1
