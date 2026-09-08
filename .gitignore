@@ -17,6 +17,7 @@ stats.html
 src/shared/lib/env--compiled.mjs
 
 # Editor directories and files
+.zed/*
 .vscode/*
 !.vscode/extensions.json
 .idea
