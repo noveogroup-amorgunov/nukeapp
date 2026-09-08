@@ -27,10 +27,10 @@ Blocked by: 1
 
 ## 3. Limit Quantity by Stock
 
-- [ ] Guard in `addCartProductThunk`: if cart Quantity for the product equals
+- [x] Guard in `addCartProductThunk`: if cart Quantity for the product equals
       its Stock, return without dispatching `addOneItem`, `incVersion` or
       cart sync
-- [ ] Full-size `AddToCartButton` (product page): dim the "+" action and show
+- [x] Full-size `AddToCartButton` (product page): dim the "+" action and show
       a "No more" hint when Quantity = Stock > 0; compact cart stepper stays
       unchanged ("+" becomes a no-op)
 

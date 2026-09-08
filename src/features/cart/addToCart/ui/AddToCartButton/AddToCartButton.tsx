@@ -30,6 +30,8 @@ export function AddToCartButton(props: Props) {
     selectProductInCart(state, props.product.id),
   )
   const productInCartQuantity = useAppSelector(selectTotalQuantity)
+  const productNoMoreStocks
+    = (productInCart?.quantity ?? 0) >= props.product.stock
 
   const handleClick = useCallback(
     (addOne: boolean) => {
@@ -111,8 +113,22 @@ export function AddToCartButton(props: Props) {
                 : `${formatPrice(props.product.price)}x${
                   productInCart.quantity
                 }`}
+              {!props.showOnlyQuantity && productNoMoreStocks && (
+                <>
+                  <br />
+                  <span className={css.noMore}>No more</span>
+                </>
+              )}
             </span>
-            <span className={cn(css.buttonAction, 'text_xl')}>+</span>
+            <span
+              className={cn(
+                css.buttonAction,
+                productNoMoreStocks && css.noMoreAction,
+                'text_xl',
+              )}
+            >
+              +
+            </span>
           </div>
         )}
         {!productInCart && (
