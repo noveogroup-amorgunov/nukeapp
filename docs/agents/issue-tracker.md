@@ -10,8 +10,8 @@ directory under `docs/changes/` (see `development-workflow.md`).
 - One item per directory: `.scratch/<slug>/`
 - A raw incoming item is a short markdown file with whatever context the reporter
   left; no required format
-- Triage state is recorded as a `Status:` line near the top of each item file
-  (see `triage-labels.md` for the role strings)
+- Triage state is recorded in a YAML frontmatter block at the top of each item
+  file (`status:` key, see `triage-labels.md` for the role strings)
 - Wayfinder maps live at `.scratch/<effort>/map.md` with child decision tickets at
   `.scratch/<effort>/issues/NN-<slug>.md` (numbered from `01`, one file per ticket)
 - Research artifacts from `/research` also land in `.scratch/`

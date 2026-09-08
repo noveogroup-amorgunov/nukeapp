@@ -68,6 +68,15 @@ raw incoming (.scratch/) → /triage
   `/tdd`.
 - Small single-session work still gets a change directory, but any of the
   middle steps can be trivially short.
+- Raw incoming items in `.scratch/` carry their triage status in a YAML
+  frontmatter block at the top of the item file (matching the ADR metadata
+  format):
+
+```yaml
+---
+status: needs-triage
+---
+```
 
 ## Scenarios
 
