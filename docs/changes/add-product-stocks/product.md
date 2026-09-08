@@ -1,7 +1,7 @@
 # Product stocks — product spec
 
 id: add-product-stocks
-status: in-progress
+status: done
 
 ## Why
 
