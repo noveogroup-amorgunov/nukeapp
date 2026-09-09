@@ -31,4 +31,7 @@ src/shared/lib/env--compiled.mjs
 debug-storybook.log
 
 # AI skills (installed from skills-lock.json via `pnpm setup`)
-.agents/
+.agents/*
+!.agents/skills/
+.agents/skills/*
+!.agents/skills/figma/

@@ -25,6 +25,10 @@ _Avoid_: count, amount, stocks
 The number of units of a product available for ordering.
 _Avoid_: inStock, availability, quantity
 
+**Theme**:
+The color scheme of the whole app (dark or light); switched via the html data-theme attribute.
+_Avoid_: variant, mode, color scheme
+
 **User**:
 A person who browses the shop and authorizes into it; identified by an active session.
 _Avoid_: shopper, customer, session
