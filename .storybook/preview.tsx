@@ -5,7 +5,7 @@ import { withApiMock } from '../src/app/storybookDecorators/withApiMock'
 import { withStore } from '../src/app/storybookDecorators/withStore'
 import { withTheme } from '../src/app/storybookDecorators/withTheme'
 import '../src/shared/base.css'
-import '../src/shared/colors.css'
+import '../src/shared/ui/tokens.css'
 import '../src/shared/breakpoints.css'
 
 export const parameters = {

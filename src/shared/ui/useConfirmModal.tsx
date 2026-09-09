@@ -23,7 +23,7 @@ function ConfirmModalPresenter(props: Props) {
     <Modal>
       <span className="text_base text_bold">{title}</span>
       <Button onClick={onConfirm}>{confirmText}</Button>
-      <Button theme="secondary" onClick={onCancel}>
+      <Button variant="secondary" onClick={onCancel}>
         {cancelText}
       </Button>
     </Modal>

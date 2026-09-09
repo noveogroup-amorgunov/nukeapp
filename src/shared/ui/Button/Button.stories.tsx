@@ -10,12 +10,38 @@ export default meta
 
 type Story = StoryObj<typeof Button>
 
-export const Common: Story = {
+export const Default: Story = {
   args: {
-    size: 'm',
-    theme: 'primary',
-    children: 'click me',
+    variant: 'primary',
+    children: 'Add to cart',
     isLoading: false,
     disabled: false,
+  },
+}
+
+export const Secondary: Story = {
+  args: {
+    variant: 'secondary',
+    children: 'Add to cart',
+    isLoading: false,
+    disabled: false,
+  },
+}
+
+export const IsLoading: Story = {
+  args: {
+    variant: 'primary',
+    children: 'Add to cart',
+    isLoading: true,
+    disabled: false,
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    variant: 'primary',
+    children: 'Add to cart',
+    isLoading: false,
+    disabled: true,
   },
 }
