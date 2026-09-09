@@ -1,0 +1,29 @@
+version: 1
+
+# Figma -> React API adapter for IconButton.
+
+properties:
+  InteractionState:
+    type: presentation-only
+    values:
+      Default: default
+      Hovered: ':hover'
+      FocusVisible: ':focus-visible'
+
+  Disabled:
+    type: boolean-prop
+    prop: disabled
+
+  Counter:
+    type: text
+    code:
+      prop: count
+
+# Notes:
+# - Figma Counter text -> React `count` number; an absent or zero count hides
+#   the badge.
+# - Disabled blocks the handler in code (preventDefault + return), because an
+#   `<a>` rendered through asChild cannot be natively disabled.
+# - The Icon instance is not a nested mapped component here: it is passed as
+#   the React `children` (element slot) so `asChild` (Radix Slot) can render
+#   the icon onto a custom element, e.g. an anchor.

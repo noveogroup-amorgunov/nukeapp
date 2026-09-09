@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import type { ReactNode } from 'react'
 import { useModal } from '@ebay/nice-modal-react'
 import { Icon } from '../Icon/Icon'
-import { ToggleIcon } from '../ToggleIcon/ToggleIcon'
+import { IconButton } from '../IconButton/IconButton'
 import css from './Modal.module.css'
 
 type Props = {
@@ -31,9 +31,9 @@ export function Modal(props: Props) {
       <div onClick={() => modal.remove()} className={css.overlay}></div>
       <div className={css.modal}>
         <span className={css.x}>
-          <ToggleIcon onClick={() => modal.remove()}>
+          <IconButton onClick={() => modal.remove()}>
             <Icon type="x" />
-          </ToggleIcon>
+          </IconButton>
         </span>
         {props.children}
       </div>

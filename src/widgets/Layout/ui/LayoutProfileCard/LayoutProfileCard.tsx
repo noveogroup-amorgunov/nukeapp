@@ -6,7 +6,7 @@ import { useMeQuery } from '@/entities/user'
 import { selectProductIdsInWishlist } from '@/entities/wishlist'
 import { LogoutButton } from '@/features/session/logout'
 import { useAppSelector } from '@/shared/redux'
-import { Icon, ToggleIcon } from '@/shared/ui'
+import { Icon, IconButton } from '@/shared/ui'
 import css from './LayoutProfileCard.module.css'
 
 export function LayoutProfileCard() {
@@ -33,18 +33,18 @@ export function LayoutProfileCard() {
         <LogoutButton />
       </div>
       {isAuthorized && (
-        <ToggleIcon asChild count={productIdsInWishlist.length}>
+        <IconButton asChild count={productIdsInWishlist.length}>
           <Link to="/user/wishlist">
             <Icon type="like" />
           </Link>
-        </ToggleIcon>
+        </IconButton>
       )}
       {isAuthorized && (
-        <ToggleIcon asChild count={productsInCartQuantity}>
+        <IconButton asChild count={productsInCartQuantity}>
           <Link to="/user/cart">
             <Icon type="bag" />
           </Link>
-        </ToggleIcon>
+        </IconButton>
       )}
     </div>
   )

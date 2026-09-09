@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import { useAppDispatch, useAppSelector } from '@/shared/redux'
-import { Icon, ToggleIcon } from '@/shared/ui'
+import { Icon, IconButton } from '@/shared/ui'
 import { themeSlice } from '../../model/slice'
 
 export function ChangeTheme() {
@@ -17,9 +17,9 @@ export function ChangeTheme() {
 
   return (
     <div data-fsd="feature/theme/ChangeTheme">
-      <ToggleIcon onClick={onClick}>
+      <IconButton onClick={onClick}>
         <Icon type={currentTheme === 'light' ? 'moon' : 'sun'} />
-      </ToggleIcon>
+      </IconButton>
     </div>
   )
 }

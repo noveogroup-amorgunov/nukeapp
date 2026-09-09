@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Icon } from '@/shared/ui'
-import { ToggleIcon } from './ToggleIcon'
+import { IconButton } from './IconButton'
 
-const meta: Meta<typeof ToggleIcon> = {
-  title: 'shared/ui/ToggleIcon',
-  component: ToggleIcon,
+const meta: Meta<typeof IconButton> = {
+  title: 'shared/ui/IconButton',
+  component: IconButton,
 }
 
 export default meta
 
-type Story = StoryObj<typeof ToggleIcon>
+type Story = StoryObj<typeof IconButton>
 
 export const Default: Story = {
   args: {
