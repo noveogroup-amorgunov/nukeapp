@@ -10,3 +10,9 @@ components:
     component: Button
     import: '@/shared/ui/Button'
     mapping: src/shared/ui/Button/Button.figma.yml
+
+  '56:881':
+    figmaName: Text
+    component: Text
+    import: '@/shared/ui/Text'
+    mapping: src/shared/ui/Text/Text.figma.yml

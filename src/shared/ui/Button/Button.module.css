@@ -8,9 +8,6 @@
   color: var(--color-text-primary-inverse);
   border: 0;
   border-radius: 32px;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 18px;
   cursor: pointer;
   transform: scale(1);
   transition: transform 0.2s ease-in-out;

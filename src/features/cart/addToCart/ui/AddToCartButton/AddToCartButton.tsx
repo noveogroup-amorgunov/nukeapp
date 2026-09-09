@@ -98,7 +98,7 @@ export function AddToCartButton(props: Props) {
     <div data-fsd="feature/cart/AddToCartButton">
       <Button onClick={onAddProduct} variant="primary">
         {productInCart && (
-          <div className={css.buttonContent}>
+          <span className={css.buttonContent}>
             <span
               onClick={onRemoveProduct}
               className={cn(css.buttonAction, 'text_xl')}
@@ -129,7 +129,7 @@ export function AddToCartButton(props: Props) {
             >
               +
             </span>
-          </div>
+          </span>
         )}
         {!productInCart && (
           <span>

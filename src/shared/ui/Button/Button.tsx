@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import cn from 'classnames'
+import { Text } from '../Text/Text'
 import css from './Button.module.css'
 
 type ButtonVariant = 'primary' | 'secondary'
@@ -41,11 +42,11 @@ export function Button({
       onClick={handleClick}
     >
       <span className={cn(css.content, isLoading && css.content_loading)}>
-        {children}
+        <Text variant="BodyCapture">{children}</Text>
       </span>
       {isLoading && (
         <span className={css.loading} aria-hidden="true">
-          ...
+          <Text variant="BodyCapture">...</Text>
         </span>
       )}
     </button>
