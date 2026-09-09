@@ -45,7 +45,6 @@ const icons: Record<IconType, React.FunctionComponent<React.SVGProps<SVGSVGEleme
 
 export type Props = {
   className?: string
-  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
   size?: number
   type: IconType
 }
@@ -54,16 +53,9 @@ export function Icon(props: Props) {
   const Svg = icons[props.type]
 
   return (
-    <div
-      className={cn(
-        css.root,
-        { [css.root_clickable]: Boolean(props.onClick) },
-        props.className,
-      )}
-      onClick={props.onClick}
+    <Svg
+      className={cn(css.icon, props.className)}
       style={{ width: props.size ?? 24, height: props.size ?? 24 }}
-    >
-      <Svg className={css.icon} />
-    </div>
+    />
   )
 }

@@ -1,6 +1,7 @@
 export { Announcement } from './Announcement/Announcement'
 export { Button } from './Button/Button'
 export { Icon } from './Icon/Icon'
+export { IconButton } from './IconButton/IconButton'
 export { Input } from './Input/Input'
 export { Modal } from './Modal/Modal'
 export { PageHeader } from './PageHeader/PageHeader'

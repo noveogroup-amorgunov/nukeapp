@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import type { ReactNode } from 'react'
 import { useModal } from '@ebay/nice-modal-react'
 import { Icon } from '../Icon/Icon'
+import { IconButton } from '../IconButton/IconButton'
 import css from './Modal.module.css'
 
 type Props = {
@@ -29,7 +30,11 @@ export function Modal(props: Props) {
     <div className={css.root}>
       <div onClick={() => modal.remove()} className={css.overlay}></div>
       <div className={css.modal}>
-        <Icon className={css.x} type="x" onClick={() => modal.remove()} />
+        <span className={css.x}>
+          <IconButton onClick={() => modal.remove()}>
+            <Icon type="x" />
+          </IconButton>
+        </span>
         {props.children}
       </div>
     </div>

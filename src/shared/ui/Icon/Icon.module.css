@@ -1,24 +1,8 @@
-.root {
-  position: relative;
+.icon {
+  display: block;
   color: var(--color-text-primary);
-
-  &_clickable {
-    cursor: pointer;
-  }
-
-  &_clickable:hover,
-  &_clickable:active {
-    background-color: #0001;
-    border-radius: 8px;
-  }
 
   :global([data-theme='dark']) & {
     filter: invert(1);
   }
-}
-
-.icon {
-  display: block;
-  width: 100%;
-  height: 100%;
 }
