@@ -9,6 +9,7 @@ const variantTag = {
   DisplayLarge: 'h1',
   DisplaySmall: 'h2',
   LabelSmall: 'span',
+  LabelUltraSmall: 'span',
   BodyMedium: 'p',
   BodyCapture: 'span',
   BodySmall: 'span',

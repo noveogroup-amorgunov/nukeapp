@@ -1,0 +1,44 @@
+.root {
+  position: relative;
+  display: inline-flex;
+}
+
+.control {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-04);
+  border-radius: 100px;
+  cursor: pointer;
+
+  &:hover:not(.control_disabled) {
+    background-color: var(--color-bg-primary-pressed);
+  }
+
+  &:focus-visible {
+    background-color: var(--color-bg-primary-pressed);
+    outline: 2px solid var(--color-base-focus);
+  }
+
+  &_disabled {
+    cursor: default;
+    opacity: 0.3;
+  }
+}
+
+.badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--size-16);
+  height: var(--size-16);
+  padding: var(--spacing-02) var(--spacing-04);
+  border-radius: 8px;
+  background-color: var(--color-bg-primary-inverse);
+  color: var(--color-text-primary-inverse);
+}

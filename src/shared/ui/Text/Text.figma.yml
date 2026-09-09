@@ -9,6 +9,7 @@ properties:
     values:
       DisplayLarge: DisplayLarge
       DisplaySmall: DisplaySmall
+      LabelUltraSmall: LabelUltraSmall
 
   Color:
     type: prop
@@ -18,8 +19,9 @@ properties:
       --color-text-secondary: secondary
 
 # Notes:
-# - The Figma component set currently contains only DisplayLarge/DisplaySmall
-#   variants; the code component covers all typography styles from the
-#   Typography frame (LabelSmall, BodyMedium, BodyCapture, BodySmall).
+# - The Figma component set currently contains only
+#   DisplayLarge/DisplaySmall/LabelUltraSmall variants; the code component
+#   covers all typography styles from the Typography frame (LabelSmall,
+#   BodyMedium, BodyCapture, BodySmall).
 # - Figma Color variant values are CSS token names; the code color prop takes
 #   semantic names resolved through src/shared/ui/tokens.ts.

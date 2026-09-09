@@ -23,6 +23,12 @@
   line-height: 14px;
 }
 
+.root_variant_LabelUltraSmall {
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 12px;
+}
+
 .root_variant_BodyMedium {
   font-size: 16px;
   font-weight: 400;

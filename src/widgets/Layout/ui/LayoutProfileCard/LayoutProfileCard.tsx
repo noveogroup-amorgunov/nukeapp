@@ -1,5 +1,4 @@
 import { skipToken } from '@reduxjs/toolkit/query'
-import cn from 'classnames'
 import { Link } from 'react-router-dom'
 import { selectTotalQuantity } from '@/entities/cart'
 import { selectIsAuthorized } from '@/entities/session'
@@ -7,7 +6,7 @@ import { useMeQuery } from '@/entities/user'
 import { selectProductIdsInWishlist } from '@/entities/wishlist'
 import { LogoutButton } from '@/features/session/logout'
 import { useAppSelector } from '@/shared/redux'
-import { Icon } from '@/shared/ui'
+import { Icon, IconButton } from '@/shared/ui'
 import css from './LayoutProfileCard.module.css'
 
 export function LayoutProfileCard() {
@@ -34,22 +33,18 @@ export function LayoutProfileCard() {
         <LogoutButton />
       </div>
       {isAuthorized && (
-        <Link
-          to="/user/wishlist"
-          className={cn({ [css.icon]: productIdsInWishlist.length > 0 })}
-          data-size={productIdsInWishlist.length}
-        >
-          <Icon type="like" />
-        </Link>
+        <IconButton asChild count={productIdsInWishlist.length}>
+          <Link to="/user/wishlist">
+            <Icon type="like" />
+          </Link>
+        </IconButton>
       )}
       {isAuthorized && (
-        <Link
-          to="/user/cart"
-          className={cn({ [css.icon]: productsInCartQuantity > 0 })}
-          data-size={productsInCartQuantity}
-        >
-          <Icon type="bag" />
-        </Link>
+        <IconButton asChild count={productsInCartQuantity}>
+          <Link to="/user/cart">
+            <Icon type="bag" />
+          </Link>
+        </IconButton>
       )}
     </div>
   )
