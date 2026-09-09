@@ -1,7 +1,6 @@
 .root {
   position: relative;
-  height: 24px;
-  width: 24px;
+  color: var(--color-text-primary);
 
   &_clickable {
     cursor: pointer;
@@ -19,7 +18,7 @@
 }
 
 .icon {
+  display: block;
   width: 100%;
   height: 100%;
-  background-size: cover;
 }
