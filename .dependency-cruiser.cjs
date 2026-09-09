@@ -197,7 +197,12 @@ module.exports = {
         + 'from.pathNot re of the not-to-dev-dep rule in the dependency-cruiser configuration',
       from: {
         path: '^(src)',
-        pathNot: '[.](?:spec|test)[.](?:js|mjs|cjs|jsx|ts|mts|cts|tsx)$',
+        pathNot: [
+          '[.](?:spec|test)[.](?:js|mjs|cjs|jsx|ts|mts|cts|tsx)$',
+          // ambient declarations file; references vite/svgr types only,
+          // no runtime dependency ships from it
+          'src/vite-env[.]d[.]ts$',
+        ],
       },
       to: {
         dependencyTypes: [

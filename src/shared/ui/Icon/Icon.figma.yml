@@ -1,0 +1,25 @@
+version: 1
+
+# Figma -> React API adapter for Icon.
+
+properties:
+  Type:
+    type: prop
+    prop: type
+    values:
+      Heart: like
+      Moon: moon
+      ArrowDown: arrowDown
+      ChevronDown: chevronDown
+      ChevronUp: chevronUp
+      User: user
+      ShoppingCart: bag
+      X: x
+      Loading: loader
+      Trash: trash
+      Sun: sun
+      Liked: liked
+
+# Notes:
+# - Icon size is controlled by the React `size` prop (px); the Figma variants
+#   are drawn at a fixed 24px.

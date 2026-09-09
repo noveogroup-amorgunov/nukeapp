@@ -6,6 +6,12 @@ version: 1
 # .agents/skills/figma/references/mapping-format.md.
 
 components:
+  '4:244':
+    figmaName: Icon
+    component: Icon
+    import: '@/shared/ui/Icon'
+    mapping: src/shared/ui/Icon/Icon.figma.yml
+
   '1:223':
     figmaName: Button
     component: Button
