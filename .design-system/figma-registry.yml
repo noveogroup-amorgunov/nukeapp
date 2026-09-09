@@ -1,6 +1,7 @@
 version: 1
 
-# Maps Figma component node ids (nukeapp-uikit) to production components.
+# Maps Figma component node ids to production components.
+# Figma file: https://www.figma.com/design/WN6I4lnbYO1IYhD4D8QYbE/nukeapp-uikit
 # See docs/adr/0002-figma-integration-registry-and-mappings.md and
 # .agents/skills/figma/references/mapping-format.md.
 

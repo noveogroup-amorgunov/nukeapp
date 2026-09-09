@@ -32,7 +32,5 @@ properties:
       target: children
 
 # Notes:
-# - Figma draws Loading as static "..." text; runtime matches this until the
-#   spinner integration lands (.scratch/button-spinner).
 # - Figma Pressed variants carry scaled-down geometry (font, radius); runtime
 #   uses transform: scale instead.
