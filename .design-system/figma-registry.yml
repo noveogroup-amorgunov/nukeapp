@@ -7,10 +7,10 @@ version: 1
 
 components:
   '61:884':
-    figmaName: ToggleIcon
-    component: ToggleIcon
-    import: '@/shared/ui/ToggleIcon'
-    mapping: src/shared/ui/ToggleIcon/ToggleIcon.figma.yml
+    figmaName: IconButton
+    component: IconButton
+    import: '@/shared/ui/IconButton'
+    mapping: src/shared/ui/IconButton/IconButton.figma.yml
 
   '4:244':
     figmaName: Icon

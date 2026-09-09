@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 import type { ProductId } from '@/entities/product'
 import { selectProductIsInWishlist } from '@/entities/wishlist'
 import { useAppDispatch, useAppSelector } from '@/shared/redux'
-import { Icon, ToggleIcon } from '@/shared/ui'
+import { Icon, IconButton } from '@/shared/ui'
 import { toggleWishlistProductThunk } from '../../model/toggleWishlistProduct'
 
 type Props = {
@@ -26,9 +26,9 @@ export function AddToWishlistIcon({ productId }: Props) {
 
   return (
     <div data-fsd="feature/wishlist/AddToWishlistIcon">
-      <ToggleIcon onClick={onClick}>
+      <IconButton onClick={onClick}>
         <Icon type={isInWishlist ? 'liked' : 'like'} />
-      </ToggleIcon>
+      </IconButton>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import type { ProductId } from '@/entities/product'
 import { useAppDispatch } from '@/shared/redux'
-import { Icon, ToggleIcon, useConfirmModal } from '@/shared/ui'
+import { Icon, IconButton, useConfirmModal } from '@/shared/ui'
 import { removeCartItemThunk } from '../../model/actions'
 
 type Props = {
@@ -31,8 +31,8 @@ export function RemoveIcon(props: Props) {
   )
 
   return (
-    <ToggleIcon onClick={onClickToRemove}>
+    <IconButton onClick={onClickToRemove}>
       <Icon type="trash" />
-    </ToggleIcon>
+    </IconButton>
   )
 }
