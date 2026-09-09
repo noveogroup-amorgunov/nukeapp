@@ -14,9 +14,9 @@
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
-  background: var(--background-color);
+  background: var(--color-bg-primary);
   box-shadow: 0 2px 8px 0 rgba(34, 60, 80, 0.4);
-  color: var(--text-color);
+  color: var(--color-text-primary);
   z-index: 101;
 
   display: flex;

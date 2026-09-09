@@ -1,0 +1,19 @@
+version: 1
+
+# Maps Figma component node ids to production components.
+# Figma file: https://www.figma.com/design/WN6I4lnbYO1IYhD4D8QYbE/nukeapp-uikit
+# See docs/adr/0002-figma-integration-registry-and-mappings.md and
+# .agents/skills/figma/references/mapping-format.md.
+
+components:
+  '1:223':
+    figmaName: Button
+    component: Button
+    import: '@/shared/ui/Button'
+    mapping: src/shared/ui/Button/Button.figma.yml
+
+  '56:881':
+    figmaName: Text
+    component: Text
+    import: '@/shared/ui/Text'
+    mapping: src/shared/ui/Text/Text.figma.yml

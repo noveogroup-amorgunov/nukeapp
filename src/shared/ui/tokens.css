@@ -1,0 +1,58 @@
+/* Design tokens mirrored from the Figma `nukeapp-uikit` variable collection.
+   Naming: Figma variable path segments joined with dashes
+   (--color/bg/brand -> --color-bg-brand). See ADR-0002. */
+
+:root {
+  /* Text colors */
+  --color-text-primary: #111111;
+  --color-text-secondary: #606060;
+  --color-text-primary-inverse: #ffffff;
+  --color-text-brand: #9747ff;
+
+  /* Background colors */
+  --color-bg-primary: #ffffff;
+  --color-bg-primary-pressed: #f3f3f3;
+  --color-bg-brand: #9747ff;
+  --color-bg-brand-pressed: #8222ff;
+  --color-bg-secondary: #e8e8e8;
+  --color-bg-secondary-pressed: #c6c6c6;
+  --color-bg-brand-muted: #9747ff4d;
+  --color-bg-backdrop: #1111117a;
+  --color-bg-danger: #e44b4b;
+  --color-bg-danger-pressed: #cf3939;
+  --color-bg-primary-inverse: #111111;
+
+  /* Base colors */
+  --color-base-focus: #1d87de;
+
+  /* Spacing */
+  --spacing-02: 2px;
+  --spacing-04: 4px;
+  --spacing-08: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
+
+  /* Size */
+  --size-04: 4px;
+  --size-08: 8px;
+  --size-12: 12px;
+  --size-16: 16px;
+  --size-24: 24px;
+  --size-32: 32px;
+  --size-48: 48px;
+  --size-64: 64px;
+}
+
+/* Dark theme: values carried over from the pre-token dark palette
+   (src/shared/colors.css). No Figma counterpart yet — migration is a
+   separate task. */
+html[data-theme='dark'] {
+  --color-text-primary: #f7f8f8;
+  --color-text-brand: #828fff;
+  --color-bg-primary: #212a2e;
+  --color-bg-secondary: #1a2327;
+}

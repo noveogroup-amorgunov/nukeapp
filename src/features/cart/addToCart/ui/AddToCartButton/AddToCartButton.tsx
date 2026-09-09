@@ -14,7 +14,6 @@ import {
 import css from './AddToCartButton.module.css'
 
 type Props = {
-  size?: 'm' | 's'
   product: Product
   showOnlyQuantity?: boolean
   showAlertAfterAddAction?: boolean
@@ -97,9 +96,9 @@ export function AddToCartButton(props: Props) {
 
   return (
     <div data-fsd="feature/cart/AddToCartButton">
-      <Button size={props.size} onClick={onAddProduct} theme="primary">
+      <Button onClick={onAddProduct} variant="primary">
         {productInCart && (
-          <div className={css.buttonContent}>
+          <span className={css.buttonContent}>
             <span
               onClick={onRemoveProduct}
               className={cn(css.buttonAction, 'text_xl')}
@@ -130,7 +129,7 @@ export function AddToCartButton(props: Props) {
             >
               +
             </span>
-          </div>
+          </span>
         )}
         {!productInCart && (
           <span>

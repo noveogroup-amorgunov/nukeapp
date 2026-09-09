@@ -1,4 +1,4 @@
-@import url('./colors.css');
+@import url('./ui/tokens.css');
 @import url('./breakpoints.css');
 
 :root {
@@ -29,8 +29,8 @@ body {
   padding: 0;
   margin: 0;
 
-  background: var(--background-color);
-  color: var(--text-color);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
 }
 
 [data-theme='dark'] body {
@@ -38,7 +38,7 @@ body {
 }
 
 a {
-  color: var(--link-color);
+  color: var(--color-text-brand);
 }
 
 a:hover {
@@ -49,11 +49,11 @@ a:hover {
 [data-theme='dark'] input {
   background-color: #0009;
   border-color: #0009;
-  color: var(--text-color) !important;
+  color: var(--color-text-primary) !important;
 }
 
 [data-theme='dark'] input:focus {
-  color: var(--text-color) !important;
+  color: var(--color-text-primary) !important;
 }
 
 [data-theme='dark'] img {
@@ -101,7 +101,7 @@ a:hover {
   font-size: 10px;
   font-weight: bold;
   line-height: 1;
-  color: var(--color-white);
+  color: var(--color-text-primary-inverse);
   text-overflow: ellipsis;
   pointer-events: none;
   content: attr(data-fsd);

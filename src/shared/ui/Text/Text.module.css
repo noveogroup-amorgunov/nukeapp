@@ -1,0 +1,42 @@
+/* No default color: it inherits from the parent cascade (body sets
+   --color-text-primary), so containers like Button can theme the label
+   through plain CSS. The color prop overrides via inline style. */
+.root {
+  margin: 0;
+}
+
+.root_variant_DisplayLarge {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.root_variant_DisplaySmall {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.root_variant_LabelSmall {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+}
+
+.root_variant_BodyMedium {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.root_variant_BodyCapture {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.root_variant_BodySmall {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}

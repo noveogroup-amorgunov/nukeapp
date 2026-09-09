@@ -4,7 +4,7 @@
   flex-direction: column;
 
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--color-text-primary);
 
   width: 100%;
   height: 100%;
@@ -44,7 +44,7 @@
 }
 
 .imageContainer {
-  background-color: var(--alternate-background-color);
+  background-color: var(--color-bg-secondary);
 
   .root_size_s & {
     width: 30%;

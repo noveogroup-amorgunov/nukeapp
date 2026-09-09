@@ -1,15 +1,14 @@
 import type { ReactNode } from 'react'
 import cn from 'classnames'
-import { Icon } from '../Icon/Icon'
+import { Text } from '../Text/Text'
 import css from './Button.module.css'
 
-type ButtonTheme = 'primary' | 'secondary'
+type ButtonVariant = 'primary' | 'secondary'
 
 type Props = {
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
   children: ReactNode
-  theme?: ButtonTheme
-  size?: 'm' | 's'
+  variant?: ButtonVariant
   type?: 'submit'
   isLoading?: boolean
   disabled?: boolean
@@ -19,24 +18,37 @@ export function Button({
   onClick,
   children,
   isLoading,
-  size = 'm',
-  theme = 'primary',
+  variant = 'primary',
   disabled,
   type,
 }: Props) {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (isLoading) {
+      return
+    }
+    onClick?.(e)
+  }
+
   return (
     <button
       type={type}
       disabled={disabled}
       className={cn(
         css.root,
-        css[`root_size_${size}`],
-        css[`root_theme_${theme}`],
+        css[`root_variant_${variant}`],
+        isLoading && css.root_loading,
         disabled && css.root_disabled,
       )}
-      onClick={onClick}
+      onClick={handleClick}
     >
-      {isLoading ? <Icon className={css.loader} type="loader" /> : children}
+      <span className={cn(css.content, isLoading && css.content_loading)}>
+        <Text variant="BodyCapture">{children}</Text>
+      </span>
+      {isLoading && (
+        <span className={css.loading} aria-hidden="true">
+          <Text variant="BodyCapture">...</Text>
+        </span>
+      )}
     </button>
   )
 }

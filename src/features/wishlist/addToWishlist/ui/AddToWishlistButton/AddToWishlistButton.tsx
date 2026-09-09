@@ -53,7 +53,7 @@ export function AddToWishlistButton({ productId }: Props) {
 
   return (
     <div data-fsd="feature/wishlist/AddToWishlistButton">
-      <Button isLoading={isLoading} onClick={onClick} theme="secondary">
+      <Button isLoading={isLoading} onClick={onClick} variant="secondary">
         {isInWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
       </Button>
     </div>

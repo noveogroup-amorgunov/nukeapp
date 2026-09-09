@@ -4,6 +4,14 @@ Nukeapp — React SPA ecommerce shop demo (Vite, TypeScript, Redux Toolkit, MSW)
 
 Guidelines for contributions, checks, and AI agent conventions live in [.github/CONTRIBUTING.md](.github/CONTRIBUTING.md) — read it before making changes.
 
+## Pull requests
+
+Before opening a PR, re-read [.github/CONTRIBUTING.md](.github/CONTRIBUTING.md) and follow it exactly:
+
+- PR title uses a conventional-commit prefix (`feat:`, `fix:`, `docs:`, ...)
+- PR description follows the template in `.github/PULL_REQUEST_TEMPLATE.md` (`## Why` / `## What has changed`)
+- PRs created by AI agents must be labeled `agent_created` (`gh pr create --label agent_created`)
+
 ## Agent skills
 
 ### Issue tracker
@@ -21,3 +29,7 @@ Single-context: root `CONTEXT.md` + `docs/adr/`. See `docs/agents/domain.md`.
 ### Development workflow
 
 Change-based development (specs in `docs/changes/`), work scenarios (feature, bug, ADR, wayfinder, codebase health) and the process vocabulary — per ADR-0001. See `docs/agents/development-workflow.md`.
+
+### Figma
+
+UI work is driven from Figma through Figma Bridge MCP: the repo skill at `.agents/skills/figma/` covers component synchronization and design-to-code. Component identity (Figma node id → production component) lives in `.design-system/figma-registry.yml`; colocated `*.figma.yml` files hold API mappings. Rationale in ADR-0002.

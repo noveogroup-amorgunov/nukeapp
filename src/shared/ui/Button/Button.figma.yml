@@ -1,0 +1,36 @@
+version: 1
+
+# Figma (node 1:223) -> React API adapter for Button.
+
+properties:
+  Variant:
+    type: prop
+    prop: variant
+    values:
+      Primary: primary
+      Secondary: secondary
+
+  InteractionState:
+    type: presentation-only
+    values:
+      Default: default
+      Hovered: ':hover'
+      Pressed: ':active'
+      FocusVisible: ':focus-visible'
+
+  Disabled:
+    type: boolean-prop
+    prop: disabled
+
+  Loading:
+    type: boolean-prop
+    prop: isLoading
+
+  Label:
+    type: text
+    code:
+      target: children
+
+# Notes:
+# - Figma Pressed variants carry scaled-down geometry (font, radius); runtime
+#   uses transform: scale instead.

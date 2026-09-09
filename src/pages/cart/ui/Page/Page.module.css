@@ -15,6 +15,6 @@
 
 .column:nth-child(2) {
   padding: 0 24px 24px;
-  background: var(--alternate-background-color);
+  background: var(--color-bg-secondary);
   flex-grow: 1;
 }

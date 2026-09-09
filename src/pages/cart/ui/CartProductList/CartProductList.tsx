@@ -36,7 +36,7 @@ export function CartProductList(props: Props) {
                 {formatPrice(product.quantity * product.price)}
               </span>
             </div>
-            <AddToCartButton size="s" showOnlyQuantity product={product} />
+            <AddToCartButton showOnlyQuantity product={product} />
           </div>
         )
       }}

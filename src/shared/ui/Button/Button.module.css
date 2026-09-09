@@ -1,79 +1,62 @@
-@import url('../../breakpoints.css');
-
 .root {
-  overflow: hidden;
-  min-width: 240px;
-  padding: 0 20px;
-  height: 46px;
-  line-height: 46px;
-  background: var(--primary-color);
-  color: var(--color-dark);
-  border: 0;
-  font-size: 16px;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
+  position: relative;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
+  padding: var(--spacing-12) var(--spacing-16);
+  background: var(--color-bg-brand);
+  color: var(--color-text-primary-inverse);
+  border: 0;
+  border-radius: 32px;
+  cursor: pointer;
   transform: scale(1);
   transition: transform 0.2s ease-in-out;
 
-  &_size_s {
-    min-width: 100px;
-    padding: 0;
-    height: 28px;
-    line-height: 28px;
-  }
-
-  &_size_m {
-    @media (--s-viewport) {
-      width: 100%;
-      min-width: 100%;
-    }
-  }
-
-  &_disabled {
-    cursor: default;
-    opacity: 0.7;
-  }
-
   &:hover:not(.root_disabled) {
-    background: var(--primary-colorPressed);
+    background: var(--color-bg-brand-pressed);
   }
 
   &:active:not(.root_disabled) {
     transform: scale(0.95);
   }
 
-  &_theme_secondary {
-    background: var(--background-color);
-    color: var(--text-color);
-    border: 2px solid var(--text-color);
-  }
-
-  &_theme_secondary:hover:not(.root_disabled) {
-    background: var(--alternate-background-color);
+  &:focus-visible {
+    outline: 2px solid var(--color-base-focus);
   }
 }
 
-.loader {
-  animation: rotating 2s linear infinite;
-  filter: invert(0) !important;
-  height: 18px;
-  width: 18px;
+.root_variant_secondary {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-brand);
 
-  [data-theme='dark'] .root_theme_secondary & {
-    filter: invert(1) !important;
+  &:hover:not(.root_disabled) {
+    background: var(--color-bg-secondary-pressed);
   }
 }
 
-@keyframes rotating {
-  from {
-    transform: rotate(0deg);
-  }
+.root_disabled {
+  cursor: default;
+  opacity: 0.3;
+}
 
-  to {
-    transform: rotate(360deg);
-  }
+.root_loading {
+  opacity: 0.3;
+}
+
+.content {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.root_loading .content {
+  opacity: 0;
+}
+
+.loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
