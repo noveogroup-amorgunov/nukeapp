@@ -21,6 +21,7 @@ An open source frontend application built using the **React** ⚛️ and [**Feat
 
 - [Application stand](https://nukeapp.netlify.app/)
 - [Storybook stand](https://nukeapp-story.netlify.app/)
+- [Figma uikit](https://www.figma.com/design/WN6I4lnbYO1IYhD4D8QYbE/nukeapp-uikit)
 
 ## About project
 
