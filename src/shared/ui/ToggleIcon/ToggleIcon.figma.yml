@@ -1,0 +1,27 @@
+version: 1
+
+# Figma -> React API adapter for ToggleIcon.
+
+properties:
+  State:
+    type: prop
+    prop: count
+    values:
+      Empty: count absent or 0 -> badge hidden
+      Default: count > 0 -> badge shows the number
+
+  Disabled:
+    type: boolean-prop
+    prop: disabled
+
+  InteractionState:
+    type: presentation-only
+    values:
+      Default: default
+      Hovered: ':hover'
+      FocusVisible: ':focus-visible'
+
+# Notes:
+# - The Icon instance is not a nested mapped component here: it is passed as
+#   the React `children` (element slot) so `asChild` (Radix Slot) can render
+#   the icon onto a custom element, e.g. an anchor.

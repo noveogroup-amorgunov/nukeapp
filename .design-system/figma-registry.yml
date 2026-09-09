@@ -6,6 +6,12 @@ version: 1
 # .agents/skills/figma/references/mapping-format.md.
 
 components:
+  '61:884':
+    figmaName: ToggleIcon
+    component: ToggleIcon
+    import: '@/shared/ui/ToggleIcon'
+    mapping: src/shared/ui/ToggleIcon/ToggleIcon.figma.yml
+
   '4:244':
     figmaName: Icon
     component: Icon

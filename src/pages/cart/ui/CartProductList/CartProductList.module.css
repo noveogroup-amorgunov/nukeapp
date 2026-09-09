@@ -1,6 +1,7 @@
 .productCardActions {
   display: flex;
-  gap: 8px;
+  align-items: flex-start;
+  gap: 2px;
 }
 
 .productCardBottomActions {
