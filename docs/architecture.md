@@ -22,6 +22,17 @@ Feature-Sliced Design (`app` / `pages` / `widgets` / `features` / `entities` /
 - RTK Query for server state, with reauth handling in `shared/api`
 - `redux-remember` for persistence
 
+## Design system
+
+- Base UI primitives in `shared/ui` (Button, Text, Icon, Modal, ...)
+- Design tokens in `shared/ui/tokens.css`, mirroring the Figma variable
+  collection 1:1 (path slashes joined with dashes: `--color/bg/brand` →
+  `--color-bg-brand`); the TS-side subset lives in `shared/ui/tokens.ts`
+- Figma integration via Figma Bridge MCP: `.design-system/figma-registry.yml`
+  maps Figma component node ids to production components, colocated
+  `*.figma.yml` files adapt Figma properties to component APIs (rationale in
+  `adr/0002-figma-integration-registry-and-mappings.md`)
+
 ## API
 
 RTK Query API layer in `shared/api`, with base query and reauth handling.
