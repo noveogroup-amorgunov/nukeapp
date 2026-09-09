@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import type { ProductId } from '@/entities/product'
 import { useAppDispatch } from '@/shared/redux'
-import { Icon, useConfirmModal } from '@/shared/ui'
+import { Icon, ToggleIcon, useConfirmModal } from '@/shared/ui'
 import { removeCartItemThunk } from '../../model/actions'
 
 type Props = {
@@ -13,7 +13,7 @@ export function RemoveIcon(props: Props) {
   const confirmRemoveModal = useConfirmModal()
 
   const onClickToRemove = useCallback(
-    (event: React.MouseEvent<HTMLDivElement>) => {
+    (event: React.MouseEvent<HTMLElement>) => {
       event.preventDefault()
 
       confirmRemoveModal.show({
@@ -30,5 +30,9 @@ export function RemoveIcon(props: Props) {
     [props.productId],
   )
 
-  return <Icon type="trash" onClick={onClickToRemove} />
+  return (
+    <ToggleIcon onClick={onClickToRemove}>
+      <Icon type="trash" />
+    </ToggleIcon>
+  )
 }
