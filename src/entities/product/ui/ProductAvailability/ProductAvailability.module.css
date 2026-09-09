@@ -5,7 +5,7 @@
 
 .oldPrice {
   margin-left: 4px;
-  color: var(--color-grey1);
+  color: var(--color-text-secondary);
   text-decoration: line-through;
   opacity: 0.3;
 }
@@ -13,8 +13,8 @@
 .badge {
   margin-left: 4px;
   padding: 0 2px;
-  background: var(--text-color);
-  color: var(--background-color);
+  background: var(--color-text-primary);
+  color: var(--color-bg-primary);
   font-size: 12px;
   font-weight: bold;
   line-height: 14px;

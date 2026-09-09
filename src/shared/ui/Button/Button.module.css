@@ -6,8 +6,8 @@
   padding: 0 20px;
   height: 46px;
   line-height: 46px;
-  background: var(--primary-color);
-  color: var(--color-dark);
+  background: var(--color-bg-brand);
+  color: var(--color-text-primary-inverse);
   border: 0;
   font-size: 16px;
   border-radius: 5px;
@@ -39,7 +39,7 @@
   }
 
   &:hover:not(.root_disabled) {
-    background: var(--primary-colorPressed);
+    background: var(--color-bg-brand-pressed);
   }
 
   &:active:not(.root_disabled) {
@@ -47,13 +47,13 @@
   }
 
   &_theme_secondary {
-    background: var(--background-color);
-    color: var(--text-color);
-    border: 2px solid var(--text-color);
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    border: 2px solid var(--color-text-primary);
   }
 
   &_theme_secondary:hover:not(.root_disabled) {
-    background: var(--alternate-background-color);
+    background: var(--color-bg-secondary);
   }
 }
 

@@ -49,7 +49,7 @@
 .images .image {
   width: calc(50% - 16px);
   aspect-ratio: 0.8;
-  background-color: var(--alternate-background-color);
+  background-color: var(--color-bg-secondary);
 
   @media (--m-viewport) {
     width: calc(50% - 8px);

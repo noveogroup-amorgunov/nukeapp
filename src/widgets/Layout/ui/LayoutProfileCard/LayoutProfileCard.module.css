@@ -15,11 +15,11 @@
     top: -5px;
     display: block;
     right: -5px;
-    background: var(--text-color);
+    background: var(--color-text-primary);
     border-radius: 5px;
     font-size: 10px;
     line-height: 1;
-    color: var(--background-color);
+    color: var(--color-bg-primary);
     padding: 3px 5px;
     font-weight: bold;
   }

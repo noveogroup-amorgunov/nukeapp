@@ -12,5 +12,5 @@
 .rowWithDivider {
   padding-top: 16px;
   margin-top: 8px;
-  border-top: 2px solid var(--background-color);
+  border-top: 2px solid var(--color-bg-primary);
 }
