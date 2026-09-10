@@ -1,3 +1,5 @@
+@import url('/src/shared/breakpoints.css');
+
 .ProductGrid {
   width: 100%;
 }
@@ -22,4 +24,28 @@
 
 .Columns4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.AutoColumns {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  @media (--xl-viewport) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  @media (--l-viewport) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @media (--m-viewport) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  @media (--s-viewport) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @media (--xs-viewport) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }

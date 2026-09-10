@@ -10,6 +10,10 @@ properties:
       2: 2
       3: 3
       4: 4
+      auto: >
+        Not a Figma variant — runtime-only mode (`columns: 'auto'`) with the
+        same responsive breakpoints as widgets/BaseProductList, clamped to
+        the 2/3/4 variants this component set defines.
 
 layout:
   figma:

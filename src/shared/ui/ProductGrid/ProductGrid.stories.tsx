@@ -63,3 +63,14 @@ export const LongList: Story = {
     products: Array.from({ length: 250 }, (_, i) => makeProduct(`long-${i}`, i)),
   },
 }
+
+export const AutoColumns: Story = {
+  args: {
+    columns: 'auto',
+    products,
+    quantityByProductId: {
+      0: 2,
+      3: 1,
+    },
+  },
+}
