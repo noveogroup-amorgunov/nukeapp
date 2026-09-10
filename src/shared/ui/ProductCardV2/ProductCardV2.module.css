@@ -1,0 +1,100 @@
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  padding: 0;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.rootSoldOut .main {
+  cursor: default;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--color-bg-primary-pressed);
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rootSoldOut .image {
+  opacity: 0.7;
+}
+
+.actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-04);
+  padding: var(--spacing-08);
+}
+
+.badge {
+  position: absolute;
+  bottom: var(--spacing-12);
+  left: var(--spacing-12);
+  padding: var(--spacing-02) var(--spacing-04);
+  border-radius: 8px;
+  background: var(--color-bg-brand);
+  color: var(--color-base-white);
+}
+
+/* Scrim over the image. */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--color-bg-backdrop);
+}
+
+/* Figma draws the cart quantity as 36px Bold — no matching Text variant
+   exists, so it is styled here. */
+.quantity {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-text-primary-inverse);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-04);
+}
+
+.rootSoldOut .info {
+  opacity: 0.3;
+}
+
+.name {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
