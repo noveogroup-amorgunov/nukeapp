@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useWindowVirtualizer } from '@tanstack/react-virtual'
 import cn from 'classnames'
 import { ProductCardV2 } from '../ProductCardV2/ProductCardV2'
@@ -64,15 +64,27 @@ export function ProductGrid({
     scrollMargin: listRef.current?.offsetTop ?? 0,
   })
 
-  const handleResize = useCallback(() => {
-    setWindowWidth(window.innerWidth)
-    virtualizer.measure()
-  }, [virtualizer])
+  const measureFrameRef = useRef(0)
 
   useEffect(() => {
+    const handleResize = () => {
+      if (measureFrameRef.current) {
+        return
+      }
+
+      measureFrameRef.current = requestAnimationFrame(() => {
+        measureFrameRef.current = 0
+        setWindowWidth(window.innerWidth)
+        virtualizer.measure()
+      })
+    }
+
     window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [handleResize])
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      cancelAnimationFrame(measureFrameRef.current)
+    }
+  }, [virtualizer])
 
   useLayoutEffect(() => {
     virtualizer.measure()
