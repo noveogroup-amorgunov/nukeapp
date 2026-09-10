@@ -1,0 +1,38 @@
+version: 1
+
+# Figma (node 7:421) -> React API adapter for ProductGrid.
+
+properties:
+  Columns:
+    type: prop
+    prop: columns
+    values:
+      2: 2
+      3: 3
+      4: 4
+      auto: >
+        Not a Figma variant — runtime-only mode (`columns: 'auto'`) with the
+        same responsive breakpoints as widgets/BaseProductList, clamped to
+        the 2/3/4 variants this component set defines.
+
+layout:
+  figma:
+    type: card-slots
+    description: >
+      A CardSlots slot holding ProductCard instances (the Figma editor draws
+      rows explicitly; Figma Slots cannot use Grid).
+  code:
+    type: css-grid
+    columns: repeat(<columns>, minmax(0, 1fr))
+    gap: var(--spacing-12)
+    itemSizing: 1fr
+    description: >
+      Rows are rendered by a window virtualizer (@tanstack/react-virtual),
+      one row per virtual item; virtual row height is estimated from the
+      card width plus the info block height and re-measured on resize.
+
+# Notes:
+# - Products are passed as `products: ProductCompactView[]`; ProductCardV2
+#   (node 3:47, see ProductCardV2.figma.yml) is rendered internally.
+# - Cart quantity per product is display-only via `quantityByProductId`,
+#   mirroring ProductCardV2's `quantity` prop.
