@@ -35,3 +35,9 @@ components:
     component: ProductCardV2
     import: '@/shared/ui/ProductCardV2'
     mapping: src/shared/ui/ProductCardV2/ProductCardV2.figma.yml
+
+  '7:421':
+    figmaName: ProductGrid
+    component: ProductGrid
+    import: '@/shared/ui/ProductGrid'
+    mapping: src/shared/ui/ProductGrid/ProductGrid.figma.yml

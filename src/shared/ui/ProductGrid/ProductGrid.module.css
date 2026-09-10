@@ -1,0 +1,25 @@
+.ProductGrid {
+  width: 100%;
+}
+
+.VirtualSpace {
+  width: 100%;
+}
+
+.Row {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-12);
+  width: 100%;
+}
+
+.Columns3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.Columns4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
