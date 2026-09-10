@@ -24,7 +24,7 @@ export const VariantSet: Story = {
       <Text variant="DisplaySmall">DisplaySmall - Inter Semi Bold 16/20</Text>
       <Text variant="LabelSmall">LabelSmall - Inter Bold 12/14</Text>
       <Text variant="BodyMedium">BodyMedium - Inter Regular 16/18</Text>
-      <Text variant="BodyCapture">BodyCapture - Inter Medium 16/18</Text>
+      <Text variant="BodyCapture">BodyCapture - Inter Semi Bold 16/18</Text>
       <Text variant="BodySmall">BodySmall - Inter Regular 14/18</Text>
     </div>
   ),

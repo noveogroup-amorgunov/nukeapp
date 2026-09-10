@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { formatPrice } from '@/entities/product'
+import { formatPrice } from '@/shared/lib'
 import { Button } from '@/shared/ui'
 import css from './CartSummary.module.css'
 

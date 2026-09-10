@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { formatPrice } from '../../lib/formatPrice'
+import { formatPrice } from '@/shared/lib'
 import css from './ProductAvailability.module.css'
 
 type Props = {

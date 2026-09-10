@@ -24,6 +24,8 @@
 
   /* Base colors */
   --color-base-focus: #1d87de;
+  --color-base-white: #ffffff;
+  --color-base-black: #000000;
 
   /* Spacing */
   --spacing-02: 2px;

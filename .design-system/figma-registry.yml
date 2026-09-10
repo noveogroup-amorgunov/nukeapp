@@ -29,3 +29,9 @@ components:
     component: Text
     import: '@/shared/ui/Text'
     mapping: src/shared/ui/Text/Text.figma.yml
+
+  '3:47':
+    figmaName: ProductCard
+    component: ProductCardV2
+    import: '@/shared/ui/ProductCardV2'
+    mapping: src/shared/ui/ProductCardV2/ProductCardV2.figma.yml

@@ -37,6 +37,10 @@ body {
   font-weight: 350;
 }
 
+button {
+  color: var(--color-text-primary);
+}
+
 a {
   color: var(--color-text-brand);
 }
