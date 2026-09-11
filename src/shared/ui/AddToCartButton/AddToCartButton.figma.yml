@@ -1,0 +1,46 @@
+version: 1
+
+# Figma (node 89:1209) -> React API adapter for AddToCartButton.
+
+properties:
+  State:
+    type: prop
+    code:
+      description: Derived from the quantity prop, not a runtime prop.
+      values:
+        Empty: quantity === 0 (secondary background, secondary-variant Price
+          with struck old price, plus action; a click anywhere on the
+          container acts as increase)
+        InCart: quantity > 0 (brand background, minus action / quantity /
+          plus action, inverse icon color)
+        MaxAdded: maxQuantityIsReached (plus action disabled and dimmed)
+
+  Size:
+    type: prop
+    prop: size
+    values:
+      M: m
+      L: l
+
+  InteractionState:
+    type: presentation-only
+    values:
+      Default: default
+      Hovered: ':hover'
+      Pressed: ':active'
+      FocusVisible: ':focus-visible'
+
+  Disabled:
+    type: boolean-prop
+    prop: disabled
+
+# Notes:
+# - Presentation-only component: no cart state, no business logic. The
+#   Increase/Decrease handlers are passed in by the consumer.
+# - Composes the Price and IconButton (ghost) + Icon (minus/plus) components.
+# - A click anywhere on the container acts as increase (inner buttons
+#   stopPropagation); the handler guards disabled and MaxAdded itself.
+# - MaxAdded dims the plus action to 30% (per the Figma variant), matching
+#   the IconButton-disabled visual.
+# - The quantity numeral has no matching Text variant; styled in the CSS
+#   module.

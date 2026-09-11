@@ -9,6 +9,9 @@ properties:
     code:
       description: Renders struck-through before the actual price, without
         the currency sign (the Figma mock shows the old price unadorned).
+        Hidden when the old price equals the actual price (no real
+        discount), e.g. product data that carries the same value in both
+        fields.
 
   Size:
     type: prop

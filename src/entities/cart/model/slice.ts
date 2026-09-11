@@ -37,6 +37,13 @@ const slice = createSlice({
       (acc, item) => acc + item.quantity,
       0,
     ),
+    quantityByProductId: createSelector(
+      state => state.itemsMap,
+      (itemsMap: Record<ProductId, CartItem>) =>
+        Object.fromEntries(
+          Object.entries(itemsMap).map(([id, item]) => [id, item.quantity]),
+        ),
+    ),
   },
   reducers: {
     reset: (state) => {

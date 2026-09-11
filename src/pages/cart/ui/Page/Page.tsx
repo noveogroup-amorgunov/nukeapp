@@ -55,7 +55,7 @@ export function CartPage() {
       <div className={css.column}>
         <h1>Bag</h1>
         <div>
-          <CartProductList products={cartProducts} />
+          <CartProductList items={cartProducts} />
         </div>
       </div>
       <div className={css.column}>
