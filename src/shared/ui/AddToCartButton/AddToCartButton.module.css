@@ -2,6 +2,7 @@
   display: inline-flex;
   align-items: center;
   min-width: 128px;
+  max-width: fit-content;
   border-radius: 32px;
   cursor: pointer;
   transform: scale(1);
