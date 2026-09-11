@@ -6,7 +6,7 @@
     "badge": "JUST_IN",
     "subtitle": "Men's Shoes",
     "price": 15000,
-    "discountPrice": 15000,
+    "discountPrice": 12000,
     "imageUrl": [
       "/images/content/air-max-pulse-mens-shoes-ShS3tL.png"
     ],
@@ -65,7 +65,7 @@
     "badge": "JUST_IN",
     "subtitle": "Men's Road Racing Shoes",
     "price": 27500,
-    "discountPrice": 27500,
+    "discountPrice": 22000,
     "imageUrl": [
       "/images/content/alphafly-2-mens-road-racing-shoes-8lD0jN.png"
     ],
@@ -117,7 +117,7 @@
     "badge": "IN_STOCK",
     "subtitle": "Basketball Shoes",
     "price": 16000,
-    "discountPrice": 16000,
+    "discountPrice": 12900,
     "imageUrl": [
       "/images/content/lebron-nxxt-gen-basketball-shoes-55g4w1.png"
     ],
@@ -173,7 +173,7 @@
     "badge": "BEST_SELLER",
     "subtitle": "Men's Shoes",
     "price": 10500,
-    "discountPrice": 10500,
+    "discountPrice": 8500,
     "imageUrl": [
       "/images/content/blazer-mid-77-vintage-mens-shoes-nw30B2.png"
     ],
@@ -243,7 +243,7 @@
     "badge": "JUST_IN",
     "subtitle": "Men's Slides",
     "price": 7500,
-    "discountPrice": 7500,
+    "discountPrice": 5900,
     "imageUrl": [
       "/images/content/air-max-1-mens-slides-Frt1JC.png"
     ],
@@ -285,7 +285,7 @@
     "badge": "IN_STOCK",
     "subtitle": "Men's Shoes",
     "price": 18500,
-    "discountPrice": 18500,
+    "discountPrice": 14900,
     "imageUrl": [
       "/images/content/air-max-97-og-mens-shoes-zV9FQs.png"
     ],
