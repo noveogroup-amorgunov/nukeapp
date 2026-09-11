@@ -32,7 +32,7 @@ export function Price({
         className,
       )}
     >
-      {typeof oldPrice !== 'undefined' && (
+      {typeof oldPrice !== 'undefined' && oldPrice !== price && (
         <Text asChild className={css.oldPrice} variant={textVariant}>
           <span>{formatPrice(oldPrice, false)}</span>
         </Text>
