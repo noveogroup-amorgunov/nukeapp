@@ -31,6 +31,21 @@ export const Disabled: Story = {
   },
 }
 
+export const Ghost: Story = {
+  args: {
+    children: <Icon type="like" />,
+    variant: 'ghost',
+  },
+}
+
+export const GhostDisabled: Story = {
+  args: {
+    children: <Icon type="like" />,
+    variant: 'ghost',
+    disabled: true,
+  },
+}
+
 export const AsChildLink: Story = {
   args: {
     asChild: true,

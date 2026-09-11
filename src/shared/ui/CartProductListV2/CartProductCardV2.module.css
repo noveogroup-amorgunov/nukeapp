@@ -1,0 +1,81 @@
+.root {
+  position: relative;
+  display: flex;
+  gap: var(--spacing-12);
+  border-radius: 8px;
+  /* Card proportions per the Figma component (411x160.67): the height
+     derives from the width, which keeps the media square pure-CSS. */
+  aspect-ratio: 411 / 160.67;
+  transform: scale(1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.root:has(.summary:focus-visible) {
+  outline: 2px solid var(--color-base-focus);
+}
+
+.root:has(.summary:active),
+.root:has(.media:active) {
+  transform: scale(0.95);
+}
+
+.media {
+  height: 100%;
+  aspect-ratio: 1;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--color-bg-primary-pressed);
+  cursor: pointer;
+  position: relative;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--spacing-04);
+  flex: 1;
+  min-width: 0;
+  padding-bottom: var(--spacing-08);
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-02);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.totalRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-04);
+}
+
+.actions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--spacing-04);
+  width: var(--size-48);
+  height: var(--size-48);
+  padding: var(--spacing-08);
+}

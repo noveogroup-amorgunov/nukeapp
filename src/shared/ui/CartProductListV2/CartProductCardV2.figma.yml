@@ -1,0 +1,36 @@
+version: 1
+
+# Figma (node 100:724) -> React API adapter for CartProductCardV2.
+# Internal card of CartProductListV2; not exported from the shared UI barrel.
+
+properties:
+  InteractionState:
+    type: presentation-only
+    values:
+      Default: default
+      FocusVisible: ':focus-visible ring around the whole card (rendered via
+        :has(.summary:focus-visible) on the card root, because the focusable
+        element is the summary button)'
+      Pressed: ':active (the Figma variant is a scaled-down drawing artifact;
+        in code the pressed state is transform: scale(0.95) per the Button
+        pressed precedent)'
+
+# Composition notes:
+# - The card composes Price (unit price: Size L variant Primary; line total:
+#   Size M with the struck-through old price), the AddToCartButtonV2 stepper
+#   (Size M), Text (LabelSmall for the specification, BodyMedium for the name
+#   and "Total price:" label) and the shared money formatter.
+# - State (Empty/InCart/MaxAdded) is derived from quantity vs the product's
+#   stock.
+# - The line total is presentation arithmetic in the card:
+#   quantity x price (old: quantity x oldPrice).
+# - The media click is a pointer affordance only (role="presentation");
+#   keyboard navigation goes through the summary button, which carries
+#   onProductClick.
+# - The Actions slot content is passed as the `actions` ReactNode (absolutely
+#   positioned top-left over the image, 8px inset; e.g. a ghost IconButton
+#   with a heart icon).
+# - The media container is a square matching the card height: the card fixes
+#   its proportions per the Figma component (411x160.67) via aspect-ratio, so
+#   the height is definite and the square derives its width pure-CSS (the
+#   image is absolutely positioned inside with object-fit cover).

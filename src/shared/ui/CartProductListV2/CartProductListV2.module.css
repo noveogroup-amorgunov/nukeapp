@@ -1,0 +1,16 @@
+.root {
+  position: relative;
+  width: 100%;
+}
+
+.space {
+  position: relative;
+  width: 100%;
+}
+
+.row {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}

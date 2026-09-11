@@ -8,7 +8,9 @@ import chevronUp from './icons/chevronUp.svg?react'
 import like from './icons/like.svg?react'
 import liked from './icons/liked.svg?react'
 import loader from './icons/loader.svg?react'
+import minus from './icons/minus.svg?react'
 import moon from './icons/moon.svg?react'
+import plus from './icons/plus.svg?react'
 import sun from './icons/sun.svg?react'
 import trash from './icons/trash.svg?react'
 import user from './icons/user.svg?react'
@@ -22,6 +24,8 @@ export type IconType
     | 'sun'
     | 'moon'
     | 'loader'
+    | 'minus'
+    | 'plus'
     | 'x'
     | 'chevronDown'
     | 'chevronUp'
@@ -36,6 +40,8 @@ const icons: Record<IconType, React.FunctionComponent<React.SVGProps<SVGSVGEleme
   sun,
   moon,
   loader,
+  minus,
+  plus,
   x,
   chevronDown,
   chevronUp,

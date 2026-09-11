@@ -41,3 +41,33 @@ components:
     component: ProductGrid
     import: '@/shared/ui/ProductGrid'
     mapping: src/shared/ui/ProductGrid/ProductGrid.figma.yml
+
+  '97:2009':
+    figmaName: Price
+    component: Price
+    import: '@/shared/ui/Price'
+    mapping: src/shared/ui/Price/Price.figma.yml
+
+  '89:1209':
+    figmaName: AddToCartButton
+    component: AddToCartButtonV2
+    import: '@/shared/ui/AddToCartButtonV2'
+    mapping: src/shared/ui/AddToCartButtonV2/AddToCartButtonV2.figma.yml
+
+  '100:724':
+    figmaName: CartProductListCard
+    component: CartProductCardV2
+    import: '@/shared/ui/CartProductListV2/CartProductCardV2'
+    mapping: src/shared/ui/CartProductListV2/CartProductCardV2.figma.yml
+
+  '93:1823':
+    figmaName: CartProductList
+    component: CartProductListV2
+    import: '@/shared/ui/CartProductListV2'
+    mapping: src/shared/ui/CartProductListV2/CartProductListV2.figma.yml
+
+  '101:1156':
+    figmaName: Logo
+    component: LogoV2
+    import: '@/shared/ui/LogoV2'
+    mapping: src/shared/ui/LogoV2/LogoV2.figma.yml

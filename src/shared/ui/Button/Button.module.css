@@ -3,6 +3,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  height: var(--size-48);
   padding: var(--spacing-12) var(--spacing-16);
   background: var(--color-bg-brand);
   color: var(--color-text-primary-inverse);

@@ -26,6 +26,16 @@
     cursor: default;
     opacity: 0.3;
   }
+
+  &_variant_ghost {
+    &:hover:not(.control_disabled) {
+      background-color: transparent;
+    }
+
+    &:focus-visible {
+      background-color: transparent;
+    }
+  }
 }
 
 .badge {

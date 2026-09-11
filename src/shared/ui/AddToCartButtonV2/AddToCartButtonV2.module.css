@@ -1,0 +1,62 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  min-width: 128px;
+  border-radius: 32px;
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.root:active:not(.root_disabled) {
+  transform: scale(0.95);
+}
+
+.root:has(:focus-visible) {
+  outline: 2px solid var(--color-base-focus);
+}
+
+.root:has(:focus-visible) :focus-visible {
+  outline: none;
+}
+
+.root_size_m {
+  height: var(--size-32);
+}
+
+.root_size_l {
+  height: var(--size-48);
+}
+
+.root_empty {
+  justify-content: center;
+  padding: 0 var(--spacing-08) 0 var(--spacing-16);
+  background: var(--color-bg-secondary);
+}
+
+.root_inCart {
+  justify-content: space-between;
+  padding: 0 var(--spacing-08);
+  background: var(--color-bg-brand);
+}
+
+.root_disabled {
+  cursor: default;
+  opacity: 0.3;
+}
+
+.quantity {
+  color: var(--color-text-primary-inverse);
+}
+
+.stepperIcon {
+  color: var(--color-text-brand);
+}
+
+.root_inCart .stepperIcon {
+  color: var(--color-text-primary-inverse);
+}
+
+.stepperIconMax {
+  opacity: 0.3;
+}

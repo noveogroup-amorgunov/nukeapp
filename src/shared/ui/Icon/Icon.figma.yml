@@ -19,6 +19,8 @@ properties:
       Trash: trash
       Sun: sun
       Liked: liked
+      Minus: minus
+      Plus: plus
 
 # Notes:
 # - Icon size is controlled by the React `size` prop (px); the Figma variants
