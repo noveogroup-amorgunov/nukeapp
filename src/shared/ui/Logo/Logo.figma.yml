@@ -14,7 +14,9 @@ properties:
 #   mechanism.
 # - The logo is universal for both color themes — no light/dark pair.
 # - The Figma export (mask + userSpaceOnUse filter) does not render on iOS
-#   WebKit; the asset is re-drawn as plain stroked/filled paths: a black
-#   silhouette offset (3,3) for the drop shadow, then the black outline
-#   (stroke 6) with the white fill on top. Visually equivalent, no
-#   mask/filter defs.
+#   WebKit; the asset is re-drawn as plain paths in three layers: a black
+#   silhouette offset (3,3) for the drop shadow, then black strokes
+#   (stroke 6, fill none), then the white fills on a separate top layer.
+#   Strokes and fills must stay separate — SVG paints a path's stroke over
+#   its own fill, which would swallow the white letter fills. Visually
+#   equivalent to the Figma mask, no mask/filter defs.
