@@ -105,6 +105,11 @@ HTML/layout wrappers only for structures that are genuinely page composition
 rather than registered reusable components. Prefer semantic markup and project
 conventions.
 
+Render every text block through the `Text` component with the variant matching
+the Figma text style (font size/weight/line-height pick the variant). When no
+variant matches, style it in the CSS module like the mapped components do and
+note the gap in the `*.figma.yml` — same treatment as a missing token.
+
 ### 7. Translate layout semantically
 
 Do not mechanically translate Figma Auto Layout to `display:flex` or Figma
