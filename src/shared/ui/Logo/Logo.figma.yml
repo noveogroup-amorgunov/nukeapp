@@ -13,3 +13,8 @@ properties:
 #   stroke, 3/3 hard drop shadow) and imported via the svgr `?react`
 #   mechanism.
 # - The logo is universal for both color themes — no light/dark pair.
+# - The Figma export (mask + userSpaceOnUse filter) does not render on iOS
+#   WebKit; the asset is re-drawn as plain stroked/filled paths: a black
+#   silhouette offset (3,3) for the drop shadow, then the black outline
+#   (stroke 6) with the white fill on top. Visually equivalent, no
+#   mask/filter defs.
