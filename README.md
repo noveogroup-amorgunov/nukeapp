@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./public/images/logo@dark.png">
-  <img alt="Nuke App" width="290px" src="./public/images/logo@light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="./src/shared/ui/Logo/logo.svg">
+  <img alt="Nuke App" width="290px" src="./src/shared/ui/Logo/logo.svg">
 </picture>
 <br />
 <br />
@@ -13,19 +13,18 @@ An open source frontend application built using the **React** ⚛️ and [**Feat
 
 - _React_, _Redux Toolkit_, _React Hook Form_, _Zod_
 - _Vite_, _TypeScript_, _PostCSS_
+- Agent development with tiny SSD approach and _Matt Pocock's_ workflow skills
 - Architecture based on _Feature-Sliced Design_
 
 ## Live demo
 
-![Nukeapp preview, dark theme](./public/images/preview@dark.png#gh-dark-mode-only)![Nukeapp preview, light theme](./public/images/preview@light.png#gh-light-mode-only)
-
 - [Application stand](https://nukeapp.netlify.app/)
 - [Storybook stand](https://nukeapp-story.netlify.app/)
-- [Figma uikit](https://www.figma.com/design/WN6I4lnbYO1IYhD4D8QYbE/nukeapp-uikit)
+- [Figma UIKit](https://www.figma.com/design/WN6I4lnbYO1IYhD4D8QYbE/nukeapp-uikit)
 
 ## About project
 
-Right now, I'm using this project as an experiment polygon to try modern technologies and see how a can see frontend application in {{CURRENT_YEAR}}. This project structure combines two architecture methodology: Clean Architecture and Feature-Sliced Design.
+Right now, I'm using this project as an experiment polygon to try modern technologies and see how a can see frontend application in [[CURRENT_YEAR]]. This project structure combines two architecture methodology: Clean Architecture and Feature-Sliced Design.
 
 ## Features
 
@@ -40,35 +39,6 @@ Right now, I'm using this project as an experiment polygon to try modern technol
 <a href="./dependency-graph.svg">
   <img alt="Nuke App" width="390px" src="./dependency-graph.svg">
 </a>
-
-# Roadmap
-
-App business logic:
-
-- [x] Product page
-- [x] Confirm modals
-- [x] Wishlist page or modal
-- [x] Product's sorting feature
-- [x] Feature toggle
-- [x] E-commerce bag logic
-- [ ] E-commerce order logic
-- [ ] Stock logic (available of products)
-- [ ] Product details sizes
-- [ ] Private routes
-
-Other:
-
-- [x] Move colors to css vars
-- [x] Fix FSD errors
-- [x] Add Dark theme
-- [x] Add FSD public API pattern
-- [x] Turn on stylelint on commit
-- [ ] Fix TODO into code
-- [ ] Write storybook stories
-- [ ] Write article to my blog about main concepts
-- [ ] Add I18n
-- [ ] Write screenshot tests for stories
-- [ ] Write integration tests for user's use cases
 
 ## Running locally
 
