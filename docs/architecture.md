@@ -10,11 +10,10 @@ React SPA built with Vite and TypeScript.
 ## Architecture methodology
 
 Feature-Sliced Design (`app` / `pages` / `widgets` / `features` / `entities` /
-`shared`), with two documented deviations from the canonical methodology:
+`shared`), with one documented deviation from the canonical methodology:
 
 - `@x/<entity>` cross-import public APIs between entities (see
   `entities/product/@x/*`)
-- `widgets/Base*` sublayer for base widgets importable by other widgets
 
 ## State
 
