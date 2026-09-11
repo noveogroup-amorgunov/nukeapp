@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import type { ReactNode } from 'react'
 import { useWindowVirtualizer } from '@tanstack/react-virtual'
 import cn from 'classnames'
 import { ProductCardV2 } from '../ProductCardV2/ProductCardV2'
@@ -11,6 +12,7 @@ export type ProductGridProps = {
   products: ProductCompactView[]
   columns?: ProductGridColumns
   quantityByProductId?: Readonly<Record<string, number>>
+  actions?: (product: ProductCompactView) => ReactNode
   onProductClick?: (productId: string) => void
 }
 
@@ -44,6 +46,7 @@ export function ProductGrid({
   products,
   columns: columnsProp = 2,
   quantityByProductId,
+  actions,
   onProductClick,
 }: ProductGridProps) {
   const listRef = useRef<HTMLDivElement>(null)
@@ -129,6 +132,7 @@ export function ProductGrid({
                     key={`${virtualRow.index}-${i}`}
                     product={product}
                     quantity={quantityByProductId?.[product.id]}
+                    actionSlot={actions?.(product)}
                     onProductClick={onProductClick}
                   />
                 )

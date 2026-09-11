@@ -74,3 +74,12 @@ export const AutoColumns: Story = {
     },
   },
 }
+
+export const ActionsSlot: Story = {
+  args: {
+    columns: 2,
+    products,
+    actions: product =>
+      product.id === '1' ? <div>Wishlist icon slot</div> : null,
+  },
+}

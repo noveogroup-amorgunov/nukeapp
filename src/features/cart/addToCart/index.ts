@@ -1,2 +1,5 @@
-export { AddToCartButton } from './ui/AddToCartButton/AddToCartButton'
+export {
+  addCartProductThunk,
+  removeCartProductThunk,
+} from './model/actions'
 export { RemoveIcon } from './ui/RemoveIcon/RemoveIcon'

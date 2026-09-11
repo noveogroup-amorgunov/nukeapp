@@ -1,52 +1,78 @@
-import { useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
+import { useNavigate } from 'react-router-dom'
 import type { CartItem } from '@/entities/cart'
-import type { Product } from '@/entities/product'
-import { AddToCartButton, RemoveIcon } from '@/features/cart/addToCart'
+import type { ProductId } from '@/entities/product'
+import { mapProductToCompactView } from '@/entities/product'
+import { addCartProductThunk, removeCartProductThunk, RemoveIcon } from '@/features/cart/addToCart'
 import { AddToWishlistIcon } from '@/features/wishlist/addToWishlist'
-import { formatPrice } from '@/shared/lib'
-import { BaseProductList } from '@/widgets/BaseProductList'
+import { useAppDispatch } from '@/shared/redux'
+import { CartProductListV2 } from '@/shared/ui'
+import type { CartLineView } from '@/shared/ui'
 import css from './CartProductList.module.css'
 
-type CartProduct = Product & { quantity: number }
-
 type Props = {
-  products: CartItem[]
+  items: CartItem[]
 }
 
-export function CartProductList(props: Props) {
-  const products = useMemo(() => {
-    return props.products.map((item) => {
-      return {
-        ...item.product,
-        quantity: item.quantity,
+export function CartProductList({ items }: Props) {
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+
+  const lines = useMemo<CartLineView[]>(() => {
+    return items.map(item => ({
+      product: mapProductToCompactView(item.product),
+      quantity: item.quantity,
+    }))
+  }, [items])
+
+  const productsById = useMemo(() => {
+    return new Map(items.map(item => [String(item.product.id), item.product]))
+  }, [items])
+
+  const handleIncrease = useCallback(
+    (productId: string) => {
+      const product = productsById.get(productId)
+      if (product) {
+        dispatch(addCartProductThunk(product))
       }
-    })
-  }, [props.products])
+    },
+    [dispatch, productsById],
+  )
+
+  const handleDecrease = useCallback(
+    (productId: string) => {
+      const product = productsById.get(productId)
+      if (product) {
+        dispatch(removeCartProductThunk(product))
+      }
+    },
+    [dispatch, productsById],
+  )
+
+  const handleProductClick = useCallback(
+    (productId: string) => {
+      navigate(`/product/${productId}`)
+    },
+    [navigate],
+  )
+
+  const renderActions = useCallback(
+    (line: CartLineView) => (
+      <div className={css.productCardActions}>
+        <AddToWishlistIcon productId={Number(line.product.id) as ProductId} />
+        <RemoveIcon productId={Number(line.product.id) as ProductId} />
+      </div>
+    ),
+    [],
+  )
 
   return (
-    <BaseProductList<CartProduct>
-      size="s"
-      productCardBottomSlot={(product: CartProduct) => {
-        return (
-          <div className={css.productCardBottomActions}>
-            <div>
-              Total price:
-              {' '}
-              <span className="text_bold">
-                {formatPrice(product.quantity * product.price)}
-              </span>
-            </div>
-            <AddToCartButton showOnlyQuantity product={product} />
-          </div>
-        )
-      }}
-      productCardActionsSlot={productId => (
-        <div className={css.productCardActions}>
-          <AddToWishlistIcon productId={productId} />
-          <RemoveIcon productId={productId} />
-        </div>
-      )}
-      products={products}
+    <CartProductListV2
+      lines={lines}
+      onIncrease={handleIncrease}
+      onDecrease={handleDecrease}
+      onProductClick={handleProductClick}
+      actions={renderActions}
     />
   )
 }

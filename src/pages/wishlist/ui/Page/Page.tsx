@@ -1,21 +1,26 @@
 import { useCallback, useMemo } from 'react'
 import { skipToken } from '@reduxjs/toolkit/query'
 import { useNavigate } from 'react-router-dom'
+import { selectCartQuantityByProductId } from '@/entities/cart'
+import type { ProductId } from '@/entities/product'
+import { mapProductToCompactView } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
 import { useAddToWishlistMutation, useWishlistProductsQuery } from '@/entities/wishlist'
+import { AddToWishlistIcon } from '@/features/wishlist/addToWishlist'
 import { useAppSelector } from '@/shared/redux'
-import { Button } from '@/shared/ui'
-import { BaseProductList } from '@/widgets/BaseProductList'
+import { Button, ProductGrid } from '@/shared/ui'
+import type { ProductCompactView } from '@/shared/ui'
 
 export function WishlistPage() {
   const isAuthorized = useAppSelector(selectIsAuthorized)
   const navigate = useNavigate()
+  const quantityByProductId = useAppSelector(selectCartQuantityByProductId)
   const [, { isLoading: isActionFetching }] = useAddToWishlistMutation({
     // This field sync mutation which running from other place
     // @see src/features/wishlist/AddToWishlist/model/toggleWishlistProduct.ts
     fixedCacheKey: 'shared-add-to-wishlist',
   })
-  const { data: products = [], isFetching } = useWishlistProductsQuery(
+  const { data: wishlistProducts = [], isFetching } = useWishlistProductsQuery(
     isAuthorized ? undefined : skipToken,
   )
 
@@ -25,6 +30,25 @@ export function WishlistPage() {
     })
   }, [])
 
+  const products = useMemo(
+    () => wishlistProducts.map(mapProductToCompactView),
+    [wishlistProducts],
+  )
+
+  const handleProductClick = useCallback(
+    (productId: string) => {
+      navigate(`/product/${productId}`)
+    },
+    [navigate],
+  )
+
+  const renderActions = useCallback(
+    (product: ProductCompactView) => (
+      <AddToWishlistIcon productId={Number(product.id) as ProductId} />
+    ),
+    [],
+  )
+
   const content = useMemo(() => {
     if (!isAuthorized) {
       return (
@@ -33,6 +57,10 @@ export function WishlistPage() {
           <Button onClick={onLogin}>Login</Button>
         </div>
       )
+    }
+
+    if (isFetching && products.length === 0) {
+      return <div>Fetching...</div>
     }
 
     if (!isFetching && products.length === 0) {
@@ -46,10 +74,16 @@ export function WishlistPage() {
 
     return (
       <div>
-        <BaseProductList size="m" products={products} isFetching={isFetching} />
+        <ProductGrid
+          products={products}
+          quantityByProductId={quantityByProductId}
+          actions={renderActions}
+          columns="auto"
+          onProductClick={handleProductClick}
+        />
       </div>
     )
-  }, [isAuthorized, isFetching, products])
+  }, [isAuthorized, isFetching, products, quantityByProductId, renderActions, handleProductClick])
 
   const title = `Wishlist ${
     isAuthorized && products.length > 0
