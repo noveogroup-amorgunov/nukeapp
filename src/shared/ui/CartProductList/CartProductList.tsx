@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react'
 import { useCallback, useEffect, useLayoutEffect, useRef } from 'react'
 import { useWindowVirtualizer } from '@tanstack/react-virtual'
-import type { CartLineView } from './CartProductCardV2'
-import { CartProductCardV2 } from './CartProductCardV2'
-import css from './CartProductListV2.module.css'
+import type { CartLineView } from './CartProductCard'
+import { CartProductCard } from './CartProductCard'
+import css from './CartProductList.module.css'
 
 const GAP = 12
 const OVERSCAN = 5
@@ -17,9 +17,9 @@ export type Props = {
   actions?: (line: CartLineView) => ReactNode
 }
 
-export { type CartLineView } from './CartProductCardV2'
+export { type CartLineView } from './CartProductCard'
 
-export function CartProductListV2({
+export function CartProductList({
   lines,
   onIncrease,
   onDecrease,
@@ -73,7 +73,7 @@ export function CartProductListV2({
                 transform: `translateY(${item.start - virtualizer.options.scrollMargin}px)`,
               }}
             >
-              <CartProductCardV2
+              <CartProductCard
                 line={line}
                 onIncrease={onIncrease}
                 onDecrease={onDecrease}

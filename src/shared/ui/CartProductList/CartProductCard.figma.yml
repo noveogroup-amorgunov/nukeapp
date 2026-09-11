@@ -1,7 +1,7 @@
 version: 1
 
-# Figma (node 100:724) -> React API adapter for CartProductCardV2.
-# Internal card of CartProductListV2; not exported from the shared UI barrel.
+# Figma (node 100:724) -> React API adapter for CartProductCard.
+# Internal card of CartProductList; not exported from the shared UI barrel.
 
 properties:
   InteractionState:
@@ -17,7 +17,7 @@ properties:
 
 # Composition notes:
 # - The card composes Price (unit price: Size L variant Primary; line total:
-#   Size M with the struck-through old price), the AddToCartButtonV2 stepper
+#   Size M with the struck-through old price), the AddToCartButton stepper
 #   (Size M), Text (LabelSmall for the specification, BodyMedium for the name
 #   and "Total price:" label) and the shared money formatter.
 # - State (Empty/InCart/MaxAdded) is derived from quantity vs the product's

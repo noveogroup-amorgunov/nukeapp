@@ -1,15 +1,15 @@
 import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { AddToCartButtonV2 } from './AddToCartButtonV2'
+import { AddToCartButton } from './AddToCartButton'
 
-const meta: Meta<typeof AddToCartButtonV2> = {
-  title: 'shared/ui/AddToCartButtonV2',
-  component: AddToCartButtonV2,
+const meta: Meta<typeof AddToCartButton> = {
+  title: 'shared/ui/AddToCartButton',
+  component: AddToCartButton,
 }
 
 export default meta
 
-type Story = StoryObj<typeof AddToCartButtonV2>
+type Story = StoryObj<typeof AddToCartButton>
 
 const STOCK = 3
 
@@ -23,7 +23,7 @@ function Playground(props: {
   const [quantity, setQuantity] = useState(props.initialQuantity ?? 0)
 
   return (
-    <AddToCartButtonV2
+    <AddToCartButton
       quantity={quantity}
       maxQuantityIsReached={
         props.maxQuantityIsReached || quantity >= STOCK

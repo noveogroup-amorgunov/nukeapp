@@ -1,6 +1,6 @@
 version: 1
 
-# Figma (node 89:1209) -> React API adapter for AddToCartButtonV2.
+# Figma (node 89:1209) -> React API adapter for AddToCartButton.
 
 properties:
   State:

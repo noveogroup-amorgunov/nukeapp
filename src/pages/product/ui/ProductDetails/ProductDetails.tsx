@@ -10,7 +10,7 @@ import {
 import { AddToWishlistButton } from '@/features/wishlist/addToWishlist'
 import { useAppDispatch, useAppSelector } from '@/shared/redux'
 import {
-  AddToCartButtonV2,
+  AddToCartButton,
   Price,
   Text,
   useAlertModal,
@@ -163,7 +163,7 @@ export function ProductDetails({ productDetails, isFetching }: Props) {
         <div className={css.actions}>
           <AddToWishlistButton productId={productDetails.id} />
           {!isOutOfStock && (
-            <AddToCartButtonV2
+            <AddToCartButton
               quantity={quantity}
               maxQuantityIsReached={maxQuantityIsReached}
               price={productDetails.price}

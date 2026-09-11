@@ -71,11 +71,11 @@ Blocked by: 01, 03, 04, 05.
 
 Blocked by: 06.
 
-- [ ] ProductCardV2 → ProductCard, CartProductListV2 → CartProductList,
+- [x] ProductCardV2 → ProductCard, CartProductListV2 → CartProductList,
       CartProductCardV2 → CartProductCard, AddToCartButtonV2 →
       AddToCartButton, LogoV2 → Logo: directories, names, stories, barrels,
       all internal usages
-- [ ] .design-system/figma-registry.yml and *.figma.yml mappings updated
+- [x] .design-system/figma-registry.yml and *.figma.yml mappings updated
       (node ids and figmaName unchanged)
-- [ ] Gates green; commit: `refactor: drop V2 suffixes from synced uikit
+- [x] Gates green; commit: `refactor: drop V2 suffixes from synced uikit
 components`

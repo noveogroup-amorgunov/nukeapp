@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react'
 import { useCallback } from 'react'
-import { AddToCartButtonV2 } from '../AddToCartButtonV2/AddToCartButtonV2'
+import { AddToCartButton } from '../AddToCartButton/AddToCartButton'
 import { Price } from '../Price/Price'
-import type { ProductCompactView } from '../ProductCardV2/ProductCardV2'
+import type { ProductCompactView } from '../ProductCard/ProductCard'
 import { Text } from '../Text/Text'
-import css from './CartProductCardV2.module.css'
+import css from './CartProductCard.module.css'
 
 export type CartLineView = {
   product: ProductCompactView
@@ -19,7 +19,7 @@ type Props = {
   actions?: ReactNode
 }
 
-export function CartProductCardV2({
+export function CartProductCard({
   line,
   onIncrease,
   onDecrease,
@@ -66,7 +66,7 @@ export function CartProductCardV2({
             />
           </div>
         </button>
-        <AddToCartButtonV2
+        <AddToCartButton
           quantity={quantity}
           maxQuantityIsReached={maxQuantityIsReached}
           price={price}

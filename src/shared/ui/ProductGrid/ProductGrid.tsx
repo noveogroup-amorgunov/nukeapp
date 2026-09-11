@@ -2,8 +2,8 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import type { ReactNode } from 'react'
 import { useWindowVirtualizer } from '@tanstack/react-virtual'
 import cn from 'classnames'
-import { ProductCardV2 } from '../ProductCardV2/ProductCardV2'
-import type { ProductCompactView } from '../ProductCardV2/ProductCardV2'
+import { ProductCard } from '../ProductCard/ProductCard'
+import type { ProductCompactView } from '../ProductCard/ProductCard'
 import css from './ProductGrid.module.css'
 
 export type ProductGridColumns = 2 | 3 | 4 | 'auto'
@@ -128,7 +128,7 @@ export function ProductGrid({
                 }
 
                 return (
-                  <ProductCardV2
+                  <ProductCard
                     key={`${virtualRow.index}-${i}`}
                     product={product}
                     quantity={quantityByProductId?.[product.id]}

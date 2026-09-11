@@ -7,7 +7,7 @@ import { selectIsAuthorized } from '@/entities/session'
 import { ChangeTheme } from '@/entities/theme'
 import { useWishlistProductsQuery } from '@/entities/wishlist'
 import { useAppSelector } from '@/shared/redux'
-import { LogoV2 } from '@/shared/ui'
+import { Logo } from '@/shared/ui'
 import css from './LayoutHeader.module.css'
 
 type Props = {
@@ -24,7 +24,7 @@ export function LayoutHeader(props: Props) {
   return (
     <header data-fsd="widget/LayoutHeader" className={css.root}>
       <Link to="/">
-        <LogoV2 />
+        <Logo />
       </Link>
       <div className={css.right}>
         {props.rightContentSlot}

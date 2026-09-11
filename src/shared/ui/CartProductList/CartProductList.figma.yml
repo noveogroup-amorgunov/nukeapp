@@ -1,6 +1,6 @@
 version: 1
 
-# Figma (node 93:1823) -> React API adapter for CartProductListV2.
+# Figma (node 93:1823) -> React API adapter for CartProductList.
 
 properties:
 # The Figma component is a plain component (no variants): a vertical slot
@@ -10,12 +10,12 @@ properties:
 # Notes:
 # - Data contract: a list of CartLineView (a cart line: ProductCompactView +
 #   Quantity) — decoupled from the entities layer, same precedent as the
-#   ProductCardV2 view model.
+#   ProductCard view model.
 # - Stepper callbacks (onIncrease/onDecrease), onProductClick and the
 #   `actions` render prop (filling each card's Actions slot) are hoisted to
 #   the list level: integration attaches business behavior once per list.
 # - Rendering is window-virtualized (@tanstack/react-virtual) with a 12px gap
 #   and dynamic item measurement, because card heights vary with text wrap;
 #   the Figma auto-layout gap maps to the virtualizer gap.
-# - The list composes the internal CartProductCardV2; the card is not
+# - The list composes the internal CartProductCard; the card is not
 #   exported from the shared UI barrel.

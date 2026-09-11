@@ -6,7 +6,7 @@ import { mapProductToCompactView } from '@/entities/product'
 import { addCartProductThunk, removeCartProductThunk, RemoveIcon } from '@/features/cart/addToCart'
 import { AddToWishlistIcon } from '@/features/wishlist/addToWishlist'
 import { useAppDispatch } from '@/shared/redux'
-import { CartProductListV2 } from '@/shared/ui'
+import { CartProductList as CartProductListView } from '@/shared/ui'
 import type { CartLineView } from '@/shared/ui'
 import css from './CartProductList.module.css'
 
@@ -67,7 +67,7 @@ export function CartProductList({ items }: Props) {
   )
 
   return (
-    <CartProductListV2
+    <CartProductListView
       lines={lines}
       onIncrease={handleIncrease}
       onDecrease={handleDecrease}

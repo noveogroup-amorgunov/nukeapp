@@ -32,10 +32,10 @@ layout:
       card width plus the info block height and re-measured on resize.
 
 # Notes:
-# - Products are passed as `products: ProductCompactView[]`; ProductCardV2
-#   (node 3:47, see ProductCardV2.figma.yml) is rendered internally.
+# - Products are passed as `products: ProductCompactView[]`; ProductCard
+#   (node 3:47, see ProductCard.figma.yml) is rendered internally.
 # - Cart quantity per product is display-only via `quantityByProductId`,
-#   mirroring ProductCardV2's `quantity` prop.
+#   mirroring ProductCard's `quantity` prop.
 # - Per-card action slot is composed from outside via the `actions`
-#   render-prop (fills ProductCardV2's `actionSlot`); no Figma counterpart —
+#   render-prop (fills ProductCard's `actionSlot`); no Figma counterpart —
 #   the Figma card set has no action slot.

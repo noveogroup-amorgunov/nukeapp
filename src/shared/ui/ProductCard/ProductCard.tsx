@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 import cn from 'classnames'
 import { Price } from '../Price/Price'
 import { Text } from '../Text/Text'
-import css from './ProductCardV2.module.css'
+import css from './ProductCard.module.css'
 
 // Copied from entities/Product model to keep the component decoupled
 // from the business Product model.
@@ -24,7 +24,7 @@ type Props = {
   onProductClick?: (productId: string) => void
 }
 
-export function ProductCardV2({ product, quantity = 0, actionSlot, onProductClick }: Props) {
+export function ProductCard({ product, quantity = 0, actionSlot, onProductClick }: Props) {
   const { id, name, specification, imageUrl, price, oldPrice, stock } = product
 
   const soldOut = stock === 0

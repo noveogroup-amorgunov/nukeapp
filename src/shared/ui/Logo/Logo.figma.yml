@@ -1,6 +1,6 @@
 version: 1
 
-# Figma (node 101:1156, single-variant set) -> React API adapter for LogoV2.
+# Figma (node 101:1156, single-variant set) -> React API adapter for Logo.
 
 properties:
 # The Figma set has a single variant ("Property 1=Default"): the wordmark

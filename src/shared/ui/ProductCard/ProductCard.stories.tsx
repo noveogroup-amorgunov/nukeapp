@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Icon, IconButton, ProductCardV2 } from '@/shared/ui'
+import { Icon, IconButton, ProductCard } from '@/shared/ui'
 
-const meta: Meta<typeof ProductCardV2> = {
-  title: 'shared/ui/ProductCardV2',
-  component: ProductCardV2,
+const meta: Meta<typeof ProductCard> = {
+  title: 'shared/ui/ProductCard',
+  component: ProductCard,
 }
 
 export default meta
 
-type Story = StoryObj<typeof ProductCardV2>
+type Story = StoryObj<typeof ProductCard>
 
 const product = {
   id: '1',

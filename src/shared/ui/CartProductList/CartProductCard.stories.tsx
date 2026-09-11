@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Icon, IconButton } from '@/shared/ui'
-import type { CartLineView } from './CartProductCardV2'
-import { CartProductCardV2 } from './CartProductCardV2'
+import type { CartLineView } from './CartProductCard'
+import { CartProductCard } from './CartProductCard'
 
-const meta: Meta<typeof CartProductCardV2> = {
-  title: 'shared/ui/CartProductCardV2',
-  component: CartProductCardV2,
+const meta: Meta<typeof CartProductCard> = {
+  title: 'shared/ui/CartProductCard',
+  component: CartProductCard,
 }
 
 export default meta
 
-type Story = StoryObj<typeof CartProductCardV2>
+type Story = StoryObj<typeof CartProductCard>
 
 const line: CartLineView = {
   product: {

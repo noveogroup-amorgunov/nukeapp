@@ -4,22 +4,22 @@ import { Icon } from '../Icon/Icon'
 import { IconButton } from '../IconButton/IconButton'
 import { Price } from '../Price/Price'
 import { Text } from '../Text/Text'
-import css from './AddToCartButtonV2.module.css'
+import css from './AddToCartButton.module.css'
 
-export type AddToCartButtonV2Size = 'm' | 'l'
+export type AddToCartButtonSize = 'm' | 'l'
 
 type Props = {
   quantity: number
   maxQuantityIsReached?: boolean
   price: Penny
   oldPrice?: Penny
-  size?: AddToCartButtonV2Size
+  size?: AddToCartButtonSize
   disabled?: boolean
   onIncrease: (event: React.MouseEvent<HTMLElement>) => void
   onDecrease: (event: React.MouseEvent<HTMLElement>) => void
 }
 
-export function AddToCartButtonV2({
+export function AddToCartButton({
   quantity,
   maxQuantityIsReached,
   price,

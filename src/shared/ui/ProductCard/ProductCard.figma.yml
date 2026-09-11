@@ -1,6 +1,6 @@
 version: 1
 
-# Figma (node 3:47) -> React API adapter for ProductCardV2.
+# Figma (node 3:47) -> React API adapter for ProductCard.
 
 properties:
   InteractionState:
