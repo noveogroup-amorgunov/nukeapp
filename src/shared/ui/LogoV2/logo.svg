@@ -1,0 +1,39 @@
+<svg width="174" height="33" viewBox="0 0 174 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_101_1155)">
+<mask id="path-1-outside-1_101_1155" maskUnits="userSpaceOnUse" x="0" y="0" width="171" height="30" fill="black">
+<rect fill="white" width="171" height="30"/>
+<path d="M3 24V9H21V12H24V24H18V12H9V24H3Z"/>
+<path d="M30 24V21H27V9H33V21H42V9H48V24H30Z"/>
+<path d="M51 24V3H57V15H63V12H66V9H72V12H69V15H66V18H69V21H72V24H66V21H63V18H57V24H51Z"/>
+<path d="M78 24V21H75V12H78V9H93V12H96V18H81V21H93V24H78ZM81 15H90V12H81V15Z"/>
+<path d="M102 24V21H99V18H102V15H114V12H102V9H117V12H120V24H102ZM105 21H114V18H105V21Z"/>
+<path d="M123 27V9H141V12H144V18H141V21H129V27H123ZM129 18H138V12H129V18Z"/>
+<path d="M147 27V9H165V12H168V18H165V21H153V27H147ZM153 18H162V12H153V18Z"/>
+</mask>
+<path d="M3 24V9H21V12H24V24H18V12H9V24H3Z" fill="white"/>
+<path d="M30 24V21H27V9H33V21H42V9H48V24H30Z" fill="white"/>
+<path d="M51 24V3H57V15H63V12H66V9H72V12H69V15H66V18H69V21H72V24H66V21H63V18H57V24H51Z" fill="white"/>
+<path d="M78 24V21H75V12H78V9H93V12H96V18H81V21H93V24H78ZM81 15H90V12H81V15Z" fill="white"/>
+<path d="M102 24V21H99V18H102V15H114V12H102V9H117V12H120V24H102ZM105 21H114V18H105V21Z" fill="white"/>
+<path d="M123 27V9H141V12H144V18H141V21H129V27H123ZM129 18H138V12H129V18Z" fill="white"/>
+<path d="M147 27V9H165V12H168V18H165V21H153V27H147ZM153 18H162V12H153V18Z" fill="white"/>
+<path d="M3 24V9H21V12H24V24H18V12H9V24H3Z" stroke="black" stroke-width="6" mask="url(#path-1-outside-1_101_1155)"/>
+<path d="M30 24V21H27V9H33V21H42V9H48V24H30Z" stroke="black" stroke-width="6" mask="url(#path-1-outside-1_101_1155)"/>
+<path d="M51 24V3H57V15H63V12H66V9H72V12H69V15H66V18H69V21H72V24H66V21H63V18H57V24H51Z" stroke="black" stroke-width="6" mask="url(#path-1-outside-1_101_1155)"/>
+<path d="M78 24V21H75V12H78V9H93V12H96V18H81V21H93V24H78ZM81 15H90V12H81V15Z" stroke="black" stroke-width="6" mask="url(#path-1-outside-1_101_1155)"/>
+<path d="M102 24V21H99V18H102V15H114V12H102V9H117V12H120V24H102ZM105 21H114V18H105V21Z" stroke="black" stroke-width="6" mask="url(#path-1-outside-1_101_1155)"/>
+<path d="M123 27V9H141V12H144V18H141V21H129V27H123ZM129 18H138V12H129V18Z" stroke="black" stroke-width="6" mask="url(#path-1-outside-1_101_1155)"/>
+<path d="M147 27V9H165V12H168V18H165V21H153V27H147ZM153 18H162V12H153V18Z" stroke="black" stroke-width="6" mask="url(#path-1-outside-1_101_1155)"/>
+</g>
+<defs>
+<filter id="filter0_d_101_1155" x="0" y="0" width="174" height="33" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="3" dy="3"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_101_1155"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_101_1155" result="shape"/>
+</filter>
+</defs>
+</svg>

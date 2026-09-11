@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import type { ReactNode } from 'react'
 import cn from 'classnames'
-import { formatPrice } from '@/shared/lib'
+import { Price } from '../Price/Price'
 import { Text } from '../Text/Text'
 import css from './ProductCardV2.module.css'
 
@@ -12,8 +12,6 @@ export type ProductCompactView = {
   name: string
   specification: string
   imageUrl: string | null
-  // TODO: render oldPrice (strikethrough) — no old-price variant in the
-  // Figma component yet. Tracked in .scratch/product-card-old-price.
   price: Penny
   oldPrice?: Penny
   stock: number
@@ -27,7 +25,7 @@ type Props = {
 }
 
 export function ProductCardV2({ product, quantity = 0, actionSlot, onProductClick }: Props) {
-  const { id, name, specification, imageUrl, price, stock } = product
+  const { id, name, specification, imageUrl, price, oldPrice, stock } = product
 
   const soldOut = stock === 0
   const isLowStock = !soldOut && stock === 1
@@ -68,9 +66,13 @@ export function ProductCardV2({ product, quantity = 0, actionSlot, onProductClic
           <Text className={css.name} variant="BodyMedium">
             {name}
           </Text>
-          <Text variant="BodyCapture">
-            {soldOut ? 'Out of stock' : formatPrice(price)}
-          </Text>
+          {soldOut
+            ? (
+                <Text variant="BodyCapture">Out of stock</Text>
+              )
+            : (
+                <Price price={price} oldPrice={oldPrice} size="m" />
+              )}
         </div>
       </button>
       {actionSlot && <div className={css.actions}>{actionSlot}</div>}

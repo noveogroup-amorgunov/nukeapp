@@ -3,6 +3,17 @@ version: 1
 # Figma (node 3:47) -> React API adapter for ProductCardV2.
 
 properties:
+  InteractionState:
+    type: presentation-only
+    values:
+      Default: default
+      FocusVisible: ':focus-visible ring around the whole card (#1d87de, 2px
+        outside), rendered via :has(.main:focus-visible) on the card root
+        because the focusable element is the main button'
+      Pressed: ':active (the Figma variant is a scaled-down drawing artifact;
+        in code the pressed state is transform: scale(0.95) per the Button
+        pressed precedent)'
+
   Availability:
     type: prop
     code:
@@ -37,8 +48,8 @@ properties:
 
 # Notes:
 # - ProductCompactView mirrors the sibling project's shared/uikit/ProductCard
-#   ontology. oldPrice stays in the view model but is not rendered (Figma
-#   shows no old price).
+#   ontology. The price line composes the Price component (Size M variant
+#   Primary): the old price renders struck-through before the actual price.
 # - Image area background is --color-bg-primary-pressed (visible while the
 #   image loads and when imageUrl is null).
 # - Cart quantity numeral is 36px Bold — no matching Text variant; styled in

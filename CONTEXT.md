@@ -17,6 +17,10 @@ _Avoid_: synonym, alternative-name
 A good offered for sale in the catalog; the unit that Stock and Quantity refer to.
 _Avoid_: item, good, position
 
+**Cart line**:
+One entry of the shopping cart: a Product together with its Quantity in the cart.
+_Avoid_: cart item, position
+
 **Quantity**:
 The number of units of a single product currently in the shopping cart.
 _Avoid_: count, amount, stocks

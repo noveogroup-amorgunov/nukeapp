@@ -44,6 +44,12 @@ export const OutOfStock: Story = {
   },
 }
 
+export const WithOldPrice: Story = {
+  args: {
+    product: { ...product, oldPrice: 19900 },
+  },
+}
+
 export const WithActionSlot: Story = {
   args: {
     product,

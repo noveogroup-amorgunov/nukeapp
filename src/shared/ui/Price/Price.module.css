@@ -1,0 +1,15 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-04);
+  color: var(--color-text-primary);
+}
+
+.root_variant_secondary {
+  color: var(--color-text-brand);
+}
+
+.oldPrice {
+  text-decoration: line-through;
+  opacity: 0.3;
+}

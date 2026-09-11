@@ -1,0 +1,37 @@
+version: 1
+
+# Figma (node 97:2009) -> React API adapter for Price.
+
+properties:
+  OldPrice:
+    type: boolean-prop
+    prop: oldPrice
+    code:
+      description: Renders struck-through before the actual price, without
+        the currency sign (the Figma mock shows the old price unadorned).
+
+  Size:
+    type: prop
+    prop: size
+    values:
+      M: m
+      L: l
+
+  Variant:
+    type: prop
+    prop: variant
+    values:
+      Primary: primary
+      Secondary: secondary
+
+# Notes:
+# - Text styles map to the Text component variants: Size M -> BodyCapture
+#   (16px semibold / line 18), Size L -> DisplayLarge (24px bold / line 30);
+#   rendered through asChild to keep the wrapping span (DisplayLarge's
+#   default tag is h1).
+# - Old price is struck-through, unadorned by the currency sign, and dimmed:
+#   30% opacity with the same color token as the actual price (updated in
+#   Figma 2026-09-11).
+# - Primary = --color-text-primary, Secondary = --color-text-brand.
+# - Formatting via the shared money formatter (sign only on the actual
+#   price).

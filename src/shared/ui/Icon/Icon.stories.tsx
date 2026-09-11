@@ -10,6 +10,8 @@ const iconTypes: IconType[] = [
   'sun',
   'moon',
   'loader',
+  'minus',
+  'plus',
   'x',
   'chevronDown',
   'chevronUp',
@@ -34,7 +36,7 @@ export const Common: Story = {
 
 export const IconsSet: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: '16px' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
       {iconTypes.map(type => (
         <Icon key={type} type={type} />
       ))}

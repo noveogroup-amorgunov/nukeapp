@@ -14,6 +14,13 @@ properties:
     type: boolean-prop
     prop: disabled
 
+  Variant:
+    type: prop
+    prop: variant
+    values:
+      Default: default
+      Ghost: ghost
+
   Counter:
     type: text
     code:

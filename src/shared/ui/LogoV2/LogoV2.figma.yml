@@ -1,0 +1,15 @@
+version: 1
+
+# Figma (node 101:1156, single-variant set) -> React API adapter for LogoV2.
+
+properties:
+# The Figma set has a single variant ("Property 1=Default"): the wordmark
+# vector. No variants map to props.
+
+# Notes:
+# - Pure-visual component: no router dependency; a Link wrapper belongs to
+#   the integration change.
+# - The SVG is exported from Figma (white wordmark fill, black contour
+#   stroke, 3/3 hard drop shadow) and imported via the svgr `?react`
+#   mechanism.
+# - The logo is universal for both color themes — no light/dark pair.
