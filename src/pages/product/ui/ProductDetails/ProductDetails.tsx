@@ -1,5 +1,4 @@
 import { useCallback, useMemo } from 'react'
-import cn from 'classnames'
 import { useNavigate } from 'react-router-dom'
 import { selectProductInCart, selectTotalQuantity } from '@/entities/cart'
 import { selectIsAuthorized } from '@/entities/session'
@@ -142,8 +141,8 @@ export function ProductDetails({ productDetails, isFetching }: Props) {
         ))}
       </div>
       <div className={css.content}>
-        <div className="text_2xl text_bold">{productDetails.name}</div>
-        <div className="text_base text_bold">{productDetails.subname}</div>
+        <Text variant="DisplayLarge">{productDetails.name}</Text>
+        <Text variant="BodyCapture">{productDetails.subname}</Text>
         <div className={css.price}>
           {isOutOfStock
             ? (
@@ -156,9 +155,6 @@ export function ProductDetails({ productDetails, isFetching }: Props) {
                   size="l"
                 />
               )}
-          {productDetails.stock === 1 && (
-            <span className={css.badge}>Only 1 left</span>
-          )}
         </div>
         <div className={css.actions}>
           <AddToWishlistButton productId={productDetails.id} />
@@ -174,9 +170,9 @@ export function ProductDetails({ productDetails, isFetching }: Props) {
             />
           )}
         </div>
-        <div className={cn(css.description, 'text_base')}>
+        <Text className={css.description} variant="BodyMedium">
           {productDetails.description}
-        </div>
+        </Text>
       </div>
     </div>
   )
