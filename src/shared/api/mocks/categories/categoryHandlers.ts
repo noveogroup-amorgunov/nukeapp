@@ -1,7 +1,7 @@
 import { delay, http, HttpResponse } from 'msw'
+import type { CategoryWithProducts as CategoryWithProductsDto } from '@/shared/api'
 import { env } from '@/shared/lib'
 import { __serverDatabase } from '@/shared/lib/server'
-import type { CategoryWithProductsDto } from '../types'
 
 // Emulate sortBy product's feature
 const productSortByCompareFunctionMap: Record<

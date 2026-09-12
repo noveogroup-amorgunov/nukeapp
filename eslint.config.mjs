@@ -101,7 +101,10 @@ export default antfu(
     },
   },
   {
-    files: ['**/__mocks__/**/*.ts'],
+    files: [
+      '**/__mocks__/**/*.ts',
+      'src/shared/api/mocks/**/*.ts',
+    ],
     rules: {
       'no-restricted-imports': 'off',
     },

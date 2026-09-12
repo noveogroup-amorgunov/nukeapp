@@ -34,11 +34,19 @@ Feature-Sliced Design (`app` / `pages` / `widgets` / `features` / `entities` /
 
 ## API
 
-RTK Query API layer in `shared/api`, with base query and reauth handling.
+The hand-written OpenAPI spec in `shared/api` is the single source of truth for
+the API layer; the official RTK Query codegen produces the committed generated
+slice (`api:generate` / `api:check` guards staleness in CI). Most endpoints
+serve raw DTO straight from `shared/api`; the Product / Category / Wishlist
+entities own one adapter each (`enhanceEndpoints` + mappers) for their
+cross-slice domain models, single-slice endpoints adapt in the consuming slice.
+Tags are the four existing tagTypes, wired in the same `enhanceEndpoints`
+calls (rationale and wiring diagram in `adr/0003-rtk-query-codegen-from-handwritten-spec.md`).
 
 ## Mocking
 
-MSW with `@msw/data` for API mocking.
+MSW with `@msw/data` for API mocking; handlers centralized in
+`shared/api/mocks/<domain>`, simulated latency lives in handlers.
 
 ## Tooling
 

@@ -1,7 +1,7 @@
 import { delay, http, HttpResponse } from 'msw'
+import type { UpdateCartRequest } from '@/shared/api'
 import { env, parseTokenFromRequest, verifyAccessToken } from '@/shared/lib'
 import { __serverDatabase } from '@/shared/lib/server'
-import type { CartItemDto } from '../types'
 import { mockCartDto } from './mockCartDto'
 
 export const cartHandlers = [
@@ -31,7 +31,7 @@ export const cartHandlers = [
     }
   }),
 
-  http.patch<object, { version: number, items: CartItemDto[] }>(`${env.VITE_API_ENDPOINT}/cart`, async ({ request }) => {
+  http.patch<object, { version: number, items: UpdateCartRequest['items'] }>(`${env.VITE_API_ENDPOINT}/cart`, async ({ request }) => {
     try {
       const { userId } = await verifyAccessToken(parseTokenFromRequest(request))
       const url = new URL(request.url)
@@ -46,10 +46,10 @@ export const cartHandlers = [
           data(cart) {
             cart.version = body.version
             cart.itemsProductQuantity = body.items.map(
-              (item: CartItemDto) => item.quantity,
+              (item: UpdateCartRequest['items'][number]) => item.quantity,
             )
             cart.itemsProductId = body.items.map(
-              (item: CartItemDto) => item.productId,
+              (item: UpdateCartRequest['items'][number]) => item.productId,
             )
           },
         },

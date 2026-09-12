@@ -37,10 +37,12 @@ export type {
 // ApiArg types for `enhanceEndpoints` overrides in consuming slices
 export type {
   GetCategoryDetailsApiArg,
+  GetFeatureToggleApiArg,
   GetPopularCategoriesApiArg,
   GetPopularProductsApiArg,
   GetProductDetailsApiArg,
   GetProductsApiArg,
+  GetWishlistProductsApiArg,
 } from './generated/api.generated'
 export { isFetchBaseQueryError } from './isFetchBaseQueryError'
 export { CART_TAG, SESSION_TAG, USER_TAG, WISHLIST_TAG } from './tags'

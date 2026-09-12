@@ -14,8 +14,8 @@ const featureSchema = z
   .optional()
 
 const featureToggleQuerySchema = z.object({
-  canSortProducts: featureSchema,
-  canTurnDarkMode: featureSchema,
+  productsSort: featureSchema,
+  darkMode: featureSchema,
 })
 
 export const featureToggleHandlers = [

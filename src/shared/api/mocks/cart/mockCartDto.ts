@@ -1,5 +1,4 @@
-import type { ProductDto } from '@/entities/product/@x/cart'
-import type { CartDto } from '../types'
+import type { Cart as CartDto, Product as ProductDto } from '@/shared/api'
 
 // TODO: infer type from database
 type CartDatabaseModal = {

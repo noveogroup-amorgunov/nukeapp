@@ -1,4 +1,4 @@
-import type { CategoryDto } from '../api/types'
+import type { Category as CategoryDto } from '@/shared/api'
 import type { Category, CategoryId } from '../model/types'
 
 export function mapCategory(dto: CategoryDto): Category {
