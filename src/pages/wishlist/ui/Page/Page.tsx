@@ -5,7 +5,7 @@ import { selectCartQuantityByProductId } from '@/entities/cart'
 import type { ProductId } from '@/entities/product'
 import { mapProductToCompactView } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
-import { useAddToWishlistMutation, useWishlistProductsQuery } from '@/entities/wishlist'
+import { useGetWishlistProductsQuery, useUpdateWishlistProductsMutation } from '@/entities/wishlist'
 import { AddToWishlistIcon } from '@/features/wishlist/addToWishlist'
 import { useAppSelector } from '@/shared/redux'
 import { Button, ProductGrid } from '@/shared/ui'
@@ -15,12 +15,12 @@ export function WishlistPage() {
   const isAuthorized = useAppSelector(selectIsAuthorized)
   const navigate = useNavigate()
   const quantityByProductId = useAppSelector(selectCartQuantityByProductId)
-  const [, { isLoading: isActionFetching }] = useAddToWishlistMutation({
+  const [, { isLoading: isActionFetching }] = useUpdateWishlistProductsMutation({
     // This field sync mutation which running from other place
-    // @see src/features/wishlist/AddToWishlist/model/toggleWishlistProduct.ts
+    // @see src/features/wishlist/addToWishlist/model/toggleWishlistProduct.ts
     fixedCacheKey: 'shared-add-to-wishlist',
   })
-  const { data: wishlistProducts = [], isFetching } = useWishlistProductsQuery(
+  const { data: wishlistProducts = [], isFetching } = useGetWishlistProductsQuery(
     isAuthorized ? undefined : skipToken,
   )
 

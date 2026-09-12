@@ -38,7 +38,7 @@ const slice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addMatcher(
-      wishlistApi.endpoints.wishlistProducts.matchFulfilled,
+      wishlistApi.endpoints.getWishlistProducts.matchFulfilled,
       (state: WishlistSliceState, { payload }) => {
         state.products = {}
 

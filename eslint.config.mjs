@@ -5,6 +5,9 @@ import eslintPluginReactHooks from 'eslint-plugin-react-hooks'
 
 export default antfu(
   {
+    ignores: [
+      'src/shared/api/generated/**',
+    ],
     formatters: {
       css: true,
       html: true,
@@ -39,6 +42,12 @@ export default antfu(
             name: 'react-router-dom',
             importNames: ['useParams'],
             message: 'Use `import { useTypedParams } from @/shared/lib/router` instead.',
+          },
+        ],
+        patterns: [
+          {
+            group: ['@/shared/api/generated', '@/shared/api/generated/**'],
+            message: 'Generated API code is internal to `@/shared/api`, import it via the `@/shared/api` public API',
           },
         ],
       }],
@@ -80,6 +89,7 @@ export default antfu(
     files: [
       '**/*.stories.tsx',
       'vite.config.mts',
+      'openapi-config.ts',
       'eslint.config.mjs',
       'steiger.config.js',
       'public/mockServiceWorker.js',
@@ -91,7 +101,10 @@ export default antfu(
     },
   },
   {
-    files: ['**/__mocks__/**/*.ts'],
+    files: [
+      '**/__mocks__/**/*.ts',
+      'src/shared/api/mocks.ts',
+    ],
     rules: {
       'no-restricted-imports': 'off',
     },

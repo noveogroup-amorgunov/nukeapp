@@ -3,7 +3,7 @@ import cn from 'classnames'
 import { Link, useNavigate } from 'react-router-dom'
 import { z } from 'zod'
 import { selectCartQuantityByProductId } from '@/entities/cart'
-import { useCategoryDetailsQuery } from '@/entities/category'
+import { useGetCategoryDetailsQuery } from '@/entities/category'
 import type { CategoryId } from '@/entities/category'
 import { useFeatureToggle } from '@/entities/featureToggle'
 import { mapProductToCompactView } from '@/entities/product'
@@ -44,8 +44,8 @@ export function CategoryPage() {
     }
   }, [])
 
-  const { data, isFetching, isLoading } = useCategoryDetailsQuery({
-    categoryId,
+  const { data, isFetching, isLoading } = useGetCategoryDetailsQuery({
+    id: categoryId,
     sortBy,
   })
 
