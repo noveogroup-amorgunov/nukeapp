@@ -91,7 +91,7 @@ const slice = createSlice({
         // update cart state if server sent actual version
         if (state.version <= payload.version) {
           state.itemsMap = Object.fromEntries(
-            payload.cartItems.map(({ product, quantity }) => [
+            payload.cartLines.map(({ product, quantity }) => [
               product.id as ProductId,
               { product: mapProduct(product), quantity },
             ]),

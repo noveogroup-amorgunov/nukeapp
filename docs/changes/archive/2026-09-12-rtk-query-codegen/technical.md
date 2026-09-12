@@ -35,8 +35,9 @@ design; it does not duplicate the ADR.
   `getPopularProducts` in the main page slice, product details in the product
   page slice.
 - Tag wiring stays on the existing tagTypes (SESSION / WISHLIST / CART / USER)
-  and happens in the same `enhanceEndpoints` calls as the customization above —
-  customization and tags follow one placement rule.
+  and is declared statically in the codegen config (`endpointOverrides`
+  providesTags / invalidatesTags); `enhanceEndpoints` calls in slices carry
+  only the `transformResponse` customization.
 
 ## Deletions
 

@@ -58,25 +58,25 @@ function mockFeatureToggleDto(
 }
 
 // TODO: infer type from database
-type CartDatabaseModal = {
+type CartDatabaseModel = {
   version: number
   itemsProductId: number[]
   itemsProductQuantity: number[]
 }
 
 function mockCartDto(
-  cart: CartDatabaseModal,
+  cart: CartDatabaseModel,
   products: ProductDto[],
 ): CartDto {
   return {
     deliveryPrice: 0,
     version: cart.version,
-    cartItems: cart.itemsProductId
+    cartLines: cart.itemsProductId
       .map((productId, index) => ({
         product: products.find(product => product.id === productId),
         quantity: cart.itemsProductQuantity[index],
       }))
-      .filter(item => Boolean(item.product)) as CartDto['cartItems'],
+      .filter(item => Boolean(item.product)) as CartDto['cartLines'],
   }
 }
 

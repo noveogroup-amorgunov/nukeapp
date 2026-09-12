@@ -9,7 +9,6 @@ export {
   useGetCartQuery,
   useGetFeatureToggleQuery,
   useGetMeQuery,
-  useGetProductsQuery,
   useLoginMutation,
   useUpdateCartMutation,
   useUpdateWishlistProductsMutation,

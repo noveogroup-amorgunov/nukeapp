@@ -40,13 +40,13 @@ slice (`api:generate` / `api:check` guards staleness in CI). Most endpoints
 serve raw DTO straight from `shared/api`; the Product / Category / Wishlist
 entities own one adapter each (`enhanceEndpoints` + mappers) for their
 cross-slice domain models, single-slice endpoints adapt in the consuming slice.
-Tags are the four existing tagTypes, wired in the same `enhanceEndpoints`
-calls (rationale and wiring diagram in `adr/0003-rtk-query-codegen-from-handwritten-spec.md`).
+Tags are the four existing tagTypes, declared in the codegen config;
+slices' `enhanceEndpoints` calls carry only `transformResponse` (rationale and wiring diagram in `adr/0003-rtk-query-codegen-from-handwritten-spec.md`).
 
 ## Mocking
 
-MSW with `@msw/data` for API mocking; handlers centralized in
-`shared/api/mocks/<domain>`, simulated latency lives in handlers.
+MSW with `@msw/data` for API mocking; handlers centralized in the single
+`shared/api/mocks.ts`, simulated latency lives in handlers.
 
 ## Tooling
 

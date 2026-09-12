@@ -43,8 +43,9 @@ src/shared/api/api.generated.ts      ← committed; pnpm api:check guards stalen
               pages/product → productDetails
               → enhanceEndpoints lives next to the usage
 
-Tag wiring (SESSION / WISHLIST / CART / USER tagTypes, unchanged) happens in the
-same enhanceEndpoints calls as the customization above.
+Tag wiring (SESSION / WISHLIST / CART / USER tagTypes, unchanged) is declared
+statically in the codegen config (endpointOverrides); slices' enhanceEndpoints
+calls carry only transformResponse.
 
 src/shared/api/mocks.ts              ← all MSW handlers in one file;
                                        simulated delays live in handlers, not query args

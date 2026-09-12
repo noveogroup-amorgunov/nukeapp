@@ -50,7 +50,7 @@ Blocked by: 2, 3
 
 - [ ] Manually walk through the behavioral scenarios in `product.md`,
       including the stale-generated-file check failing
-- [ ] Update `docs/architecture.md`: API interaction method (codegen from
+- [x] Update `docs/architecture.md`: API interaction method (codegen from
       spec, consumption rules)
 - [ ] Change directory and ADR-0003 land on the implementation branch;
       PR #47 closed as obsolete after merge

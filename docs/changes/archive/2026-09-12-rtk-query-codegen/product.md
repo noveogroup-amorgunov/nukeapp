@@ -25,7 +25,7 @@ Adapters survive only where a branded id or renamed field crosses a slice
 boundary: product, product details, category, wishlist. All other slices
 (cart, session, user, featureToggle, adBlock) use raw DTO.
 
-MSW handlers are centralized in `shared/api/mocks/` grouped by domain; simulated
+MSW handlers are centralized in a single `shared/api/mocks.ts`; simulated
 network delays live in handlers, not in query arguments. No runtime response
 validation (types only from codegen).
 

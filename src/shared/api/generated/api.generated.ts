@@ -165,7 +165,7 @@ export type Product = {
   imageUrl: string[];
 };
 export type Cart = {
-  cartItems: {
+  cartLines: {
     product: Product;
     quantity: number;
   }[];
