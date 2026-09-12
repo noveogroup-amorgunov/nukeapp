@@ -1,0 +1,805 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Nukeapp API",
+    "version": "0.1.0",
+    "description": "Pet store demo API. Contracts are hand-written and validated against MSW mocks. This spec is the naming authority for DTO fields."
+  },
+  "tags": [
+    {
+      "name": "cart"
+    },
+    {
+      "name": "categories"
+    },
+    {
+      "name": "products"
+    },
+    {
+      "name": "wishlist"
+    },
+    {
+      "name": "session"
+    },
+    {
+      "name": "user"
+    },
+    {
+      "name": "feature-toggle"
+    },
+    {
+      "name": "ads"
+    }
+  ],
+  "paths": {
+    "/cart": {
+      "get": {
+        "tags": [
+          "cart"
+        ],
+        "operationId": "getCart",
+        "summary": "Get current user cart",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cart of the current user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cart"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/PlainTextError"
+          },
+          "403": {
+            "$ref": "#/components/responses/PlainTextError"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "cart"
+        ],
+        "operationId": "updateCart",
+        "summary": "Replace cart items (optimistic sync)",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCartRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Cart updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/PlainTextError"
+          }
+        }
+      }
+    },
+    "/categories/popular": {
+      "get": {
+        "tags": [
+          "categories"
+        ],
+        "operationId": "getPopularCategories",
+        "summary": "List popular categories",
+        "responses": {
+          "200": {
+            "description": "Popular categories",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Category"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/categories/{id}": {
+      "get": {
+        "tags": [
+          "categories"
+        ],
+        "operationId": "getCategoryDetails",
+        "summary": "Category with its products",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Id"
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/SortBy"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Category with products",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoryWithProducts"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/PlainTextError"
+          }
+        }
+      }
+    },
+    "/products": {
+      "get": {
+        "tags": [
+          "products"
+        ],
+        "operationId": "getProducts",
+        "summary": "List products by ids",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Id"
+              }
+            },
+            "description": "Repeatable parameter: ?id=1&id=2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Products list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/popular": {
+      "get": {
+        "tags": [
+          "products"
+        ],
+        "operationId": "getPopularProducts",
+        "summary": "List popular products",
+        "responses": {
+          "200": {
+            "description": "Popular products",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "tags": [
+          "products"
+        ],
+        "operationId": "getProductDetails",
+        "summary": "Product details by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/PlainTextError"
+          }
+        }
+      }
+    },
+    "/wishlist/products": {
+      "get": {
+        "tags": [
+          "wishlist"
+        ],
+        "operationId": "getWishlistProducts",
+        "summary": "List products in current user wishlist",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Wishlist products",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/PlainTextError"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "wishlist"
+        ],
+        "operationId": "updateWishlistProducts",
+        "summary": "Replace wishlist product ids (optimistic sync)",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WishlistUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Wishlist updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyObject"
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/PlainTextError"
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "tags": [
+          "session"
+        ],
+        "operationId": "login",
+        "summary": "Sign in by email and password",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Session of the authenticated user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Session"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Wrong email or password (plain text)",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/me": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "operationId": "getMe",
+        "summary": "Current user",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/PlainTextError"
+          }
+        }
+      }
+    },
+    "/feature-toggle": {
+      "get": {
+        "tags": [
+          "feature-toggle"
+        ],
+        "operationId": "getFeatureToggle",
+        "summary": "Available feature toggles",
+        "parameters": [
+          {
+            "name": "darkMode",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/BooleanAsString"
+            }
+          },
+          {
+            "name": "productsSort",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/BooleanAsString"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Feature toggles",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeatureToggle"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ad/offer": {
+      "get": {
+        "tags": [
+          "ads"
+        ],
+        "operationId": "getAdOffer",
+        "summary": "Current advertising offer",
+        "responses": {
+          "200": {
+            "description": "Ad offer",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdOffer"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "responses": {
+      "PlainTextError": {
+        "description": "Error message as plain string",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "EmptyObject": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "Id": {
+        "type": "integer",
+        "description": "Numeric entity identifier"
+      },
+      "Penny": {
+        "type": "integer",
+        "description": "Price in pennies"
+      },
+      "SortBy": {
+        "type": "string",
+        "enum": [
+          "Featured",
+          "Newest",
+          "PriceHighLow",
+          "PriceLowHigh"
+        ]
+      },
+      "BooleanAsString": {
+        "type": "string",
+        "enum": [
+          "true",
+          "false"
+        ]
+      },
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Id"
+          },
+          "stock": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Number of units available for ordering"
+          },
+          "name": {
+            "type": "string"
+          },
+          "badge": {
+            "type": "string"
+          },
+          "subtitle": {
+            "type": "string"
+          },
+          "price": {
+            "$ref": "#/components/schemas/Penny"
+          },
+          "discountPrice": {
+            "$ref": "#/components/schemas/Penny"
+          },
+          "imageUrl": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "stock",
+          "name",
+          "badge",
+          "subtitle",
+          "price",
+          "imageUrl"
+        ]
+      },
+      "ProductDetails": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Product"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "detailsImageUrl": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "detailsImageUrl",
+              "description"
+            ]
+          }
+        ]
+      },
+      "Category": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Id"
+          },
+          "name": {
+            "type": "string"
+          },
+          "imageUrl": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "imageUrl"
+        ]
+      },
+      "CategoryWithProducts": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Category"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "products": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            },
+            "required": [
+              "products"
+            ]
+          }
+        ]
+      },
+      "Cart": {
+        "type": "object",
+        "properties": {
+          "cartItems": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "product": {
+                  "$ref": "#/components/schemas/Product"
+                },
+                "quantity": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "product",
+                "quantity"
+              ]
+            }
+          },
+          "deliveryPrice": {
+            "$ref": "#/components/schemas/Penny"
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "cartItems",
+          "deliveryPrice",
+          "version"
+        ]
+      },
+      "UpdateCartRequest": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "productId": {
+                  "$ref": "#/components/schemas/Id"
+                },
+                "quantity": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "productId",
+                "quantity"
+              ]
+            }
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "items",
+          "version"
+        ]
+      },
+      "WishlistUpdateRequest": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Id"
+        }
+      },
+      "LoginRequest": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ]
+      },
+      "Session": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string"
+          },
+          "user": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "#/components/schemas/Id"
+              },
+              "email": {
+                "type": "string",
+                "format": "email"
+              }
+            },
+            "required": [
+              "id",
+              "email"
+            ]
+          }
+        },
+        "required": [
+          "accessToken",
+          "user"
+        ]
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Id"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          }
+        },
+        "required": [
+          "id",
+          "email"
+        ]
+      },
+      "FeatureToggle": {
+        "type": "object",
+        "properties": {
+          "darkMode": {
+            "type": "boolean"
+          },
+          "productsSort": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "darkMode",
+          "productsSort"
+        ]
+      },
+      "AdOffer": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "link": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "image",
+          "link"
+        ]
+      }
+    }
+  }
+}

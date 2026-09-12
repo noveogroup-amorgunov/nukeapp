@@ -26,3 +26,6 @@ jobs:
 
       - name: Run linters
         run: pnpm lint
+
+      - name: Check generated API is up to date
+        run: pnpm api:check
