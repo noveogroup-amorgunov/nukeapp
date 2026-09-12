@@ -46,7 +46,7 @@ src/shared/api/api.generated.ts      ← committed; pnpm api:check guards stalen
 Tag wiring (SESSION / WISHLIST / CART / USER tagTypes, unchanged) happens in the
 same enhanceEndpoints calls as the customization above.
 
-src/shared/api/mocks/<domain>/       ← all MSW handlers centralized here;
+src/shared/api/mocks.ts              ← all MSW handlers in one file;
                                        simulated delays live in handlers, not query args
 ```
 

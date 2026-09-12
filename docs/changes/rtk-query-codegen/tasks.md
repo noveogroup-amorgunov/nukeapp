@@ -31,8 +31,8 @@ Blocked by: 1
 
 ## 3. Mocks centralized
 
-- [x] Move all MSW handlers into `shared/api/mocks/<domain>/`, replacing the
-      colocated `__mocks__` directories
+- [x] Move all MSW handlers into the single `shared/api/mocks.ts`, replacing
+      the colocated `__mocks__` directories
 - [x] Type mock data against the generated DTO types
 - [x] Move simulated latency into handlers (e.g. the category-details delay
       leaves the query arguments)

@@ -49,10 +49,10 @@ design; it does not duplicate the ADR.
 
 ## Mocks
 
-- All MSW handlers move to `src/shared/api/mocks/<domain>/`, replacing the
-  colocated `__mocks__` directories per slice. Handler grouping mirrors the
-  spec's tag/domain grouping (products, cart, categories, session, user,
-  wishlist, featureToggle, ad).
+- All MSW handlers merge into the single `src/shared/api/mocks.ts`, replacing
+  the colocated `__mocks__` directories per slice. Handler order matters: MSW
+  matches the first fitting handler, so specific paths (`/products/popular`)
+  are registered before parameterized ones (`/products/:id`).
 - Simulated latency (e.g. the current `delay: 400` query argument on category
   details) moves into handlers; query arguments carry no delay parameters.
 
