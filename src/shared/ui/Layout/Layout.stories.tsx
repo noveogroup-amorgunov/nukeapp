@@ -1,0 +1,25 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'
+import { Layout } from './Layout'
+
+const meta: Meta<typeof Layout> = {
+  title: 'shared/ui/Layout',
+  component: Layout,
+}
+
+export default meta
+
+type Story = StoryObj<typeof Layout>
+
+export const Common: Story = {
+  args: {
+    headerRightSlot: <div>header right slot</div>,
+    sidebarSlot: <div>sidebar slot</div>,
+    // TODO: Outlet react router in storybook
+  },
+}
+
+export const WithoutSidebar: Story = {
+  args: {
+    headerRightSlot: <div>header right slot</div>,
+  },
+}

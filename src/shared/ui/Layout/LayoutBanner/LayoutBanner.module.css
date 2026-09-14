@@ -1,0 +1,28 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-bg-brand);
+  color: var(--color-text-primary-inverse);
+  padding: 16px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  [data-theme='dark'] & {
+    background-color: #0003;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  padding: 4px;
+  color: inherit;
+  cursor: pointer;
+}
