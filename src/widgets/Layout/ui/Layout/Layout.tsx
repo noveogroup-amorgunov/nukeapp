@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { Outlet, ScrollRestoration } from 'react-router-dom'
+import { DebugModeToggler } from '@/shared/services'
 import { Announcement } from '@/shared/ui'
-import { DebugModeToggler } from '../DebugModeToggler/DebugModeToggler'
 import { LayoutHeader } from '../LayoutHeader/LayoutHeader'
 import { LayoutProfileCard } from '../LayoutProfileCard/LayoutProfileCard'
 import css from './Layout.module.css'

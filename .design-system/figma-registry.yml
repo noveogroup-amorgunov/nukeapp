@@ -71,3 +71,9 @@ components:
     component: Logo
     import: '@/shared/ui/Logo'
     mapping: src/shared/ui/Logo/Logo.figma.yml
+
+  '15:695':
+    figmaName: Dropdown
+    component: DropdownMenu
+    import: '@/shared/ui/DropdownMenu'
+    mapping: src/shared/ui/DropdownMenu/DropdownMenu.figma.yml

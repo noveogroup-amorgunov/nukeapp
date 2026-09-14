@@ -7,7 +7,7 @@ import { ThemeProvider } from '@/entities/theme'
 import { setApiAccessToken } from '@/shared/api'
 import '@/shared/base.css'
 import { appStore } from '@/shared/redux'
-import { DebugModeProvider } from '@/widgets/Layout'
+import { DebugModeProvider } from '@/shared/services'
 import { RouterProvider } from './with-providers/router/RouterProvider'
 
 const root = document.getElementById('root') as HTMLElement

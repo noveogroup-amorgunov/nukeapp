@@ -36,4 +36,19 @@ export default defineConfig([
       'fsd/no-reserved-folder-names': 'off',
     },
   },
+  /**
+   * Infrastructural slices in the shared layer (see docs/changes/
+   * refactor-layout-to-shared-ui): same as shared/redux, steiger does not
+   * model slices inside shared, so segment naming/public API rules are
+   * relaxed for them.
+   */
+  {
+    files: [
+      './src/shared/services/**',
+    ],
+    rules: {
+      'fsd/no-reserved-folder-names': 'off',
+      'fsd/segments-by-purpose': 'off',
+    },
+  },
 ])

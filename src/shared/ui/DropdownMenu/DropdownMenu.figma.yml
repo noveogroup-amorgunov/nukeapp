@@ -1,0 +1,16 @@
+version: 1
+
+# Figma (node 15:695) -> React API adapter for DropdownMenu.
+
+properties:
+  State:
+    type: presentation-only
+    values:
+      Default: closed (Radix open state)
+      Opened: open (Radix open state, CSS data-state)
+  # Notes:
+  # - Trigger content is a slot; composition ("Sort By: <value> ▾" or user
+  #   IconButton) belongs to the consumer, chevron rotation via CSS data-state.
+  # - Menu items map to the items prop; selected row (bg #f3f3f3) maps to the
+  #   selected prop; hover/Pressed rows are presentation-only (data-highlighted).
+  # - Non-interactive top row (profile email) maps to the header prop.
