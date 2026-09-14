@@ -143,6 +143,15 @@ state actually changed:
    `docs/changes/archive/YYYY-MM-DD-<change-id>/` — the archive is
    immutable-ish; do not edit archived changes.
 
+### Post-archive regressions
+
+Once a change is archived, regressions found in it are fixed directly —
+no reopening the archived directory: fix commits on the relevant branch
+(fix/chore/refactor prefixes) plus a fresh `/code-review` over the branch.
+New ideas that grow out of the work (follow-ups, refinements that are not
+regressions) become their own raw items in `.scratch/` and go through `/triage`
+again; do not append them to the archived change.
+
 ## Process vocabulary
 
 **Grilling**: an interview until shared understanding is reached; questions come
