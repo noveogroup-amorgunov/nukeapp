@@ -99,3 +99,4 @@ components:
     figmaName: LayoutHeaderIcons
     component: LayoutHeaderIcons
     import: '@/app/providers/layout/ui/LayoutHeaderIcons'
+    mapping: src/app/providers/layout/ui/LayoutHeaderIcons/LayoutHeaderIcons.figma.yml

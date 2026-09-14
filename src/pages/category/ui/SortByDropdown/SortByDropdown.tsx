@@ -22,12 +22,13 @@ export function SortByDropdown(props: Props) {
     <DropdownMenu
       items={sortByItems}
       onSelect={(value) => {
-        setSortBy(value as ProductSortBy)
-        props.onChange(value as ProductSortBy)
+        const sortBy = value as ProductSortBy
+        setSortBy(sortBy)
+        props.onChange(sortBy)
       }}
       selected={sortBy}
       trigger={(
-        <div data-fsd="page/category/SortByDropdown" className={css.control}>
+        <div data-fsd="feature/product/SortByDropdown" className={css.control}>
           <span>Sort By:</span>
           {' '}
           <span className={css.controlValue}>

@@ -133,13 +133,13 @@ not a design-system component).
 Add to `.design-system/figma-registry.yml` (compact summary; final entries
 follow the registry schema):
 
-| Node    | figmaName          | component           | import                                        | mapping (colocated, when non-trivial)               |
-| ------- | ------------------ | ------------------- | --------------------------------------------- | --------------------------------------------------- |
-| 25:2110 | Layout             | Layout              | `@/shared/ui/Layout`                          | `src/shared/ui/Layout/Layout.figma.yml`             |
-| 25:2534 | LayoutHeader       | LayoutHeader (dumb) | `@/shared/ui/Layout/LayoutHeader`             | — (only if non-trivial)                             |
-| 25:2147 | LayoutTitleSection | LayoutTitleSection  | `@/shared/ui/Layout/LayoutTitleSection`       | `src/shared/ui/Layout/LayoutTitleSection.figma.yml` |
-| 25:2547 | LayoutHeaderIcons  | LayoutHeaderIcons   | `@/app/providers/layout/ui/LayoutHeaderIcons` | variants mapping (app-level)                        |
-| 15:695  | Dropdown           | DropdownMenu        | `@/shared/ui/DropdownMenu`                    | `src/shared/ui/DropdownMenu/DropdownMenu.figma.yml` |
+| Node    | figmaName          | component           | import                                        | mapping (colocated, when non-trivial)                                  |
+| ------- | ------------------ | ------------------- | --------------------------------------------- | ---------------------------------------------------------------------- |
+| 25:2110 | Layout             | Layout              | `@/shared/ui/Layout`                          | `src/shared/ui/Layout/Layout.figma.yml`                                |
+| 25:2534 | LayoutHeader       | LayoutHeader (dumb) | `@/shared/ui/Layout/LayoutHeader`             | — (only if non-trivial)                                                |
+| 25:2147 | LayoutTitleSection | LayoutTitleSection  | `@/shared/ui/Layout/LayoutTitleSection`       | `src/shared/ui/Layout/LayoutTitleSection/LayoutTitleSection.figma.yml` |
+| 25:2547 | LayoutHeaderIcons  | LayoutHeaderIcons   | `@/app/providers/layout/ui/LayoutHeaderIcons` | variants mapping (app-level)                                           |
+| 15:695  | Dropdown           | DropdownMenu        | `@/shared/ui/DropdownMenu`                    | `src/shared/ui/DropdownMenu/DropdownMenu.figma.yml`                    |
 
 Mapping notes: LayoutHeaderIcons State variants → authorized-dependent
 composition (`presentation`-like split: State=Default/Authorized is runtime
