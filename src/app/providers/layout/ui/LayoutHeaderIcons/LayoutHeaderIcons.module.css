@@ -1,5 +1,5 @@
 .root {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--spacing-08);
 }

@@ -2,10 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: var(--spacing-08);
   background-color: var(--color-bg-brand);
   color: var(--color-text-primary-inverse);
-  padding: 16px var(--spacing-48) 16px 16px;
+  padding: var(--spacing-16) var(--spacing-48) var(--spacing-16) var(--spacing-16);
   text-align: center;
   position: absolute;
   top: 0;
@@ -19,6 +19,6 @@
 
 .close {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: var(--spacing-08);
+  right: var(--spacing-08);
 }

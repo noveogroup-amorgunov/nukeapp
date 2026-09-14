@@ -1,7 +1,7 @@
 .root {
   height: 68px;
-  padding: 16px 0;
-  margin-bottom: 16px;
+  padding: var(--spacing-16) 0;
+  margin-bottom: var(--spacing-16);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,5 +12,5 @@
   flex-grow: 2;
   justify-content: flex-end;
   align-items: center;
-  gap: 4px;
+  gap: var(--spacing-04);
 }
