@@ -70,6 +70,13 @@ flatten them into arbitrary markup.
 If an instance represents a reusable/local component whose node id is absent
 from the registry:
 
+- search the whole file for the component definition — it may live far from the
+  inspected subtree (e.g. an instance of Dropdown inside a Layout frame whose
+  definition sits elsewhere in the uikit); do not conclude from the subtree
+  alone that a component does not exist;
+- if a maintainer has selected an instance in Figma, treat the current
+  selection as authoritative context for resolving that component's identity
+  and content;
 - search the repository for a semantically equivalent component;
 - do not guess architectural ownership from the Figma name;
 - do not silently choose an import path;
@@ -109,6 +116,15 @@ Render every text block through the `Text` component with the variant matching
 the Figma text style (font size/weight/line-height pick the variant). When no
 variant matches, style it in the CSS module like the mapped components do and
 note the gap in the `*.figma.yml` — same treatment as a missing token.
+
+Do not invent Figma components for parts that are plain frames in the design
+(e.g. a Banner or Footer frame inside a Layout): implement them as internal
+parts of the mapped component without registry entries, unless the maintainer
+componentizes them in Figma.
+
+Parts the design does not define (e.g. dropdown menu content, error states) are
+decided with the maintainer, never invented — an empty slot in Figma is an open
+question, not a blank check.
 
 ### 7. Translate layout semantically
 

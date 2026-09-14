@@ -93,6 +93,28 @@ Figma Variant=Primary    -> React variant="primary"
 Figma Title              -> React children or title prop
 ```
 
+**Runtime-state variants are a special case.** Figma variants that encode
+application state rather than visual configuration — `State=Default/Authorized`
+by authorization, role by permissions, etc. — map to runtime conditions
+(selectors, data), never to props:
+
+```yaml
+properties:
+  State:
+    type: presentation-only
+    values:
+      Default: rendered for unauthorized users
+      Authorized: rendered for authorized users
+# Notes:
+# - State variants are runtime auth state (entities/session selector), NOT a
+#   runtime prop — do not introduce a `state` prop when implementing from
+#   Figma.
+```
+
+Record the decision in the colocated `*.figma.yml` so a future design-to-code
+session does not invent a `state` prop. Visual variants stay props; data-driven
+variants stay conditions.
+
 ### 6. Decide whether code changes are needed
 
 - **A. Component matches** — update only the registry and/or mapping.
