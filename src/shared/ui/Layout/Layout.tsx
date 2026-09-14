@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import type { ReactNode } from 'react'
+import cn from 'classnames'
 import { Outlet, ScrollRestoration } from 'react-router-dom'
 import css from './Layout.module.css'
 import { LayoutBanner } from './LayoutBanner/LayoutBanner'
@@ -11,12 +13,16 @@ type Props = {
 }
 
 export function Layout(props: Props) {
+  const [isBannerVisible, setIsBannerVisible] = useState(true)
+
   return (
-    <div className={css.root}>
-      <LayoutBanner>
-        🚀&nbsp;&nbsp;An&nbsp;open source frontend application built with
-        React and Feature-Sliced&nbsp;Design.
-      </LayoutBanner>
+    <div className={cn(css.root, !isBannerVisible && css.root_withoutBanner)}>
+      {isBannerVisible && (
+        <LayoutBanner onClose={() => setIsBannerVisible(false)}>
+          🚀&nbsp;&nbsp;An&nbsp;open source frontend application built with
+          React and Feature-Sliced&nbsp;Design.
+        </LayoutBanner>
+      )}
       <LayoutHeader rightContentSlot={props.headerRightSlot} />
       <div className={css.container}>
         <div className={css.content}>

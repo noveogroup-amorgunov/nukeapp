@@ -16,6 +16,16 @@
   }
 }
 
+/* Banner is absolutely positioned over the top padding; without it there is
+   nothing to offset, so the padding collapses to zero. */
+.root_withoutBanner {
+  padding-top: 0;
+
+  @media (--xs-viewport) {
+    padding-top: 0;
+  }
+}
+
 .container {
   display: flex;
   flex-direction: row;

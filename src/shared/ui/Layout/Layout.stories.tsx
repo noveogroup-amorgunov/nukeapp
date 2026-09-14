@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { DropdownMenu, Icon, IconButton, Layout, LayoutTitleSection, ProductGrid } from '@/shared/ui'
 
@@ -62,11 +63,25 @@ const titleRightSlot = (
   />
 )
 
+const slotStyle: CSSProperties = {
+  border: '2px dashed #e05252',
+  borderRadius: '8px',
+  padding: '8px',
+}
+
 export const Common: Story = {
   args: {
     headerRightSlot,
-    sidebarSlot: <div>sidebar slot</div>,
-    // TODO: Outlet react router in storybook
+    sidebarSlot: (
+      <div style={slotStyle}>
+        Sidebar
+      </div>
+    ),
+    children: (
+      <div style={slotStyle}>
+        Content
+      </div>
+    ),
   },
 }
 
@@ -79,7 +94,6 @@ export const WithoutSidebar: Story = {
 export const CategoryPage: Story = {
   args: {
     headerRightSlot,
-    sidebarSlot: <div>sidebar slot</div>,
     children: (
       <>
         <LayoutTitleSection
