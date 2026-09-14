@@ -1,0 +1,5 @@
+.root {
+  display: flex;
+  height: var(--size-32);
+  align-items: center;
+}
