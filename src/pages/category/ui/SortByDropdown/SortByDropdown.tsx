@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import Dropdown from 'rc-dropdown'
-import { Icon } from '@/shared/ui'
+import { DropdownMenu, Icon } from '@/shared/ui'
 import { productSortByNamesMap } from '../../model/consts'
 import type { ProductSortBy } from '../../model/types'
-import { SortByOptions } from '../SortByOptions/SortByOptions'
 import css from './SortByDropdown.module.css'
-import 'rc-dropdown/assets/index.css'
+
+const sortByItems = Object.entries(productSortByNamesMap).map(
+  ([value, label]) => ({ value, label }),
+)
 
 type Props = {
   defaultSortBy?: ProductSortBy
@@ -13,40 +14,28 @@ type Props = {
 }
 
 export function SortByDropdown(props: Props) {
-  const [isVisibleSortByDropdown, setIsVisibleSortByDropdown] = useState(false)
   const [sortBy, setSortBy] = useState<ProductSortBy>(
     props.defaultSortBy ?? 'Featured',
   )
 
   return (
-    <Dropdown
-      trigger={['click']}
-      overlay={() => (
-        <SortByOptions
-          selected={sortBy}
-          onChange={(sortBy: ProductSortBy) => {
-            setSortBy(sortBy)
-            props.onChange(sortBy)
-            setIsVisibleSortByDropdown(false)
-          }}
-        />
+    <DropdownMenu
+      items={sortByItems}
+      onSelect={(value) => {
+        setSortBy(value as ProductSortBy)
+        props.onChange(value as ProductSortBy)
+      }}
+      selected={sortBy}
+      trigger={(
+        <div data-fsd="page/category/SortByDropdown" className={css.control}>
+          <span>Sort By:</span>
+          {' '}
+          <span className={css.controlValue}>
+            {productSortByNamesMap[sortBy]}
+          </span>
+          <Icon className={css.controlIcon} type="chevronDown" />
+        </div>
       )}
-      animation="slide-up"
-      onVisibleChange={isVisible => setIsVisibleSortByDropdown(isVisible)}
-    >
-      <div data-fsd="feature/product/SortByDropdown" className={css.control}>
-        <span className="">Sort By:</span>
-        {' '}
-        <span className={css.controlValue}>
-          {productSortByNamesMap[sortBy]}
-        </span>
-        <Icon
-          className={
-            isVisibleSortByDropdown ? css.controlIconOpened : css.controlIcon
-          }
-          type="chevronDown"
-        />
-      </div>
-    </Dropdown>
+    />
   )
 }

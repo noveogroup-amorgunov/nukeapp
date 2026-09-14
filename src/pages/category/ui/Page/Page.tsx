@@ -9,7 +9,7 @@ import { useFeatureToggle } from '@/entities/featureToggle'
 import { mapProductToCompactView } from '@/entities/product'
 import { useTypedParams, useTypedQueryParams } from '@/shared/lib/router'
 import { useAppDispatch, useAppSelector } from '@/shared/redux'
-import { PageHeader, ProductGrid } from '@/shared/ui'
+import { LayoutTitleSection, ProductGrid } from '@/shared/ui'
 import { categoryPageSlice } from '../../model/slice'
 import type { ProductSortBy } from '../../model/types'
 import { SortByDropdown } from '../SortByDropdown/SortByDropdown'
@@ -88,7 +88,7 @@ export function CategoryPage() {
   if (isFetching && products.length === 0) {
     return (
       <div>
-        <PageHeader title={data.name} />
+        <LayoutTitleSection title={data.name} />
         <div>Fetching...</div>
       </div>
     )
@@ -96,7 +96,7 @@ export function CategoryPage() {
 
   return (
     <div>
-      <PageHeader
+      <LayoutTitleSection
         title={data.name}
         rightSlot={
           sortByIsEnabled && (

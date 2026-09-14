@@ -9,8 +9,8 @@ import { MainPage } from '@/pages/main'
 import { ProductPage } from '@/pages/product'
 import { WishlistPage } from '@/pages/wishlist'
 import { appStore, useAppSelector } from '@/shared/redux'
-import { Layout } from '@/widgets/Layout'
-import { baseLayoutWithSidebar } from '../layout/baseLayoutWithSidebar'
+import { AdBlock } from '@/widgets/AdBlock'
+import { LayoutProvider } from '../../providers/layout/LayoutProvider'
 
 type GuestGuardProps = {
   children: ReactElement
@@ -41,7 +41,7 @@ function AuthGuard({ children }: AuthGuardProps) {
 export function appRouter() {
   return createBrowserRouter([
     {
-      element: <Layout />,
+      element: <LayoutProvider />,
       errorElement: <div>Error happened</div>,
       loader: async () => {
         return await featureToggleLoader(appStore.dispatch)
@@ -82,7 +82,7 @@ export function appRouter() {
       ],
     },
     {
-      element: baseLayoutWithSidebar,
+      element: <LayoutProvider sidebarSlot={<AdBlock />} />,
       errorElement: <div>error</div>,
       loader: async () => {
         return await featureToggleLoader(appStore.dispatch)

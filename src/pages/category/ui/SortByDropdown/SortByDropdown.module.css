@@ -8,6 +8,6 @@
   opacity: 0.7;
 }
 
-.controlIconOpened {
+.control[data-state='open'] .controlIcon {
   transform: rotate(180deg);
 }

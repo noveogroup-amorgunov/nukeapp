@@ -7,13 +7,12 @@ import { ThemeProvider } from '@/entities/theme'
 import { setApiAccessToken } from '@/shared/api'
 import '@/shared/base.css'
 import { appStore } from '@/shared/redux'
-import { DebugModeProvider } from '@/shared/services'
 import { RouterProvider } from './with-providers/router/RouterProvider'
 
 const root = document.getElementById('root') as HTMLElement
 
 declare module 'react' {
-  type FeatureSliceLayers = 'feature' | 'entity' | 'shared' | 'widget' | 'page'
+  type FeatureSliceLayers = 'app' | 'feature' | 'entity' | 'shared' | 'widget' | 'page'
 
   // eslint-disable-next-line ts/consistent-type-definitions
   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
@@ -54,9 +53,7 @@ initApp().then(() => {
       <ModalProvider>
         <ReduxProvider store={appStore}>
           <ThemeProvider>
-            <DebugModeProvider>
-              <RouterProvider />
-            </DebugModeProvider>
+            <RouterProvider />
           </ThemeProvider>
         </ReduxProvider>
       </ModalProvider>

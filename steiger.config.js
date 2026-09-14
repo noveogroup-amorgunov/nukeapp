@@ -51,4 +51,17 @@ export default defineConfig([
       'fsd/segments-by-purpose': 'off',
     },
   },
+  /**
+   * App providers compose smart parts (layout provider with header right
+   * slot internals), steiger does not model this app-level grouping.
+   */
+  {
+    files: [
+      './src/app/providers/**',
+    ],
+    rules: {
+      'fsd/no-reserved-folder-names': 'off',
+      'fsd/segments-by-purpose': 'off',
+    },
+  },
 ])

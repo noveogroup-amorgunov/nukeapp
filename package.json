@@ -37,7 +37,6 @@
     "classnames": "2.5.1",
     "jose": "6.2.10",
     "msw": "2.15.0",
-    "rc-dropdown": "4.2.1",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "react-hook-form": "7.87.0",
