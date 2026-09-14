@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { ReactNode } from 'react'
 import { Icon } from '../../Icon/Icon'
+import { IconButton } from '../../IconButton/IconButton'
 import css from './LayoutBanner.module.css'
 
 type Props = {
@@ -17,14 +18,14 @@ export function LayoutBanner({ children }: Props) {
   return (
     <div className={css.root}>
       <span className="text_sm text_bold">{children}</span>
-      <button
+      <IconButton
         aria-label="Close banner"
         className={css.close}
         onClick={() => setIsVisible(false)}
-        type="button"
+        variant="ghost"
       >
         <Icon type="x" />
-      </button>
+      </IconButton>
     </div>
   )
 }

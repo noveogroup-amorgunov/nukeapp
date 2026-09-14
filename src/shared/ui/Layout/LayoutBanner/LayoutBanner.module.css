@@ -19,10 +19,7 @@
 
 .close {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  display: flex;
-  padding: 4px;
+  top: 8px;
+  right: 8px;
   color: inherit;
-  cursor: pointer;
 }

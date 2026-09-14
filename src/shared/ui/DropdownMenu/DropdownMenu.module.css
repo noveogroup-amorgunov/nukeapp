@@ -15,9 +15,6 @@
   display: flex;
   align-items: center;
   padding: 8px 16px;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 19px;
   color: var(--color-text-primary);
   cursor: pointer;
   outline: none;

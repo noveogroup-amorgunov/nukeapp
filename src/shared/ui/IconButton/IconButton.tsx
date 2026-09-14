@@ -13,9 +13,9 @@ export type Props = {
   disabled?: boolean
   variant?: IconButtonVariant
   onClick?: (event: React.MouseEvent<HTMLElement>) => void
-}
+} & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onClick' | 'disabled'>
 
-export function IconButton({ asChild, children, count, disabled, variant = 'default', onClick }: Props) {
+export function IconButton({ asChild, children, count, disabled, variant = 'default', onClick, ...rest }: Props) {
   const Component = asChild ? Slot : 'button'
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -38,6 +38,7 @@ export function IconButton({ asChild, children, count, disabled, variant = 'defa
         disabled={asChild ? undefined : disabled}
         onClick={handleClick}
         type={asChild ? undefined : 'button'}
+        {...rest}
       >
         {children}
       </Component>

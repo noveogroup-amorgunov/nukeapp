@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 import cn from 'classnames'
+import { Text } from '../Text/Text'
 import css from './DropdownMenu.module.css'
 
 export type DropdownMenuItem = {
@@ -28,7 +29,11 @@ export function DropdownMenu({ trigger, items, header, selected, onSelect, align
           className={css.menu}
           sideOffset={4}
         >
-          {header && <div className={css.header}>{header}</div>}
+          {header && (
+            <div className={css.header}>
+              <Text variant="BodyMedium">{header}</Text>
+            </div>
+          )}
           {items.map(item => (
             <DropdownMenuPrimitive.Item
               key={item.value}
@@ -36,7 +41,7 @@ export function DropdownMenu({ trigger, items, header, selected, onSelect, align
               disabled={item.disabled}
               onSelect={() => onSelect?.(item.value)}
             >
-              {item.label}
+              <Text variant="BodyMedium">{item.label}</Text>
             </DropdownMenuPrimitive.Item>
           ))}
         </DropdownMenuPrimitive.Content>
