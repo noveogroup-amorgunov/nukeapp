@@ -18,14 +18,11 @@ export function LayoutBanner({ children }: Props) {
   return (
     <div className={css.root}>
       <span className="text_sm text_bold">{children}</span>
-      <IconButton
-        aria-label="Close banner"
-        className={css.close}
-        onClick={() => setIsVisible(false)}
-        variant="ghost"
-      >
-        <Icon type="x" />
-      </IconButton>
+      <div className={css.close}>
+        <IconButton aria-label="Close banner" onClick={() => setIsVisible(false)} variant="ghost">
+          <Icon type="x" />
+        </IconButton>
+      </div>
     </div>
   )
 }

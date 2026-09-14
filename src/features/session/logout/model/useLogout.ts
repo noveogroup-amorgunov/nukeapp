@@ -1,15 +1,12 @@
 import { useAppDispatch } from '@/shared/redux'
 import { useConfirmModal } from '@/shared/ui'
-import { logoutThunk } from '../../model/logout'
+import { logoutThunk } from './logout'
 
-export function LogoutButton() {
+export function useLogout() {
   const dispatch = useAppDispatch()
   const logoutModal = useConfirmModal()
 
-  const onConfirmLogout = (e: React.MouseEvent<HTMLElement>) => {
-    e.stopPropagation()
-    e.preventDefault()
-
+  return () => {
     logoutModal.show({
       title: 'Are you sure?',
       onConfirm: () => {
@@ -22,10 +19,4 @@ export function LogoutButton() {
       onCancel: () => logoutModal.remove(),
     })
   }
-
-  return (
-    <a href="#" onClick={onConfirmLogout}>
-      logout
-    </a>
-  )
 }
