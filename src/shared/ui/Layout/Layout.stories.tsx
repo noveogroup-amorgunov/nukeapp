@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Layout } from './Layout'
+import { DropdownMenu, Icon, IconButton, Layout, LayoutTitleSection, ProductGrid } from '@/shared/ui'
 
 const meta: Meta<typeof Layout> = {
   title: 'shared/ui/Layout',
@@ -10,9 +10,61 @@ export default meta
 
 type Story = StoryObj<typeof Layout>
 
+function makeProduct(id: string, index: number) {
+  return {
+    id,
+    name: `Nike Air Max Pulse (${id})`,
+    specification: 'Men’s Shoes',
+    imageUrl: '/images/content/air-max-pulse-mens-shoes-ShS3tL.png',
+    price: (index + 1) * 5000,
+    stock: 10,
+  }
+}
+
+const products = Array.from({ length: 8 }, (_, i) => makeProduct(`${i}`, i))
+
+const sortItems = [
+  { value: 'Featured', label: 'Featured' },
+  { value: 'Newest', label: 'Newest' },
+  { value: 'Price: High-Low', label: 'Price: High-Low' },
+  { value: 'Price: Low-High', label: 'Price: Low-High' },
+]
+
+const headerRightSlot = (
+  <>
+    <IconButton>
+      <Icon type="bag" />
+    </IconButton>
+    <IconButton>
+      <Icon type="like" />
+    </IconButton>
+    <IconButton>
+      <Icon type="user" />
+    </IconButton>
+    <IconButton>
+      <Icon type="moon" />
+    </IconButton>
+  </>
+)
+
+const titleRightSlot = (
+  <DropdownMenu
+    items={sortItems}
+    selected="Featured"
+    trigger={(
+      <div className="text_sm">
+        Sort By:
+        {' '}
+        <span style={{ opacity: 0.7 }}>Featured</span>
+        <Icon size={16} type="chevronDown" />
+      </div>
+    )}
+  />
+)
+
 export const Common: Story = {
   args: {
-    headerRightSlot: <div>header right slot</div>,
+    headerRightSlot,
     sidebarSlot: <div>sidebar slot</div>,
     // TODO: Outlet react router in storybook
   },
@@ -20,6 +72,26 @@ export const Common: Story = {
 
 export const WithoutSidebar: Story = {
   args: {
-    headerRightSlot: <div>header right slot</div>,
+    headerRightSlot,
+  },
+}
+
+export const CategoryPage: Story = {
+  args: {
+    headerRightSlot,
+    sidebarSlot: <div>sidebar slot</div>,
+    children: (
+      <>
+        <LayoutTitleSection
+          rightSlot={titleRightSlot}
+          title="Pegasus 39"
+        />
+        <ProductGrid
+          columns="auto"
+          products={products}
+          quantityByProductId={{ 1: 2, 4: 5 }}
+        />
+      </>
+    ),
   },
 }

@@ -45,5 +45,5 @@
 
 .footer {
   text-align: center;
-  padding-top: 40px;
+  padding-top: var(--spacing-32);
 }

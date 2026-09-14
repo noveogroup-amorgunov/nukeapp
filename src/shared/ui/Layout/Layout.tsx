@@ -7,6 +7,7 @@ import { LayoutHeader } from './LayoutHeader/LayoutHeader'
 type Props = {
   headerRightSlot?: ReactNode
   sidebarSlot?: ReactNode
+  children?: ReactNode
 }
 
 export function Layout(props: Props) {
@@ -19,7 +20,7 @@ export function Layout(props: Props) {
       <LayoutHeader rightContentSlot={props.headerRightSlot} />
       <div className={css.container}>
         <div className={css.content}>
-          <Outlet />
+          {props.children ?? <Outlet />}
         </div>
         {props.sidebarSlot && (
           <aside className={css.sidebar}>{props.sidebarSlot}</aside>
