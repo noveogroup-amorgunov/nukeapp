@@ -53,7 +53,7 @@ const titleRightSlot = (
     items={sortItems}
     selected="Featured"
     trigger={(
-      <div className="text_sm">
+      <div className="text_sm" style={{ display: 'flex', alignItems: 'center' }}>
         Sort By:
         {' '}
         <span style={{ opacity: 0.7 }}>Featured</span>
@@ -67,6 +67,8 @@ const slotStyle: CSSProperties = {
   border: '2px dashed #e05252',
   borderRadius: '8px',
   padding: '8px',
+  width: '100%',
+  height: '100%',
 }
 
 export const Common: Story = {
