@@ -7,7 +7,7 @@
 
 [![Netlify Status](https://img.shields.io/netlify/d1054c75-ff07-48af-8017-83083dc30951?style=flat&colorA=000000&colorB=000000)](https://app.netlify.com/sites/nukeapp/deploys) ![Feature-Sliced Design](https://img.shields.io/badge/architecture-%20Feature--Sliced%20Design-000000?style=flat) [![Anthony Fu code style](https://img.shields.io/badge/code%20style-Anthony%20Fu-000000?style=flat)](https://github.com/antfu/eslint-config)
 
-An open source frontend application built using the **React** ⚛️ and [**Feature-Sliced Design**](https://feature-sliced.github.io/documentation/) 🍰.
+An open source frontend application built with React ⚛️ and [Feature-Sliced Design](https://feature-sliced.github.io/documentation/) 🍰.
 
 > This app is a work in progress. See the roadmap below.
 
@@ -24,13 +24,13 @@ An open source frontend application built using the **React** ⚛️ and [**Feat
 
 ## About project
 
-Right now, I'm using this project as an experiment polygon to try modern technologies and see how a can see frontend application in [[CURRENT_YEAR]]. This project structure combines two architecture methodology: Clean Architecture and Feature-Sliced Design.
+Right now, I'm using this project as an experiment polygon to try modern technologies and see how I can build a frontend application these days. The project structure combines two architecture methodologies: Clean Architecture and Feature-Sliced Design.
 
 ## Features
 
-- Fully Typed (API adapters, catched error with type guards, form and env variables validators by `zod`)
+- Fully Typed (API adapters, caught errors with type guards, form and env variables validators by `zod`)
 - Developing by Feature Sliced Design (Layers isolation and composition, Public API, DDD) and validate with [steiger](https://github.com/feature-sliced/steiger) linter and [dependency-cruiser](https://github.com/sverweij/dependency-cruiser) graph.
-- Fully API emulation with `mswjs` (all enpoints with JWT authorization)
+- Fully API emulation with `mswjs` (all endpoints with JWT authorization)
 - Storybook stories
 - Best practice comments in code ✅
 

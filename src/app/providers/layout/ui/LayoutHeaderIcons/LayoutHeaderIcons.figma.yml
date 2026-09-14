@@ -1,0 +1,17 @@
+version: 1
+
+# Figma (node 25:2547) -> React API adapter for LayoutHeaderIcons.
+
+properties:
+  State:
+    type: presentation-only
+    values:
+      Default: rendered for unauthorized users
+      Authorized: rendered for authorized users
+  # Notes:
+  # - State variants are runtime auth state (entities/session selector), NOT a
+  #   runtime prop — do not introduce a `state` prop when implementing from
+  #   Figma.
+  # - Badge numbers come from cart/wishlist queries, not from Figma content
+  #   overrides.
+  # - Icon order (cart, wishlist, profile, theme) matches State=Authorized.

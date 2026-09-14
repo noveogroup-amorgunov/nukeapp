@@ -7,13 +7,24 @@ How the system is structured now at a high level. Detailed technical rationale l
 
 React SPA built with Vite and TypeScript.
 
+## Layout composition
+
+The app shell is split by smartness: the dumb skeleton (banner with close,
+header, content, optional sidebar, footer) is a `shared/ui` component; all
+smart composition — header right slot (cart/wishlist icon buttons, profile
+dropdown, theme), debug mode provider and toggler, per-route sidebar — lives in
+`app/providers/layout` and is wired into the router there.
+
 ## Architecture methodology
 
 Feature-Sliced Design (`app` / `pages` / `widgets` / `features` / `entities` /
-`shared`), with one documented deviation from the canonical methodology:
+`shared`), with documented deviations from the canonical methodology:
 
 - `@x/<entity>` cross-import public APIs between entities (see
   `entities/product/@x/*`)
+- Infrastructural slices live directly in `shared` (e.g. `shared/services`
+  with the debug mode slice); the app composition layer keeps providers in
+  `app/providers` — both relax steiger naming rules (see `steiger.config.js`)
 
 ## State
 

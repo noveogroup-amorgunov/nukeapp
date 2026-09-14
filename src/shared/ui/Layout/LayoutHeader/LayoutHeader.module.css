@@ -1,0 +1,16 @@
+.root {
+  height: 68px;
+  padding: var(--spacing-16) 0;
+  margin-bottom: var(--spacing-16);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  flex-grow: 2;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--spacing-04);
+}

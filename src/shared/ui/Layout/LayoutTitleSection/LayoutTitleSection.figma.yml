@@ -1,0 +1,13 @@
+version: 1
+
+# Figma (node 25:2147) -> React API adapter for LayoutTitleSection.
+
+properties:
+  Title:
+    type: text
+    code:
+      prop: title
+  RightSlot:
+    type: slot
+    code:
+      prop: rightSlot

@@ -1,0 +1,23 @@
+version: 1
+
+# Figma (node 25:2110) -> React API adapter for Layout.
+
+properties:
+  HeaderRightSlot:
+    type: slot
+    code:
+      prop: headerRightSlot
+  SidebarSlot:
+    type: slot
+    code:
+      prop: sidebarSlot
+  Content:
+    type: slot
+    code:
+      note: rendered via react-router <Outlet /> inside the component
+
+# Notes:
+# - Figma "Banner" (frame 25:2025) and "Footer" (frame 25:2023) are plain
+#   frames in Figma, not components: they render as internal Layout parts
+#   (LayoutBanner, footer) without registry entries.
+# - Figma "Main" frame maps to the content area.

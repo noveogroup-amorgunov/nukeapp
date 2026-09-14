@@ -71,3 +71,32 @@ components:
     component: Logo
     import: '@/shared/ui/Logo'
     mapping: src/shared/ui/Logo/Logo.figma.yml
+
+  '15:695':
+    figmaName: Dropdown
+    component: DropdownMenu
+    import: '@/shared/ui/DropdownMenu'
+    mapping: src/shared/ui/DropdownMenu/DropdownMenu.figma.yml
+
+  '25:2110':
+    figmaName: Layout
+    component: Layout
+    import: '@/shared/ui/Layout'
+    mapping: src/shared/ui/Layout/Layout.figma.yml
+
+  '25:2534':
+    figmaName: LayoutHeader
+    component: LayoutHeader
+    import: '@/shared/ui/Layout/LayoutHeader'
+
+  '25:2147':
+    figmaName: LayoutTitleSection
+    component: LayoutTitleSection
+    import: '@/shared/ui/Layout/LayoutTitleSection'
+    mapping: src/shared/ui/Layout/LayoutTitleSection/LayoutTitleSection.figma.yml
+
+  '25:2547':
+    figmaName: LayoutHeaderIcons
+    component: LayoutHeaderIcons
+    import: '@/app/providers/layout/ui/LayoutHeaderIcons'
+    mapping: src/app/providers/layout/ui/LayoutHeaderIcons/LayoutHeaderIcons.figma.yml

@@ -1,0 +1,59 @@
+@import url('/src/shared/breakpoints.css');
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  padding: var(--spacing-64) var(--spacing-24) var(--spacing-16);
+  min-height: 100vh;
+
+  @media (--s-viewport) {
+    padding: var(--spacing-64) var(--spacing-08) var(--spacing-16);
+  }
+
+  @media (--xs-viewport) {
+    padding-top: 84px;
+  }
+}
+
+/* Banner is absolutely positioned over the top padding; without it there is
+   nothing to offset, so the padding collapses to zero. */
+.root_withoutBanner {
+  padding-top: 0;
+
+  @media (--xs-viewport) {
+    padding-top: 0;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-12);
+  flex-grow: 1;
+
+  @media (--s-viewport) {
+    flex-direction: column-reverse;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  flex-grow: 1;
+}
+
+.sidebar {
+  width: 300px;
+  display: flex;
+
+  @media (--s-viewport) {
+    min-width: 100%;
+  }
+}
+
+.footer {
+  text-align: center;
+  padding-top: var(--spacing-32);
+}
