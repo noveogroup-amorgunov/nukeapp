@@ -37,6 +37,10 @@ _Avoid_: variant, mode, color scheme
 A person who browses the shop and authorizes into it; identified by an active session.
 _Avoid_: shopper, customer, session
 
+**Layout**:
+The skeleton surrounding every route: banner, header, content area and footer; the route content renders inside it.
+_Avoid_: shell, wrapper, page frame
+
 ## Technical glossary
 
 **DTO**:
@@ -46,3 +50,7 @@ _Avoid_: client model, response type
 **Adapter**:
 A function that turns a DTO into a domain type; it lives once in the entity that owns the domain type, or in the consuming slice for single-slice endpoints.
 _Avoid_: mapper, transformer
+
+**Debug mode**:
+A development-only mode that visually highlights FSD slice boundaries on rendered components; toggled by an always-available floating control.
+_Avoid_: dev mode, fsd debug
