@@ -94,3 +94,8 @@ components:
     component: LayoutTitleSection
     import: '@/shared/ui/Layout/LayoutTitleSection'
     mapping: src/shared/ui/Layout/LayoutTitleSection/LayoutTitleSection.figma.yml
+
+  '25:2547':
+    figmaName: LayoutHeaderIcons
+    component: LayoutHeaderIcons
+    import: '@/app/providers/layout/ui/LayoutHeaderIcons'
