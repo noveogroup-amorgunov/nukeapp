@@ -1,4 +1,4 @@
-import type { ProductDto } from '../api/types'
+import type { Product as ProductDto } from '@/shared/api'
 import type { Product, ProductId } from '../model/types'
 
 export function mapProduct(dto: ProductDto): Product {

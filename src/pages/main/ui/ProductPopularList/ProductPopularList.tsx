@@ -4,11 +4,11 @@ import { selectCartQuantityByProductId } from '@/entities/cart'
 import { mapProductToCompactView } from '@/entities/product'
 import { useAppSelector } from '@/shared/redux'
 import { ProductGrid } from '@/shared/ui'
-import { usePopularProductsQuery } from '../../api/productPopularListApi'
+import { useGetPopularProductsQuery } from '../../api/popularProductsApi'
 import css from './ProductPopularList.module.css'
 
 export function ProductPopularList() {
-  const { data = [], isFetching } = usePopularProductsQuery()
+  const { data = [], isFetching } = useGetPopularProductsQuery()
   const navigate = useNavigate()
   const quantityByProductId = useAppSelector(selectCartQuantityByProductId)
 

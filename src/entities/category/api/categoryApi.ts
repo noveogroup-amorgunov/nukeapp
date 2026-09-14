@@ -1,34 +1,51 @@
-import { baseApi } from '@/shared/api'
+import type { QueryDefinition } from '@reduxjs/toolkit/query'
+import { generatedApi } from '@/shared/api'
+import type {
+  ApiTagTypes,
+  AppBaseQuery,
+  Category as CategoryDto,
+  CategoryWithProducts as CategoryWithProductsDto,
+  GetCategoryDetailsApiArg,
+  GetPopularCategoriesApiArg,
+} from '@/shared/api'
 import { mapCategory } from '../lib/mapCategory'
 import { mapCategoryWithProducts } from '../lib/mapCategoryWithProducts'
 import type { Category, CategoryWithProducts } from '../model/types'
-import type {
-  CategoryDetailsRequestArgs,
-  CategoryDto,
-  CategoryWithProductsDto,
-} from './types'
 
-export const categoryApi = baseApi.injectEndpoints({
-  endpoints: build => ({
-    popularCategories: build.query<Category[], void>({
-      query: () => ({
-        url: `/categories/popular`,
-      }),
-      transformResponse: (response: CategoryDto[]) => response.map(mapCategory),
-    }),
-    categoryDetails: build.query<
+/**
+ * Client `Category` models (branded id, mapped fields) instead of raw DTO
+ * @see model/types.ts
+ */
+export const categoryApi = generatedApi.enhanceEndpoints<
+  never,
+  {
+    getPopularCategories: QueryDefinition<
+      GetPopularCategoriesApiArg,
+      AppBaseQuery,
+      ApiTagTypes,
+      Category[],
+      'api'
+    >
+    getCategoryDetails: QueryDefinition<
+      GetCategoryDetailsApiArg,
+      AppBaseQuery,
+      ApiTagTypes,
       CategoryWithProducts,
-      CategoryDetailsRequestArgs
-    >({
-      query: ({ sortBy, categoryId }) => ({
-        url: `/categories/${categoryId}`,
-        params: { sortBy, delay: 400 },
-      }),
-      transformResponse: (response: CategoryWithProductsDto) =>
-        mapCategoryWithProducts(response),
-    }),
-  }),
+      'api'
+    >
+  }
+>({
+  endpoints: {
+    getPopularCategories: {
+      transformResponse: response =>
+        (response as CategoryDto[]).map(mapCategory),
+    },
+    getCategoryDetails: {
+      transformResponse: response =>
+        mapCategoryWithProducts(response as CategoryWithProductsDto),
+    },
+  },
 })
 
-export const { usePopularCategoriesQuery, useCategoryDetailsQuery }
+export const { useGetCategoryDetailsQuery, useGetPopularCategoriesQuery }
   = categoryApi

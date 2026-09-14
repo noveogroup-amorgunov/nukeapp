@@ -1,5 +1,4 @@
-import { sessionApi } from '@/entities/session'
-import { isFetchBaseQueryError } from '@/shared/api'
+import { generatedApi, isFetchBaseQueryError } from '@/shared/api'
 import { createAppAsyncThunk } from '@/shared/redux'
 
 type Params = {
@@ -11,7 +10,9 @@ export const loginThunk = createAppAsyncThunk<void, Params>(
   'authentication/login',
   async (body: Params, { dispatch }) => {
     try {
-      await dispatch(sessionApi.endpoints.login.initiate(body)).unwrap()
+      await dispatch(
+        generatedApi.endpoints.login.initiate({ loginRequest: body }),
+      ).unwrap()
     }
     catch (error) {
       if (isFetchBaseQueryError(error)) {

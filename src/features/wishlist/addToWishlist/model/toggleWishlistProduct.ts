@@ -30,8 +30,8 @@ export const toggleWishlistProductThunk = createAppAsyncThunk<
         : productsIds.concat(productId)
 
       await dispatch(
-        wishlistApi.endpoints.addToWishlist.initiate(
-          nextProductsInWishlistIds,
+        wishlistApi.endpoints.updateWishlistProducts.initiate(
+          { wishlistUpdateRequest: nextProductsInWishlistIds },
           { fixedCacheKey: 'shared-add-to-wishlist' },
         ),
       ).unwrap()

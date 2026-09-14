@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { z } from 'zod'
 import type { ProductId } from '@/entities/product'
 import { useTypedParams } from '@/shared/lib/router'
-import { useProductDetailsQuery } from '../../api/widgetProductDetailsApi'
+import { useGetProductDetailsQuery } from '../../api/productDetailsApi'
 import { ProductDetails } from '../ProductDetails/ProductDetails'
 
 const pageParamsSchema = z.object({
@@ -15,7 +15,7 @@ const pageParamsSchema = z.object({
 
 export function ProductPage() {
   const { productId } = useTypedParams(pageParamsSchema)
-  const { data, isFetching } = useProductDetailsQuery(productId)
+  const { data, isFetching } = useGetProductDetailsQuery({ id: productId })
   const isNotFound = !isFetching && !data
 
   if (isNotFound) {

@@ -1,6 +1,6 @@
 import { wishlistSlice } from './model/slice'
 
-export { useAddToWishlistMutation, useWishlistProductsQuery, wishlistApi } from './api/wishlistApi'
+export { useGetWishlistProductsQuery, useUpdateWishlistProductsMutation, wishlistApi } from './api/wishlistApi'
 export { wishlistSlice } from './model/slice'
 
 export const {

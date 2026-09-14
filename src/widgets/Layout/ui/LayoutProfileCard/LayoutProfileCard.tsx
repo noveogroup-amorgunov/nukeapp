@@ -2,9 +2,9 @@ import { skipToken } from '@reduxjs/toolkit/query'
 import { Link } from 'react-router-dom'
 import { selectTotalQuantity } from '@/entities/cart'
 import { selectIsAuthorized } from '@/entities/session'
-import { useMeQuery } from '@/entities/user'
 import { selectProductIdsInWishlist } from '@/entities/wishlist'
 import { LogoutButton } from '@/features/session/logout'
+import { useGetMeQuery } from '@/shared/api'
 import { useAppSelector } from '@/shared/redux'
 import { Icon, IconButton } from '@/shared/ui'
 import css from './LayoutProfileCard.module.css'
@@ -13,7 +13,7 @@ export function LayoutProfileCard() {
   const isAuthorized = useAppSelector(selectIsAuthorized)
   const productsInCartQuantity = useAppSelector(selectTotalQuantity)
   const productIdsInWishlist = useAppSelector(selectProductIdsInWishlist)
-  const { data: profileData } = useMeQuery(isAuthorized ? undefined : skipToken)
+  const { data: profileData } = useGetMeQuery(isAuthorized ? undefined : skipToken)
 
   if (!isAuthorized) {
     return (

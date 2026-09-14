@@ -1,8 +1,11 @@
-import { useFeatureToggleQuery } from '../api/featureToggleApi'
-import type { FeatureToggle } from '../model/types'
+import type { FeatureToggle, GetFeatureToggleApiArg } from '@/shared/api'
+import { useGetFeatureToggleQuery } from '@/shared/api'
+import { getQueryParams } from '@/shared/lib/router'
 
 export function useFeatureToggle(feature: Keys<FeatureToggle>) {
-  const { data } = useFeatureToggleQuery()
+  const { data } = useGetFeatureToggleQuery(
+    getQueryParams() as GetFeatureToggleApiArg,
+  )
 
   if (!data) {
     return null

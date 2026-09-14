@@ -1,8 +1,6 @@
 import { cartSlice } from './model/slice'
 
-export { cartApi, useCartQuery } from './api/cartApi'
-export { type CartItemDto } from './api/types'
-export { mapCartItemDto } from './lib/mapCartItemDto'
+export { mapCartItemsRequest } from './lib/mapCartItemsRequest'
 export { selectProductInCart } from './model/slice'
 
 export { type Cart, type CartItem } from './model/types'

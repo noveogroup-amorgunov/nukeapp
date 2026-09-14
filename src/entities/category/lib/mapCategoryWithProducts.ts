@@ -1,5 +1,5 @@
 import { mapProduct } from '@/entities/product/@x/category'
-import type { CategoryWithProductsDto } from '../api/types'
+import type { CategoryWithProducts as CategoryWithProductsDto } from '@/shared/api'
 import type { CategoryWithProducts } from '../model/types'
 import { mapCategory } from './mapCategory'
 

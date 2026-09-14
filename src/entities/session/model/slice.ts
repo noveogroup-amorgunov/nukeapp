@@ -1,7 +1,7 @@
 import type { WithSlice } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
+import { generatedApi } from '@/shared/api'
 import { rootReducer } from '@/shared/redux'
-import { sessionApi } from '../api/sessionApi'
 import type { SessionUserId } from './types'
 
 export type SessionSliceState
@@ -37,13 +37,13 @@ const slice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addMatcher(
-      sessionApi.endpoints.login.matchFulfilled,
+      generatedApi.endpoints.login.matchFulfilled,
       (state: SessionSliceState, { payload }) => {
         state.isAuthorized = true
 
         // say TypeScript that isAuthorized = true
         if (state.isAuthorized) {
-          state.userId = payload.userId
+          state.userId = payload.user.id as SessionUserId
           state.accessToken = payload.accessToken
         }
       },

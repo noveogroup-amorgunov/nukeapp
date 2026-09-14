@@ -259,6 +259,7 @@ module.exports = {
         'src/app/apiMockWorker.ts',
         'src/shared/lib/server/*',
         'src/app/storybookDecorators/*',
+        'src/shared/api/generated/*',
         'env--compiled.mjs',
       ],
     },
