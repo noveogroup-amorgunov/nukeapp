@@ -19,7 +19,7 @@ export function LayoutBanner({ children }: Props) {
 
   return (
     <div className={css.root}>
-      <Text color="primaryInverse" variant="LabelSmall">{children}</Text>
+      <Text color="primaryInverse" variant="BodySmall">{children}</Text>
       <div className={css.close}>
         <IconButton aria-label="Close banner" onClick={() => setIsVisible(false)} variant="ghost">
           <Icon type="x" color={textColors.primaryInverse} />
