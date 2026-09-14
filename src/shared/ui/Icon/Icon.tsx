@@ -1,5 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
+import type { textColors } from '../tokens'
 import css from './Icon.module.css'
 import arrowDown from './icons/arrowDown.svg?react'
 import bag from './icons/bag.svg?react'
@@ -53,6 +54,7 @@ export type Props = {
   className?: string
   size?: number
   type: IconType
+  color?: Values<typeof textColors>
 }
 
 export function Icon(props: Props) {
@@ -61,7 +63,7 @@ export function Icon(props: Props) {
   return (
     <Svg
       className={cn(css.icon, props.className)}
-      style={{ width: props.size ?? 24, height: props.size ?? 24 }}
+      style={{ width: props.size ?? 24, height: props.size ?? 24, color: props.color }}
     />
   )
 }

@@ -5,7 +5,7 @@
   gap: 8px;
   background-color: var(--color-bg-brand);
   color: var(--color-text-primary-inverse);
-  padding: 16px;
+  padding: 16px var(--spacing-48) 16px 16px;
   text-align: center;
   position: absolute;
   top: 0;
@@ -21,5 +21,4 @@
   position: absolute;
   top: 8px;
   right: 8px;
-  color: var(--color-text-primary-inverse);
 }
