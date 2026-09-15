@@ -13,10 +13,11 @@ flipping the theme global.
 - [x] Add dark overrides for all color tokens in the token stylesheet per the
       mapping table in technical.md (decision 6)
 - [x] Remove `filter: invert(1)` from the Icon dark-theme rule (decision 5)
-- [ ] Visual pass in Storybook over Button, IconButton, ProductCard, Modal,
+- [x] Visual pass in Storybook over Button, IconButton, ProductCard, Modal,
       LayoutBanner, Price, Text, DropdownMenu in both themes; adjust values
       that look off and update the table in technical.md if changed
-      (left to the human per product owner request)
+      (done by the product owner: brand tokens kept light, white content on
+      brand surfaces, IconButton/debug-toggler follow-ups)
 
 ## 2. Theme application as a store-level effect; ThemeProvider deleted
 

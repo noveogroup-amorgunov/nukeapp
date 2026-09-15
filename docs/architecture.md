@@ -31,13 +31,20 @@ Feature-Sliced Design (`app` / `pages` / `widgets` / `features` / `entities` /
 - Redux Toolkit for state management
 - RTK Query for server state, with reauth handling in `shared/api`
 - `redux-remember` for persistence
+- DOM attributes derived from store state (theme) are synced by store
+  subscriptions in the owning slice, not by React providers —
+  `redux-remember` rehydration bypasses middleware, so subscriptions are the
+  only mechanism that catches persisted values on reload
 
 ## Design system
 
 - Base UI primitives in `shared/ui` (Button, Text, Icon, Modal, ...)
 - Design tokens in `shared/ui/tokens.css`, mirroring the Figma variable
-  collection 1:1 (path slashes joined with dashes: `--color/bg/brand` →
-  `--color-bg-brand`); the TS-side subset lives in `shared/ui/tokens.ts`
+  collection 1:1 for the light theme (path slashes joined with dashes:
+  `--color/bg/brand` → `--color-bg-brand`); the TS-side subset lives in
+  `shared/ui/tokens.ts`. Dark values are hand-picked (the free Figma plan
+  cannot maintain variable collections); brand tokens are not themed —
+  content on brand surfaces pins to `--color-base-white`
 - Figma integration via Figma Bridge MCP: `.design-system/figma-registry.yml`
   maps Figma component node ids to production components, colocated
   `*.figma.yml` files adapt Figma properties to component APIs (rationale in
