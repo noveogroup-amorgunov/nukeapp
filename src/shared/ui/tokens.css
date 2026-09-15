@@ -49,12 +49,26 @@
   --size-64: 64px;
 }
 
-/* Dark theme: values carried over from the pre-token dark palette
-   (src/shared/colors.css). No Figma counterpart yet — migration is a
-   separate task. */
+/* Dark theme: values hand-picked from the four carried-over dark values
+   (text-primary, text-brand, bg-primary, bg-secondary). No Figma counterpart
+   (free plan) — mapping table lives in docs/changes/fix-dark-theme/technical.md. */
 html[data-theme='dark'] {
+  /* Text colors */
   --color-text-primary: #f7f8f8;
+  --color-text-secondary: #a0a8ac;
+  --color-text-primary-inverse: #111111;
   --color-text-brand: #828fff;
+
+  /* Background colors */
   --color-bg-primary: #212a2e;
+  --color-bg-primary-pressed: #1b2428;
+  --color-bg-brand: #828fff;
+  --color-bg-brand-pressed: #6a78e0;
   --color-bg-secondary: #1a2327;
+  --color-bg-secondary-pressed: #141c20;
+  --color-bg-brand-muted: #828fff4d;
+  --color-bg-backdrop: #1111117a;
+  --color-bg-danger: #e44b4b;
+  --color-bg-danger-pressed: #cf3939;
+  --color-bg-primary-inverse: #ffffff;
 }

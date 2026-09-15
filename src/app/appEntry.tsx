@@ -3,7 +3,7 @@ import { Provider as ModalProvider } from '@ebay/nice-modal-react'
 import ReactDOM from 'react-dom/client'
 import { Provider as ReduxProvider } from 'react-redux'
 import { selectAccessToken } from '@/entities/session'
-import { ThemeProvider } from '@/entities/theme'
+import { setupThemeSync } from '@/entities/theme'
 import { setApiAccessToken } from '@/shared/api'
 import '@/shared/base.css'
 import { appStore } from '@/shared/redux'
@@ -47,14 +47,14 @@ function syncApiAccessToken() {
 syncApiAccessToken()
 appStore.subscribe(syncApiAccessToken)
 
+setupThemeSync()
+
 initApp().then(() => {
   ReactDOM.createRoot(root).render(
     <React.StrictMode>
       <ModalProvider>
         <ReduxProvider store={appStore}>
-          <ThemeProvider>
-            <RouterProvider />
-          </ThemeProvider>
+          <RouterProvider />
         </ReduxProvider>
       </ModalProvider>
     </React.StrictMode>,

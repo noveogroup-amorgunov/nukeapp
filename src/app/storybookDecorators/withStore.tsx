@@ -7,6 +7,8 @@ import { toggleDebugMode } from '@/shared/services'
 
 const store = makeStore({ persisted: false })
 
+export { store as storybookStore }
+
 store.dispatch(
   loginThunk({
     email: env.VITE_API_USER_EMAIL,

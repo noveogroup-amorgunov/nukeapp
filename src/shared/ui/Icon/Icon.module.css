@@ -1,8 +1,4 @@
 .icon {
   display: block;
   color: var(--color-text-primary);
-
-  :global([data-theme='dark']) & {
-    filter: invert(1);
-  }
 }

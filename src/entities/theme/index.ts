@@ -1,8 +1,9 @@
 import { themeSlice } from './model/slice'
 
-export { ThemeProvider } from './lib/ThemeProvider'
+export { setupThemeSync } from './lib/setupThemeSync'
 export { themeSlice } from './model/slice'
-export { ChangeTheme } from './ui/ChangeTheme/ChangeTheme'
+export type { Theme } from './model/types'
+export { ChangeThemeIconButton } from './ui/ChangeTheme/ChangeThemeIconButton'
 
 export const {
   currentTheme: selectCurrentTheme,

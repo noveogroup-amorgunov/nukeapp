@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { selectTotalQuantity } from '@/entities/cart'
 import { useFeatureToggle } from '@/entities/featureToggle'
 import { selectIsAuthorized } from '@/entities/session'
-import { ChangeTheme } from '@/entities/theme'
+import { ChangeThemeIconButton } from '@/entities/theme'
 import {
   selectProductIdsInWishlist,
   useGetWishlistProductsQuery,
@@ -40,7 +40,7 @@ export function LayoutHeaderIcons() {
         </IconButton>
       )}
       <LayoutUserProfile />
-      {darkModeIsEnabled && <ChangeTheme />}
+      {darkModeIsEnabled && <ChangeThemeIconButton />}
     </div>
   )
 }
