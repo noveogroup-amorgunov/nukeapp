@@ -84,13 +84,7 @@ const injectedRtkApi = api.injectEndpoints({
       GetFeatureToggleApiResponse,
       GetFeatureToggleApiArg
     >({
-      query: (queryArg) => ({
-        url: `/feature-toggle`,
-        params: {
-          darkMode: queryArg.darkMode,
-          productsSort: queryArg.productsSort,
-        },
-      }),
+      query: () => ({ url: `/feature-toggle` }),
     }),
     getAdOffer: build.query<GetAdOfferApiResponse, GetAdOfferApiArg>({
       query: () => ({ url: `/ad/offer` }),
@@ -145,10 +139,7 @@ export type GetMeApiResponse = /** status 200 Current user */ User;
 export type GetMeApiArg = void;
 export type GetFeatureToggleApiResponse =
   /** status 200 Feature toggles */ FeatureToggle;
-export type GetFeatureToggleApiArg = {
-  darkMode?: BooleanAsString;
-  productsSort?: BooleanAsString;
-};
+export type GetFeatureToggleApiArg = void;
 export type GetAdOfferApiResponse = /** status 200 Ad offer */ AdOffer;
 export type GetAdOfferApiArg = void;
 export type Id = number;
@@ -212,8 +203,8 @@ export type User = {
 export type FeatureToggle = {
   darkMode: boolean;
   productsSort: boolean;
+  debugMode: boolean;
 };
-export type BooleanAsString = "true" | "false";
 export type AdOffer = {
   id: string;
   text: string;

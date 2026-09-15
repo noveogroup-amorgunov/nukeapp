@@ -5,3 +5,4 @@ export {
   selectIsDebugModeEnabled,
   toggleDebugMode,
 } from './debugMode'
+export { initFeatureFlags, useFeatureFlag } from './featureFlags'

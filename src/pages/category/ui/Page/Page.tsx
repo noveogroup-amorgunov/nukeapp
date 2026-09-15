@@ -5,10 +5,10 @@ import { z } from 'zod'
 import { selectCartQuantityByProductId } from '@/entities/cart'
 import { useGetCategoryDetailsQuery } from '@/entities/category'
 import type { CategoryId } from '@/entities/category'
-import { useFeatureToggle } from '@/entities/featureToggle'
 import { mapProductToCompactView } from '@/entities/product'
 import { useTypedParams, useTypedQueryParams } from '@/shared/lib/router'
 import { useAppDispatch, useAppSelector } from '@/shared/redux'
+import { useFeatureFlag } from '@/shared/services'
 import { LayoutTitleSection, ProductGrid } from '@/shared/ui'
 import { categoryPageSlice } from '../../model/slice'
 import type { ProductSortBy } from '../../model/types'
@@ -36,7 +36,7 @@ export function CategoryPage() {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const sortBy = useAppSelector(categoryPageSlice.selectors.sortBy)
-  const sortByIsEnabled = useFeatureToggle('productsSort')
+  const sortByIsEnabled = useFeatureFlag('productsSort')
 
   useLayoutEffect(() => {
     if (initialSortBy && sortBy !== initialSortBy) {
