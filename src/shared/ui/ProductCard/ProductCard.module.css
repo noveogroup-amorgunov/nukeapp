@@ -79,6 +79,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   border-radius: 8px;
   background: var(--color-bg-backdrop);
 }
@@ -89,7 +90,7 @@
   font-size: 36px;
   font-weight: 700;
   line-height: 1;
-  color: var(--color-text-primary-inverse);
+  color: var(--color-base-white);
 }
 
 .info {

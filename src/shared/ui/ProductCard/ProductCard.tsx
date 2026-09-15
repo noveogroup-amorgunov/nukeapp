@@ -46,7 +46,7 @@ export function ProductCard({ product, quantity = 0, actionSlot, onProductClick 
           )}
           {soldOut && (
             <div className={css.overlay}>
-              <Text color="primaryInverse" variant="DisplayLarge">
+              <Text color="baseWhite" variant="DisplayLarge">
                 out of stock
               </Text>
             </div>
