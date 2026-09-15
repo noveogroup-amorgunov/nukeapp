@@ -11,15 +11,23 @@ export default meta
 
 type Story = StoryObj<typeof IconButton>
 
-export const Default: Story = {
+export const Secondary: Story = {
   args: {
     children: <Icon type="like" />,
   },
 }
 
-export const WithCount: Story = {
+export const Primary: Story = {
   args: {
     children: <Icon type="like" />,
+    variant: 'primary',
+  },
+}
+
+export const PrimaryWithCount: Story = {
+  args: {
+    children: <Icon type="like" />,
+    variant: 'primary',
     count: 6,
   },
 }

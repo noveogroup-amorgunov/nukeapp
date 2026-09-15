@@ -1,4 +1,5 @@
 import { useAppDispatch, useAppSelector } from '@/shared/redux'
+import { Icon, IconButton } from '@/shared/ui'
 import { debugModeSlice } from '../../model/debugModeSlice'
 import css from './DebugModeToggler.module.css'
 
@@ -8,9 +9,14 @@ export function DebugModeToggler() {
 
   return (
     <div className={css.root}>
-      <button onClick={() => dispatch(debugModeSlice.actions.toggle())}>
-        {isDebugModeEnabled ? '✅ debug mode' : '☑️ debug mode'}
-      </button>
+      <IconButton
+        className={css.button}
+        aria-label={isDebugModeEnabled ? 'Disable debug mode' : 'Enable debug mode'}
+        variant={isDebugModeEnabled ? 'primary' : 'secondary'}
+        onClick={() => dispatch(debugModeSlice.actions.toggle())}
+      >
+        <Icon type="cpu" />
+      </IconButton>
     </div>
   )
 }

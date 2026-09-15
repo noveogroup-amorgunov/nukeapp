@@ -105,7 +105,7 @@ a:hover {
   font-size: 10px;
   font-weight: bold;
   line-height: 1;
-  color: var(--color-text-primary-inverse);
+  color: var(--color-base-white);
   text-overflow: ellipsis;
   pointer-events: none;
   content: attr(data-fsd);

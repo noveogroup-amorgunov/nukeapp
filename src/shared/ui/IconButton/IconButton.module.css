@@ -27,6 +27,23 @@
     opacity: 0.3;
   }
 
+  &_variant_primary {
+    background-color: var(--color-bg-brand);
+
+    & > svg {
+      color: var(--color-base-white);
+    }
+
+    &:hover:not(.control_disabled) {
+      background-color: var(--color-bg-brand-pressed);
+    }
+
+    &:focus-visible {
+      background-color: var(--color-bg-brand-pressed);
+      outline: 2px solid var(--color-base-focus);
+    }
+  }
+
   &_variant_ghost {
     &:hover:not(.control_disabled) {
       background-color: transparent;
@@ -49,6 +66,6 @@
   height: var(--size-16);
   padding: var(--spacing-02) var(--spacing-04);
   border-radius: 8px;
-  background-color: var(--color-bg-primary-inverse);
-  color: var(--color-text-primary-inverse);
+  background-color: var(--color-base-black);
+  color: var(--color-base-white);
 }

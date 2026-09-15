@@ -21,6 +21,7 @@ properties:
       Liked: liked
       Minus: minus
       Plus: plus
+      Cpu: cpu
 
 # Notes:
 # - Icon size is controlled by the React `size` prop (px); the Figma variants
