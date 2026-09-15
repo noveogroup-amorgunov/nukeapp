@@ -4,7 +4,7 @@ import { setupThemeSync } from '@/entities/theme'
 import { loginThunk } from '@/features/session/login/model/login'
 import { env } from '@/shared/lib'
 import { makeStore } from '@/shared/redux'
-import { featureFlagsSlice } from '@/shared/services'
+import { featureFlagsSlice } from '@/shared/services/featureFlags'
 
 const store = makeStore({ persisted: false })
 

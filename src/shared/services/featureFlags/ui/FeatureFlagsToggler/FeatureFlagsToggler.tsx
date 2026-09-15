@@ -1,9 +1,9 @@
 import { useModal } from '@ebay/nice-modal-react'
 import { Icon, IconButton } from '@/shared/ui'
 import { FeatureFlagsModal } from '../FeatureFlagsModal/FeatureFlagsModal'
-import css from './FeatureToggler.module.css'
+import css from './FeatureFlagsToggler.module.css'
 
-export function FeatureToggler() {
+export function FeatureFlagsToggler() {
   const modal = useModal(FeatureFlagsModal)
 
   return (
@@ -11,7 +11,7 @@ export function FeatureToggler() {
       <IconButton
         className={css.button}
         aria-label="Open feature flags"
-        variant="secondary"
+        variant="primary"
         onClick={() => modal.show()}
       >
         <Icon type="cpu" />

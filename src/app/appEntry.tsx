@@ -7,7 +7,7 @@ import { setupThemeSync } from '@/entities/theme'
 import { setApiAccessToken } from '@/shared/api'
 import '@/shared/base.css'
 import { appStore } from '@/shared/redux'
-import { initFeatureFlags } from '@/shared/services'
+import { initFeatureFlags } from '@/shared/services/featureFlags'
 import { RouterProvider } from './with-providers/router/RouterProvider'
 
 const root = document.getElementById('root') as HTMLElement
@@ -56,8 +56,6 @@ setupThemeSync()
 initApp().then(() => {
   ReactDOM.createRoot(root).render(
     <React.StrictMode>
-      {/* Redux wraps ModalProvider: nice-modal renders modal components as
-          ModalProvider children, and modal presenters use redux hooks */}
       <ReduxProvider store={appStore}>
         <ModalProvider>
           <RouterProvider />

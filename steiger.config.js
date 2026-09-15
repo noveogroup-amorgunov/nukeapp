@@ -37,18 +37,35 @@ export default defineConfig([
     },
   },
   /**
-   * Infrastructural slices in the shared layer (see docs/changes/
-   * refactor-layout-to-shared-ui): same as shared/redux, steiger does not
-   * model slices inside shared, so segment naming/public API rules are
-   * relaxed for them.
+   * Infrastructural slices in the shared layer (see docs/adr/
+   * 0004-infrastructure-layer-as-shared-services): same as shared/redux,
+   * steiger does not model slices inside shared, so segment naming/public
+   * API rules are relaxed for them. Each service exposes only its own
+   * public API (no aggregate `shared/services` index).
    */
   {
     files: [
+      './src/shared/services',
       './src/shared/services/**',
     ],
     rules: {
       'fsd/no-reserved-folder-names': 'off',
       'fsd/segments-by-purpose': 'off',
+      'fsd/public-api': 'off',
+    },
+  },
+  /**
+   * Per-service public APIs (`shared/services/<service>`) are not modeled
+   * by steiger (it sees `services` as a single slice), so imports from
+   * app/pages into services flag as sidestep. See ADR-0004.
+   */
+  {
+    files: [
+      './src/app/**',
+      './src/pages/**',
+    ],
+    rules: {
+      'fsd/no-public-api-sidestep': 'off',
     },
   },
   /**

@@ -9,7 +9,7 @@ import {
 } from '@/entities/wishlist'
 import { useGetCartQuery } from '@/shared/api'
 import { useAppSelector } from '@/shared/redux'
-import { useFeatureFlag } from '@/shared/services'
+import { useFeatureFlag } from '@/shared/services/featureFlags'
 import { Icon, IconButton } from '@/shared/ui'
 import { LayoutUserProfile } from '../LayoutUserProfile/LayoutUserProfile'
 import css from './LayoutHeaderIcons.module.css'

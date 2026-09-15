@@ -106,7 +106,7 @@ export function ProductDetails({ productDetails, isFetching }: Props) {
 
   if (isFetching) {
     return (
-      <div data-fsd="page/product/ProductDetails" className={css.root}>
+      <div className={css.root}>
         <div className={css.images}>
           {imageStubs.map((_, idx) => (
             <div className={css.image} key={idx} />
@@ -126,7 +126,7 @@ export function ProductDetails({ productDetails, isFetching }: Props) {
   const isOutOfStock = productDetails.stock === 0
 
   return (
-    <div className={css.root}>
+    <div data-fsd="page/product/ProductDetails" className={css.root}>
       <div className={css.images}>
         {productDetails.images.map((image, idx) => (
           <img

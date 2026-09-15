@@ -22,7 +22,8 @@ infrastructure service wearing an entity costume).
 Rules of the layer:
 
 1. A service is a proper slice with a public API; nothing reaches into it from
-   other layers beyond the public API.
+   other layers beyond the public API. The layer has no aggregate
+   `shared/services` index — consumers import a concrete service's public API.
 2. Services may import each other's public API (e.g. `debugMode` reads the
    `debugMode` flag from `featureFlags`). The FSD cross-import ban applies to
    business slices; infrastructure services on one layer are allowed to
