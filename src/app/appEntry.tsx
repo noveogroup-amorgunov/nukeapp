@@ -56,11 +56,13 @@ setupThemeSync()
 initApp().then(() => {
   ReactDOM.createRoot(root).render(
     <React.StrictMode>
-      <ModalProvider>
-        <ReduxProvider store={appStore}>
+      {/* Redux wraps ModalProvider: nice-modal renders modal components as
+          ModalProvider children, and modal presenters use redux hooks */}
+      <ReduxProvider store={appStore}>
+        <ModalProvider>
           <RouterProvider />
-        </ReduxProvider>
-      </ModalProvider>
+        </ModalProvider>
+      </ReduxProvider>
     </React.StrictMode>,
   )
 })
