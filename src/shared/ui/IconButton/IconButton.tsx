@@ -4,7 +4,7 @@ import cn from 'classnames'
 import { Text } from '../Text/Text'
 import css from './IconButton.module.css'
 
-export type IconButtonVariant = 'default' | 'ghost'
+export type IconButtonVariant = 'secondary' | 'primary' | 'ghost'
 
 export type Props = {
   children: ReactElement
@@ -15,7 +15,7 @@ export type Props = {
   onClick?: (event: React.MouseEvent<HTMLElement>) => void
 } & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onClick' | 'disabled'>
 
-export function IconButton({ asChild, children, count, disabled, variant = 'default', onClick, ...rest }: Props) {
+export function IconButton({ asChild, children, count, disabled, variant = 'secondary', onClick, className, ...rest }: Props) {
   const Component = asChild ? Slot : 'button'
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -27,12 +27,12 @@ export function IconButton({ asChild, children, count, disabled, variant = 'defa
   }
 
   return (
-    <span className={css.root}>
+    <span className={cn(css.root, className)}>
       <Component
         aria-disabled={disabled || undefined}
         className={cn(
           css.control,
-          variant === 'ghost' && css.control_variant_ghost,
+          variant !== 'secondary' && css[`control_variant_${variant}`],
           disabled && css.control_disabled,
         )}
         disabled={asChild ? undefined : disabled}

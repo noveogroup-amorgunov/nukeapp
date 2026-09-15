@@ -6,6 +6,7 @@ export const textColors = {
   secondary: 'var(--color-text-secondary)',
   brand: 'var(--color-text-brand)',
   primaryInverse: 'var(--color-text-primary-inverse)',
+  baseWhite: 'var(--color-base-white)',
 } as const
 
 export type TextColor = keyof typeof textColors

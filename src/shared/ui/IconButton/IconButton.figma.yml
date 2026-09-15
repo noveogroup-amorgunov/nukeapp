@@ -18,7 +18,8 @@ properties:
     type: prop
     prop: variant
     values:
-      Default: default
+      Secondary: secondary
+      Primary: primary
       Ghost: ghost
 
   Counter:

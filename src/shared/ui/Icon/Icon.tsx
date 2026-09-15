@@ -6,6 +6,7 @@ import arrowDown from './icons/arrowDown.svg?react'
 import bag from './icons/bag.svg?react'
 import chevronDown from './icons/chevronDown.svg?react'
 import chevronUp from './icons/chevronUp.svg?react'
+import cpu from './icons/cpu.svg?react'
 import like from './icons/like.svg?react'
 import liked from './icons/liked.svg?react'
 import loader from './icons/loader.svg?react'
@@ -32,6 +33,7 @@ export type IconType
     | 'chevronUp'
     | 'arrowDown'
     | 'trash'
+    | 'cpu'
 
 const icons: Record<IconType, React.FunctionComponent<React.SVGProps<SVGSVGElement>>> = {
   bag,
@@ -46,6 +48,7 @@ const icons: Record<IconType, React.FunctionComponent<React.SVGProps<SVGSVGEleme
   x,
   chevronDown,
   chevronUp,
+  cpu,
   arrowDown,
   trash,
 }

@@ -13,10 +13,10 @@ type Props = {
 export function LayoutBanner({ children, onClose }: Props) {
   return (
     <div className={css.root}>
-      <Text color="primaryInverse" variant="BodySmall">{children}</Text>
+      <Text color="baseWhite" variant="BodySmall">{children}</Text>
       <div className={css.close}>
         <IconButton aria-label="Close banner" onClick={onClose} variant="ghost">
-          <Icon type="x" color={textColors.primaryInverse} />
+          <Icon type="x" color={textColors.baseWhite} />
         </IconButton>
       </div>
     </div>

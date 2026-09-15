@@ -2,9 +2,9 @@ import React, { useCallback } from 'react'
 import { useAppDispatch, useAppSelector } from '@/shared/redux'
 import { Icon, IconButton } from '@/shared/ui'
 import { themeSlice } from '../../model/slice'
-import css from './ChangeTheme.module.css'
+import css from './ChangeThemeIconButton.module.css'
 
-export function ChangeTheme() {
+export function ChangeThemeIconButton() {
   const currentTheme = useAppSelector(themeSlice.selectors.currentTheme)
   const dispatch = useAppDispatch()
 
@@ -17,7 +17,7 @@ export function ChangeTheme() {
   )
 
   return (
-    <div data-fsd="feature/theme/ChangeTheme" className={css.root}>
+    <div data-fsd="entity/theme/ChangeThemeIconButton" className={css.root}>
       <IconButton onClick={onClick}>
         <Icon type={currentTheme === 'light' ? 'moon' : 'sun'} />
       </IconButton>
