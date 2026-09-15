@@ -6,7 +6,7 @@
   height: var(--size-48);
   padding: var(--spacing-12) var(--spacing-16);
   background: var(--color-bg-brand);
-  color: var(--color-text-primary-inverse);
+  color: var(--color-base-white);
   border: 0;
   border-radius: 32px;
   cursor: pointer;

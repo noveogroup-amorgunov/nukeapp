@@ -47,7 +47,7 @@
 }
 
 .quantity {
-  color: var(--color-text-primary-inverse);
+  color: var(--color-base-white);
 }
 
 .stepperIcon {
@@ -55,7 +55,7 @@
 }
 
 .root_inCart .stepperIcon {
-  color: var(--color-text-primary-inverse);
+  color: var(--color-base-white);
 }
 
 .stepperIconMax {

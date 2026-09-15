@@ -33,24 +33,27 @@
    uses fill), so the Icon painted via `--color-text-primary` adapts to the dark
    Theme without any filter.
 
-6. **Dark token overrides for every color token.** Initial mapping below —
-   values are hand-picked (no Figma counterpart, free plan), seeded from the
-   four existing dark values, verified visually in Storybook and adjusted in
-   place:
+6. **Dark token overrides.** Brand tokens are NOT overridden — brand stays
+   brand-colored in both themes, and surfaces sitting on a brand background
+   (LayoutBanner, primary Button, AddToCartButton in-cart state) pin their
+   content to `--color-base-white` instead of the inverse pair. The remaining
+   tokens are overridden; initial mapping below — values are hand-picked (no
+   Figma counterpart, free plan), seeded from the existing dark values,
+   verified visually in Storybook and adjusted in place:
 
    | Token                                       | Dark value  | Rationale                                   |
    | ------------------------------------------- | ----------- | ------------------------------------------- |
    | `--color-text-primary`                      | `#f7f8f8`   | existing                                    |
    | `--color-text-secondary`                    | `#a0a8ac`   | muted gray, same relative contrast as light |
    | `--color-text-primary-inverse`              | `#111111`   | swaps with light `text-primary`             |
-   | `--color-text-brand`                        | `#828fff`   | existing                                    |
+   | `--color-text-brand`                        | unchanged   | brand stays brand                           |
    | `--color-bg-primary`                        | `#212a2e`   | existing                                    |
    | `--color-bg-primary-pressed`                | `#1b2428`   | one step darker than bg-primary             |
-   | `--color-bg-brand`                          | `#828fff`   | matches dark brand text                     |
-   | `--color-bg-brand-pressed`                  | `#6a78e0`   | one step darker than bg-brand               |
+   | `--color-bg-brand`                          | unchanged   | brand stays brand                           |
+   | `--color-bg-brand-pressed`                  | unchanged   | brand stays brand                           |
    | `--color-bg-secondary`                      | `#1a2327`   | existing                                    |
    | `--color-bg-secondary-pressed`              | `#141c20`   | one step darker than bg-secondary           |
-   | `--color-bg-brand-muted`                    | `#828fff4d` | same alpha over dark brand                  |
+   | `--color-bg-brand-muted`                    | unchanged   | brand stays brand                           |
    | `--color-bg-backdrop`                       | `#1111117a` | unchanged, works on both themes             |
    | `--color-bg-danger`                         | `#e44b4b`   | unchanged, reads on dark                    |
    | `--color-bg-danger-pressed`                 | `#cf3939`   | unchanged                                   |
