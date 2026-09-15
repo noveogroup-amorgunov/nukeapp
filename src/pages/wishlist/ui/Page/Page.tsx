@@ -92,7 +92,7 @@ export function WishlistPage() {
   }`
 
   return (
-    <div>
+    <div data-fsd="page/wishlist/Page">
       <h1>{title}</h1>
       {content}
     </div>

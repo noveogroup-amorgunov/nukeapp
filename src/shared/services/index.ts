@@ -1,8 +1,7 @@
+export { DebugModeProvider } from './debugMode'
 export {
-  DebugModeProvider,
-  debugModeSlice,
-  DebugModeToggler,
-  selectIsDebugModeEnabled,
-  toggleDebugMode,
-} from './debugMode'
-export { initFeatureFlags, useFeatureFlag } from './featureFlags'
+  featureFlagsSlice,
+  initFeatureFlags,
+  useFeatureFlag,
+} from './featureFlags'
+export { FeatureToggler } from './featureFlags/ui/FeatureToggler/FeatureToggler'

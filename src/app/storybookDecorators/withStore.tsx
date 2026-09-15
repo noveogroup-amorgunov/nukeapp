@@ -4,7 +4,7 @@ import { setupThemeSync } from '@/entities/theme'
 import { loginThunk } from '@/features/session/login/model/login'
 import { env } from '@/shared/lib'
 import { makeStore } from '@/shared/redux'
-import { toggleDebugMode } from '@/shared/services'
+import { featureFlagsSlice } from '@/shared/services'
 
 const store = makeStore({ persisted: false })
 
@@ -18,7 +18,13 @@ store.dispatch(
     password: env.VITE_API_USER_PASSWORD,
   }),
 )
-store.dispatch(toggleDebugMode())
+store.dispatch(
+  featureFlagsSlice.actions.setFetched({
+    darkMode: true,
+    productsSort: true,
+    debugMode: true,
+  }),
+)
 
 export const withStore: Decorator = (StoryFn, _) => {
   return (

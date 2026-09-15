@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { DebugModeProvider, DebugModeToggler } from '@/shared/services'
+import { DebugModeProvider, FeatureToggler } from '@/shared/services'
 import { Layout } from '@/shared/ui'
 import { LayoutHeaderIcons } from './ui/LayoutHeaderIcons/LayoutHeaderIcons'
 
@@ -14,7 +14,7 @@ export function LayoutProvider(props: Props) {
         headerRightSlot={<LayoutHeaderIcons />}
         sidebarSlot={props.sidebarSlot}
       />
-      <DebugModeToggler />
+      <FeatureToggler />
     </DebugModeProvider>
   )
 }

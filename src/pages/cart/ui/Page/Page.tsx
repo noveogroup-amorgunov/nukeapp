@@ -52,7 +52,7 @@ export function CartPage() {
   }
 
   return (
-    <div className={css.root}>
+    <div data-fsd="page/cart/Page" className={css.root}>
       <div className={css.column}>
         <h1>Bag</h1>
         <div>

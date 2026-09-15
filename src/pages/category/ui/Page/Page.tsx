@@ -95,7 +95,7 @@ export function CategoryPage() {
   }
 
   return (
-    <div>
+    <div data-fsd="page/category/Page">
       <LayoutTitleSection
         title={data.name}
         rightSlot={

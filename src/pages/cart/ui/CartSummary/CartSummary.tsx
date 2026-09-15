@@ -9,7 +9,7 @@ type Props = {
 
 export function CartSummary(props: Props) {
   return (
-    <div className={css.root}>
+    <div data-fsd="page/cart/CartSummary" className={css.root}>
       <div className={css.row}>
         <div>Subtotal</div>
         <div>{formatPrice(props.totalPrice)}</div>

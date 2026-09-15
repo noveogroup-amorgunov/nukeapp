@@ -26,7 +26,7 @@ export function ProductPopularList() {
   }
 
   return (
-    <div className={css.root}>
+    <div data-fsd="page/main/ProductPopularList" className={css.root}>
       <h2>Featured products</h2>
       {isFetching && products.length === 0
         ? <div>Fetching...</div>

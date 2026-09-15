@@ -106,7 +106,7 @@ export function ProductDetails({ productDetails, isFetching }: Props) {
 
   if (isFetching) {
     return (
-      <div className={css.root}>
+      <div data-fsd="page/product/ProductDetails" className={css.root}>
         <div className={css.images}>
           {imageStubs.map((_, idx) => (
             <div className={css.image} key={idx} />
