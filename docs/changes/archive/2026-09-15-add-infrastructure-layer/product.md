@@ -19,7 +19,8 @@ fraction of slice boundaries.
   the backend flag set and enables the debug mode service.
 - The floating button renames to the feature toggler; the modal and its checkbox
   list live inside the feature flags service.
-- All components across all layers get correct `data-fsd` markup.
+- All components in the business layers get correct `data-fsd` markup
+  (`shared/ui` primitives and service UI excluded — see `technical.md`).
 
 ## User Stories
 
@@ -30,7 +31,7 @@ fraction of slice boundaries.
 5. As a developer, I want the debug mode to be just another feature flag, so that enabling it follows the same mechanism as other flags.
 6. As a developer, I want the debug mode service to keep ownership of its visual effect, so that flag values remain plain booleans while the service owns its side effect.
 7. As a developer, I want services to import each other's public API, so that a service can react to another service's state without duplicating it.
-8. As a developer, I want every rendered component marked with `data-fsd`, so that the debug highlighter shows all slice boundaries, not a sample.
+8. As a developer, I want every rendered component in the business layers marked with `data-fsd`, so that the debug highlighter shows all slice boundaries, not a sample.
 9. As a developer, I want mislabeled `data-fsd` values corrected, so that the highlighter does not lie about which slice a component belongs to.
 10. As a developer, I want the dependency graph to show each infrastructure service separately, so that service boundaries are visible in the graph.
 

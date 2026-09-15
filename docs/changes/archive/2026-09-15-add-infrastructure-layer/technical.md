@@ -24,9 +24,11 @@ shared/services/featureFlags/
 └── index.ts
 ```
 
-- Effective flag value = local override ?? backend value. The override slice is
-  persisted via `redux-remember` (`featureFlags` replaces `debugMode` in
-  `rememberedKeys`).
+- Effective flag value = local override ?? backend value (fallback `true` for
+  not-yet-fetched flags, matching mock defaults). The whole `featureFlags`
+  slice (overrides + last fetched values) is persisted via `redux-remember`
+  (`featureFlags` replaces `debugMode` in `rememberedKeys`) — refetch overwrites
+  the stored values after boot, so staleness window is one fetch.
 - `initFeatureFlags` — redux thunk wrapping the existing loader logic
   (RTK Query `initiate` / `unwrap` / `unsubscribe`, fallback TODO preserved).
   Dispatched once from `appEntry` during app init before first render; the two
@@ -35,7 +37,9 @@ shared/services/featureFlags/
   redux).
 - `FeatureToggler` keeps the current cpu icon and moves from the debug mode
   service; it opens `FeatureFlagsModal` through the existing `shared/ui` Modal.
-- Public API: `useFeatureFlag`, `initFeatureFlags`, `FeatureToggler`.
+- Public API: `useFeatureFlag`, `initFeatureFlags` (thunk), `FeatureToggler`,
+  `featureFlagsSlice` (used by the storybook decorator to seed flag defaults),
+  `FeatureFlagsModal`.
 
 ## shared/services/debugMode (slimmed)
 
@@ -50,11 +54,14 @@ shared/services/featureFlags/
 
 ## data-fsd markup
 
-- Every rendered component in all layers gets
-  `data-fsd="<layer>/<slice>/<ComponentName>"` (pages included: values currently
-  labeled `feature/*` inside `pages/*` are corrected to their real layer).
-- Service UI stays unmarked (ADR-0004 rule 3), so the `FeatureSliceLayers` type
-  does not change.
+- Every rendered component in the business layers (app providers, pages,
+  widgets, features, entities) gets
+  `data-fsd="<layer>/<slice>/<ComponentName>"`; pages included (values
+  currently labeled `feature/*` inside `pages/*` are corrected to their real
+  layer).
+- `shared/ui` primitives and service UI stay unmarked: primitives wrap nearly
+  everything, so outlines would bury the slice boundaries; services are
+  excluded by ADR-0004 rule 3. The `FeatureSliceLayers` type does not change.
 
 ## dependency-cruiser
 

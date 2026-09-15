@@ -13,8 +13,7 @@ const flags: Record<Keys<FeatureToggle>, string> = {
 
 function FeatureFlagsModalPresenter() {
   const dispatch = useAppDispatch()
-  const values = useAppSelector(featureFlagsSlice.selectors.values)
-  const overrides = useAppSelector(featureFlagsSlice.selectors.overrides)
+  const effectiveFlags = useAppSelector(featureFlagsSlice.selectors.effectiveFlags)
 
   return (
     <Modal>
@@ -23,14 +22,12 @@ function FeatureFlagsModalPresenter() {
       </Text>
       <ul className={css.list}>
         {(Object.keys(flags) as Keys<FeatureToggle>[]).map((flag) => {
-          const isChecked = overrides[flag] ?? values?.[flag] ?? true
-
           return (
-            <li key={flag} className={css.item}>
+            <li key={flag}>
               <label className={css.label}>
                 <input
                   type="checkbox"
-                  checked={isChecked}
+                  checked={effectiveFlags[flag]}
                   onChange={() => dispatch(featureFlagsSlice.actions.toggleOverride(flag))}
                 />
                 {flags[flag]}

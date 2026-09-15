@@ -27,7 +27,7 @@ async function initApp() {
   await module.startApiMockWorker()
 
   // Feature flags must be ready before the first render (was: per-route loaders)
-  await initFeatureFlags(appStore.dispatch)
+  await appStore.dispatch(initFeatureFlags())
 }
 
 /**
