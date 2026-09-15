@@ -20,12 +20,13 @@
    after ThemeProvider removal and is deleted.
 
 4. **Storybook theming without ThemeProvider.** The storybook store (in
-   `withStore`) is exported; the `withTheme` decorator dispatches
+   `withStore`) is exported and wired to the same `setupThemeSync` effect as the
+   app store, so clicks in stories update `data-theme` through the
+   subscription. The `withTheme` decorator dispatches
    `themeSlice.actions.toggle(theme)` when the store's currentTheme differs from
-   the theme global, and sets the DOM attribute directly. The app-level sync
-   lives in the theme entity (`setupThemeSync`) and subscribes to `appStore`;
-   per-store wiring inside `makeStore` was rejected — the shared layer cannot
-   import the theme slice (FSD layer boundary).
+   the theme global. Per-store wiring inside `makeStore` was rejected — the
+   shared layer cannot import the theme slice (FSD layer boundary); the
+   decorators live in the app layer and may.
 
 5. **Icon dark-mode crutch removed.** `filter: invert(1)` is deleted from
    Icon.module.css. All icon SVGs already use `currentColor` (stroke; `liked`

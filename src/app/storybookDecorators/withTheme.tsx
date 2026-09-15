@@ -8,7 +8,6 @@ export const withTheme: Decorator = (StoryFn, context) => {
 
   if (theme !== themeSlice.selectors.currentTheme(storybookStore.getState())) {
     storybookStore.dispatch(themeSlice.actions.toggle(theme))
-    document.documentElement.setAttribute('data-theme', theme)
   }
 
   return <StoryFn />

@@ -9,12 +9,12 @@ import { themeSlice } from '../model/slice'
  * missed on reload. The subscription mirrors the access-token sync pattern.
  * @see https://github.com/zewish/redux-remember/blob/v6.0.2/src/rehydrate.ts#L44
  */
-export function setupThemeSync() {
+export function setupThemeSync(targetStore: typeof appStore = appStore) {
   const sync = () => {
-    const currentTheme = themeSlice.selectors.currentTheme(appStore.getState())
+    const currentTheme = themeSlice.selectors.currentTheme(targetStore.getState())
     document.documentElement.setAttribute('data-theme', currentTheme)
   }
 
   sync()
-  appStore.subscribe(sync)
+  targetStore.subscribe(sync)
 }
