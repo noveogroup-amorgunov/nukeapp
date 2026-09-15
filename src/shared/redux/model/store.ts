@@ -5,7 +5,7 @@ import { rootReducer } from './rootReducer'
 
 export const dynamicMiddleware = createDynamicMiddleware()
 
-const rememberedKeys = ['session', 'theme', 'debugMode']
+const rememberedKeys = ['session', 'theme', 'featureFlags']
 
 type MakeStoreOptions = {
   // Persist store to localStorage (disable for storybook/test stores)

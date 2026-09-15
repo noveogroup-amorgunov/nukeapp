@@ -11,7 +11,7 @@ export function CategoryCard(props: Props) {
   const { name, image, id } = props.category
 
   return (
-    <Link to={`/category/${id}`}>
+    <Link data-fsd="entity/category/CategoryCard" to={`/category/${id}`}>
       <div className={css.root}>
         <div
           className={css.image}

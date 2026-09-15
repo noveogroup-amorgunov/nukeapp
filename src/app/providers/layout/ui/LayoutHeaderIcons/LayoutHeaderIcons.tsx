@@ -1,7 +1,6 @@
 import { skipToken } from '@reduxjs/toolkit/query'
 import { Link } from 'react-router-dom'
 import { selectTotalQuantity } from '@/entities/cart'
-import { useFeatureToggle } from '@/entities/featureToggle'
 import { selectIsAuthorized } from '@/entities/session'
 import { ChangeThemeIconButton } from '@/entities/theme'
 import {
@@ -10,12 +9,13 @@ import {
 } from '@/entities/wishlist'
 import { useGetCartQuery } from '@/shared/api'
 import { useAppSelector } from '@/shared/redux'
+import { useFeatureFlag } from '@/shared/services/featureFlags'
 import { Icon, IconButton } from '@/shared/ui'
 import { LayoutUserProfile } from '../LayoutUserProfile/LayoutUserProfile'
 import css from './LayoutHeaderIcons.module.css'
 
 export function LayoutHeaderIcons() {
-  const darkModeIsEnabled = useFeatureToggle('darkMode')
+  const darkModeIsEnabled = useFeatureFlag('darkMode')
   const isAuthorized = useAppSelector(selectIsAuthorized)
   const productsInCartQuantity = useAppSelector(selectTotalQuantity)
   const productIdsInWishlist = useAppSelector(selectProductIdsInWishlist)

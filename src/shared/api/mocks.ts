@@ -1,6 +1,4 @@
 import { delay, http, HttpResponse } from 'msw'
-import type { ZodType } from 'zod'
-import { z } from 'zod'
 import { env, parseTokenFromRequest, signAccessToken, verifyAccessToken } from '@/shared/lib'
 import { __serverDatabase } from '@/shared/lib/server'
 import type {
@@ -30,30 +28,11 @@ const productSortByCompareFunctionMap: Record<
   PriceLowHigh: (pA, pB) => pA.price - pB.price,
 } as const
 
-const featureSchema = z
-  .enum(['false', 'true'])
-  .transform(value => value === 'true')
-  .optional()
-
-/**
- * Use enum+transform validation,
- * coz can't use coerce.boolean for string
- * @see https://github.com/colinhacks/zod/issues/1630
- */
-const featureToggleQuerySchema: ZodType<{
-  productsSort?: boolean
-  darkMode?: boolean
-}> = z.object({
-  productsSort: featureSchema,
-  darkMode: featureSchema,
-})
-
-function mockFeatureToggleDto(
-  fromQuery: Partial<FeatureToggle>,
-): FeatureToggle {
+function mockFeatureToggleDto(): FeatureToggle {
   return {
-    productsSort: fromQuery.productsSort ?? true,
-    darkMode: fromQuery.darkMode ?? true,
+    productsSort: true,
+    darkMode: true,
+    debugMode: true,
   }
 }
 
@@ -208,22 +187,9 @@ export const apiMockHandlers = [
 
   // ── Feature toggle ────────────────────────────────────────────────────
 
-  http.get(`${env.VITE_API_ENDPOINT}/feature-toggle`, async ({ request }) => {
-    try {
-      const url = new URL(request.url)
-      const params = Object.fromEntries(url.searchParams.entries())
-      // silent validation
-      const query = featureToggleQuerySchema.safeParse(params)
-
-      await delay(env.VITE_API_DELAY)
-      return HttpResponse.json(mockFeatureToggleDto(query.success ? query.data : {}), { status: 200 })
-    }
-    catch (error) {
-      console.error(error)
-
-      await delay(env.VITE_API_DELAY)
-      return HttpResponse.json('Bad request params', { status: 400 })
-    }
+  http.get(`${env.VITE_API_ENDPOINT}/feature-toggle`, async () => {
+    await delay(env.VITE_API_DELAY)
+    return HttpResponse.json(mockFeatureToggleDto(), { status: 200 })
   }),
 
   // ── Products (specific paths before `/products/:id`) ──────────────────

@@ -411,24 +411,6 @@
         ],
         "operationId": "getFeatureToggle",
         "summary": "Available feature toggles",
-        "parameters": [
-          {
-            "name": "darkMode",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/BooleanAsString"
-            }
-          },
-          {
-            "name": "productsSort",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/BooleanAsString"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "Feature toggles",
@@ -770,11 +752,15 @@
           },
           "productsSort": {
             "type": "boolean"
+          },
+          "debugMode": {
+            "type": "boolean"
           }
         },
         "required": [
           "darkMode",
-          "productsSort"
+          "productsSort",
+          "debugMode"
         ]
       },
       "AdOffer": {

@@ -1,13 +1,12 @@
 import { useEffect } from 'react'
-import { useAppSelector } from '@/shared/redux'
-import { debugModeSlice } from '../../model/debugModeSlice'
+import { useFeatureFlag } from '@/shared/services/featureFlags'
 
 type Props = {
   children: React.ReactNode
 }
 
 export function DebugModeProvider({ children }: Props) {
-  const isDebugModeEnabled = useAppSelector(debugModeSlice.selectors.isEnabled)
+  const isDebugModeEnabled = useFeatureFlag('debugMode')
 
   useEffect(() => {
     if (isDebugModeEnabled) {

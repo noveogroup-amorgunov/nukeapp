@@ -31,7 +31,7 @@ export function RemoveIcon(props: Props) {
   )
 
   return (
-    <IconButton onClick={onClickToRemove}>
+    <IconButton data-fsd="feature/cart/RemoveIcon" onClick={onClickToRemove}>
       <Icon type="trash" />
     </IconButton>
   )

@@ -12,7 +12,7 @@ export function LoginPage() {
   }, [navigate])
 
   return (
-    <div>
+    <div data-fsd="page/login/Page">
       <h1>Login page</h1>
       <p>
         Use

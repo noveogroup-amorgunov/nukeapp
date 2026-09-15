@@ -52,5 +52,13 @@ A function that turns a DTO into a domain type; it lives once in the entity that
 _Avoid_: mapper, transformer
 
 **Debug mode**:
-A development-only mode that visually highlights FSD slice boundaries on rendered components; toggled by an always-available floating control.
+A development-only mode that visually highlights FSD slice boundaries on rendered components; enabled by the debugMode Feature flag.
 _Avoid_: dev mode, fsd debug
+
+**Feature flag**:
+A boolean delivered by the backend that controls optional app behavior; locally overridable at runtime via the feature flags service.
+_Avoid_: feature toggle, switch
+
+**Infrastructure service**:
+A slice in `shared/services` that provides a technical capability supporting business logic (feature flags, debug mode), not business data itself.
+_Avoid_: infra, service slice, util

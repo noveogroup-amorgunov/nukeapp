@@ -1,6 +1,5 @@
 import type { ReactElement } from 'react'
 import { createBrowserRouter, Navigate } from 'react-router-dom'
-import { featureToggleLoader } from '@/entities/featureToggle'
 import { selectIsAuthorized } from '@/entities/session'
 import { CartPage } from '@/pages/cart'
 import { CategoryPage } from '@/pages/category'
@@ -8,7 +7,7 @@ import { LoginPage } from '@/pages/login'
 import { MainPage } from '@/pages/main'
 import { ProductPage } from '@/pages/product'
 import { WishlistPage } from '@/pages/wishlist'
-import { appStore, useAppSelector } from '@/shared/redux'
+import { useAppSelector } from '@/shared/redux'
 import { AdBlock } from '@/widgets/AdBlock'
 import { LayoutProvider } from '../../providers/layout/LayoutProvider'
 
@@ -43,9 +42,6 @@ export function appRouter() {
     {
       element: <LayoutProvider />,
       errorElement: <div>Error happened</div>,
-      loader: async () => {
-        return await featureToggleLoader(appStore.dispatch)
-      },
       children: [
         {
           path: '/login',
@@ -84,9 +80,6 @@ export function appRouter() {
     {
       element: <LayoutProvider sidebarSlot={<AdBlock />} />,
       errorElement: <div>error</div>,
-      loader: async () => {
-        return await featureToggleLoader(appStore.dispatch)
-      },
       children: [
         {
           path: '/',

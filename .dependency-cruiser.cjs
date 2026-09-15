@@ -427,6 +427,7 @@ module.exports = {
           'src/(features/[^/]+/[^/]+/)',
           'src/(pages/[^/]+/)',
           'src/(widgets/[^/]+/)',
+          'src/(shared/services/[^/]+/)',
           'src/(shared/[^/]+/)',
 
           // 'src/(shared/(?!ui)[^/]+/)',

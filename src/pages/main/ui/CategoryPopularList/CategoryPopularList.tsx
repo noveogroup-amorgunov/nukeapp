@@ -15,7 +15,7 @@ export function CategoryPopularList() {
   }
 
   return (
-    <div className={css.root}>
+    <div data-fsd="page/main/CategoryPopularList" className={css.root}>
       <h2>New Collections</h2>
       <div className={css.content}>
         {items.map(category => (

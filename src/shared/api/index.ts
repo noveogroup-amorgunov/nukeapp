@@ -16,7 +16,6 @@ export {
 
 export type {
   AdOffer,
-  BooleanAsString,
   Cart,
   Category,
   CategoryWithProducts,
@@ -36,7 +35,6 @@ export type {
 // ApiArg types for `enhanceEndpoints` overrides in consuming slices
 export type {
   GetCategoryDetailsApiArg,
-  GetFeatureToggleApiArg,
   GetPopularCategoriesApiArg,
   GetPopularProductsApiArg,
   GetProductDetailsApiArg,

@@ -22,9 +22,11 @@ Feature-Sliced Design (`app` / `pages` / `widgets` / `features` / `entities` /
 
 - `@x/<entity>` cross-import public APIs between entities (see
   `entities/product/@x/*`)
-- Infrastructural slices live directly in `shared` (e.g. `shared/services`
-  with the debug mode slice); the app composition layer keeps providers in
-  `app/providers` — both relax steiger naming rules (see `steiger.config.js`)
+- Infrastructure layer: `shared/services` holds infrastructure services as full
+  slices (feature flags, debug mode); services may import each other's public
+  API, and service UI is not marked for the debug highlighter (ADR-0004)
+- The app composition layer keeps providers in `app/providers` — both relax
+  steiger naming rules (see `steiger.config.js`)
 
 ## State
 

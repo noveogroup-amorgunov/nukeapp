@@ -7,6 +7,7 @@ import { setupThemeSync } from '@/entities/theme'
 import { setApiAccessToken } from '@/shared/api'
 import '@/shared/base.css'
 import { appStore } from '@/shared/redux'
+import { initFeatureFlags } from '@/shared/services/featureFlags'
 import { RouterProvider } from './with-providers/router/RouterProvider'
 
 const root = document.getElementById('root') as HTMLElement
@@ -24,6 +25,9 @@ async function initApp() {
   // Move @mswjs worker to lazy import
   const module = await import('@/app/apiMockWorker')
   await module.startApiMockWorker()
+
+  // Feature flags must be ready before the first render (was: per-route loaders)
+  await appStore.dispatch(initFeatureFlags())
 }
 
 /**
@@ -52,11 +56,11 @@ setupThemeSync()
 initApp().then(() => {
   ReactDOM.createRoot(root).render(
     <React.StrictMode>
-      <ModalProvider>
-        <ReduxProvider store={appStore}>
+      <ReduxProvider store={appStore}>
+        <ModalProvider>
           <RouterProvider />
-        </ReduxProvider>
-      </ModalProvider>
+        </ModalProvider>
+      </ReduxProvider>
     </React.StrictMode>,
   )
 })

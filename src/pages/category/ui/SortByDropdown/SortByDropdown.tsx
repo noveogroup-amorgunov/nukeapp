@@ -28,7 +28,7 @@ export function SortByDropdown(props: Props) {
       }}
       selected={sortBy}
       trigger={(
-        <div data-fsd="feature/product/SortByDropdown" className={css.control}>
+        <div data-fsd="page/category/SortByDropdown" className={css.control}>
           <span>Sort By:</span>
           {' '}
           <span className={css.controlValue}>
