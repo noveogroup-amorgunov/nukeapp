@@ -5,7 +5,7 @@ import css from './Page.module.css'
 
 export function MainPage() {
   return (
-    <div className={css.container}>
+    <div className={css.container} data-fsd="page/main/Page">
       <div className={css.content}>
         <CategoryPopularList />
         <ProductPopularList />

@@ -20,9 +20,11 @@
 
 .sidebar {
   width: 300px;
+  margin-top: 64px;
   display: flex;
 
   @media (--s-viewport) {
+    margin-top: 0;
     min-width: 100%;
   }
 }
