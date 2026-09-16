@@ -11,8 +11,8 @@ import type { Product, ProductId } from '@/entities/product'
 import type { UpdateCartRequest } from '@/shared/api'
 import { generatedApi } from '@/shared/api'
 import { debounce } from '@/shared/lib'
-import type { AppDispatch, AppState } from '@/shared/redux'
-import { createAppAsyncThunk } from '@/shared/redux'
+import type { AppDispatch, AppState } from '@/shared/lib/redux'
+import { createAppAsyncThunk } from '@/shared/lib/redux'
 
 const SYNC_CART_WITH_SERVER_TIMEOUT_MS = 1500
 

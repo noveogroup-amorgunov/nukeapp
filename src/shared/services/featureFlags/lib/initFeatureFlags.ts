@@ -1,5 +1,5 @@
 import { generatedApi } from '@/shared/api'
-import type { AppDispatch } from '@/shared/redux'
+import type { AppDispatch } from '@/shared/lib/redux'
 import { featureFlagsSlice } from '../model/featureFlagsSlice'
 
 export function initFeatureFlags() {

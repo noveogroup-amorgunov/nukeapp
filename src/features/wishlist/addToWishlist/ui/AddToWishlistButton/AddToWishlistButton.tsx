@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import type { ProductId } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
 import { selectProductIsInWishlist } from '@/entities/wishlist'
-import { useAppDispatch, useAppSelector } from '@/shared/redux'
+import { useAppDispatch, useAppSelector } from '@/shared/lib/redux'
 import { Button, useConfirmModal } from '@/shared/ui'
 import { toggleWishlistProductThunk } from '../../model/toggleWishlistProduct'
 

@@ -7,7 +7,7 @@ import { mapProductToCompactView } from '@/entities/product'
 import { selectIsAuthorized } from '@/entities/session'
 import { useGetWishlistProductsQuery, useUpdateWishlistProductsMutation } from '@/entities/wishlist'
 import { AddToWishlistIcon } from '@/features/wishlist/addToWishlist'
-import { useAppSelector } from '@/shared/redux'
+import { useAppSelector } from '@/shared/lib/redux'
 import { Button, ProductGrid } from '@/shared/ui'
 import type { ProductCompactView } from '@/shared/ui'
 

@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { useAppDispatch } from '@/shared/redux'
+import { useAppDispatch } from '@/shared/lib/redux'
 import { Button } from '@/shared/ui'
 import { loginThunk } from '../../model/login'
 import {

@@ -5,7 +5,7 @@ import {
   toggleWishlistProduct,
   wishlistApi,
 } from '@/entities/wishlist'
-import { createAppAsyncThunk } from '@/shared/redux'
+import { createAppAsyncThunk } from '@/shared/lib/redux'
 
 export const toggleWishlistProductThunk = createAppAsyncThunk<
   void,

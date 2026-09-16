@@ -6,9 +6,9 @@ import { selectAccessToken } from '@/entities/session'
 import { setupThemeSync } from '@/entities/theme'
 import { setApiAccessToken } from '@/shared/api'
 import '@/shared/base.css'
-import { appStore } from '@/shared/redux'
+import { appStore } from '@/shared/lib/redux'
 import { initFeatureFlags } from '@/shared/services/featureFlags'
-import { RouterProvider } from './with-providers/router/RouterProvider'
+import { RouterProvider } from './providers/router/RouterProvider'
 
 const root = document.getElementById('root') as HTMLElement
 

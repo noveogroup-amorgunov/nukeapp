@@ -1,7 +1,7 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction, WithSlice } from '@reduxjs/toolkit'
 import type { FeatureToggle } from '@/shared/api'
-import { rootReducer } from '@/shared/redux'
+import { rootReducer } from '@/shared/lib/redux'
 
 type FeatureFlagsSlice = {
   values: FeatureToggle | null
@@ -47,7 +47,7 @@ const slice = createSlice({
   },
 })
 
-declare module '@/shared/redux/model/types' {
+declare module '@/shared/lib/redux/store/types' {
   // eslint-disable-next-line ts/consistent-type-definitions
   export interface LazyLoadedReduxSlices extends WithSlice<typeof slice> {}
 }

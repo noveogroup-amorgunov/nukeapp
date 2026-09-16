@@ -8,7 +8,7 @@ import {
   useGetWishlistProductsQuery,
 } from '@/entities/wishlist'
 import { useGetCartQuery } from '@/shared/api'
-import { useAppSelector } from '@/shared/redux'
+import { useAppSelector } from '@/shared/lib/redux'
 import { useFeatureFlag } from '@/shared/services/featureFlags'
 import { Icon, IconButton } from '@/shared/ui'
 import { LayoutUserProfile } from '../LayoutUserProfile/LayoutUserProfile'

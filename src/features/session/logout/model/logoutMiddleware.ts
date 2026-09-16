@@ -1,7 +1,7 @@
 import { createListenerMiddleware } from '@reduxjs/toolkit'
 import { apiAccessTokenIsBrokenEvent } from '@/shared/api'
-import type { AppDispatch, AppState } from '@/shared/redux'
-import { dynamicMiddleware } from '@/shared/redux'
+import type { AppDispatch, AppState } from '@/shared/lib/redux'
+import { dynamicMiddleware } from '@/shared/lib/redux'
 import { logoutThunk } from './logout'
 
 export const logoutMiddleware = createListenerMiddleware<AppState, AppDispatch>()

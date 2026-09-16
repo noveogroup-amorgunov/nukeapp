@@ -88,6 +88,9 @@ a:hover {
 
 .fsd-debug-mode [data-fsd] {
   position: relative;
+  /* Own stacking context: keeps the ::after label (z-index 11) inside the
+     element, so it never sits above portaled overlays like DropdownMenu. */
+  z-index: 0;
   outline: 2px solid var(--fsd-color);
 }
 

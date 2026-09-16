@@ -3,7 +3,7 @@ import { resetSessionData } from '@/entities/session'
 import { resetWishlistData } from '@/entities/wishlist'
 import { CART_TAG, generatedApi, SESSION_TAG, USER_TAG, WISHLIST_TAG } from '@/shared/api'
 import { wait } from '@/shared/lib'
-import { createAppAsyncThunk } from '@/shared/redux'
+import { createAppAsyncThunk } from '@/shared/lib/redux'
 
 export const logoutThunk = createAppAsyncThunk<void, void>(
   'authentication/logout',

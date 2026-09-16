@@ -1,4 +1,4 @@
-import { useAppDispatch } from '@/shared/redux'
+import { useAppDispatch } from '@/shared/lib/redux'
 import { useConfirmModal } from '@/shared/ui'
 import { logoutThunk } from './logout'
 

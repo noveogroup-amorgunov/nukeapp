@@ -1,6 +1,6 @@
 import { create as createModal } from '@ebay/nice-modal-react'
 import type { FeatureToggle } from '@/shared/api'
-import { useAppDispatch, useAppSelector } from '@/shared/redux'
+import { useAppDispatch, useAppSelector } from '@/shared/lib/redux'
 import { Modal, Text } from '@/shared/ui'
 import { featureFlagsSlice } from '../../model/featureFlagsSlice'
 import css from './FeatureFlagsModal.module.css'

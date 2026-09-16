@@ -1,7 +1,7 @@
 import type { PayloadAction, WithSlice } from '@reduxjs/toolkit'
 import { createSelector, createSlice } from '@reduxjs/toolkit'
 import type { Product, ProductId } from '@/entities/product/@x/wishlist'
-import { rootReducer } from '@/shared/redux'
+import { rootReducer } from '@/shared/lib/redux'
 import { wishlistApi } from '../api/wishlistApi'
 
 type WishlistSliceState = {
@@ -50,7 +50,7 @@ const slice = createSlice({
   },
 })
 
-declare module '@/shared/redux/model/types' {
+declare module '@/shared/lib/redux/store/types' {
   // eslint-disable-next-line ts/consistent-type-definitions
   export interface LazyLoadedReduxSlices extends WithSlice<typeof slice> {}
 }
