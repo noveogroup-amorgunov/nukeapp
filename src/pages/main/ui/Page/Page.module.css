@@ -1,0 +1,28 @@
+@import url('/src/shared/breakpoints.css');
+
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-12);
+  flex-grow: 1;
+
+  @media (--s-viewport) {
+    flex-direction: column-reverse;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  flex-grow: 1;
+}
+
+.sidebar {
+  width: 300px;
+  display: flex;
+
+  @media (--s-viewport) {
+    min-width: 100%;
+  }
+}

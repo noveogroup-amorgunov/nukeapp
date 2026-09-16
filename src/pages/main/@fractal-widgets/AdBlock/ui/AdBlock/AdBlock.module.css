@@ -9,12 +9,10 @@ a.root {
   background: var(--color-bg-secondary);
   background-size: cover;
   width: 100%;
-  margin-top: 64px;
   height: 400px;
   text-decoration: none;
 
   @media (--s-viewport) {
-    margin-top: 0;
     height: 200px;
   }
 }

@@ -8,7 +8,6 @@ import { MainPage } from '@/pages/main'
 import { ProductPage } from '@/pages/product'
 import { WishlistPage } from '@/pages/wishlist'
 import { useAppSelector } from '@/shared/redux'
-import { AdBlock } from '@/widgets/AdBlock'
 import { LayoutProvider } from '../../providers/layout/LayoutProvider'
 
 type GuestGuardProps = {
@@ -78,7 +77,7 @@ export function appRouter() {
       ],
     },
     {
-      element: <LayoutProvider sidebarSlot={<AdBlock />} />,
+      element: <LayoutProvider />,
       errorElement: <div>error</div>,
       children: [
         {

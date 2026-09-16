@@ -50,6 +50,44 @@ module.exports = {
       to: { path: '^$1', pathNot: '$1$2' },
     },
     {
+      name: 'not-into-page-fractal-widgets',
+      comment:
+        'Fractal sub-slices (docs/adr/0005-fractal-sub-slices.md) are private '
+        + 'to their owning page slice: modules outside src/pages must not '
+        + 'import them',
+      severity: 'error',
+      from: { pathNot: ['^src/pages/'] },
+      to: { path: '^src/pages/[^/]+/@fractal-' },
+    },
+    {
+      name: 'page-not-into-foreign-fractal-widgets',
+      comment:
+        'Fractal sub-slices (docs/adr/0005-fractal-sub-slices.md) are private '
+        + 'to their owning page slice: a page must not import another page\'s '
+        + 'fractal widgets',
+      severity: 'error',
+      from: { path: '(^src/pages/)([^/]+)' },
+      to: { path: '^src/pages/[^/]+/@fractal-', pathNot: '^$1$2(/|$)' },
+    },
+    {
+      name: 'fractal-widget-not-to-widget',
+      comment:
+        'A fractal widget should not depend on global widgets or on another '
+        + 'fractal widgets of the same page (the widget-not-to-widget analog)',
+      severity: 'warn',
+      from: { path: '(^src/pages/[^/]+)/@fractal-widgets/([^/]+)/' },
+      to: { path: '^src/widgets/[^/]+/' },
+    },
+    {
+      name: 'fractal-widget-not-to-fractal-widget',
+      comment:
+        'A fractal widget should not depend on another fractal widgets of the '
+        + 'same page (in a separate folder)',
+      severity: 'warn',
+      from: { path: '(^src/pages/[^/]+)/@fractal-widgets/([^/]+)/' },
+      to: { path: '^$1/@fractal-widgets/[^/]+/', pathNot: '$1/@fractal-widgets/$2' },
+    },
+    {
       name: 'no-circular',
       severity: 'error',
       comment:
@@ -425,6 +463,7 @@ module.exports = {
           'src/(app/providers/[^/]+/)',
           'src/(entities/[^/]+/)',
           'src/(features/[^/]+/[^/]+/)',
+          'src/(pages/[^/]+/@fractal-widgets/[^/]+/)',
           'src/(pages/[^/]+/)',
           'src/(widgets/[^/]+/)',
           'src/(shared/services/[^/]+/)',
