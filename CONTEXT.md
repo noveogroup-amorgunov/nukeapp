@@ -62,3 +62,7 @@ _Avoid_: feature toggle, switch
 **Infrastructure service**:
 A slice in `shared/services` that provides a technical capability supporting business logic (feature flags, debug mode), not business data itself.
 _Avoid_: infra, service slice, util
+
+**Fractal sub-slice**:
+A slice nested inside another slice under a `@fractal-<layer>` folder; private to its owning slice until promoted to the global layer.
+_Avoid_: local widget, sub-widget, nested slice
