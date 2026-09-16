@@ -9,8 +9,6 @@
 
 An open source frontend application built with React ⚛️ and [Feature-Sliced Design](https://feature-sliced.github.io/documentation/) 🍰.
 
-> This app is a work in progress. See the roadmap below.
-
 - _React_, _Redux Toolkit_, _React Hook Form_, _Zod_
 - _Vite_, _TypeScript_, _PostCSS_
 - Agent development with tiny SSD approach and _Matt Pocock's_ workflow skills
