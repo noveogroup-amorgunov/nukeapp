@@ -22,6 +22,10 @@ Feature-Sliced Design (`app` / `pages` / `widgets` / `features` / `entities` /
 
 - `@x/<entity>` cross-import public APIs between entities (see
   `entities/product/@x/*`)
+- Fractal sub-slices: a slice may nest lower-layer slices under
+  `@fractal-<layer>` folders, private to the owning slice; first use case is
+  `pages/main/@fractal-widgets/AdBlock` (rationale and rules in
+  `adr/0005-fractal-sub-slices.md`)
 - Infrastructure layer: `shared/services` holds infrastructure services as full
   slices (feature flags, debug mode); services may import each other's public
   API, and service UI is not marked for the debug highlighter (ADR-0004)

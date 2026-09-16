@@ -81,4 +81,18 @@ export default defineConfig([
       'fsd/segments-by-purpose': 'off',
     },
   },
+  /**
+   * Fractal sub-slices (see docs/adr/0005-fractal-sub-slices.md): a slice
+   * nests lower-layer slices under @fractal-<layer>, which steiger does not
+   * model — it treats the folders as segments, so reserved-name rules flag
+   * the sub-slices' own segments.
+   */
+  {
+    files: [
+      './src/pages/**/@fractal-widgets/**',
+    ],
+    rules: {
+      'fsd/no-reserved-folder-names': 'off',
+    },
+  },
 ])
