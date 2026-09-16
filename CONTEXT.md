@@ -51,6 +51,10 @@ _Avoid_: client model, response type
 A function that turns a DTO into a domain type; it lives once in the entity that owns the domain type, or in the consuming slice for single-slice endpoints.
 _Avoid_: mapper, transformer
 
+**Database model**:
+The shape of a row in the msw database, inferred from the collection's zod schema including resolved relations (such as the cart's user); exists only on the mock server. Mock handlers map it to a DTO via `mock*Dto` helpers.
+_Avoid_: db entity, mock model, database record
+
 **Debug mode**:
 A development-only mode that visually highlights FSD slice boundaries on rendered components; enabled by the debugMode Feature flag.
 _Avoid_: dev mode, fsd debug

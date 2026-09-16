@@ -7,11 +7,13 @@ import type {
   FeatureToggle,
   Product,
   UpdateCartRequest,
+  User,
 } from './generated/api.generated'
 
 type ProductDto = Product
 type CartDto = Cart
 type CategoryWithProductsDto = CategoryWithProducts
+type UserDto = User
 
 // ── Helpers ────────────────────────────────────────────────────────────
 
@@ -36,12 +38,15 @@ function mockFeatureToggleDto(): FeatureToggle {
   }
 }
 
-// TODO: infer type from database
-type CartDatabaseModel = {
-  version: number
-  itemsProductId: number[]
-  itemsProductQuantity: number[]
-}
+type DatabaseModel<TEntity extends keyof typeof __serverDatabase> = NonNullable<
+  ReturnType<(typeof __serverDatabase)[TEntity]['findFirst']>
+>
+
+export type ProductDatabaseModel = DatabaseModel<'product'>
+export type CartDatabaseModel = DatabaseModel<'cart'>
+export type CategoryDatabaseModel = DatabaseModel<'category'>
+export type UserDatabaseModel = DatabaseModel<'user'>
+export type WishlistDatabaseModel = DatabaseModel<'wishlist'>
 
 function mockCartDto(
   cart: CartDatabaseModel,
@@ -56,6 +61,20 @@ function mockCartDto(
         quantity: cart.itemsProductQuantity[index],
       }))
       .filter(item => Boolean(item.product)) as CartDto['cartLines'],
+  }
+}
+
+function mockCategoryWithProductsDto(
+  category: CategoryDatabaseModel,
+  products: ProductDto[],
+): CategoryWithProductsDto {
+  return { ...category, products }
+}
+
+function mockUserDto(user: UserDatabaseModel): UserDto {
+  return {
+    email: user.email,
+    id: user.id,
   }
 }
 
@@ -166,14 +185,11 @@ export const apiMockHandlers = [
       return HttpResponse.json('Not found', { status: 404 })
     }
 
-    const categoryDto: CategoryWithProductsDto = {
-      ...maybeCategory,
-      products: [],
-    }
-
-    categoryDto.products = __serverDatabase.product.findMany(q =>
+    const products = __serverDatabase.product.findMany(q =>
       q.where({ categoryId: maybeCategory.id }),
     )
+
+    const categoryDto = mockCategoryWithProductsDto(maybeCategory, products)
 
     if (sortBy) {
       categoryDto.products = categoryDto.products.sort(
@@ -253,10 +269,7 @@ export const apiMockHandlers = [
 
     const responseData = {
       accessToken,
-      user: {
-        email,
-        id: maybeUser.id,
-      },
+      user: mockUserDto(maybeUser),
     }
 
     await delay(env.VITE_API_DELAY)
