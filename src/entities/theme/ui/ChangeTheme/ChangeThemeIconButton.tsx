@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { useAppDispatch, useAppSelector } from '@/shared/redux'
+import { useAppDispatch, useAppSelector } from '@/shared/lib/redux'
 import { Icon, IconButton } from '@/shared/ui'
 import { themeSlice } from '../../model/slice'
 import css from './ChangeThemeIconButton.module.css'

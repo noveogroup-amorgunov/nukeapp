@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { selectCurrentTheme } from '@/entities/theme'
 import { useGetAdOfferQuery } from '@/shared/api'
-import { useAppSelector } from '@/shared/redux'
+import { useAppSelector } from '@/shared/lib/redux'
 import css from './AdBlock.module.css'
 
 export function AdBlock() {

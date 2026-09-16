@@ -7,7 +7,7 @@ import {
   removeCartProductThunk,
 } from '@/features/cart/addToCart'
 import { AddToWishlistButton } from '@/features/wishlist/addToWishlist'
-import { useAppDispatch, useAppSelector } from '@/shared/redux'
+import { useAppDispatch, useAppSelector } from '@/shared/lib/redux'
 import {
   AddToCartButton,
   Price,

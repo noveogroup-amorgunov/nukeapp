@@ -1,4 +1,4 @@
-import { appStore } from '@/shared/redux'
+import { appStore } from '@/shared/lib/redux'
 import { themeSlice } from '../model/slice'
 
 /**

@@ -1,7 +1,7 @@
 import { createListenerMiddleware } from '@reduxjs/toolkit'
 import { setApiAccessToken } from '@/shared/api'
-import type { AppDispatch, AppState } from '@/shared/redux'
-import { dynamicMiddleware } from '@/shared/redux'
+import type { AppDispatch, AppState } from '@/shared/lib/redux'
+import { dynamicMiddleware } from '@/shared/lib/redux'
 import { sessionSlice } from './slice'
 
 /**

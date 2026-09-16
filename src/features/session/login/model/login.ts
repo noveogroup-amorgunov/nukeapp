@@ -1,5 +1,5 @@
 import { generatedApi, isFetchBaseQueryError } from '@/shared/api'
-import { createAppAsyncThunk } from '@/shared/redux'
+import { createAppAsyncThunk } from '@/shared/lib/redux'
 
 type Params = {
   email: Email

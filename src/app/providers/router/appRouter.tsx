@@ -7,7 +7,7 @@ import { LoginPage } from '@/pages/login'
 import { MainPage } from '@/pages/main'
 import { ProductPage } from '@/pages/product'
 import { WishlistPage } from '@/pages/wishlist'
-import { useAppSelector } from '@/shared/redux'
+import { useAppSelector } from '@/shared/lib/redux'
 import { LayoutProvider } from '../../providers/layout/LayoutProvider'
 
 type GuestGuardProps = {

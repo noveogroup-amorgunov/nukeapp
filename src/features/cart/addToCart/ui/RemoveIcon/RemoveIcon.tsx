@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import type { ProductId } from '@/entities/product'
-import { useAppDispatch } from '@/shared/redux'
+import { useAppDispatch } from '@/shared/lib/redux'
 import { Icon, IconButton, useConfirmModal } from '@/shared/ui'
 import { removeCartItemThunk } from '../../model/actions'
 
@@ -31,8 +31,10 @@ export function RemoveIcon(props: Props) {
   )
 
   return (
-    <IconButton data-fsd="feature/cart/RemoveIcon" onClick={onClickToRemove}>
-      <Icon type="trash" />
-    </IconButton>
+    <div data-fsd="feature/cart/RemoveIcon">
+      <IconButton onClick={onClickToRemove}>
+        <Icon type="trash" />
+      </IconButton>
+    </div>
   )
 }
