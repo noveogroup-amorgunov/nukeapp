@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { LoginForm } from '@/features/session/login'
 import { env } from '@/shared/lib'
+import { LoginForm } from '../LoginForm/LoginForm'
 
 export function LoginPage() {
   const navigate = useNavigate()
