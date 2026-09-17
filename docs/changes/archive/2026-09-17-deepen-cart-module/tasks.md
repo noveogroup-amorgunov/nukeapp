@@ -18,10 +18,10 @@
 
 - [x] Delete `src/features/cart/` entirely; `grep -r "features/cart" src` empty
 - [x] `lint:eslint`, `lint:types`, `lint:steiger`, `lint:dependency-cruiser`, `build` green (dev server boots; dependency-cruiser: 8 warnings, one new of the pre-tolerated `@x` class)
-- [ ] Behavioral scenarios from product.md verified on the dev server (visual click-through by the maintainer — logic moved verbatim, confirmed by diff)
+- [x] Behavioral scenarios from product.md verified on the dev server (visual click-through by the maintainer, 2026-09-17 — confirmed working)
 
 ## T4: Code-review, docs, commit & archive
 
 - [x] `/code-review` over the branch (standards: no hard violations; ritual extracted into `commitCartMutation` per review; empty dirs cleaned)
 - [x] Follow-up renames per maintainer decision: `removeProductFromCart` → `decrementProductQuantity`; `CartItem` → `CartLine` everywhere per CONTEXT.md; request mapper → `cart/lib/mapCartLinesRequest.ts`; `dependency-graph.svg` regenerated
-- [ ] `tasks.md` fully checked; change archived to `docs/changes/archive/2026-09-17-deepen-cart-module/`; `.scratch/deepen-cart-module/` deleted (blocked on the maintainer's visual click-through, T3)
+- [x] `tasks.md` fully checked; change archived to `docs/changes/archive/2026-09-17-deepen-cart-module/`; `.scratch/deepen-cart-module/` deleted
