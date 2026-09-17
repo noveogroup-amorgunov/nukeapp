@@ -4,7 +4,7 @@ import { generatedApi } from '@/shared/api'
 import { debounce } from '@/shared/lib'
 import type { AppDispatch, AppState } from '@/shared/lib/redux'
 import { createAppAsyncThunk } from '@/shared/lib/redux'
-import { mapCartItemsRequest } from './mapCartItemsRequest'
+import { mapCartLinesRequest } from '../lib/mapCartLinesRequest'
 import { cartSlice, selectProductInCart } from './slice'
 
 const { addOneItem, incVersion, removeItem, removeOneItem } = cartSlice.actions
@@ -31,9 +31,9 @@ const updateCartThunk = createAppAsyncThunk<
 
 const syncCart = debounce((dispatch: AppDispatch, state: AppState) => {
   const cart = selectCart(state)
-  const cartItemsRequest = mapCartItemsRequest(Object.values(cart.itemsMap))
+  const cartLinesRequest = mapCartLinesRequest(Object.values(cart.itemsMap))
   return dispatch(
-    updateCartThunk({ items: cartItemsRequest, version: cart.version }),
+    updateCartThunk({ items: cartLinesRequest, version: cart.version }),
   )
 }, SYNC_CART_WITH_SERVER_TIMEOUT_MS)
 
@@ -63,11 +63,11 @@ export const removeCartLine = createAppAsyncThunk<
   },
 )
 
-export const removeProductFromCart = createAppAsyncThunk<
+export const decrementProductQuantity = createAppAsyncThunk<
   void,
   Product
 >(
-  'cart/removeProductFromCart',
+  'cart/decrementProductQuantity',
   async (product: Product, { dispatch, getState }) => {
     commitCartMutation(dispatch, getState, removeOneItem(product))
   },

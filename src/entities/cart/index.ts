@@ -2,13 +2,13 @@ import { cartSlice } from './model/slice'
 
 export {
   addProductToCart,
+  decrementProductQuantity,
   removeCartLine,
-  removeProductFromCart,
 } from './model/actions'
 
 export { selectProductInCart } from './model/slice'
 
-export { type Cart, type CartItem } from './model/types'
+export { type Cart, type CartLine } from './model/types'
 
 export const {
   totalQuantity: selectTotalQuantity,

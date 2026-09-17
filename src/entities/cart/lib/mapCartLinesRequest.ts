@@ -1,8 +1,8 @@
 import type { UpdateCartRequest } from '@/shared/api'
-import type { CartItem } from './types'
+import type { CartLine } from '../model/types'
 
-export function mapCartItemsRequest(
-  items: CartItem[],
+export function mapCartLinesRequest(
+  items: CartLine[],
 ): UpdateCartRequest['items'] {
   return items.map(item => ({
     productId: item.product.id,
