@@ -5,7 +5,7 @@ import type { Product, ProductId } from '@/entities/product/@x/cart'
 import { generatedApi } from '@/shared/api'
 import type { AppState } from '@/shared/lib/redux'
 import { rootReducer } from '@/shared/lib/redux'
-import type { Cart, CartItem } from './types'
+import type { Cart, CartLine } from './types'
 
 type CartSliceState = Cart
 
@@ -14,7 +14,7 @@ const initialState: CartSliceState = {
   version: 0,
 }
 
-function createCartItem(product: Product): CartItem {
+function createCartLine(product: Product): CartLine {
   return {
     quantity: 1,
     product,
@@ -32,7 +32,7 @@ const slice = createSlice({
     ),
     products: createSelector(
       state => state.itemsMap,
-      (itemsMap: Record<ProductId, CartItem>) => Object.values(itemsMap),
+      (itemsMap: Record<ProductId, CartLine>) => Object.values(itemsMap),
     ),
     totalQuantity: state => Object.values(state.itemsMap).reduce(
       (acc, item) => acc + item.quantity,
@@ -40,7 +40,7 @@ const slice = createSlice({
     ),
     quantityByProductId: createSelector(
       state => state.itemsMap,
-      (itemsMap: Record<ProductId, CartItem>) =>
+      (itemsMap: Record<ProductId, CartLine>) =>
         Object.fromEntries(
           Object.entries(itemsMap).map(([id, item]) => [id, item.quantity]),
         ),
@@ -57,7 +57,7 @@ const slice = createSlice({
         productInCart.quantity += 1
       }
       else {
-        state.itemsMap[action.payload.id] = createCartItem(action.payload)
+        state.itemsMap[action.payload.id] = createCartLine(action.payload)
       }
     },
     removeOneItem: (state, action: PayloadAction<Product>) => {
@@ -112,6 +112,6 @@ export const cartSlice = slice.injectInto(rootReducer)
 export const selectProductInCart = createSelector(
   cartSlice.selectors.products,
   (_: AppState, productId: ProductId) => productId,
-  (items: CartItem[], productId: ProductId): CartItem | undefined =>
+  (items: CartLine[], productId: ProductId): CartLine | undefined =>
     items.find(({ product }) => product.id === productId),
 )
