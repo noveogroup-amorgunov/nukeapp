@@ -1,18 +1,14 @@
-import {
-  addOneItem,
-  incVersion,
-  mapCartItemsRequest,
-  removeOneItem,
-  removeProductFromCart,
-  selectCart,
-  selectProductInCart,
-} from '@/entities/cart'
-import type { Product, ProductId } from '@/entities/product'
+import type { Product, ProductId } from '@/entities/product/@x/cart'
 import type { UpdateCartRequest } from '@/shared/api'
 import { generatedApi } from '@/shared/api'
 import { debounce } from '@/shared/lib'
 import type { AppDispatch, AppState } from '@/shared/lib/redux'
 import { createAppAsyncThunk } from '@/shared/lib/redux'
+import { mapCartItemsRequest } from './mapCartItemsRequest'
+import { cartSlice, selectProductInCart } from './slice'
+
+const { addOneItem, incVersion, removeItem, removeOneItem } = cartSlice.actions
+const { cart: selectCart } = cartSlice.selectors
 
 const SYNC_CART_WITH_SERVER_TIMEOUT_MS = 1500
 
@@ -22,7 +18,7 @@ const SYNC_CART_WITH_SERVER_TIMEOUT_MS = 1500
  * Use client optimistic update for cart and
  * send request by debounce
  */
-export const updateCartThunk = createAppAsyncThunk<
+const updateCartThunk = createAppAsyncThunk<
   void,
   { items: UpdateCartRequest['items'], version: number }
 >('cart/updateCartThunk', async (payload, { dispatch }) => {
@@ -41,36 +37,47 @@ const syncCart = debounce((dispatch: AppDispatch, state: AppState) => {
   )
 }, SYNC_CART_WITH_SERVER_TIMEOUT_MS)
 
-// TODO: Fix naming (thunk for remove product from cart with any quantity)
-export const removeCartItemThunk = createAppAsyncThunk<
+/**
+ * The single place where a cart mutation is committed: apply the reducer
+ * action, bump the version, schedule the debounced server sync.
+ * Every cart mutation must go through it — a missed `incVersion`
+ * silently breaks server version reconciliation.
+ */
+function commitCartMutation(
+  dispatch: AppDispatch,
+  getState: () => AppState,
+  action: Parameters<AppDispatch>[0],
+) {
+  dispatch(action)
+  dispatch(incVersion())
+  syncCart(dispatch, getState())
+}
+
+export const removeCartLine = createAppAsyncThunk<
   void,
   ProductId
 >(
-  'cart/removeCartItemThunk',
+  'cart/removeCartLine',
   async (productId: ProductId, { dispatch, getState }) => {
-    dispatch(removeProductFromCart(productId))
-    dispatch(incVersion())
-    syncCart(dispatch, getState())
+    commitCartMutation(dispatch, getState, removeItem(productId))
   },
 )
 
-export const removeCartProductThunk = createAppAsyncThunk<
+export const removeProductFromCart = createAppAsyncThunk<
   void,
   Product
 >(
-  'cart/removeCartProductThunk',
+  'cart/removeProductFromCart',
   async (product: Product, { dispatch, getState }) => {
-    dispatch(removeOneItem(product))
-    dispatch(incVersion())
-    syncCart(dispatch, getState())
+    commitCartMutation(dispatch, getState, removeOneItem(product))
   },
 )
 
-export const addCartProductThunk = createAppAsyncThunk<
+export const addProductToCart = createAppAsyncThunk<
   void,
   Product
 >(
-  'cart/addCartProductThunk',
+  'cart/addProductToCart',
   async (product: Product, { dispatch, getState }) => {
     // Quantity must never exceed the product Stock
     const productInCart = selectProductInCart(getState(), product.id)
@@ -78,8 +85,6 @@ export const addCartProductThunk = createAppAsyncThunk<
       return
     }
 
-    dispatch(addOneItem(product))
-    dispatch(incVersion())
-    syncCart(dispatch, getState())
+    commitCartMutation(dispatch, getState, addOneItem(product))
   },
 )

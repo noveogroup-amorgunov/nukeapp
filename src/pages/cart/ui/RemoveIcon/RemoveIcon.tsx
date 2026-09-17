@@ -1,8 +1,8 @@
 import { useCallback } from 'react'
+import { removeCartLine } from '@/entities/cart'
 import type { ProductId } from '@/entities/product'
 import { useAppDispatch } from '@/shared/lib/redux'
 import { Icon, IconButton, useConfirmModal } from '@/shared/ui'
-import { removeCartItemThunk } from '../../model/actions'
 
 type Props = {
   productId: ProductId
@@ -22,7 +22,7 @@ export function RemoveIcon(props: Props) {
         cancelText: 'No',
         onConfirm: () => {
           confirmRemoveModal.remove()
-          dispatch(removeCartItemThunk(props.productId))
+          dispatch(removeCartLine(props.productId))
         },
         onCancel: () => confirmRemoveModal.remove(),
       })
@@ -31,7 +31,7 @@ export function RemoveIcon(props: Props) {
   )
 
   return (
-    <div data-fsd="feature/cart/RemoveIcon">
+    <div data-fsd="page/cart/RemoveIcon">
       <IconButton onClick={onClickToRemove}>
         <Icon type="trash" />
       </IconButton>

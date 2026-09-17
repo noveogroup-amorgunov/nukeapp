@@ -1,5 +1,5 @@
 import type { UpdateCartRequest } from '@/shared/api'
-import type { CartItem } from '../model/types'
+import type { CartItem } from './types'
 
 export function mapCartItemsRequest(
   items: CartItem[],

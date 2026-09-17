@@ -1,11 +1,7 @@
 import { useCallback, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { selectProductInCart, selectTotalQuantity } from '@/entities/cart'
+import { addProductToCart, removeProductFromCart, selectProductInCart, selectTotalQuantity } from '@/entities/cart'
 import { selectIsAuthorized } from '@/entities/session'
-import {
-  addCartProductThunk,
-  removeCartProductThunk,
-} from '@/features/cart/addToCart'
 import { AddToWishlistButton } from '@/features/wishlist/addToWishlist'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/redux'
 import {
@@ -78,7 +74,7 @@ export function ProductDetails({ productDetails, isFetching }: Props) {
       return
     }
 
-    dispatch(addCartProductThunk(product))
+    dispatch(addProductToCart(product))
     addedToBagModal.show({
       title: `${productDetails.name} was added to bag`,
       buttonText: `View bag (${totalQuantity + 1})`,
@@ -100,7 +96,7 @@ export function ProductDetails({ productDetails, isFetching }: Props) {
 
   const handleDecrease = useCallback(() => {
     if (product) {
-      dispatch(removeCartProductThunk(product))
+      dispatch(removeProductFromCart(product))
     }
   }, [dispatch, product])
 
