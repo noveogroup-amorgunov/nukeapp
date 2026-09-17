@@ -43,7 +43,7 @@ export function LoginForm(props: Props) {
   )
 
   return (
-    <div data-fsd="feature/session/LoginForm">
+    <div data-fsd="page/login/LoginForm">
       <form onSubmit={handleSubmit(onSubmitHandler)}>
         <div>
           <div>

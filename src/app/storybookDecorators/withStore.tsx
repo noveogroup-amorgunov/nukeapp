@@ -1,7 +1,7 @@
 import type { Decorator } from '@storybook/react-vite'
 import { Provider as ReduxProvider } from 'react-redux'
 import { setupThemeSync } from '@/entities/theme'
-import { loginThunk } from '@/features/session/login/model/login'
+import { loginThunk } from '@/pages/login'
 import { env } from '@/shared/lib'
 import { makeStore } from '@/shared/lib/redux'
 import { featureFlagsSlice } from '@/shared/services/featureFlags'

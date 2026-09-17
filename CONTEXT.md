@@ -37,6 +37,10 @@ _Avoid_: variant, mode, color scheme
 A person who browses the shop and authorizes into it; identified by an active session.
 _Avoid_: shopper, customer, session
 
+**Session**:
+An authorized period of a User in the shop, from login to logout; its end resets all session-scoped state (cart, wishlist).
+_Avoid_: authorization, auth period
+
 **Layout**:
 The skeleton surrounding every route: banner, header, content area and footer; the route content renders inside it.
 _Avoid_: shell, wrapper, page frame
