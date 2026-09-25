@@ -8,7 +8,7 @@ What the system supports now. History lives in `changes/archive/`.
 - Categories
 - Popular products
 - Product details
-- Product availability (Stock): "Out of stock" state on catalog card and
+- Stock availability: "Out of stock" state on catalog card and
   product page, "Only 1 left" badge when a single unit remains
 
 ## Cart
@@ -28,4 +28,4 @@ What the system supports now. History lives in `changes/archive/`.
 ## Preferences
 
 - Theme switching
-- Feature toggles
+- Feature flags
