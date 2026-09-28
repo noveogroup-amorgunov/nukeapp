@@ -5,9 +5,9 @@ date: 2026-09-15
 
 # Infrastructure layer formalized as `shared/services`
 
-FSD v2.1 has no home for infrastructure services — technical capabilities that
-support business logic without being business data (feature flags, debug mode,
-theme engines, dialog managers). Everyone improvises: fragments scattered across
+FSD v2.1 has no home for [CONTEXT#Infrastructure service](../../CONTEXT.md#infrastructure-service)s — technical
+capabilities that support business logic without being business data
+([CONTEXT#Feature flag](../../CONTEXT.md#feature-flag)s, [CONTEXT#Debug mode](../../CONTEXT.md#debug-mode), theme engines, dialog managers). Everyone improvises: fragments scattered across
 `shared/lib` + `app/providers`, theme parked in an entity, one-off `shared/*`
 segments. I proposed an optional infrastructure layer in
 [feature-sliced/documentation#818](https://github.com/feature-sliced/documentation/discussions/818);
@@ -39,8 +39,8 @@ Rejected alternatives:
   count grows enough to warrant promotion (consistent with the discussion's
   conclusion).
 - **Entity slices** (`entities/featureToggle`, the status quo) — misleads: a
-  feature flag is not business data an entity would own; it blocked the debug
-  mode service from owning its own flag.
+  feature flag is not business data an entity would own; it blocked the
+  debug mode service from owning its own flag.
 - **`shared/lib/*` or custom `shared/*` segments** — services are full slices,
   not helpers or segments; steiger forbids `ui` in shared segments and the
   boundary between services disappears.

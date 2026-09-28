@@ -10,7 +10,7 @@ listings, promo banners — each with its own UI, model and API. Splitting them
 across the page's `ui` / `model` / `api` segments is destructive decoupling: the
 "awesome products slider" dissolves into four folders. Moving such units to the
 global `widgets` layer pollutes it with page-only code (and needs `widgets/@home`
-grouping hacks once several pages do this). This is the fractal sub-slices idea
+grouping hacks once several pages do this). This is the [CONTEXT#Fractal sub-slice](../../CONTEXT.md#fractal-sub-slice)s idea
 from [feature-sliced/documentation#716](https://github.com/feature-sliced/documentation/discussions/716#discussioncomment-12926049)
 (an experimental extension, not part of FSD v2.1; reference implementation in
 [fsd-lessons/custom-fractal-sub-slices](https://github.com/noveogroup-amorgunov/fsd-lessons/tree/main/packages/custom-fractal-sub-slices)).

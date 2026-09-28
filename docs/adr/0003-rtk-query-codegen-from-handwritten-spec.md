@@ -1,7 +1,7 @@
 # RTK Query codegen from a hand-written OpenAPI spec
 
 There is no real backend — MSW handlers play the server — and the previous API layer
-(per-slice `injectEndpoints`, hand-written DTO `types.ts` and mappers in every slice)
+(per-slice `injectEndpoints`, hand-written [CONTEXT#DTO](../../CONTEXT.md#dto) `types.ts` and mappers in every slice)
 carried accidental complexity. We adopt the native RTK Query code generator fed by a
 single hand-written OpenAPI 3.1 spec committed at `src/shared/api/openapi.json`; the
 generated `api.generated.ts` is committed too, with `api:generate` / `api:check` scripts
