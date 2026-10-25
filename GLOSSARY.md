@@ -49,6 +49,11 @@ _Avoid_: shopper, customer, session
 An authorized period of a User in the shop, from login to logout; its end resets all session-scoped state (cart, wishlist).
 _Avoid_: authorization, auth period
 
+### Sort
+
+The ordering of Products on the category page; one of Featured (the default), Newest, PriceHighLow, PriceLowHigh. A Sort is page-scoped: navigating to another category starts from the default.
+_Avoid_: sorting, sort order, sortBy
+
 ### Layout
 
 The skeleton surrounding every route: banner, header, content area and footer; the route content renders inside it.
