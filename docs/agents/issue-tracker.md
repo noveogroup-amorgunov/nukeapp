@@ -1,9 +1,9 @@
 # Issue tracker: Local Markdown
 
 Raw incoming work (bug reports, ideas, requests) and transient thinking artifacts
-live as markdown files in `.scratch/`. `.scratch/` is **gitignored**: it is an
-inbox, not a history — everything that survives triage graduates into a change
-directory under `docs/changes/` (see `development-workflow.md`).
+live as markdown files in `.scratch/`, tracked in git and shared across machines.
+Everything that survives triage graduates into a change directory under
+`docs/changes/` (see `development-workflow.md`).
 
 ## Conventions
 

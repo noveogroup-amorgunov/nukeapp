@@ -3,7 +3,7 @@
 How development is done in this repository (ADR-0001): the change lifecycle, work
 scenarios, and the process vocabulary. Skills are installed in `.agents/skills/`,
 versions are pinned in `skills-lock.json`, and restored via `pnpm setup`. Domain
-terms live separately in the `CONTEXT.md` glossary; this file covers process
+terms live separately in the `GLOSSARY.md` glossary; this file covers process
 language only.
 
 ## The mental model
@@ -84,7 +84,7 @@ status: needs-triage
 
 Raw idea enters `.scratch/` (or is born in conversation), passes `/triage`, then
 runs the change lifecycle above. `/grill-with-docs` writes domain terms into
-`CONTEXT.md` and durable decisions into `docs/adr/` as they crystallise. If a
+`GLOSSARY.md` and durable decisions into `docs/adr/` as they crystallise. If a
 question needs a runnable answer, detour through `/prototype` (bridged by
 `/handoff` both ways); the conclusions go into `technical.md` or an ADR.
 

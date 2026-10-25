@@ -5,9 +5,9 @@ date: 2026-09-15
 
 # Infrastructure layer formalized as `shared/services`
 
-FSD v2.1 has no home for [CONTEXT#Infrastructure service](../../CONTEXT.md#infrastructure-service)s — technical
+FSD v2.1 has no home for [GLOSSARY#Infrastructure service](../../GLOSSARY.md#infrastructure-service)s — technical
 capabilities that support business logic without being business data
-([CONTEXT#Feature flag](../../CONTEXT.md#feature-flag)s, [CONTEXT#Debug mode](../../CONTEXT.md#debug-mode), theme engines, dialog managers). Everyone improvises: fragments scattered across
+([GLOSSARY#Feature flag](../../GLOSSARY.md#feature-flag)s, [GLOSSARY#Debug mode](../../GLOSSARY.md#debug-mode), theme engines, dialog managers). Everyone improvises: fragments scattered across
 `shared/lib` + `app/providers`, theme parked in an entity, one-off `shared/*`
 segments. I proposed an optional infrastructure layer in
 [feature-sliced/documentation#818](https://github.com/feature-sliced/documentation/discussions/818);
