@@ -10,7 +10,7 @@ import { useAppSelector } from '@/shared/lib/redux'
 import { useTypedParams, useTypedQueryParams } from '@/shared/lib/router'
 import { useFeatureFlag } from '@/shared/services/featureFlags'
 import { LayoutTitleSection, ProductGrid } from '@/shared/ui'
-import { productSortByNamesMap } from '../../model/consts'
+import { DEFAULT_SORT_BY, productSortByNamesMap } from '../../model/consts'
 import type { ProductSortBy } from '../../model/types'
 import { SortByDropdown } from '../SortByDropdown/SortByDropdown'
 import css from './Page.module.css'
@@ -67,7 +67,7 @@ export function CategoryPage() {
       setSearchParams(
         (prev) => {
           const next = new URLSearchParams(prev)
-          if (sortBy === 'Featured') {
+          if (sortBy === DEFAULT_SORT_BY) {
             next.delete('sortBy')
           }
           else {
@@ -119,7 +119,7 @@ export function CategoryPage() {
         rightSlot={
           sortByIsEnabled && (
             <SortByDropdown
-              sortBy={sortBy ?? 'Featured'}
+              sortBy={sortBy ?? DEFAULT_SORT_BY}
               onChange={handleSortChange}
             />
           )
