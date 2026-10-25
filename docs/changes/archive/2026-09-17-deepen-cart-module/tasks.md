@@ -23,5 +23,5 @@
 ## T4: Code-review, docs, commit & archive
 
 - [x] `/code-review` over the branch (standards: no hard violations; ritual extracted into `commitCartMutation` per review; empty dirs cleaned)
-- [x] Follow-up renames per maintainer decision: `removeProductFromCart` → `decrementProductQuantity`; `CartItem` → `CartLine` everywhere per CONTEXT.md; request mapper → `cart/lib/mapCartLinesRequest.ts`; `dependency-graph.svg` regenerated
+- [x] Follow-up renames per maintainer decision: `removeProductFromCart` → `decrementProductQuantity`; `CartItem` → `CartLine` everywhere per GLOSSARY.md; request mapper → `cart/lib/mapCartLinesRequest.ts`; `dependency-graph.svg` regenerated
 - [x] `tasks.md` fully checked; change archived to `docs/changes/archive/2026-09-17-deepen-cart-module/`; `.scratch/deepen-cart-module/` deleted

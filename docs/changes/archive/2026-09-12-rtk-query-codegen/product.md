@@ -19,7 +19,7 @@ source of truth for the API layer. The official RTK Query code generator produce
 one committed slice (`api.generated.ts`); per-slice `injectEndpoints`, hand-written
 DTO types and mappers are removed. The spec is the naming authority: DTO fields
 carry domain names, so most slices consume raw DTO straight from `shared/api`
-(see `CONTEXT.md`: **DTO**, **Adapter**).
+(see `GLOSSARY.md`: **DTO**, **Adapter**).
 
 Adapters survive only where a branded id or renamed field crosses a slice
 boundary: product, product details, category, wishlist. All other slices

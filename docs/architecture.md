@@ -12,7 +12,7 @@ React SPA built with Vite and TypeScript.
 The app skeleton is split by smartness: the dumb skeleton (banner with close,
 header, content, optional sidebar, footer) is a `shared/ui` component; all
 smart composition — header right slot (cart/wishlist icon buttons, profile
-dropdown, [CONTEXT#Theme](../CONTEXT.md#theme)), [CONTEXT#Debug mode](../CONTEXT.md#debug-mode) provider and toggler, per-route sidebar — lives in
+dropdown, [GLOSSARY#Theme](../GLOSSARY.md#theme)), [GLOSSARY#Debug mode](../GLOSSARY.md#debug-mode) provider and toggler, per-route sidebar — lives in
 `app/providers/layout` and is wired into the router there.
 
 ## Architecture methodology
@@ -22,11 +22,11 @@ Feature-Sliced Design (`app` / `pages` / `widgets` / `features` / `entities` /
 
 - `@x/<entity>` cross-import public APIs between entities (see
   `entities/product/@x/*`)
-- [CONTEXT#Fractal sub-slice](../CONTEXT.md#fractal-sub-slice)s: a slice may nest lower-layer slices under
+- [GLOSSARY#Fractal sub-slice](../GLOSSARY.md#fractal-sub-slice)s: a slice may nest lower-layer slices under
   `@fractal-<layer>` folders, private to the owning slice; first use case is
   `pages/main/@fractal-widgets/AdBlock` (rationale and rules in
   `adr/0005-fractal-sub-slices.md`)
-- [CONTEXT#Infrastructure service](../CONTEXT.md#infrastructure-service): `shared/services` holds such services as full
+- [GLOSSARY#Infrastructure service](../GLOSSARY.md#infrastructure-service): `shared/services` holds such services as full
   slices (feature flags, debug mode); services may import each other's public
   API, and service UI is not marked for the debug highlighter (ADR-0004)
 - The app composition layer keeps providers in `app/providers` — both relax
@@ -61,8 +61,8 @@ Feature-Sliced Design (`app` / `pages` / `widgets` / `features` / `entities` /
 The hand-written OpenAPI spec in `shared/api` is the single source of truth for
 the API layer; the official RTK Query codegen produces the committed generated
 slice (`api:generate` / `api:check` guards staleness in CI). Most endpoints
-serve raw [CONTEXT#DTO](../CONTEXT.md#dto) straight from `shared/api`; the [CONTEXT#Product](../CONTEXT.md#product) / Category / Wishlist
-entities own one [CONTEXT#Adapter](../CONTEXT.md#adapter) each (`enhanceEndpoints` + mappers) for their
+serve raw [GLOSSARY#DTO](../GLOSSARY.md#dto) straight from `shared/api`; the [GLOSSARY#Product](../GLOSSARY.md#product) / Category / Wishlist
+entities own one [GLOSSARY#Adapter](../GLOSSARY.md#adapter) each (`enhanceEndpoints` + mappers) for their
 cross-slice domain models, single-slice endpoints adapt in the consuming slice.
 Tags are the four existing tagTypes, declared in the codegen config;
 slices' `enhanceEndpoints` calls carry only `transformResponse` (rationale and wiring diagram in `adr/0003-rtk-query-codegen-from-handwritten-spec.md`).

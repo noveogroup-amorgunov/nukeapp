@@ -85,7 +85,7 @@
 - System-theme reactivity (listening to `prefers-color-scheme` changes at
   runtime) — only initial state uses `matchMedia`.
 - Renaming or reshaping the theme slice actions.
-- Domain glossary: the **Theme** term already exists in CONTEXT.md and stays as
+- Domain glossary: the **Theme** term already exists in GLOSSARY.md and stays as
   written.
 
 ## Further notes

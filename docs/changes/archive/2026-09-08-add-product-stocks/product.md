@@ -12,7 +12,7 @@ A demo shop still needs believable availability behavior.
 ## What
 
 Products carry a **Stock** — the number of units available for ordering
-(see `CONTEXT.md`). Availability is derived from Stock: zero Stock means the
+(see `GLOSSARY.md`). Availability is derived from Stock: zero Stock means the
 product is out of stock.
 
 ### Catalog card

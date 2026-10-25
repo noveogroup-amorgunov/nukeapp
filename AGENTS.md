@@ -9,7 +9,7 @@ Guidelines for contributions, checks, and AI agent conventions live in [.github/
 Before opening a PR, re-read [.github/CONTRIBUTING.md](.github/CONTRIBUTING.md) and follow it exactly:
 
 - PR title uses a conventional-commit prefix (`feat:`, `fix:`, `docs:`, ...)
-- PR description follows the template in `.github/PULL_REQUEST_TEMPLATE.md` (`## Why` / `## What has changed`)
+- PR description follows the @pr skill
 - PRs created by AI agents must be labeled `agent_created` (`gh pr create --label agent_created`)
 
 ## Agent skills
@@ -24,7 +24,7 @@ Default vocabulary of the five canonical triage roles (label string equals the r
 
 ### Domain docs
 
-Single-context: root `CONTEXT.md` + `docs/adr/`. See `docs/agents/domain.md`.
+Single-context: root `GLOSSARY.md` + `docs/adr/`. See `docs/agents/domain.md`.
 
 ### Development workflow
 

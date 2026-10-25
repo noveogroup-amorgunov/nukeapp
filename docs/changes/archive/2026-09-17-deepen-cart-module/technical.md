@@ -18,7 +18,7 @@ src/entities/cart/
 │   ├── actions.ts                ← moved from features/cart/addToCart/model/actions.ts
 │   │                                (thunks renamed; syncCart debounce absorbed;
 │   │                                commitCartMutation concentrates the ritual)
-│   └── types.ts                  ← CartItem renamed to CartLine per CONTEXT.md
+│   └── types.ts                  ← CartItem renamed to CartLine per GLOSSARY.md
 │                                   (state field itemsMap kept — redux-remember
 │                                   persistence shape untouched)
 
@@ -59,7 +59,7 @@ src/features/cart/                ← deleted entirely
 - Follow-up renames (maintainer decision after the first review round):
   `removeProductFromCart` → `decrementProductQuantity` (the name now says
   what it does: decrements Quantity by one, removes the cart line only at
-  Quantity 1), `CartItem` → `CartLine` everywhere per the CONTEXT.md
+  Quantity 1), `CartItem` → `CartLine` everywhere per the GLOSSARY.md
   Cart-line entry, request mapper → `cart/lib/mapCartLinesRequest.ts`,
   `dependency-graph.svg` regenerated.
 

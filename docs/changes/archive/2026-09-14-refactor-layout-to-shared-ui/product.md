@@ -134,7 +134,7 @@ internal-state assertions.
 ## Further Notes
 
 - Glossary updated during grilling: **Layout** and **Debug mode** terms added
-  to `CONTEXT.md`.
+  to `GLOSSARY.md`.
 - Figma node facts used above were verified via Figma Bridge MCP against
   nodes 25:2110, 25:2534, 25:2147, 25:2547, 15:695, 130:1378, 130:1454.
 - After completion, update `docs/architecture.md` (layout composition moved
