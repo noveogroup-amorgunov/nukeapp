@@ -1,16 +1,16 @@
-import { useCallback, useLayoutEffect, useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 import cn from 'classnames'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { z } from 'zod'
 import { selectCartQuantityByProductId } from '@/entities/cart'
 import { useGetCategoryDetailsQuery } from '@/entities/category'
 import type { CategoryId } from '@/entities/category'
 import { mapProductToCompactView } from '@/entities/product'
-import { useAppDispatch, useAppSelector } from '@/shared/lib/redux'
+import { useAppSelector } from '@/shared/lib/redux'
 import { useTypedParams, useTypedQueryParams } from '@/shared/lib/router'
 import { useFeatureFlag } from '@/shared/services/featureFlags'
 import { LayoutTitleSection, ProductGrid } from '@/shared/ui'
-import { categoryPageSlice } from '../../model/slice'
+import { productSortByNamesMap } from '../../model/consts'
 import type { ProductSortBy } from '../../model/types'
 import { SortByDropdown } from '../SortByDropdown/SortByDropdown'
 import css from './Page.module.css'
@@ -24,25 +24,24 @@ const pageParamsSchema = z.object({
 
 const pageQueryParamsSchema = z.object({
   sortBy: z
-    .enum(['Featured', 'Newest', 'PriceHighLow', 'PriceLowHigh'])
+    .enum(
+      Object.keys(productSortByNamesMap) as [
+        ProductSortBy,
+        ...Array<ProductSortBy>,
+      ],
+    )
     .optional()
-    .transform(value => value as ProductSortBy | undefined)
     .catch(undefined),
 })
 
 export function CategoryPage() {
   const { categoryId } = useTypedParams(pageParamsSchema)
-  const { sortBy: initialSortBy } = useTypedQueryParams(pageQueryParamsSchema)
-  const dispatch = useAppDispatch()
+  const { sortBy: sortByParam } = useTypedQueryParams(pageQueryParamsSchema)
+  const [, setSearchParams] = useSearchParams()
   const navigate = useNavigate()
-  const sortBy = useAppSelector(categoryPageSlice.selectors.sortBy)
   const sortByIsEnabled = useFeatureFlag('productsSort')
 
-  useLayoutEffect(() => {
-    if (initialSortBy && sortBy !== initialSortBy) {
-      dispatch(categoryPageSlice.actions.changeSortBy(initialSortBy))
-    }
-  }, [])
+  const sortBy = sortByIsEnabled ? sortByParam : undefined
 
   const { data, isFetching, isLoading } = useGetCategoryDetailsQuery({
     id: categoryId,
@@ -61,6 +60,25 @@ export function CategoryPage() {
       navigate(`/product/${productId}`)
     },
     [navigate],
+  )
+
+  const handleSortChange = useCallback(
+    (sortBy: ProductSortBy) => {
+      setSearchParams(
+        (prev) => {
+          const next = new URLSearchParams(prev)
+          if (sortBy === 'Featured') {
+            next.delete('sortBy')
+          }
+          else {
+            next.set('sortBy', sortBy)
+          }
+          return next
+        },
+        { replace: true },
+      )
+    },
+    [setSearchParams],
   )
 
   /**
@@ -101,9 +119,8 @@ export function CategoryPage() {
         rightSlot={
           sortByIsEnabled && (
             <SortByDropdown
-              defaultSortBy={sortBy}
-              onChange={(sortBy: ProductSortBy) =>
-                dispatch(categoryPageSlice.actions.changeSortBy(sortBy))}
+              sortBy={sortBy ?? 'Featured'}
+              onChange={handleSortChange}
             />
           )
         }

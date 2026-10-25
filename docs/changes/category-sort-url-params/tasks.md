@@ -25,4 +25,4 @@ the dropdown's local state are deleted — the URL is the single source of truth
 - [ ] Given `/category/7?sortBy=Bogus`, when the page loads, then the grid is ordered Featured, the dropdown shows Featured, no error (scenario 7)
 - [ ] Given the `productsSort` Feature flag is off and the URL has `sortBy=Newest`, when the page loads, then the grid is ordered Featured, no dropdown, URL untouched (scenario 8)
 - [ ] Given `/category/1?sortBy=Newest`, when the User opens `/category/2`, then it renders Featured with no `sortBy` param (scenario 9)
-- [ ] The category page Redux slice (state, registration, exports) and the dropdown's internal state no longer exist; the Sort value list is defined once (derived into the URL schema from the sort-names map)
+- [x] The category page Redux slice (state, registration, exports) and the dropdown's internal state no longer exist; the Sort value list is defined once (derived into the URL schema from the sort-names map)
