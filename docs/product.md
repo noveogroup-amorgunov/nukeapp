@@ -6,6 +6,8 @@ What the system supports now. History lives in `changes/archive/`.
 
 - Product catalog browsing
 - Categories
+- Category sorting via shareable `sortBy` URLs, preserved on reload and browser
+  back/forward; available when the `productsSort` feature flag is enabled
 - Popular products
 - Product details
 - Stock availability: "Out of stock" state on catalog card and
