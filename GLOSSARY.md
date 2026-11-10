@@ -1,7 +1,7 @@
 # Nukeapp
 
-A ecommerce shop SPA: browsing the catalog, add to shopping cart, checkout and orders —
-built with Feature-Sliced Design.
+An ecommerce shop for browsing the catalog, adding products to the shopping cart,
+checking out and viewing orders.
 
 ## Language
 
@@ -36,7 +36,7 @@ _Avoid_: inStock, availability, quantity
 
 ### Theme
 
-The color scheme of the whole app (dark or light); switched via the html data-theme attribute.
+The color scheme of the whole app: dark or light.
 _Avoid_: variant, mode, color scheme
 
 ### User

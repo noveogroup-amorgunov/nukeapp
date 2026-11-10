@@ -37,7 +37,7 @@ Feature-Sliced Design (`app` / `pages` / `widgets` / `features` / `entities` /
 - Redux Toolkit for state management
 - RTK Query for server state, with reauth handling in `shared/api`
 - `redux-remember` for persistence
-- DOM attributes derived from store state (theme) are synced by store
+- DOM attributes derived from store state (`html[data-theme]` for theme) are synced by store
   subscriptions in the owning slice, not by React providers —
   `redux-remember` rehydration bypasses middleware, so subscriptions are the
   only mechanism that catches persisted values on reload

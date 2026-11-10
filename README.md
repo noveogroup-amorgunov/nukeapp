@@ -51,7 +51,7 @@ pnpm install
 Optionally, install AI agent skills pinned in [`skills-lock.json`](./skills-lock.json):
 
 ```bash
-pnpm setup
+pnpm run setup
 ```
 
 2. Copy `.env.example` to `.env.local`

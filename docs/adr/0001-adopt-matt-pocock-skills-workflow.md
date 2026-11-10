@@ -5,6 +5,29 @@ date: 2026-09-08
 
 # Adopt Matt Pocock skills workflow with change-based specs
 
+## Amendment: 2026-11-10
+
+Adopt the task-intake, spec-driven and direct implementation entry workflows exposed through `.opencode/commands/`. Direct implementation uses
+an actionable source item as its contract and progress record, without mandatory
+grilling or a change directory. Spec-driven implementation retains the design
+checkpoints and change format, and uses `/implement-spec` with task IDs,
+blocking edges, claims and completion in `tasks.md`.
+
+Each feature uses its own integration branch. The skill's isolated task branches,
+worktrees and merge process support concurrent implementation of independent
+tasks. This replaces the source project's sequential, shared-checkout Git policy.
+
+Local intake uses numbered `.scratch/NNN-<slug>.md` files. `/do-archive` preserves
+completion notes and marks completed filenames while retaining triage readiness
+states. This keeps small, understood tasks lightweight and resumable, while both
+implementation paths retain verification and code-review before commit.
+
+This amends the original blanket requirements for grilling before feature work
+and a change directory for every non-trivial implementation. Current operational
+rules live in `docs/agents/development-workflow.md` and `docs/agents/issue-tracker.md`.
+
+## Original decision
+
 Development in this repository follows the skills-based workflow from Matt Pocock
 (mattpocock/skills): both agent and human work run through shared scenarios —
 feature, bug, ADR, wayfinder, codebase health — with a shared process vocabulary.

@@ -2,25 +2,24 @@
 
 Nukeapp — React SPA ecommerce shop demo (Vite, TypeScript, Redux Toolkit, MSW) structured with Feature-Sliced Design.
 
-Guidelines for contributions, checks, and AI agent conventions live in [.github/CONTRIBUTING.md](.github/CONTRIBUTING.md) — read it before making changes.
+## Git workflow
 
-## Pull requests
-
-Before opening a PR, re-read [.github/CONTRIBUTING.md](.github/CONTRIBUTING.md) and follow it exactly:
-
-- PR title uses a conventional-commit prefix (`feat:`, `fix:`, `docs:`, ...)
-- PR description follows the @pr skill
-- PRs created by AI agents must be labeled `agent_created` (`gh pr create --label agent_created`)
+- Each feature uses its own integration branch; use the `worktree/` prefix for
+  agent-created branches. Reuse that feature's branch when resuming work.
+- Follow `/implement-spec` for task branches, isolated worktrees and integration.
+- Use conventional-commit prefixes and run `/code-review` before every commit.
 
 ## Agent skills
 
 ### Issue tracker
 
-Issues and specs live as markdown files under `.scratch/<feature>/` in this repo. See `docs/agents/issue-tracker.md`.
+Incoming items are `.scratch/NNN-<slug>.md` files. Spec-driven work uses
+`docs/changes/<change-id>/`; direct implementation uses the source item.
+See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 
-Default vocabulary of the five canonical triage roles (label string equals the role name). See `docs/agents/triage-labels.md`.
+Canonical triage categories and states use their default names. See `docs/agents/triage-labels.md`.
 
 ### Domain docs
 
@@ -28,7 +27,11 @@ Single-context: root `GLOSSARY.md` + `docs/adr/`. See `docs/agents/domain.md`.
 
 ### Development workflow
 
-Change-based development (specs in `docs/changes/`), work scenarios (feature, bug, ADR, wayfinder, codebase health) and the process vocabulary — per ADR-0001. See `docs/agents/development-workflow.md`.
+Project commands live in `.opencode/commands/`: `/do-triage` captures incoming
+work, `/do-implement` designs and implements through a spec, `/do-fast-implement`
+implements an actionable item directly, and `/do-archive` closes completed work.
+See `docs/agents/development-workflow.md` for their steps, artifact mappings and
+completion rules, per ADR-0001.
 
 ### Figma
 

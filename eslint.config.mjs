@@ -113,7 +113,7 @@ export default antfu(
     // Glossary terms are `####` headings so they render visually smaller
     // than `##` section titles; the level jump is intentional here.
     files: [
-      'CONTEXT.md',
+      'GLOSSARY.md',
     ],
     rules: {
       'markdown/heading-increment': 'off',
