@@ -2,11 +2,20 @@
 
 Nukeapp — React SPA ecommerce shop demo (Vite, TypeScript, Redux Toolkit, MSW) structured with Feature-Sliced Design.
 
+## Git workflow
+
+- Each feature uses its own integration branch; use the `worktree/` prefix for
+  agent-created branches. Reuse that feature's branch when resuming work.
+- Follow `/implement-spec` for task branches, isolated worktrees and integration.
+- Use conventional-commit prefixes and run `/code-review` before every commit.
+
 ## Agent skills
 
 ### Issue tracker
 
-Incoming issues live under `.scratch/<feature>/`; accepted specs and tasks live in `docs/changes/<change-id>/`. See `docs/agents/issue-tracker.md`.
+Incoming items are `.scratch/NNN-<slug>.md` files. Spec-driven work uses
+`docs/changes/<change-id>/`; direct implementation uses the source item.
+See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 
@@ -18,7 +27,11 @@ Single-context: root `GLOSSARY.md` + `docs/adr/`. See `docs/agents/domain.md`.
 
 ### Development workflow
 
-Change-based development (specs in `docs/changes/`), work scenarios (feature, bug, ADR, wayfinder, codebase health) and the process vocabulary — per ADR-0001. See `docs/agents/development-workflow.md`.
+Project commands live in `.opencode/commands/`: `/do-triage` captures incoming
+work, `/do-implement` designs and implements through a spec, `/do-fast-implement`
+implements an actionable item directly, and `/do-archive` closes completed work.
+See `docs/agents/development-workflow.md` for their steps, artifact mappings and
+completion rules, per ADR-0001.
 
 ### Figma
 
