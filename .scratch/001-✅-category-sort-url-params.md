@@ -49,3 +49,15 @@ state on back/forward.
 
 Proposed defaults, not yet agreed: omit the default from the URL (cleaner
 links); `replace` on sort change (a filter, not navigation).
+
+## Comments
+
+- 2026-11-10: Completed. Implementation is in commits `68e418d` and `5cb29ed`.
+  The maintainer confirmed all nine browser acceptance scenarios passed
+  ("Проверил, все ок"); all checks in `tasks.md` are complete.
+  The draft questions above were resolved in the
+  [archived change](../docs/changes/archive/2026-11-10-category-sort-url-params/):
+  the URL is the source of truth, Featured is omitted, and sort changes replace
+  the current history entry. No remaining acceptance checks.
+  Migrated this legacy unnumbered item to `001-✅-category-sort-url-params.md`;
+  the YAML triage status is preserved.
