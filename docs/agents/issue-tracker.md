@@ -10,6 +10,8 @@ Everything that survives triage graduates into a change directory under
 - One item per directory: `.scratch/<slug>/`
 - A raw incoming item is a short markdown file with whatever context the reporter
   left; no required format
+- Triage category (`bug` or `enhancement`) is recorded as `category:` in YAML
+  frontmatter; each triaged item has one category and one state
 - Triage state is recorded in a YAML frontmatter block at the top of each item
   file (`status:` key, see `triage-labels.md` for the role strings)
 - Wayfinder maps live at `.scratch/<effort>/map.md` with child decision tickets at
@@ -45,7 +47,13 @@ Used by `/wayfinder`. The **map** is a file with one **child** file per ticket.
 
 ## When a skill says "publish to the issue tracker"
 
-Create a file under `.scratch/<slug>/` (creating the directory if needed).
+Raw items and wayfinder artifacts go under `.scratch/<slug>/` (create the
+directory if needed). Accepted implementation specs go to the change's
+`product.md` and `technical.md`; implementation tasks go to its `tasks.md`,
+as defined in `development-workflow.md` and ADR-0001.
+
+Append comments and conversation history under a `## Comments` heading in the
+referenced item file.
 
 ## When a skill says "fetch the relevant ticket"
 

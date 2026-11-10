@@ -44,6 +44,12 @@ When your output names a domain concept (in an issue title, a refactor proposal,
 
 If the concept you need isn't in the glossary yet, that's a signal: either you're inventing language the project doesn't use (reconsider) or there's a real gap (note it for `/domain-modeling`).
 
+Keep both shop concepts and the project's established technical terms in
+`GLOSSARY.md`, with technical definitions under **Technical glossary**. This
+project convention takes precedence over the domain-modeling skill's narrower
+glossary scope. Architecture and implementation decisions live in
+`docs/architecture.md` and ADRs; definitions stay in the glossary.
+
 ## Flag ADR conflicts
 
 If your output contradicts an existing ADR, surface it explicitly rather than silently overriding:

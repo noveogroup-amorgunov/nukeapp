@@ -2,7 +2,7 @@
 
 How development is done in this repository (ADR-0001): the change lifecycle, work
 scenarios, and the process vocabulary. Skills are installed in `.agents/skills/`,
-versions are pinned in `skills-lock.json`, and restored via `pnpm setup`. Domain
+versions are pinned in `skills-lock.json`, and restored via `pnpm run setup`. Domain
 terms live separately in the `GLOSSARY.md` glossary; this file covers process
 language only.
 
@@ -74,6 +74,7 @@ raw incoming (.scratch/) → /triage
 
 ```yaml
 ---
+category: enhancement
 status: needs-triage
 ---
 ```
@@ -176,9 +177,10 @@ turned into a change without further human involvement.
 **Map**: the wayfinder map — a file holding child decision tickets under
 `.scratch/`; it produces decisions, not deliverables.
 
-**Triage role**: one of the five canonical roles for an incoming item
-(needs-triage, needs-info, ready-for-agent, ready-for-human, wontfix); the label
-mapping lives in `docs/agents/triage-labels.md`.
+**Triage role**: a category (`bug` or `enhancement`) or a state
+(`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`).
+Each triaged incoming item has one of each; the mapping lives in
+`docs/agents/triage-labels.md`.
 
 **Prototype**: a throwaway program that answers a single design question; the
 answer folds into `technical.md` or an ADR, the prototype stays as a primary

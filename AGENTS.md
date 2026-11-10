@@ -2,25 +2,15 @@
 
 Nukeapp — React SPA ecommerce shop demo (Vite, TypeScript, Redux Toolkit, MSW) structured with Feature-Sliced Design.
 
-Guidelines for contributions, checks, and AI agent conventions live in [.github/CONTRIBUTING.md](.github/CONTRIBUTING.md) — read it before making changes.
-
-## Pull requests
-
-Before opening a PR, re-read [.github/CONTRIBUTING.md](.github/CONTRIBUTING.md) and follow it exactly:
-
-- PR title uses a conventional-commit prefix (`feat:`, `fix:`, `docs:`, ...)
-- PR description follows the @pr skill
-- PRs created by AI agents must be labeled `agent_created` (`gh pr create --label agent_created`)
-
 ## Agent skills
 
 ### Issue tracker
 
-Issues and specs live as markdown files under `.scratch/<feature>/` in this repo. See `docs/agents/issue-tracker.md`.
+Incoming issues live under `.scratch/<feature>/`; accepted specs and tasks live in `docs/changes/<change-id>/`. See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 
-Default vocabulary of the five canonical triage roles (label string equals the role name). See `docs/agents/triage-labels.md`.
+Canonical triage categories and states use their default names. See `docs/agents/triage-labels.md`.
 
 ### Domain docs
 

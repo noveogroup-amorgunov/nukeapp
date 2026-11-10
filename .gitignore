@@ -29,7 +29,7 @@ src/shared/lib/env--compiled.mjs
 *.sw?
 debug-storybook.log
 
-# AI skills (installed from skills-lock.json via `pnpm setup`)
+# AI skills (installed from skills-lock.json via `pnpm run setup`)
 .agents/*
 !.agents/skills/
 .agents/skills/*
